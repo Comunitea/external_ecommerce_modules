@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Website front-end changes (website/views/website_templates.xml) -->
+    <template id="website_assets_frontend_adds" inherit_id="website.assets_frontend">
+        <xpath expr="link[last()]" position="after">
+            <link href="/ecommerce_base/static/css/contactus.less" rel="stylesheet" type="text/less"/>
+        </xpath>
+    </template>
+
+</odoo>

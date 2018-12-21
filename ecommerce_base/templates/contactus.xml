@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Contact us form changes (website_crm/views/website_crm_templates.xml) -->
+    <template id="website_crm_contactus_form_adds" inherit_id="website_crm.contactus_form">
+        <!--<xpath expr="//label[@for='email_from']/../div" position="attributes">
+            <attribute name="class" add="o_website_form_required_custom" separator=" "/>
+        </xpath>-->
+        <xpath expr="//label[@for='phone']" position="inside"> *</xpath>
+        <xpath expr="//input[@name='phone']" position="attributes">
+            <attribute name="required">required</attribute>
+        </xpath>
+    </template>
+
+    <!-- Privacy policy notification changes (website/website_crm_privacy_policy/templates/contactus.xml) -->
+    <template id="privacy_policy_contactus_adds" inherit_id="website_crm_privacy_policy.contactus_form">
+        <xpath expr="//div[hasclass('checkbox')]/label" position="attributes">
+            <attribute name="for">privacy_policy</attribute>
+        </xpath>
+    </template>
+
+</odoo>
