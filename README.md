@@ -1,2 +1,2 @@
-# external_ecommerce_modules
+# E-commerce modules
 Recopilacion de modulos ecommerce
