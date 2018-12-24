@@ -2,16 +2,18 @@ Discount Coupons for OneStepCheckout
 ====================================
 
 
-
-
-
 Author
 ------
 
 Developer: Comunitea, info@comunitea.com
 
+Contributors
+~~~~~~~~~~~~
+
+Pavel Smirnov, pavel@comunitea.com
+
 Maintainer
-----------
+~~~~~~~~~~
 
 This module is maintained by Comunitea.
 
