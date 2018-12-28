@@ -39,7 +39,7 @@
         'Rubén Seijas <ruben@comunitea.com>',
     ],
     'depends': [
-        'theme_bootswatch',
+        # 'theme_bootswatch',
         'ecommerce_base',
         'base_multi_company',
         'ir_config_parameter_multi_company',
