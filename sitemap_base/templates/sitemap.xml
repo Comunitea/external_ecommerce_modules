@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+<template id="sitemap_wrap">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"&gt;
+    <t t-raw="content"/>
+&lt;/urlset&gt;
+</template>
+
+<template id="sitemap_tpl"><url>
+    <loc t-esc="loc"/>
+    <lastmod t-esc="lastmod"/>
+    <changefreq t-esc="changefreq"/><t t-if="image">
+    &lt;image:image>
+        &lt;image:loc><t t-esc="image"/>&lt;/image:loc>
+    &lt;/image:image></t>
+    <priority t-esc="priority"/>
+</url>
+</template>
+
+</odoo>
