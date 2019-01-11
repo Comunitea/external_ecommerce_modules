@@ -26,9 +26,9 @@
 ##############################################################################
 
 {
-    'name': 'Sitemap base module',
+    'name': 'SEO base module',
     'version': '1.0',
-    'summary': 'Website base module for create a Sitemap.xml',
+    'summary': 'Website base module for SEO optimization',
     'description': '',
     'category': 'Website',
     'author': 'Comunitea',

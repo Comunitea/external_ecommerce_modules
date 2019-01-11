@@ -41,7 +41,7 @@ class Sitemap(Website):
             })
 
         def create_one(loc, lastmod, changefreq, image, priority):
-            return view.render_template('sitemap_base.sitemap_tpl', {
+            return view.render_template('seo_base.sitemap_tpl', {
                 'loc': loc,
                 'lastmod': lastmod,
                 'changefreq': changefreq,
@@ -139,7 +139,7 @@ class Sitemap(Website):
                     sitemap_content += create_one(loc, r.write_date[:-9], freq_def, '', prio_def)
 
             # Sitemap generation
-            content = view.render_template('sitemap_base.sitemap_wrap', {'content': sitemap_content})
+            content = view.render_template('seo_base.sitemap_wrap', {'content': sitemap_content})
             create_sitemap('/sitemap-%d.xml' % current_website.id, content)
         else:
             content = cache_content

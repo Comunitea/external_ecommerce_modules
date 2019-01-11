@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <menuitem name="Sitemap settings"
-              id="sitemap_base_settings_menu"
-              parent="website.menu_website_global_configuration"
-              sequence="99"
-              action="sitemap_base_settings"/>
+    <menuitem name="SEO settings" id="seo_base_settings" parent="website.menu_website_configuration" sequence="99"/>
+        <menuitem name="Sitemap settings" id="sitemap_base_settings_menu"
+                  parent="seo_base_settings" sequence="10" action="sitemap_base_settings"/>
 
 </odoo>

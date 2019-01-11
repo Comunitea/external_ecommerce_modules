@@ -1,8 +1,13 @@
-Sitemap base module
-===================
+SEO base module
+===============
 
-Website base module for create a Sitemap.xml
---------------------------------------------
+Website base module for SEO optimization
+----------------------------------------
+
+This module contains several modules for different optimizations on the website.
+
+Sitemap.xml
+~~~~~~~~~~~
 
 This module creates a sitemap.xml file in the root path of the website.
 
