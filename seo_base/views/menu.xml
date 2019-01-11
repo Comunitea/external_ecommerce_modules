@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem name="Sitemap settings"
+              id="sitemap_base_settings_menu"
+              parent="website.menu_website_global_configuration"
+              sequence="99"
+              action="sitemap_base_settings"/>
+
+</odoo>

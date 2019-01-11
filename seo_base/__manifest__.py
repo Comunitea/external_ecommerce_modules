@@ -42,6 +42,8 @@
         'website'
     ],
     'data': [
+        'views/settings.xml',
+        'views/menu.xml',
         'templates/sitemap.xml'
     ],
     'images': [
