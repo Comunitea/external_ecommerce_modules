@@ -2,7 +2,7 @@
 <odoo>
 
     <menuitem name="SEO settings" id="seo_base_settings" parent="website.menu_website_configuration" sequence="99"/>
-        <menuitem name="Sitemap settings" id="sitemap_base_settings_menu"
+        <menuitem name="Sitemap.xml" id="sitemap_base_settings_menu"
                   parent="seo_base_settings" sequence="10" action="sitemap_base_settings"/>
 
 </odoo>
