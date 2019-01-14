@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="seo_base_product_meta" model="ir.ui.view">
+        <field name="name">Seo base product meta fields</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook[last()]" position="inside">
+                <page string="Website SEO">
+                    <group colspan="4" col="4" string="SEO meta">
+                        <group colspan="2" col="2">
+                            <field name="product_meta_title"/>
+                            <field name="product_meta_keywords"/>
+                            <field name="slug"/>
+                        </group>
+                        <group colspan="2" col="2">
+                            <field name="product_meta_description"/>
+                        </group>
+                    </group>
+                    <group colspan="4" col="2" string="Website description">
+                        <field name="description_short"/>
+                        <field name="description"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -43,8 +43,10 @@
     ],
     'data': [
         'views/settings.xml',
+        'views/product_meta.xml',
         'views/menu.xml',
-        'templates/sitemap.xml'
+        'templates/sitemap.xml',
+        'templates/seo.xml'
     ],
     'images': [
         '/static/description/icon.png',
@@ -52,5 +54,5 @@
     'qweb': [
     ],
     'installable': True,
-    'application': False,
+    'application': True,
 }
