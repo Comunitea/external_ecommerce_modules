@@ -46,6 +46,7 @@
         'views/product_meta.xml',
         'views/menu.xml',
         'templates/sitemap.xml',
+        'templates/product.xml',
         'templates/seo.xml'
     ],
     'images': [

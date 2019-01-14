@@ -24,6 +24,7 @@
                     </group>
                 </page>
             </xpath>
+            <xpath expr="//group[@name='description_internal']" position="replace"/>
         </field>
     </record>
 
