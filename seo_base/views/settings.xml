@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+    <!-- Sitemap.xml part -->
     <record id="sitemap_base_settings_form" model="ir.ui.view">
         <field name="name">Sitemap base module settings</field>
         <field name="model">sitemap_base.settings</field>
@@ -123,6 +124,64 @@
         <field name="name">Sitemap settings</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">sitemap_base.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+    </record>
+    <!-- Robots.txt part -->
+    <record id="robots_txt_settings_form" model="ir.ui.view">
+        <field name="name">Robots.txt base module settings</field>
+        <field name="model">robots_txt.settings</field>
+        <field name="arch" type="xml">
+            <form string="Robots.txt module settings" class="oe_form_configuration o_base_settings">
+                <div class="o_control_panel">
+                    <div class="o_panel">
+                        <div class="title h2 mb0 mt4 text-muted hidden-xs">Robots.txt settings</div>
+                    </div>
+                    <header>
+                        <button string="Save" type="object" name="execute" class="oe_highlight" />
+                        <button string="Discard" type="object" name="cancel" special="cancel" />
+                    </header>
+                </div>
+                <div style="margin: 0 25px 0 0;">
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-4 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label string="General settings"/>
+                                <div class="row mt16">
+                                    <label class="col-md-4 o_light_label" string="Current website"/>
+                                    <field name="website_id" readonly="1"/>
+                                </div>
+                                <label class="mt16" string="Cache mode"/>
+                                <div class="mt8">
+                                    <field name="robots_txt_cache_time" class="o_light_label" widget="radio" required="True"/>
+                                </div>
+                            </div>
+                            <div class="mt16 o_setting_right_pane">
+                                <h3>
+                                    <a href="/robots.txt" title="Open in new tab" target="_blank">
+                                        <span>Open robots.txt file</span>
+                                        <i class="fa fa-fw o_button_icon fa-arrow-right"/>
+                                    </a>
+                                </h3>
+                                <div class="text-muted">Open the robots.txt file of the current website in a new tab</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 o_setting_box">
+                            <label for="robots_txt_content"/>
+                            <div class="text-muted">
+                                This field can not support html tags
+                            </div>
+                            <field name="robots_txt_content"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="robots_txt_settings" model="ir.actions.act_window">
+        <field name="name">Robots.txt settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">robots_txt.settings</field>
         <field name="view_mode">form</field>
         <field name="target">inline</field>
     </record>

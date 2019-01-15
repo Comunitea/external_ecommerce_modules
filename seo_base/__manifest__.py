@@ -42,12 +42,13 @@
         'website'
     ],
     'data': [
-        'views/settings.xml',
-        'views/product_meta.xml',
         'views/menu.xml',
-        'templates/sitemap.xml',
+        'views/product_meta.xml',
+        'views/settings.xml',
         'templates/product.xml',
-        'templates/seo.xml'
+        'templates/robots.xml',
+        'templates/seo.xml',
+        'templates/sitemap.xml',
     ],
     'images': [
         '/static/description/icon.png',

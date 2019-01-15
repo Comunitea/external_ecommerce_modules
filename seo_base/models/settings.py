@@ -27,6 +27,13 @@ class Website(models.Model):
         ], string="Change frequently", default="weekly"
     )
     map_prio_def = fields.Float("URL priority", default=0.5, help="Between 0,1 and 1,0")
+    robots_txt_content = fields.Text(_("Robots.txt content"))
+    robots_txt_cache_time = fields.Selection(
+        selection=[
+            ("1second", "Developer mode"),
+            ("12hours", "Normal mode")
+        ], string="CACHE_TIME: ", default="1second"
+    )
 
 
 class ResConfigSettings(models.TransientModel):
@@ -52,3 +59,15 @@ class ResConfigSettings(models.TransientModel):
         for r in self:
             if r.map_prio_def < 0.1 or r.map_prio_def > 1:
                 raise ValidationError(_('URL priority must be between 0,1 and 1,0'))
+
+
+class RobotsConfigSettings(models.TransientModel):
+    _inherit = 'res.config.settings'
+    _name = 'robots_txt.settings'
+
+    def _default_website(self):
+        return self.env['website'].search([], limit=1)
+
+    website_id = fields.Many2one('website', string="website", default=_default_website, required=True)
+    robots_txt_cache_time = fields.Selection(related='website_id.robots_txt_cache_time')
+    robots_txt_content = fields.Text(related='website_id.robots_txt_content')
