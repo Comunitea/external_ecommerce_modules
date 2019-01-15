@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models, _
+from odoo import api, models, fields, _
 from odoo.exceptions import ValidationError
+
+
+def _default_website(self):
+    return self.env['website'].search([], limit=1)
 
 
 class Website(models.Model):
@@ -34,14 +38,12 @@ class Website(models.Model):
             ("12hours", "Normal mode")
         ], string="CACHE_TIME: ", default="1second"
     )
+    slug_length = fields.Integer("Friendly URL max length", default=40)
 
 
 class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
     _name = 'sitemap_base.settings'
-
-    def _default_website(self):
-        return self.env['website'].search([], limit=1)
 
     website_id = fields.Many2one('website', string="website", default=_default_website, required=True)
     map_add_icon = fields.Boolean(related='website_id.map_add_icon')
@@ -65,9 +67,20 @@ class RobotsConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
     _name = 'robots_txt.settings'
 
-    def _default_website(self):
-        return self.env['website'].search([], limit=1)
-
     website_id = fields.Many2one('website', string="website", default=_default_website, required=True)
     robots_txt_cache_time = fields.Selection(related='website_id.robots_txt_cache_time')
     robots_txt_content = fields.Text(related='website_id.robots_txt_content')
+
+
+class SeoGeneralConfigSettings(models.TransientModel):
+    _inherit = 'res.config.settings'
+    _name = 'seo_general.settings'
+
+    website_id = fields.Many2one('website', string="website", default=_default_website, required=True)
+    slug_length = fields.Integer(related='website_id.slug_length')
+
+    @api.constrains('slug_length')
+    def _check_slug_length_value(self):
+        for r in self:
+            if r.slug_length < 20 or r.slug_length > 99:
+                raise ValidationError(_('Friendly URL max length must be between 20 and 99'))

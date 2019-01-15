@@ -185,4 +185,48 @@
         <field name="view_mode">form</field>
         <field name="target">inline</field>
     </record>
+    <!-- General part -->
+    <record id="seo_general_settings_form" model="ir.ui.view">
+        <field name="name">General SEO base module settings</field>
+        <field name="model">seo_general.settings</field>
+        <field name="arch" type="xml">
+            <form string="General SEO module settings" class="oe_form_configuration o_base_settings">
+                <div class="o_control_panel">
+                    <div class="o_panel">
+                        <div class="title h2 mb0 mt4 text-muted hidden-xs">General SEO settings</div>
+                    </div>
+                    <header>
+                        <button string="Save" type="object" name="execute" class="oe_highlight" />
+                        <button string="Discard" type="object" name="cancel" special="cancel" />
+                    </header>
+                </div>
+                <div style="margin: 0 25px 0 0;">
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-4 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <div class="row mt16">
+                                    <label class="col-md-4 o_light_label" string="Current website"/>
+                                    <field name="website_id" readonly="1"/>
+                                </div>
+                                <label class="mt16" string="Friendly URL max length"/>
+                                <div class="mt8">
+                                    <field name="slug_length" required="True"/>
+                                    <div class="text-muted">
+                                        Default max length of slug field (from 20 to 99)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="seo_general_settings" model="ir.actions.act_window">
+        <field name="name">General SEO settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">seo_general.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+    </record>
 </odoo>
