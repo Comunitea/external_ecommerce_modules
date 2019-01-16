@@ -45,6 +45,7 @@
         'views/product_meta.xml',
         'views/settings.xml',
         'views/menu.xml',
+        'templates/favicon.xml',
         'templates/product.xml',
         'templates/robots.xml',
         'templates/seo.xml',

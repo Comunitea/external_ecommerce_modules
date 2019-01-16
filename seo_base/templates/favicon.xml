@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="website_layout_favicon_add" inherit_id="website.layout">
+        <xpath expr="//t[@t-set='x_icon']" position="attributes">
+            <attribute name="t-value">'/favicon.ico'</attribute>
+        </xpath>
+    </template>
+
+</odoo>

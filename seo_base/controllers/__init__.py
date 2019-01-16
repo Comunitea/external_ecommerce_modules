@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import sitemap, robots
+from . import sitemap, robots, favicon

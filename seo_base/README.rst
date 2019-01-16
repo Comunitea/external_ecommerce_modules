@@ -34,6 +34,13 @@ This module creates a product SEO fields:
 - Product short description
 - Product full description (with WYSIWYG / HTML editor)
 
+Favicon
+~~~~~~~
+
+Show the favicon in the route *EXAMPLE.COM/favicon.ico* in case of *EXAMPLE.COM/web/image/website/WEBSITE_ID/favicon/* to .
+
+Set current favicon link to the head.
+
 Author
 ------
 
