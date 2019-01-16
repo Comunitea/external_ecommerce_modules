@@ -27,7 +27,7 @@ class Website(models.Model):
         selection=[
             ("daily", "Daily"),
             ("weekly", "Weekly"),
-            ("monthly", "Monthly"),
+            ("monthly", "Monthly")
         ], string="Change frequently", default="weekly"
     )
     map_prio_def = fields.Float("URL priority", default=0.5, help="Between 0,1 and 1,0")
