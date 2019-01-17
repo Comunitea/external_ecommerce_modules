@@ -69,7 +69,7 @@ class ProgressiveWebApp(Website):
                 'name': website.web_app_name or website.name,
                 'short_name': website.web_app_short_name or website.name,
                 'description': website.web_app_description or '%s web app' % website.domain,
-                'start_url': '%s?homescreen=1' % (website.web_app_start_url or '/'),
+                'start_url': '/%s?homescreen=1' % (website.web_app_start_url or ''),
                 'background_color': website.web_app_background_color or '#ffffff',
                 'theme_color': website.web_app_theme_color or '#7c7bad',
                 'display': website.web_app_display or 'browser',

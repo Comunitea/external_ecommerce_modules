@@ -261,7 +261,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label for="web_app_start_url"/>
-                                        <div class="text-muted">Ex: /home</div>
+                                        <div class="text-muted">Ex: "home" for start in EXAMPLE.COM/HOME</div>
                                     </div>
                                     <field name="web_app_start_url"/>
                                 </div>
