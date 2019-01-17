@@ -34,6 +34,13 @@ This module creates a product SEO fields:
 - Product short description
 - Product full description (with WYSIWYG / HTML editor)
 
+Image meta-data
+~~~~~~~~~~~~~~~
+
+This module adds meta-attributes **alt** and **title** to the product images.
+
+Also, change the URL structure and remove the *'unique'* part of the image URL.
+
 Favicon
 ~~~~~~~
 
