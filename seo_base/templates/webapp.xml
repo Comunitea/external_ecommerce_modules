@@ -48,8 +48,60 @@
     <!-- Set manifest.json link into the head -->
     <template id="website_layout_manifest_add" inherit_id="website.layout">
         <xpath expr="//meta[last()]" position="after">
-            <meta name="theme-color" content="website.web_app_theme_color"/>
+            <meta name="theme-color" t-att-content="website.web_app_theme_color" t-if="website.web_app_theme_color"/>
             <link href="/manifest.json" rel="manifest"/>
+        </xpath>
+    </template>
+
+    <!-- Service worker js template -->
+    <template id="web_app_sw_template" name="Service worker js template">
+        /* Service Worker for Progressive Web App */
+        importScripts('/seo_base/static/js/cache-polyfill.js');
+        self.addEventListener('install', function(e) {
+            e.waitUntil(
+                caches.open('<t t-raw="values['name']"/>').then(function(cache) {
+                    return cache.addAll([
+                        '<t t-raw="values['start_url']"/>'<t t-raw="values['content']"/>
+                    ]);
+                })
+            );
+        });
+        self.addEventListener('fetch', function(event) {<t t-if="values['console_mode'] and values['console_mode'] == 'dev'">
+            console.log(event.request.url);
+            </t>event.respondWith(
+                caches.match(event.request).then(function(response) {
+                    return response || fetch(event.request);
+                })
+            );
+        });
+    </template>
+
+    <!-- Add service worker javascript -->
+    <template id="website_layout_worker_add" inherit_id="website.layout">
+        <xpath expr="//script[@id='tracking_code']" position="before">
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    // Register Service Worker for Progressive Web App
+                    if('serviceWorker' in navigator) {
+                    <t t-if="website.sw_offline and website.sw_offline == True">
+                        navigator.serviceWorker.register('/sw.js').then(function() {
+                        <t t-if="website.console_mode and website.console_mode == 'dev'">
+                            console.log("Service Worker Registered");
+                        </t>
+                        });
+                    </t>
+                    <t t-else="">
+                        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                            for(let registration of registrations) {
+                                registration.unregister()
+                            }
+                            <t t-if="website.console_mode and website.console_mode == 'dev'">
+                                console.log("Service Worker unregistered");
+                            </t>
+                            });
+                    </t>}
+                });
+            </script>
         </xpath>
     </template>
 

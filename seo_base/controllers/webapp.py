@@ -11,7 +11,7 @@ from odoo.addons.website.controllers.main import Website
 
 class ProgressiveWebApp(Website):
 
-    def _auto_create(self, name, mimetype):
+    def _auto_create(self, name, type, mimetype):
         attachment = request.env['ir.attachment'].sudo()
         view = request.env['ir.ui.view'].sudo()
         cache_content = None
@@ -48,37 +48,52 @@ class ProgressiveWebApp(Website):
             to_remove = attachment.search(dom)
             to_remove.unlink()
 
-            icon_name = 'web-app-icon-%d' % website.id
-            # Remove all old icons
-            dom = [('name', '=', icon_name), ('type', '=', 'binary')]
-            to_remove = attachment.search(dom)
-            to_remove.unlink()
+            if type == 'manifest':
+                icon_name = 'web-app-icon-%d' % website.id
+                # Remove all old icons
+                dom = [('name', '=', icon_name), ('type', '=', 'binary')]
+                to_remove = attachment.search(dom)
+                to_remove.unlink()
 
-            # Generate new icon
-            app_icon = attachment.create({
-                'datas': website.web_app_icon or website.favicon,
-                'mimetype': 'image/png',
-                'type': 'binary',
-                'public': 'true',
-                'name': icon_name,
-                'url': icon_name
-            })
+                # Generate new icon
+                app_icon = attachment.create({
+                    'datas': website.web_app_icon or website.favicon,
+                    'mimetype': 'image/png',
+                    'type': 'binary',
+                    'public': 'true',
+                    'name': icon_name,
+                    'url': icon_name
+                })
 
-            # Set content for manifest.json
-            values = {
-                'name': website.web_app_name or website.name,
-                'short_name': website.web_app_short_name or website.name,
-                'description': website.web_app_description or '%s web app' % website.domain,
-                'start_url': '/%s?homescreen=1' % (website.web_app_start_url or ''),
-                'background_color': website.web_app_background_color or '#ffffff',
-                'theme_color': website.web_app_theme_color or '#7c7bad',
-                'display': website.web_app_display or 'browser',
-                'icon_id': app_icon.id,
-                'lang': website.default_lang_code,
-                'content': website.web_app_code or ''
-            }
-            # Write content to template
-            content = view.render_template('seo_base.web_app_manifest_template', {'values': values})
+                # Set content for manifest.json
+                values = {
+                    'name': website.web_app_name or website.name,
+                    'short_name': website.web_app_short_name or website.name,
+                    'description': website.web_app_description or '%s web app' % website.domain,
+                    'start_url': '/%s?homescreen=1' % (website.web_app_start_url or ''),
+                    'background_color': website.web_app_background_color or '#ffffff',
+                    'theme_color': website.web_app_theme_color or '#7c7bad',
+                    'display': website.web_app_display or 'browser',
+                    'icon_id': app_icon.id,
+                    'lang': website.default_lang_code,
+                    'content': website.web_app_code or ''
+                }
+                # Write content to template
+                content = view.render_template('seo_base.web_app_manifest_template', {'values': values})
+
+            elif type == 'sw':
+                # Set content for sw.json
+                values = {
+                    'name': website.web_app_name or website.name,
+                    'console_mode': website.console_mode or 'usr',
+                    'start_url': '/%s?homescreen=1' % (website.web_app_start_url or ''),
+                    'content': website.sw_code or ''
+                }
+                # Write content to template
+                content = view.render_template('seo_base.web_app_sw_template', {'values': values})
+
+            else:
+                content = ''
 
             # Create new file
             create_file(name, content, mimetype)
@@ -90,4 +105,9 @@ class ProgressiveWebApp(Website):
     @http.route('/manifest.json', type='http', auth="none", website=True)
     def manifest_redirect(self):
         current_website = request.website.sudo()
-        return self._auto_create('/manifest-%d.json' % current_website.id, 'application/json;charset=utf-8')
+        return self._auto_create('/manifest-%d.json' % current_website.id, 'manifest', 'application/json;charset=utf-8')
+
+    @http.route('/sw.js', type='http', auth="none", website=True)
+    def sw_redirect(self):
+        current_website = request.website.sudo()
+        return self._auto_create('/sw-%d.js' % current_website.id, 'sw', 'application/javascript;charset=utf-8')

@@ -17,6 +17,12 @@ class Website(models.Model):
             ("12hours", "Normal mode")
         ], string="CACHE_TIME: ", default="1second"
     )
+    console_mode = fields.Selection(
+        selection=[
+            ("dev", "Developer mode"),
+            ("usr", "Normal mode")
+        ], string="Browser console mode: ", default="usr"
+    )
     map_add_icon = fields.Boolean('Favicon.ico', default=False)
     map_add_robot = fields.Boolean('Robots.txt', default=False)
     map_add_pages = fields.Boolean('Static pages', default=False)
@@ -45,7 +51,9 @@ class Website(models.Model):
         ("fullscreen", "Fullscreen"),
         ("browser", "Standart")
     ], string="App display mode", default="browser")
-    web_app_code = fields.Text("App additional code")
+    web_app_code = fields.Text("Manifest additional code")
+    sw_offline = fields.Boolean("Use service worker offline cache", default=False)
+    sw_code = fields.Text("Service worker cache list")
 
 
 class ResConfigSettings(models.TransientModel):
@@ -84,6 +92,7 @@ class SeoGeneralConfigSettings(models.TransientModel):
     website_id = fields.Many2one('website', string="website", default=_default_website, required=True)
     slug_length = fields.Integer(related='website_id.slug_length')
     cache_mode = fields.Selection(related='website_id.cache_mode')
+    console_mode = fields.Selection(related='website_id.console_mode')
 
     @api.constrains('slug_length')
     def _check_slug_length_value(self):
@@ -106,3 +115,5 @@ class WebAppConfigSettings(models.TransientModel):
     web_app_theme_color = fields.Char(related='website_id.web_app_theme_color')
     web_app_display = fields.Selection(related='website_id.web_app_display')
     web_app_code = fields.Text(related='website_id.web_app_code')
+    sw_offline = fields.Boolean(related='website_id.sw_offline')
+    sw_code = fields.Text(related='website_id.sw_code')

@@ -15,7 +15,7 @@
                         <button string="Discard" type="object" name="cancel" special="cancel" />
                     </header>
                 </div>
-                <div style="margin: 0 25px 0 0;">
+                <div class="mr32 ml16">
                     <field name="website_id" invisible="1"/>
                     <div class="row mt16 o_settings_container">
                         <div class="col-xs-12 col-md-4 o_setting_box">
@@ -134,7 +134,7 @@
                         <button string="Discard" type="object" name="cancel" special="cancel" />
                     </header>
                 </div>
-                <div style="margin: 0 25px 0 0;">
+                <div class="mr32 ml16">
                     <field name="website_id" invisible="1"/>
                     <div class="row mt16 o_settings_container">
                         <div class="col-xs-12 col-md-4 o_setting_box">
@@ -182,7 +182,7 @@
                         <button string="Discard" type="object" name="cancel" special="cancel" />
                     </header>
                 </div>
-                <div style="margin: 0 25px 0 0;">
+                <div class="mr32 ml16">
                     <div class="row mt16 o_settings_container">
                         <div class="col-xs-12 col-md-4 o_setting_box">
                             <div class="o_setting_right_pane">
@@ -193,6 +193,13 @@
                                 <label class="mt16" string="Cache mode"/>
                                 <div class="mt8">
                                     <field name="cache_mode" class="o_light_label" widget="radio" required="True"/>
+                                </div>
+                                <label class="mt16" for="console_mode"/>
+                                <div class="text-muted">
+                                        Developer mode activates the CONSOLE.LOG function of several scripts
+                                    </div>
+                                <div class="mt8">
+                                    <field name="console_mode" class="o_light_label" widget="radio" required="True"/>
                                 </div>
                                 <label class="mt16" string="Friendly URL max length"/>
                                 <div class="mt8">
@@ -230,24 +237,24 @@
                         <button string="Discard" type="object" name="cancel" special="cancel" />
                     </header>
                 </div>
-                <div style="margin: 0 25px 0 0;">
+                <div class="mr32 ml16">
                     <field name="website_id" invisible="1"/>
                     <div class="row mt16 o_settings_container">
                         <div class="col-xs-12 col-md-4 o_setting_box">
-                            <div class="o_setting_right_pane">
-                                <div class="row">
+                            <div class="o_setting_right_pane mb16">
+                                <div class="row mb16">
                                     <label class="col-md-4" for="web_app_name"/>
                                     <field name="web_app_name"/>
                                 </div>
-                                <div class="row mt16">
+                                <div class="row mb16">
                                     <label class="col-md-4" for="web_app_short_name"/>
                                     <field name="web_app_short_name"/>
                                 </div>
-                                <div class="row mt16">
+                                <div class="row mb16">
                                     <label class="col-md-4" for="web_app_description"/>
                                     <field name="web_app_description"/>
                                 </div>
-                                <div class="row mb8 mt16">
+                                <div class="row mb8">
                                     <label class="col-md-12" for="web_app_icon"/>
                                     <div class="col-md-12 text-muted">
                                         Must be 512*512px or more
@@ -265,14 +272,14 @@
                                     </div>
                                     <field name="web_app_start_url"/>
                                 </div>
-                                <div class="row mt16">
+                                <div class="row mb16">
                                     <div class="col-md-4">
                                         <label for="web_app_background_color"/>
                                         <div class="text-muted">Ex: #7c7bad</div>
                                     </div>
                                     <field name="web_app_background_color"/>
                                 </div>
-                                <div class="row mt16">
+                                <div class="row mb16">
                                     <div class="col-md-4">
                                         <label for="web_app_theme_color"/>
                                         <div class="text-muted">Ex: #7c7bad</div>
@@ -281,7 +288,7 @@
                                 </div>
                             </div>
                             <div class="o_setting_right_pane">
-                                <div class="row mt16">
+                                <div class="row mb16">
                                     <label for="web_app_display" class="col-md-12"/>
                                     <div class="col-md-6 col-sm-12 text-muted">
                                         You can customize what browser UI is shown when your app is launched.<br/>
@@ -292,12 +299,36 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-4 o_setting_box">
-                            <label for="web_app_code"/>
-                            <div class="text-muted mb8">
-                                This code will be added to the end of the JSON file.<br/>
-                                It's important to start with the comma and line break.
+                            <div class="mb16">
+                                <label for="web_app_code"/>
+                                <div class="text-muted mb8">
+                                    This code will be added to the end of the JSON file.<br/>
+                                    It's important to start with the comma and line break.
+                                </div>
+                                <field name="web_app_code"/>
                             </div>
-                            <field name="web_app_code"/>
+                        </div>
+                        <div class="col-xs-12 col-md-4 o_setting_box">
+                            <div class="mb16">
+                                <div class="o_setting_left_pane">
+                                    <field name="sw_offline"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="sw_offline"/>
+                                    <div class="text-muted">
+                                        Service worker adds offline support for your web application
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb16" attrs="{'invisible': [('sw_offline','=',False)]}">
+                                <label for="sw_code"/>
+                                <div class="text-muted mb8">
+                                    These lines will be added to the end of the service worker cache list.<br/>
+                                    It's important to put each element in quotes and separate them with the comma.<br/>
+                                    Ex: ,'/seo_base/static/js/cache-polyfill.js'
+                                </div>
+                                <field name="sw_code"/>
+                            </div>
                         </div>
                     </div>
                 </div>
