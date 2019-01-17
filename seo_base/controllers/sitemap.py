@@ -26,7 +26,7 @@ class Sitemap(Website):
         prio_def = round(request.website.map_prio_def, 1) or '0.5'
 
         # Set cache live time
-        if request.website.map_cache_time and request.website.map_cache_time == '12hours':
+        if request.website.cache_mode and request.website.cache_mode == '12hours':
             cache_time = datetime.timedelta(hours=12)
         else:
             cache_time = datetime.timedelta(seconds=1)

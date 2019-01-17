@@ -19,7 +19,7 @@ class Robots(Home):
         cache_content = None
 
         # Set cache live time
-        if request.website.robots_txt_cache_time and request.website.robots_txt_cache_time == '12hours':
+        if request.website.cache_mode and request.website.cache_mode == '12hours':
             cache_time = datetime.timedelta(hours=12)
         else:
             cache_time = datetime.timedelta(seconds=1)
