@@ -37,9 +37,15 @@ This module creates a product SEO fields:
 Favicon
 ~~~~~~~
 
-Show the favicon in the route *EXAMPLE.COM/favicon.ico* in case of *EXAMPLE.COM/web/image/website/WEBSITE_ID/favicon/* to .
+Show the favicon in the route *EXAMPLE.COM/favicon.ico* in case of *EXAMPLE.COM/web/image/website/WEBSITE_ID/favicon/*
 
 Set current favicon link to the head.
+
+Progressive web app
+~~~~~~~~~~~~~~~~~~~
+
+- Add Manifest.json;
+- Add a **Service Worker** (with offline cache) to the Web App.
 
 Author
 ------

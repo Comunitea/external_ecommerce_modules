@@ -11,18 +11,18 @@ def _default_website(self):
 class Website(models.Model):
     _inherit = 'website'
 
+    cache_mode = fields.Selection(
+        selection=[
+            ("1second", "Developer mode"),
+            ("12hours", "Normal mode")
+        ], string="CACHE_TIME: ", default="1second"
+    )
     map_add_icon = fields.Boolean('Favicon.ico', default=False)
     map_add_robot = fields.Boolean('Robots.txt', default=False)
     map_add_pages = fields.Boolean('Static pages', default=False)
     map_add_cats = fields.Boolean('Product public categories', default=False)
     map_add_prods = fields.Boolean('Published products', default=False)
     map_add_blog = fields.Boolean('Blog pages', default=False)
-    map_cache_time = fields.Selection(
-        selection=[
-            ("1second", "Developer mode"),
-            ("12hours", "Normal mode")
-        ], string="CACHE_TIME: ", default="1second"
-    )
     map_freq_def = fields.Selection(
         selection=[
             ("daily", "Daily"),
@@ -32,13 +32,20 @@ class Website(models.Model):
     )
     map_prio_def = fields.Float("URL priority", default=0.5, help="Between 0,1 and 1,0")
     robots_txt_content = fields.Text(_("Robots.txt content"))
-    robots_txt_cache_time = fields.Selection(
-        selection=[
-            ("1second", "Developer mode"),
-            ("12hours", "Normal mode")
-        ], string="CACHE_TIME: ", default="1second"
-    )
     slug_length = fields.Integer("Friendly URL max length", default=40)
+    web_app_icon = fields.Binary("App icon", required=True)
+    web_app_name = fields.Char("App name", help="Icon name on the homescreen of device")
+    web_app_short_name = fields.Char("App short name")
+    web_app_description = fields.Char("App short description")
+    web_app_start_url = fields.Char("App start URL")
+    web_app_background_color = fields.Char("App background color", help="In the HEX format, ex: #7c7bad")
+    web_app_theme_color = fields.Char("App theme color", help="In the HEX format, ex: #7c7bad")
+    web_app_display = fields.Selection(selection=[
+        ("standalone", "Standalone native app"),
+        ("fullscreen", "Fullscreen"),
+        ("browser", "Standart")
+    ], string="App display mode", default="browser")
+    web_app_code = fields.Text("App additional code")
 
 
 class ResConfigSettings(models.TransientModel):
@@ -52,7 +59,6 @@ class ResConfigSettings(models.TransientModel):
     map_add_cats = fields.Boolean(related='website_id.map_add_cats')
     map_add_prods = fields.Boolean(related='website_id.map_add_prods')
     map_add_blog = fields.Boolean(related='website_id.map_add_blog')
-    map_cache_time = fields.Selection(related='website_id.map_cache_time')
     map_freq_def = fields.Selection(related='website_id.map_freq_def')
     map_prio_def = fields.Float(related='website_id.map_prio_def')
 
@@ -68,7 +74,6 @@ class RobotsConfigSettings(models.TransientModel):
     _name = 'robots_txt.settings'
 
     website_id = fields.Many2one('website', string="website", default=_default_website, required=True)
-    robots_txt_cache_time = fields.Selection(related='website_id.robots_txt_cache_time')
     robots_txt_content = fields.Text(related='website_id.robots_txt_content')
 
 
@@ -78,9 +83,26 @@ class SeoGeneralConfigSettings(models.TransientModel):
 
     website_id = fields.Many2one('website', string="website", default=_default_website, required=True)
     slug_length = fields.Integer(related='website_id.slug_length')
+    cache_mode = fields.Selection(related='website_id.cache_mode')
 
     @api.constrains('slug_length')
     def _check_slug_length_value(self):
         for r in self:
             if r.slug_length < 20 or r.slug_length > 99:
                 raise ValidationError(_('Friendly URL max length must be between 20 and 99'))
+
+
+class WebAppConfigSettings(models.TransientModel):
+    _inherit = 'res.config.settings'
+    _name = 'web_app.settings'
+
+    website_id = fields.Many2one('website', string="website", default=_default_website, required=True)
+    web_app_icon = fields.Binary(related='website_id.web_app_icon')
+    web_app_name = fields.Char(related='website_id.web_app_name')
+    web_app_short_name = fields.Char(related='website_id.web_app_short_name')
+    web_app_description = fields.Char(related='website_id.web_app_description')
+    web_app_start_url = fields.Char(related='website_id.web_app_start_url')
+    web_app_background_color = fields.Char(related='website_id.web_app_background_color')
+    web_app_theme_color = fields.Char(related='website_id.web_app_theme_color')
+    web_app_display = fields.Selection(related='website_id.web_app_display')
+    web_app_code = fields.Text(related='website_id.web_app_code')

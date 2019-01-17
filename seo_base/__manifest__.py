@@ -50,6 +50,7 @@
         'templates/robots.xml',
         'templates/seo.xml',
         'templates/sitemap.xml',
+        'templates/webapp.xml',
     ],
     'images': [
         '/static/description/icon.png',

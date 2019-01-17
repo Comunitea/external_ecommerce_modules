@@ -16,19 +16,11 @@
                     </header>
                 </div>
                 <div style="margin: 0 25px 0 0;">
+                    <field name="website_id" invisible="1"/>
                     <div class="row mt16 o_settings_container">
                         <div class="col-xs-12 col-md-4 o_setting_box">
                             <div class="o_setting_right_pane">
-                                <label string="General settings"/>
-                                <div class="row mt16">
-                                    <label class="col-md-4 o_light_label" string="Current website"/>
-                                    <field name="website_id" readonly="1"/>
-                                </div>
-                                <label class="mt16" string="Cache mode"/>
-                                <div class="mt8">
-                                    <field name="map_cache_time" class="o_light_label" widget="radio" required="True"/>
-                                </div>
-                                <label class="mt16" string="Change frequently"/>
+                                <label string="Change frequently"/>
                                 <div class="mt8">
                                     <field name="map_freq_def"/>
                                 </div>
@@ -143,20 +135,10 @@
                     </header>
                 </div>
                 <div style="margin: 0 25px 0 0;">
+                    <field name="website_id" invisible="1"/>
                     <div class="row mt16 o_settings_container">
                         <div class="col-xs-12 col-md-4 o_setting_box">
                             <div class="o_setting_right_pane">
-                                <label string="General settings"/>
-                                <div class="row mt16">
-                                    <label class="col-md-4 o_light_label" string="Current website"/>
-                                    <field name="website_id" readonly="1"/>
-                                </div>
-                                <label class="mt16" string="Cache mode"/>
-                                <div class="mt8">
-                                    <field name="robots_txt_cache_time" class="o_light_label" widget="radio" required="True"/>
-                                </div>
-                            </div>
-                            <div class="mt16 o_setting_right_pane">
                                 <h3>
                                     <a href="/robots.txt" title="Open in new tab" target="_blank">
                                         <span>Open robots.txt file</span>
@@ -205,8 +187,12 @@
                         <div class="col-xs-12 col-md-4 o_setting_box">
                             <div class="o_setting_right_pane">
                                 <div class="row mt16">
-                                    <label class="col-md-4 o_light_label" string="Current website"/>
+                                    <label class="col-md-4" string="Current website"/>
                                     <field name="website_id" readonly="1"/>
+                                </div>
+                                <label class="mt16" string="Cache mode"/>
+                                <div class="mt8">
+                                    <field name="cache_mode" class="o_light_label" widget="radio" required="True"/>
                                 </div>
                                 <label class="mt16" string="Friendly URL max length"/>
                                 <div class="mt8">
@@ -226,6 +212,102 @@
         <field name="name">General SEO settings</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">seo_general.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+    </record>
+    <!-- Web app part -->
+     <record id="web_app_settings_form" model="ir.ui.view">
+        <field name="name">Progressive WEB APP settings</field>
+        <field name="model">web_app.settings</field>
+        <field name="arch" type="xml">
+            <form string="Progressive WEB APP settings" class="oe_form_configuration o_base_settings">
+                <div class="o_control_panel">
+                    <div class="o_panel">
+                        <div class="title h2 mb0 mt4 text-muted hidden-xs">Progressive WEB APP settings</div>
+                    </div>
+                    <header>
+                        <button string="Save" type="object" name="execute" class="oe_highlight" />
+                        <button string="Discard" type="object" name="cancel" special="cancel" />
+                    </header>
+                </div>
+                <div style="margin: 0 25px 0 0;">
+                    <field name="website_id" invisible="1"/>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-4 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <div class="row">
+                                    <label class="col-md-4" for="web_app_name"/>
+                                    <field name="web_app_name"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label class="col-md-4" for="web_app_short_name"/>
+                                    <field name="web_app_short_name"/>
+                                </div>
+                                <div class="row mt16">
+                                    <label class="col-md-4" for="web_app_description"/>
+                                    <field name="web_app_description"/>
+                                </div>
+                                <div class="row mb8 mt16">
+                                    <label class="col-md-12" for="web_app_icon"/>
+                                    <div class="col-md-12 text-muted">
+                                        Must be 512*512px or more
+                                    </div>
+                                </div>
+                                <field name="web_app_icon" widget="image" class="pull-left oe_avatar"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="web_app_start_url"/>
+                                        <div class="text-muted">Ex: /home</div>
+                                    </div>
+                                    <field name="web_app_start_url"/>
+                                </div>
+                                <div class="row mt16">
+                                    <div class="col-md-4">
+                                        <label for="web_app_background_color"/>
+                                        <div class="text-muted">Ex: #7c7bad</div>
+                                    </div>
+                                    <field name="web_app_background_color"/>
+                                </div>
+                                <div class="row mt16">
+                                    <div class="col-md-4">
+                                        <label for="web_app_theme_color"/>
+                                        <div class="text-muted">Ex: #7c7bad</div>
+                                    </div>
+                                    <field name="web_app_theme_color"/>
+                                </div>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <div class="row mt16">
+                                    <label for="web_app_display" class="col-md-12"/>
+                                    <div class="col-md-6 col-sm-12 text-muted">
+                                        You can customize what browser UI is shown when your app is launched.<br/>
+                                        You can hide the address bar and browser or set completely full screen.
+                                    </div>
+                                    <field name="web_app_display" class="col-md-6" widget="radio" required="True"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 o_setting_box">
+                            <label for="web_app_code"/>
+                            <div class="text-muted mb8">
+                                This code will be added to the end of the JSON file.<br/>
+                                It's important to start with the comma and line break.
+                            </div>
+                            <field name="web_app_code"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </field>
+     </record>
+    <record id="web_app_settings" model="ir.actions.act_window">
+        <field name="name">Progressive WEB APP settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">web_app.settings</field>
         <field name="view_mode">form</field>
         <field name="target">inline</field>
     </record>
