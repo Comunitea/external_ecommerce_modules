@@ -318,8 +318,9 @@
                                     <div class="text-muted">
                                         Service worker adds offline support for your web application
                                     </div>
-                                    <div class="" style="color: red;" attrs="{'invisible': [('sw_offline','=',False)]}">
-                                        <strong>This module no is stable!</strong>
+                                    <div class="bg-danger mt4" attrs="{'invisible': [('sw_offline','=',False)]}" style="padding: 5px;">
+                                        <strong>Warning!</strong><br/>
+                                        This module can include several problems with cache and user sessions.
                                     </div>
                                 </div>
                             </div>
