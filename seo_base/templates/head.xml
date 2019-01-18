@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="website_layout_head_add" inherit_id="website.layout">
+        <!-- Replace javascript source in the head -->
+        <xpath expr="//t[@t-call-assets='web.assets_common'][@t-css='false']" position="replace"/>
+        <xpath expr="//t[@t-call-assets='web.assets_frontend'][@t-css='false']" position="replace"/>
+        <xpath expr="//t[@t-call-assets='web_editor.summernote'][@t-css='false']" position="replace"/>
+        <xpath expr="//t[@t-call-assets='web_editor.assets_editor'][@t-css='false']" position="replace"/>
+        <xpath expr="//t[@t-call-assets='website.assets_editor'][@t-css='false']" position="replace"/>
+    </template>
+
+    <template id="portal_frontend_layout_add" inherit_id="portal.frontend_layout">
+        <!-- Set javascript source after the footer -->
+        <xpath expr="//div[@id='wrapwrap']/footer" position="inside">
+            <t t-call-assets="web.assets_common" t-css="false"/>
+            <t t-call-assets="web.assets_frontend" t-css="false"/>
+            <t t-call-assets="web_editor.summernote" t-css="false" groups="website.group_website_publisher"/>
+            <t t-call-assets="web_editor.assets_editor" t-css="false" groups="website.group_website_publisher"/>
+            <t t-call-assets="website.assets_editor" t-css="false" groups="website.group_website_publisher"/>
+        </xpath>
+    </template>
+
+</odoo>
