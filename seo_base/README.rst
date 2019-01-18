@@ -54,6 +54,14 @@ Progressive web app
 - Add Manifest.json;
 - Add a **Service Worker** (with offline cache) to the Web App.
 
+__
+
+    **Warning!**
+
+    The Service Worker Offline cache part of this module can include several problems with cache,
+    cookies and user sessions.
+
+
 Infinite product scroll
 ~~~~~~~~~~~~~~~~~~~~~~~
 
