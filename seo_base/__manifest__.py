@@ -39,7 +39,8 @@
         'Rubén Seijas <ruben@comunitea.com>',
     ],
     'depends': [
-        'website'
+        'website',
+        'sgeede_infinite_scroll'
     ],
     'data': [
         'views/product_meta.xml',
