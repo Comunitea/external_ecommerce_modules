@@ -10,8 +10,8 @@
             <attribute name="t-field">product.description_short</attribute>
         </xpath>
         <xpath expr="//div[@id='product_full_description']" position="replace">
-            <div class="oe_structure mt16 mb16" itemprop="description" id="product_full_description">
-                <div class="container" t-if="product.description">
+            <div class="oe_structure mt16 mb16" id="product_full_description" t-if="product.description">
+                <div class="container" t-if="len(product.description) > 15" itemprop="description">
                     <div class="row">
                         <div class="col-md-12" t-field="product.description"/>
                     </div>

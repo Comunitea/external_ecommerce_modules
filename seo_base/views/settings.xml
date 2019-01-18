@@ -318,6 +318,9 @@
                                     <div class="text-muted">
                                         Service worker adds offline support for your web application
                                     </div>
+                                    <div class="" style="color: red;" attrs="{'invisible': [('sw_offline','=',False)]}">
+                                        <strong>This module no is stable!</strong>
+                                    </div>
                                 </div>
                             </div>
                             <div class="mb16" attrs="{'invisible': [('sw_offline','=',False)]}">

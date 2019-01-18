@@ -15,15 +15,9 @@ class ProductMeta(models.Model):
     product_meta_description = fields.Text("SEO Meta Description", translate=True)
     product_meta_keywords = fields.Char("SEO Meta Keywords", translate=True)
     slug = fields.Char(_("Friendly URL"), help=_("Friendly URL for redirection"))
-    description = fields.Html(_("Full product description"), strip_style=True)
+    description = fields.Html(_("Full product description"), strip_style=True, translate=True)
     description_short = fields.Text(_("Short product description"), help=_("Short description for product page"),
-                                    strip_style=True)
-
-    _sql_constraints = [
-        ('slug_unique',
-         'UNIQUE(slug)',
-         'Url of product must be unique'),
-    ]
+                                    strip_style=True, translate=True)
 
     def _slug_validation(self, value):
         # Set current website
