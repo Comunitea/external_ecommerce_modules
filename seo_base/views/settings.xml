@@ -16,10 +16,13 @@
                     </header>
                 </div>
                 <div class="mr32 ml16">
-                    <field name="website_id" invisible="1"/>
                     <div class="row mt16 o_settings_container">
                         <div class="col-xs-12 col-md-4 o_setting_box">
                             <div class="o_setting_right_pane">
+                                <div class="row mb8">
+                                    <label class="col-md-4" string="Current website"/>
+                                    <field name="website_id" readonly="1"/>
+                                </div>
                                 <label string="Change frequently"/>
                                 <div class="mt8">
                                     <field name="map_freq_def"/>
@@ -135,10 +138,13 @@
                     </header>
                 </div>
                 <div class="mr32 ml16">
-                    <field name="website_id" invisible="1"/>
                     <div class="row mt16 o_settings_container">
                         <div class="col-xs-12 col-md-4 o_setting_box">
                             <div class="o_setting_right_pane">
+                                <div class="row mb8">
+                                    <label class="col-md-4" string="Current website"/>
+                                    <field name="website_id" readonly="1"/>
+                                </div>
                                 <h3>
                                     <a href="/robots.txt" title="Open in new tab" target="_blank">
                                         <span>Open robots.txt file</span>
@@ -186,11 +192,11 @@
                     <div class="row mt16 o_settings_container">
                         <div class="col-xs-12 col-md-4 o_setting_box">
                             <div class="o_setting_right_pane">
-                                <div class="row mt16">
+                                <div class="row mb8">
                                     <label class="col-md-4" string="Current website"/>
                                     <field name="website_id" readonly="1"/>
                                 </div>
-                                <label class="mt16" string="Cache mode"/>
+                                <label string="Cache mode"/>
                                 <div class="mt8">
                                     <field name="cache_mode" class="o_light_label" widget="radio" required="True"/>
                                 </div>
@@ -238,10 +244,13 @@
                     </header>
                 </div>
                 <div class="mr32 ml16">
-                    <field name="website_id" invisible="1"/>
                     <div class="row mt16 o_settings_container">
                         <div class="col-xs-12 col-md-4 o_setting_box">
                             <div class="o_setting_right_pane mb16">
+                                <div class="row mb8">
+                                    <label class="col-md-4" string="Current website"/>
+                                    <field name="website_id" readonly="1"/>
+                                </div>
                                 <div class="row mb16">
                                     <label class="col-md-4" for="web_app_name"/>
                                     <field name="web_app_name"/>
@@ -306,6 +315,15 @@
                                     It's important to start with the comma and line break.
                                 </div>
                                 <field name="web_app_code"/>
+                            </div>
+                            <div class="mb16">
+                                <h3>
+                                    <a href="/manifest.json" title="Open in new tab" target="_blank">
+                                        <span>Open manifest.json file</span>
+                                        <i class="fa fa-fw o_button_icon fa-arrow-right"/>
+                                    </a>
+                                </h3>
+                                <div class="text-muted">Open the manifest.json file of the current website in a new tab</div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-4 o_setting_box">
