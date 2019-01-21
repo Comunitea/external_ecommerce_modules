@@ -44,6 +44,7 @@
     ],
     'data': [
         'views/product_meta.xml',
+        'views/public_category.xml',
         'views/settings.xml',
         'views/menu.xml',
         'templates/favicon.xml',

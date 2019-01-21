@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="seo_base_public_category_form" model="ir.ui.view">
+        <field name="name">ECommerce category form</field>
+        <field name="model">product.public.category</field>
+        <field name="inherit_id" ref="website_sale.product_public_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="slug" required="1"/>
+            </xpath>
+            <xpath expr="//div[hasclass('oe_left')]" position="attributes">
+                <attribute name="class" add="ml8" separator=" "/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="seo_base_public_category_tree" model="ir.ui.view">
+        <field name="name">ECommerce category tree</field>
+        <field name="model">product.public.category</field>
+        <field name="inherit_id" ref="website_sale.product_public_category_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='display_name']" position="after">
+                <field name="slug"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

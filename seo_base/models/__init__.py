@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import settings, product
+from . import settings, product, category

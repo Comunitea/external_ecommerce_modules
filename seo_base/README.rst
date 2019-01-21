@@ -22,6 +22,14 @@ This module creates a Robots.txt file in the root path of the website.
 
 You can use the back-end part for the change of cache time and set robots.txt content.
 
+ECommerce category & product friendly URL's
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Product and ECommerce public category redirecting from custom Odoo URL to new friendly URL en base of SLUG field.
+
+- For products: **from** *EXAMPLE.COM/shop/product/sku-product-name-id* **to** *EXAMPLE.COM/product/product-name*
+- For public categories: **from** *EXAMPLE.COM/shop/category/category-name-id* **to** *EXAMPLE.COM/category/category-name*
+
 Product META fields
 ~~~~~~~~~~~~~~~~~~~
 
@@ -68,6 +76,14 @@ Infinite product scroll
 Add the SGEEDE Infinite Scroll module.
 
 You can activate or deactivate this function in the front-end editor.
+
+Javascript front-end
+~~~~~~~~~~~~~~~~~~~~
+
+    **Warning!**
+    Test mode
+
+Move links of Odoo javascript attachments from HEAD to FOOTER for more productivity and faster page loading speed.
 
 Author
 ------
