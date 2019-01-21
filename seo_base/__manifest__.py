@@ -40,6 +40,7 @@
     ],
     'depends': [
         'website',
+        'website_sale',
         'sgeede_infinite_scroll'
     ],
     'data': [
