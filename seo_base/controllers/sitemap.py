@@ -21,6 +21,10 @@ class Sitemap(Website):
         mimetype = 'application/xml;charset=utf-8'
         cache_content = None
 
+        # Check of multi web site
+        web_list = request.env['website'].sudo().search([('name', '!=', '')])
+        is_multi = True if len(web_list) > 1 else False
+
         # Set default values
         freq_def = request.website.map_freq_def or 'weekly'
         prio_def = round(request.website.map_prio_def, 1) or '0.5'
@@ -84,7 +88,8 @@ class Sitemap(Website):
                 # Add static pages
                 domain = [('website_indexed', '=', True)]
                 domain += [('website_published', '=', True)]
-                domain += [('website_ids', '=like', current_website.id)]
+                if is_multi:
+                    domain += [('website_ids', '=like', current_website.id)]
                 page_ids = request.env['website.page'].sudo().search(domain)
 
                 for r in page_ids:
@@ -93,7 +98,9 @@ class Sitemap(Website):
 
             if request.website.map_add_cats:
                 # Add product public categories
-                domain = [('website_ids', '=like', current_website.id)]
+                domain = [('name', '!=', '')]
+                if is_multi:
+                    domain += [('website_ids', '=like', current_website.id)]
                 category_ids = request.env['product.public.category'].sudo().search(domain)
 
                 for r in category_ids:
@@ -109,7 +116,8 @@ class Sitemap(Website):
                 domain = [('sale_ok', '=', True)]
                 domain += [('active', '=', True)]
                 domain += [('website_published', '=', True)]
-                domain += [('website_ids', '=like', current_website.id)]
+                if is_multi:
+                    domain += [('website_ids', '=like', current_website.id)]
                 product_ids = request.env['product.template'].sudo().search(domain)
 
                 for r in product_ids:
@@ -118,25 +126,31 @@ class Sitemap(Website):
                     sitemap_content += create_one(loc, r.write_date[:-9], freq_def, image, prio_def)
 
             if request.website.map_add_blog:
-                # Add blog pages
-                domain = [('website_ids', '=like', current_website.id)]
-                blog_ids = request.env['blog.blog'].sudo().search(domain)
+                # Check of installed blog module
+                has_blog = request.env['ir.module.module'].sudo().search([('name', '=', 'website_blog'),
+                                                                          ('state', '=', 'installed')])
+                if has_blog:
+                    # Add blog pages
+                    domain = [('active', '=', True)]
+                    if is_multi:
+                        domain += [('website_ids', '=like', current_website.id)]
+                    blog_ids = request.env['blog.blog'].sudo().search(domain)
 
-                for r in blog_ids:
-                    loc = '%sblog/%s' % (root, slug(r))
-                    sitemap_content += create_one(loc, r.write_date[:-9], freq_def, '', prio_def)
+                    for r in blog_ids:
+                        loc = '%sblog/%s' % (root, slug(r))
+                        sitemap_content += create_one(loc, r.write_date[:-9], freq_def, '', prio_def)
 
-                # Add post pages
-                domain = [('active', '=', True)]
-                domain += [('website_published', '=', True)]
+                    # Add post pages
+                    domain = [('active', '=', True)]
+                    domain += [('website_published', '=', True)]
 
-                domain += [('blog_id', 'in', blog_ids.ids)]
+                    domain += [('blog_id', 'in', blog_ids.ids)]
 
-                post_ids = request.env['blog.post'].sudo().search(domain)
+                    post_ids = request.env['blog.post'].sudo().search(domain)
 
-                for r in post_ids:
-                    loc = '%sblog/%s/post/%s' % (root, slug(r.blog_id), slug(r))
-                    sitemap_content += create_one(loc, r.write_date[:-9], freq_def, '', prio_def)
+                    for r in post_ids:
+                        loc = '%sblog/%s/post/%s' % (root, slug(r.blog_id), slug(r))
+                        sitemap_content += create_one(loc, r.write_date[:-9], freq_def, '', prio_def)
 
             # Sitemap generation
             content = view.render_template('seo_base.sitemap_wrap', {'content': sitemap_content})
