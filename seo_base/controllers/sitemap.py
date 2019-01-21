@@ -104,7 +104,7 @@ class Sitemap(Website):
                 category_ids = request.env['product.public.category'].sudo().search(domain)
 
                 for r in category_ids:
-                    loc = '%sshop/category/%s' % (root, slug(r))
+                    loc = '%scategory/%s' % (root, r.slug) if r.slug else '%sshop/category/%s' % (root, slug(r))
                     if r.image_medium:
                         image = '%sweb/image/product.public.category/%s/image_medium/' % (root, r.id)
                     else:
@@ -121,7 +121,7 @@ class Sitemap(Website):
                 product_ids = request.env['product.template'].sudo().search(domain)
 
                 for r in product_ids:
-                    loc = '%sshop/product/%s' % (root, slug(r))
+                    loc = '%sproduct/%s' % (root, r.slug) if r.slug else '%sshop/product/%s' % (root, slug(r))
                     image = '%sweb/image/product.template/%s/image/' % (root, r.id) if r.image else ''
                     sitemap_content += create_one(loc, r.write_date[:-9], freq_def, image, prio_def)
 
