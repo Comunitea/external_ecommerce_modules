@@ -55,7 +55,7 @@ class ProductRedirect(WebsiteSale):
                 True,
                 code='301'
             )
-        return super(ProductRedirect).product(product=product, category=category, search=search, **kwargs)
+        return super(ProductRedirect, self).product(product=product, category=category, search=search, **kwargs)
 
     """
     Search the product en base of new SLUG URL
