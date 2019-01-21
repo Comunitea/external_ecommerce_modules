@@ -4,7 +4,7 @@ Website base module
 Website base customization module
 ---------------------------------
 
-This module contains styles and layout elements, bug fixes and translations.
+This module contains dependencies, styles and layout elements, bug fixes and translations.
 
 Author
 ------
