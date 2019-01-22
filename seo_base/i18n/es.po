@@ -1,0 +1,534 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* seo_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-22 09:05+0000\n"
+"PO-Revision-Date: 2019-01-22 09:05+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+msgid "<span>Open manifest.json file</span>\n"
+"                                        <i class=\"fa fa-fw o_button_icon fa-arrow-right\"/>"
+msgstr "<span>Abrir archivo manifest.json</span>\n"
+"                                        <i class=\"fa fa-fw o_button_icon fa-arrow-right\"/>"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.robots_txt_settings_form
+msgid "<span>Open robots.txt file</span>\n"
+"                                        <i class=\"fa fa-fw o_button_icon fa-arrow-right\"/>"
+msgstr "<span>Abrir archivo robots.txt</span>\n"
+"                                        <i class=\"fa fa-fw o_button_icon fa-arrow-right\"/>"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+msgid "<span>Open sitemap.xml file</span>\n"
+"                                        <i class=\"fa fa-fw o_button_icon fa-arrow-right\"/>"
+msgstr "<span>Abrir archivo sitemap.xml</span>\n"
+"                                        <i class=\"fa fa-fw o_button_icon fa-arrow-right\"/>"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+msgid "<strong>Warning!</strong><br/>\n"
+"                                        This module can include several problems with cache, cookies and user sessions."
+msgstr "<strong>Atención!</strong><br/>\n"
+"                                        Este módulo puede incluir varios problemas con caché, cookies y sesiones de usuario."
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:47
+#: model:ir.model.fields,field_description:seo_base.field_web_app_settings_web_app_background_color
+#: model:ir.model.fields,field_description:seo_base.field_website_web_app_background_color
+#, python-format
+msgid "App background color"
+msgstr "Color del fondo en la App"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:53
+#: model:ir.model.fields,field_description:seo_base.field_web_app_settings_web_app_display
+#: model:ir.model.fields,field_description:seo_base.field_website_web_app_display
+#, python-format
+msgid "App display mode"
+msgstr "Modo de demostración"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:42
+#: model:ir.model.fields,field_description:seo_base.field_web_app_settings_web_app_icon
+#: model:ir.model.fields,field_description:seo_base.field_website_web_app_icon
+#, python-format
+msgid "App icon"
+msgstr "El icono de la App"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:43
+#: model:ir.model.fields,field_description:seo_base.field_web_app_settings_web_app_name
+#: model:ir.model.fields,field_description:seo_base.field_website_web_app_name
+#, python-format
+msgid "App name"
+msgstr "Nombre de la App"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:45
+#: model:ir.model.fields,field_description:seo_base.field_web_app_settings_web_app_description
+#: model:ir.model.fields,field_description:seo_base.field_website_web_app_description
+#, python-format
+msgid "App short description"
+msgstr "Descripción corta de la App"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:44
+#: model:ir.model.fields,field_description:seo_base.field_web_app_settings_web_app_short_name
+#: model:ir.model.fields,field_description:seo_base.field_website_web_app_short_name
+#, python-format
+msgid "App short name"
+msgstr "Nombre corto de la App"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:46
+#: model:ir.model.fields,field_description:seo_base.field_web_app_settings_web_app_start_url
+#: model:ir.model.fields,field_description:seo_base.field_website_web_app_start_url
+#, python-format
+msgid "App start URL"
+msgstr "URL de inicio"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:48
+#: model:ir.model.fields,field_description:seo_base.field_web_app_settings_web_app_theme_color
+#: model:ir.model.fields,field_description:seo_base.field_website_web_app_theme_color
+#, python-format
+msgid "App theme color"
+msgstr "Color de la tema"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:39
+#: model:ir.model.fields,help:seo_base.field_sitemap_base_settings_map_prio_def
+#: model:ir.model.fields,help:seo_base.field_website_map_prio_def
+#, python-format
+msgid "Between 0,1 and 1,0"
+msgstr "Entre 0,1 y 1,0"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:31
+#: model:ir.model.fields,field_description:seo_base.field_sitemap_base_settings_map_add_blog
+#: model:ir.model.fields,field_description:seo_base.field_website_map_add_blog
+#, python-format
+msgid "Blog pages"
+msgstr "Entradas de blog"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:24
+#: model:ir.model.fields,field_description:seo_base.field_seo_general_settings_console_mode
+#: model:ir.model.fields,field_description:seo_base.field_website_console_mode
+#, python-format
+msgid "Browser console mode: "
+msgstr "Modo de la consola: "
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.seo_general_settings_form
+msgid "Cache mode"
+msgstr "Modo de caché"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:37
+#: model:ir.model.fields,field_description:seo_base.field_sitemap_base_settings_map_freq_def
+#: model:ir.model.fields,field_description:seo_base.field_website_map_freq_def
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+#, python-format
+msgid "Change frequently"
+msgstr "La frecuencia"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.robots_txt_settings_form
+#: model:ir.ui.view,arch_db:seo_base.seo_general_settings_form
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+#: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+msgid "Current website"
+msgstr "Página WEB actual"
+
+#. module: seo_base
+#: selection:website,map_freq_def:0
+msgid "Daily"
+msgstr "A diario"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.seo_general_settings_form
+msgid "Default max length of slug field (from 20 to 99)"
+msgstr "Longitud máxima predeterminada del campo slug (de 20 a 99)"
+
+#. module: seo_base
+#: selection:website,cache_mode:0
+#: selection:website,console_mode:0
+msgid "Developer mode"
+msgstr "Modo de desarrollador"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.seo_general_settings_form
+msgid "Developer mode activates the CONSOLE.LOG function of several scripts"
+msgstr "Modo de desarrollador activa función CONSOLE.LOG de varios scripts"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.robots_txt_settings_form
+#: model:ir.ui.view,arch_db:seo_base.seo_general_settings_form
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+#: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+msgid "Discard"
+msgstr "Descartar"
+
+#. module: seo_base
+#: model:ir.model.fields,field_description:seo_base.field_robots_txt_settings_display_name
+#: model:ir.model.fields,field_description:seo_base.field_seo_general_settings_display_name
+#: model:ir.model.fields,field_description:seo_base.field_sitemap_base_settings_display_name
+#: model:ir.model.fields,field_description:seo_base.field_web_app_settings_display_name
+msgid "Display Name"
+msgstr "Nombre a Mostrar"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+msgid "Ex: \"home\" for start in EXAMPLE.COM/HOME"
+msgstr "Ej: \"home\" para empezar en EXAMPLE.COM/HOME"
+
+#. module: seo_base
+#: code:addons/seo_base/models/category.py:12
+#: code:addons/seo_base/models/product.py:18
+#: model:ir.model.fields,field_description:seo_base.field_product_product_slug
+#: model:ir.model.fields,field_description:seo_base.field_product_public_category_slug
+#: model:ir.model.fields,field_description:seo_base.field_product_template_slug
+#, python-format
+msgid "Friendly URL"
+msgstr "URL amigable"
+
+#. module: seo_base
+#: code:addons/seo_base/models/category.py:12
+#: code:addons/seo_base/models/product.py:18
+#: model:ir.model.fields,help:seo_base.field_product_product_slug
+#: model:ir.model.fields,help:seo_base.field_product_public_category_slug
+#: model:ir.model.fields,help:seo_base.field_product_template_slug
+#, python-format
+msgid "Friendly URL for redirection"
+msgstr "URL amigable para redirección"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:41
+#: model:ir.model.fields,field_description:seo_base.field_seo_general_settings_slug_length
+#: model:ir.model.fields,field_description:seo_base.field_website_slug_length
+#: model:ir.ui.view,arch_db:seo_base.seo_general_settings_form
+#, python-format
+msgid "Friendly URL max length"
+msgstr "Longitud máxima de URL amigable"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:101
+#, python-format
+msgid "Friendly URL max length must be between 20 and 99"
+msgstr "La longitud debe estar entre 20 y 99"
+
+#. module: seo_base
+#: code:addons/seo_base/models/product.py:19
+#, python-format
+msgid "Full product description"
+msgstr "Descripción completa del producto"
+
+#. module: seo_base
+#: selection:website,web_app_display:0
+msgid "Fullscreen"
+msgstr "Pantalla completa"
+
+#. module: seo_base
+#: model:ir.ui.menu,name:seo_base.seo_general_settings_menu
+msgid "General"
+msgstr "General"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.seo_general_settings_form
+msgid "General SEO module settings"
+msgstr "Configuración general del SEO module"
+
+#. module: seo_base
+#: model:ir.actions.act_window,name:seo_base.seo_general_settings
+#: model:ir.ui.view,arch_db:seo_base.seo_general_settings_form
+msgid "General SEO settings"
+msgstr "Configuración general de SEO"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:43
+#: model:ir.model.fields,help:seo_base.field_web_app_settings_web_app_name
+#: model:ir.model.fields,help:seo_base.field_website_web_app_name
+#, python-format
+msgid "Icon name on the homescreen of device"
+msgstr "Nombre de la App en el escritorio del móvil"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:47
+#: code:addons/seo_base/models/settings.py:48
+#: model:ir.model.fields,help:seo_base.field_web_app_settings_web_app_background_color
+#: model:ir.model.fields,help:seo_base.field_web_app_settings_web_app_theme_color
+#: model:ir.model.fields,help:seo_base.field_website_web_app_background_color
+#: model:ir.model.fields,help:seo_base.field_website_web_app_theme_color
+#, python-format
+msgid "In the HEX format, ex: #7c7bad"
+msgstr "En el formato HEX , ej: #7c7bad"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+msgid "Include blog main page and published blog posts in sitemap"
+msgstr "Incluir en sitemap la página principal del blog y las entradas publicadas"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+msgid "Include favicon.ico in sitemap"
+msgstr "Incluir favicon.ico en sitemap"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+msgid "Include product public categories in sitemap"
+msgstr "Incluir categorías eCommerce en sitemap"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+msgid "Include published products in sitemap"
+msgstr "Inclue productos publicados en sitemap"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+msgid "Include robots.txt in sitemap"
+msgstr "Incluir robots.txt en sitemap"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+msgid "Include static pages in sitemap"
+msgstr "Incluir páginas estaticas en sitemap"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:54
+#: model:ir.model.fields,field_description:seo_base.field_web_app_settings_web_app_code
+#: model:ir.model.fields,field_description:seo_base.field_website_web_app_code
+#, python-format
+msgid "Manifest additional code"
+msgstr "Código adicional para el manifest"
+
+#. module: seo_base
+#: selection:website,map_freq_def:0
+msgid "Monthly"
+msgstr "Mensualmente"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+msgid "Must be 512*512px or more"
+msgstr "Debe ser 512*512px o más"
+
+#. module: seo_base
+#: selection:website,cache_mode:0
+#: selection:website,console_mode:0
+msgid "Normal mode"
+msgstr "Modo normal"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.robots_txt_settings_form
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+#: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+msgid "Open in new tab"
+msgstr "Abrir en la pestaña nueva"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+msgid "Open the manifest.json file of the current website in a new tab"
+msgstr "Abrir el archivo manifest.json de la WEB actual en la nueva pestaña"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.robots_txt_settings_form
+msgid "Open the robots.txt file of the current website in a new tab"
+msgstr "Abrir el archivo robots.txt de la WEB actual en la nueva pestaña"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+msgid "Open the sitemap.xml file of the current website in a new tab"
+msgstr "Abrir el archivo sitemap.xml de la WEB actual en la nueva pestaña"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:29
+#: model:ir.model.fields,field_description:seo_base.field_sitemap_base_settings_map_add_cats
+#: model:ir.model.fields,field_description:seo_base.field_website_map_add_cats
+#, python-format
+msgid "Product public categories"
+msgstr "Categorías eCommerce"
+
+#. module: seo_base
+#: model:ir.actions.act_window,name:seo_base.web_app_settings
+#: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+msgid "Progressive WEB APP settings"
+msgstr "Configuración de progressive WEB APP"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:30
+#: model:ir.model.fields,field_description:seo_base.field_sitemap_base_settings_map_add_prods
+#: model:ir.model.fields,field_description:seo_base.field_website_map_add_prods
+#, python-format
+msgid "Published products"
+msgstr "Productos publicados"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:40
+#: model:ir.model.fields,field_description:seo_base.field_robots_txt_settings_robots_txt_content
+#: model:ir.model.fields,field_description:seo_base.field_website_robots_txt_content
+#, python-format
+msgid "Robots.txt content"
+msgstr "Contenido de robots.txt"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.robots_txt_settings_form
+msgid "Robots.txt module settings"
+msgstr "Configuración del robots.txt"
+
+#. module: seo_base
+#: model:ir.actions.act_window,name:seo_base.robots_txt_settings
+#: model:ir.ui.view,arch_db:seo_base.robots_txt_settings_form
+msgid "Robots.txt settings"
+msgstr "Configuración del robots.txt"
+
+#. module: seo_base
+#: model:ir.ui.menu,name:seo_base.seo_base_settings
+msgid "SEO settings"
+msgstr "Configuración de SEO"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.robots_txt_settings_form
+#: model:ir.ui.view,arch_db:seo_base.seo_general_settings_form
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+#: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+msgid "Save"
+msgstr "Guardar"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+msgid "Service worker adds offline support for your web application"
+msgstr "Service worker agrega soporte sin conexión para su aplicación web"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:56
+#: model:ir.model.fields,field_description:seo_base.field_web_app_settings_sw_code
+#: model:ir.model.fields,field_description:seo_base.field_website_sw_code
+#, python-format
+msgid "Service worker cache list"
+msgstr "Lista de recursos en caché para service worker"
+
+#. module: seo_base
+#: code:addons/seo_base/models/product.py:20
+#: model:ir.model.fields,help:seo_base.field_product_product_description_short
+#: model:ir.model.fields,help:seo_base.field_product_template_description_short
+#, python-format
+msgid "Short description for product page"
+msgstr "Descripción corta del producto para la WEB"
+
+#. module: seo_base
+#: code:addons/seo_base/models/product.py:20
+#: model:ir.model.fields,field_description:seo_base.field_product_product_description_short
+#: model:ir.model.fields,field_description:seo_base.field_product_template_description_short
+#, python-format
+msgid "Short product description"
+msgstr "Descripción corta del producto"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+msgid "Sitemap base module settings"
+msgstr "Ajustes básicos del modulo sitemap"
+
+#. module: seo_base
+#: model:ir.actions.act_window,name:seo_base.sitemap_base_settings
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+msgid "Sitemap settings"
+msgstr "Configuracíon de Sitemap"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:50
+#: selection:website,web_app_display:0
+#, python-format
+msgid "Standalone native app"
+msgstr "Modo de aplicación nativa"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:28
+#: model:ir.model.fields,field_description:seo_base.field_sitemap_base_settings_map_add_pages
+#: model:ir.model.fields,field_description:seo_base.field_website_map_add_pages
+#, python-format
+msgid "Static pages"
+msgstr "Páginas estaticas"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+msgid "These lines will be added to the end of the service worker cache list.<br/>\n"
+"                                    It's important to put each element in quotes and separate them with the comma.<br/>\n"
+"                                    Ex: ,'/seo_base/static/js/cache-polyfill.js'"
+msgstr "Estas lineas se agregarán al final de la lista de caché in service worker.<br/>\n"
+"                                    Es importante poner cada elemento entre comillas y separarlos con la coma.<br/>\n"
+"                                    Ej: ,'/seo_base/static/js/cache-polyfill.js'"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+msgid "This code will be added to the end of the JSON file.<br/>\n"
+"                                    It's important to start with the comma and line break."
+msgstr "Este codigo se agregará al final del archivo JSON.<br/>\n"
+"                                    Es importante empezar con la coma y salta de línea."
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.robots_txt_settings_form
+msgid "This field can not support html tags"
+msgstr "Este campo no soporte tags html"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:39
+#: model:ir.model.fields,field_description:seo_base.field_sitemap_base_settings_map_prio_def
+#: model:ir.model.fields,field_description:seo_base.field_website_map_prio_def
+#: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
+#, python-format
+msgid "URL priority"
+msgstr "Prioridad de URL"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:77
+#, python-format
+msgid "URL priority must be between 0,1 and 1,0"
+msgstr "La prioridad de la URL debe estar entre 0,1 y 1,0"
+
+#. module: seo_base
+#: code:addons/seo_base/models/settings.py:55
+#: model:ir.model.fields,field_description:seo_base.field_web_app_settings_sw_offline
+#: model:ir.model.fields,field_description:seo_base.field_website_sw_offline
+#, python-format
+msgid "Use service worker offline cache"
+msgstr "Usar el service worker offline caché"
+
+#. module: seo_base
+#: model:ir.model,name:seo_base.model_website
+msgid "Website"
+msgstr "Sitio web"
+
+#. module: seo_base
+#: model:ir.model,name:seo_base.model_product_public_category
+msgid "Website Product Category"
+msgstr "Categoría eCommerce"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.seo_base_product_meta
+msgid "Website description"
+msgstr "Descripción para la web"
+
+#. module: seo_base
+#: selection:website,map_freq_def:0
+msgid "Weekly"
+msgstr "Semanalmente"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+msgid "You can customize what browser UI is shown when your app is launched.<br/>\n"
+"                                        You can hide the address bar and browser or set completely full screen."
+msgstr "Puede personalizar la interfaz de usuario del navegador que se muestra cuando se inicia su aplicación.<br/>\n"
+"                                        Puede ocultar la barra de direcciones y el navegador o configurar la pantalla completamente completa."
+

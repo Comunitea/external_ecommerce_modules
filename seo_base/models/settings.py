@@ -21,39 +21,39 @@ class Website(models.Model):
         selection=[
             ("dev", "Developer mode"),
             ("usr", "Normal mode")
-        ], string="Browser console mode: ", default="usr"
+        ], string=_("Browser console mode: "), default="usr"
     )
     map_add_icon = fields.Boolean('Favicon.ico', default=False)
     map_add_robot = fields.Boolean('Robots.txt', default=False)
-    map_add_pages = fields.Boolean('Static pages', default=False)
-    map_add_cats = fields.Boolean('Product public categories', default=False)
-    map_add_prods = fields.Boolean('Published products', default=False)
-    map_add_blog = fields.Boolean('Blog pages', default=False)
+    map_add_pages = fields.Boolean(_("Static pages"), default=False)
+    map_add_cats = fields.Boolean(_("Product public categories"), default=False)
+    map_add_prods = fields.Boolean(_("Published products"), default=False)
+    map_add_blog = fields.Boolean(_("Blog pages"), default=False)
     map_freq_def = fields.Selection(
         selection=[
             ("daily", "Daily"),
             ("weekly", "Weekly"),
             ("monthly", "Monthly")
-        ], string="Change frequently", default="weekly"
+        ], string=_("Change frequently"), default="weekly"
     )
-    map_prio_def = fields.Float("URL priority", default=0.5, help="Between 0,1 and 1,0")
+    map_prio_def = fields.Float(_("URL priority"), default=0.5, help=_("Between 0,1 and 1,0"))
     robots_txt_content = fields.Text(_("Robots.txt content"))
-    slug_length = fields.Integer("Friendly URL max length", default=40)
-    web_app_icon = fields.Binary("App icon", required=True)
-    web_app_name = fields.Char("App name", help="Icon name on the homescreen of device")
-    web_app_short_name = fields.Char("App short name")
-    web_app_description = fields.Char("App short description")
-    web_app_start_url = fields.Char("App start URL")
-    web_app_background_color = fields.Char("App background color", help="In the HEX format, ex: #7c7bad")
-    web_app_theme_color = fields.Char("App theme color", help="In the HEX format, ex: #7c7bad")
+    slug_length = fields.Integer(_("Friendly URL max length"), default=40)
+    web_app_icon = fields.Binary(_("App icon"), required=True)
+    web_app_name = fields.Char(_("App name"), help=_("Icon name on the homescreen of device"))
+    web_app_short_name = fields.Char(_("App short name"))
+    web_app_description = fields.Char(_("App short description"))
+    web_app_start_url = fields.Char(_("App start URL"))
+    web_app_background_color = fields.Char(_("App background color"), help=_("In the HEX format, ex: #7c7bad"))
+    web_app_theme_color = fields.Char(_("App theme color"), help=_("In the HEX format, ex: #7c7bad"))
     web_app_display = fields.Selection(selection=[
-        ("standalone", "Standalone native app"),
+        ("standalone", _("Standalone native app")),
         ("fullscreen", "Fullscreen"),
         ("browser", "Standart")
-    ], string="App display mode", default="browser")
-    web_app_code = fields.Text("Manifest additional code")
-    sw_offline = fields.Boolean("Use service worker offline cache", default=False)
-    sw_code = fields.Text("Service worker cache list")
+    ], string=_("App display mode"), default="browser")
+    web_app_code = fields.Text(_("Manifest additional code"))
+    sw_offline = fields.Boolean(_("Use service worker offline cache"), default=False)
+    sw_code = fields.Text(_("Service worker cache list"))
 
 
 class ResConfigSettings(models.TransientModel):
@@ -74,7 +74,7 @@ class ResConfigSettings(models.TransientModel):
     def _check_priority_value(self):
         for r in self:
             if r.map_prio_def < 0.1 or r.map_prio_def > 1:
-                raise ValidationError(_('URL priority must be between 0,1 and 1,0'))
+                raise ValidationError(_("URL priority must be between 0,1 and 1,0"))
 
 
 class RobotsConfigSettings(models.TransientModel):
@@ -98,7 +98,7 @@ class SeoGeneralConfigSettings(models.TransientModel):
     def _check_slug_length_value(self):
         for r in self:
             if r.slug_length < 20 or r.slug_length > 99:
-                raise ValidationError(_('Friendly URL max length must be between 20 and 99'))
+                raise ValidationError(_("Friendly URL max length must be between 20 and 99"))
 
 
 class WebAppConfigSettings(models.TransientModel):

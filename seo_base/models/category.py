@@ -25,4 +25,5 @@ class ECommerceCategory(models.Model):
             values.update({
                 'slug': ProductMeta._slug_validation(self, has_slug)
             })
+        # Write
         return super(ECommerceCategory, self).write(values)

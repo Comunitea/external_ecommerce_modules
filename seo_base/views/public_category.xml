@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="website_sale.product_public_category_form_view"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='parent_id']" position="after">
-                <field name="slug" required="1"/>
+                <field name="slug" required="0"/>
             </xpath>
             <xpath expr="//div[hasclass('oe_left')]" position="attributes">
                 <attribute name="class" add="ml8" separator=" "/>

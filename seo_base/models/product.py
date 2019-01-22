@@ -12,9 +12,9 @@ from odoo.http import request
 class ProductMeta(models.Model):
     _inherit = 'product.template'
 
-    product_meta_title = fields.Char("SEO Meta Title", translate=True)
-    product_meta_description = fields.Text("SEO Meta Description", translate=True)
-    product_meta_keywords = fields.Char("SEO Meta Keywords", translate=True)
+    product_meta_title = fields.Char(_("SEO Meta Title"), translate=True)
+    product_meta_description = fields.Text(_("SEO Meta Description"), translate=True)
+    product_meta_keywords = fields.Char(_("SEO Meta Keywords"), translate=True)
     slug = fields.Char(_("Friendly URL"), help=_("Friendly URL for redirection"))
     description = fields.Html(_("Full product description"), strip_style=True, translate=True)
     description_short = fields.Text(_("Short product description"), help=_("Short description for product page"),
@@ -56,4 +56,5 @@ class ProductMeta(models.Model):
             values.update({
                 'slug': self._slug_validation(has_slug)
             })
+        # Write
         return super(ProductMeta, self).write(values)
