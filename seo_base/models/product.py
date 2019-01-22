@@ -4,6 +4,7 @@
 
 import unicodedata
 import re
+import random
 from odoo import http, api, models, fields, _
 from odoo.http import request
 
@@ -31,7 +32,15 @@ class ProductMeta(models.Model):
 
         # Return with max length
         max_length = website.slug_length if (19 < website.slug_length < 100) else 40
-        return value[:max_length]
+        value = value[:max_length]
+
+        # Check if this SLUG value already exists in any product or category
+        it_exists = self.sudo().search([('slug', '=', value)], limit=1).id
+        if it_exists and not it_exists == self.id:
+            # Add random URL part
+            value = '%s-%d' % (value, random.randint(0, 999))
+        # Return
+        return value
 
     @api.multi
     def write(self, values):
