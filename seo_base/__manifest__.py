@@ -49,12 +49,12 @@
         'views/settings.xml',
         'views/menu.xml',
         'templates/favicon.xml',
-        'templates/head.xml',
+        'templates/head.xml', # Only one-company webs
         'templates/product.xml',
         'templates/robots.xml',
         'templates/seo.xml',
         'templates/sitemap.xml',
-        'templates/shop.xml',
+        'templates/shop.xml', # Only one-company webs
         'templates/webapp.xml',
     ],
     'images': [

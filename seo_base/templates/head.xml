@@ -2,7 +2,8 @@
 <odoo>
 
     <template id="website_layout_head_add" inherit_id="website.layout">
-        <!-- Replace javascript source in the head -->
+        <!-- Only one-company webs
+             Replace javascript source in the head -->
         <xpath expr="//t[@t-call-assets='web.assets_common'][@t-css='false']" position="replace"/>
         <xpath expr="//t[@t-call-assets='web.assets_frontend'][@t-css='false']" position="replace"/>
         <xpath expr="//t[@t-call-assets='web_editor.summernote'][@t-css='false']" position="replace"/>
@@ -11,7 +12,8 @@
     </template>
 
     <template id="portal_frontend_layout_add" inherit_id="portal.frontend_layout">
-        <!-- Set javascript source after the footer -->
+        <!-- Only one-company webs
+             Set javascript source after the footer -->
         <xpath expr="//div[@id='wrapwrap']/footer" position="inside">
             <t t-call-assets="web.assets_common" t-css="false"/>
             <t t-call-assets="web.assets_frontend" t-css="false"/>
