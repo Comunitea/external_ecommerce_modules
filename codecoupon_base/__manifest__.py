@@ -26,7 +26,7 @@
 ##############################################################################
 
 {
-    'name': 'Coupon base module',
+    'name': 'CodeCoupon discount',
     'version': '1.1',
     'summary': 'Discount module for eCommerce WEB based on application of discount codes',
     'description': '',
