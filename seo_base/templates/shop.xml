@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <!-- Changes of eCommerce category URL in the left shop sidebar -->
+    <!-- Only one-company webs
+         Changes of eCommerce category URL in the left shop sidebar -->
     <template id="website_sale_categories_recursive_add" inherit_id="website_sale.categories_recursive">
         <xpath expr="//li/a" position="attributes">
             <attribute name="t-att-href">'/category/%s' % c.slug if c.slug else '/shop/category/%s' % slug(c)</attribute>
