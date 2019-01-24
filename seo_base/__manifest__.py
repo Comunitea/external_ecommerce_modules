@@ -49,11 +49,12 @@
         'views/settings.xml',
         'views/menu.xml',
         'templates/favicon.xml',
-        # 'templates/head.xml',
+        'templates/head.xml',
         'templates/product.xml',
         'templates/robots.xml',
         'templates/seo.xml',
         'templates/sitemap.xml',
+        'templates/shop.xml',
         'templates/webapp.xml',
     ],
     'images': [
