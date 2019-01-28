@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem name="Discount coupons" id="ccb_main_menu" parent="website.menu_website_configuration" sequence="120"/>
+    <menuitem name="Coupons list" id="ccb_coupons"
+              parent="ccb_main_menu" sequence="10" action="ccb_coupons_list"/>
+
+</odoo>

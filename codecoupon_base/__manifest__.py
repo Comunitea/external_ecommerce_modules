@@ -28,7 +28,7 @@
 {
     'name': 'CodeCoupon discount',
     'version': '1.1',
-    'summary': 'Discount module for eCommerce WEB based on application of discount codes',
+    'summary': 'Discount module for eCommerce WEB based on application of codes',
     'description': '',
     'category': 'Website',
     'author': 'Comunitea',
@@ -39,8 +39,11 @@
         'Rubén Seijas <ruben@comunitea.com>',
     ],
     'depends': [
+        'website_sale'
     ],
     'data': [
+        'views/coupons.xml',
+        'views/menu.xml'
     ],
     'images': [
         '/static/description/icon.png',
