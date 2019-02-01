@@ -13,7 +13,7 @@ from odoo.addons.payment_paga_mas_tarde.controllers.main import PmtController
 class AcquirerPagaMasTarde(models.Model):
     _inherit = 'payment.acquirer'
 
-    provider = fields.Selection(selection_add=[('pmt', 'Paga+Tarde')])
+    provider = fields.Selection(selection_add=[('pmt', 'Paga+Tarde')], default='pmt')
     pmt_public_key = fields.Char('Access Public Token', groups='base.group_user',
                                  help='Se encuentra en los datos de la tienda de su cuenta \
                                  de Paga+Tarde. Es imprescindible para autenticarse')
