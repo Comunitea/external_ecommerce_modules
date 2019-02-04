@@ -39,7 +39,7 @@ class Website(models.Model):
     map_prio_def = fields.Float(_("URL priority"), default=0.5, help=_("Between 0,1 and 1,0"))
     robots_txt_content = fields.Text(_("Robots.txt content"))
     slug_length = fields.Integer(_("Friendly URL max length"), default=40)
-    web_app_icon = fields.Binary(_("App icon"), required=True)
+    web_app_icon = fields.Binary(_("App icon"))
     web_app_name = fields.Char(_("App name"), help=_("Icon name on the homescreen of device"))
     web_app_short_name = fields.Char(_("App short name"))
     web_app_description = fields.Char(_("App short description"))

@@ -269,7 +269,7 @@
                                         Must be 512*512px or more
                                     </div>
                                 </div>
-                                <field name="web_app_icon" widget="image" class="pull-left oe_avatar"/>
+                                <field name="web_app_icon" widget="image" class="pull-left oe_avatar" required="1"/>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-4 o_setting_box">
