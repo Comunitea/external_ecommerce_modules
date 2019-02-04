@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--Inherit sle order form view for create coupon camp -->
+    <record model="ir.ui.view" id="ccb_sale_view_order_form">
+        <field name="name">Discount coupon relation in the sale order form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_mode_id']" position="after">
+                <field name="applied_coupon" attrs="{'invisible': [('applied_coupon', '=', False)]}" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

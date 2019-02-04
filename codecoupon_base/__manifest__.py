@@ -44,6 +44,7 @@
     'data': [
         'views/coupons.xml',
         'views/history.xml',
+        'views/sale_order.xml',
         'views/settings.xml',
         'views/menu.xml'
     ],
