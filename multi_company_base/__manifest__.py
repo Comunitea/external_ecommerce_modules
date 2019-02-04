@@ -26,9 +26,9 @@
 ##############################################################################
 
 {
-    'name': 'Multi-company base module',
+    'name': 'Multi Company Base Modules',
     'version': '1.0',
-    'summary': 'Base module for creation of a multi-website company',
+    'summary': 'Provide all base modules for using a multi-website company',
     'description': '',
     'category': 'Website',
     'author': 'Comunitea',
@@ -39,17 +39,11 @@
         'Rubén Seijas <ruben@comunitea.com>',
     ],
     'depends': [
-        # 'theme_bootswatch',
         'ecommerce_base',
-        'base_multi_company',
-        'ir_config_parameter_multi_company',
-        'ir_rule_website',
         'web_website',
-        'website_multi_theme',
         'website_multi_company',
         'website_multi_company_crm',
         'website_multi_company_sale',
-        'mail_multi_website',
     ],
     'data': [
     ],

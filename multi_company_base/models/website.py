@@ -5,26 +5,38 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
 import logging
-
-from odoo.addons.website.website_multi_theme.models.website.py import Website
+from odoo import api, models
 
 
 MODULE = "website_multi_theme"
-LAYOUT_KEY = MODULE + ".auto_layout_website_%d"
-ASSETS_KEY = MODULE + ".auto_assets_website_%d"
-VIEW_KEY = MODULE + ".auto_view_%d_%s"
+LAYOUT_KEY = MODULE + ".auto_layout_website_%s"
+ASSETS_KEY = MODULE + ".auto_assets_website_%s"
+VIEW_KEY = MODULE + ".auto_view_%s_%s"
 _logger = logging.getLogger(__name__)
 
 
-class WebsiteCustom(Website):
+class Website(models.Model):
+    _inherit = "website"
+
+    @api.multi
+    def _find_duplicated_view_for_website(self, origin_view):
+        """
+        Modifies inherit method to find duplicates views but by origin_view.key instead of origin_view.id.
+        :param origin_view: Now is a string not an integer
+        :return: xmlid
+        """
+        self.ensure_one()
+        xmlid = VIEW_KEY % (self.name[:3].strip().lower(), origin_view)
+        return self.env.ref(xmlid, raise_if_not_found=False)
 
     def _multi_theme_activate(self):
         """
         Modifies inherit method to activate current multi theme for current websites
         but by origin_view.key instead of origin_view.id.
         This is necessary for how know to refer to inherit templates and avoid update problems
-        who activate auto generated views and hide customed inherit templates.
+        who activate auto generated views and hide customatedes inherit templates.
         """
+        super(Website, self)._multi_theme_activate()
         main_assets_frontend = (
             self.env.ref("web.assets_frontend") |
             self.env.ref("website.assets_frontend"))
@@ -53,12 +65,12 @@ class WebsiteCustom(Website):
             # Duplicate multi theme patterns for this website
             custom_assets = website._duplicate_view_for_website(
                 assets_pattern,
-                ASSETS_KEY % website.id,
+                ASSETS_KEY % website.name[0:3].strip().lower(),
                 True
             )
             custom_layout = website._duplicate_view_for_website(
                 layout_pattern,
-                LAYOUT_KEY % website.id,
+                LAYOUT_KEY % website.name[0:3].strip().lower(),
                 True
             )
             # Update custom base views arch to latest pattern
@@ -72,13 +84,10 @@ class WebsiteCustom(Website):
                 "active": True,
             })
             # Duplicate all theme's views for this website
-            for origin_view in website\
-                    .multi_theme_id\
-                    .get_assets()\
-                    .mapped("view_id"):
+            for origin_view in website.multi_theme_id.get_assets().mapped("view_id"):
                 copied_view = website._duplicate_view_for_website(
                     origin_view,
-                    VIEW_KEY % (website.id, origin_view.key.replace('.', '_')),
+                    VIEW_KEY % (website.name[0:3].strip().lower(), origin_view.key.replace('.', '_')),
                     False
                 )
                 # Applied views must inherit from custom assets or layout
