@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="theme_xxx_website_footer_custom" inherit_id="website.footer_custom">
+        <xpath expr="//div[@id='footer']//div[hasclass('row')]" position="replace">
+            <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

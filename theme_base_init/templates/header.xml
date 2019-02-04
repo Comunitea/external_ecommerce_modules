@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="theme_xxx_website_layout" inherit_id="website.layout">
+        <xpath expr="//div[@id='wrapwrap']//div[hasclass('navbar')]" position="before">
+            <div class="wp-contact-navbar">
+                <div class="container contact-navbar">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="header-phone">
+                                <i class="fa fa-phone"/>
+                                <a t-field="res_company.phone" t-att-href="'tel:%s' %res_company.phone"/>
+                            </div>
+                            <div class="contact-separator"/>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="header-email">
+                                <i class="fa fa-envelope"/>
+                                <a t-field="res_company.email" t-att-href="'mailto:%s' %res_company.email"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6"/>
+                        <div class="col-md-2">
+                            <!--<t t-call="website.language_selector"/>-->
+                            <div class="header-language pull-right">
+                                <t t-foreach="languages" t-as="lg">
+                                    <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
+                                       t-att-data-default-lang="(editable or translatable) and 'true' if website and lg[0] == website.default_lang_code else None"
+                                       t-att-data-lang="lg[0]"
+                                       class="js_change_lang"
+                                       rel="nofollow">
+                                        <img t-att-src="'/theme_base/static/img/flag_%s.png' % lg[0].split('_')[0]"
+                                             t-att-title="lg[1].split('/').pop()"
+                                             t-att-alt="lg[1].split('/').pop()"
+                                             t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
+                                             style="max-height: 24px;"/>
+                                    </a>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>
