@@ -26,9 +26,9 @@
 ##############################################################################
 
 {
-    'name': 'Website base module',
+    'name': 'Base Module to Init Website Backend',
     'version': '1.0',
-    'summary': 'Website base customization module',
+    'summary': 'Provides a Skeleton to build a generic backend base module',
     'description': '',
     'category': 'Website',
     'author': 'Comunitea',
