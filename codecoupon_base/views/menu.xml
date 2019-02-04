@@ -6,5 +6,7 @@
               parent="ccb_main_menu" sequence="10" action="ccb_coupons_list"/>
     <menuitem name="Module settings" id="ccb_settings"
               parent="ccb_main_menu" sequence="20" action="ccb_base_settings"/>
+    <menuitem name="History of usage" id="ccb_history"
+              parent="ccb_main_menu" sequence="30" action="ccb_history_list"/>
 
 </odoo>
