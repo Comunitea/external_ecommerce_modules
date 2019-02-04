@@ -26,9 +26,9 @@
 ##############################################################################
 
 {
-    'name': 'E-commerce base modules',
+    'name': 'E-commerce Base Modules',
     'version': '1.0',
-    'summary': 'Website base e-commerce additional and customization theme',
+    'summary': 'Provide all Website base e-commerce modules for a basic installation.',
     'description': '',
     'category': 'Website',
     'author': 'Comunitea',
@@ -43,7 +43,6 @@
         'l10n_es',
         'website',
         'website_mail',
-        'website_theme_install',
         'website_cookie_notice',
         'website_crm',
         'website_crm_recaptcha',
@@ -54,7 +53,6 @@
         'website_sale_stock',
         'website_sale_stock_options',
         'website_sale_comparison',
-        # 'website_sale_hide_price',
         'website_sale_product_brand',
         'website_sale_wishlist',
         'website_sale_delivery',
