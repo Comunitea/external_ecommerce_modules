@@ -48,6 +48,12 @@
                     <div class="row mb16">
                         <div class="col-md-4 col-xs-12">
                             <div class="row mb8">
+                                <label for="website_id" class="col-md-3 col-xs-12"/>
+                                <div class="col-md-7 col-xs-12">
+                                    <field name="website_id" required="1"/>
+                                </div>
+                            </div>
+                            <div class="row mb8">
                                 <label for="name" class="col-md-3 col-xs-12"/>
                                 <div class="col-md-7 col-xs-12">
                                     <field name="name"/>
@@ -56,7 +62,7 @@
                             <div class="row mb8">
                                 <label for="code" class="col-md-3 col-xs-12"/>
                                 <div class="col-md-7 col-xs-12">
-                                    <field name="code" required="1"/>
+                                    <field name="code"/>
                                 </div>
                             </div>
                             <div class="row mb8">

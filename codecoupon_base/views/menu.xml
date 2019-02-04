@@ -4,5 +4,7 @@
     <menuitem name="Discount coupons" id="ccb_main_menu" parent="website.menu_website_configuration" sequence="120"/>
     <menuitem name="Coupons list" id="ccb_coupons"
               parent="ccb_main_menu" sequence="10" action="ccb_coupons_list"/>
+    <menuitem name="Module settings" id="ccb_settings"
+              parent="ccb_main_menu" sequence="20" action="ccb_base_settings"/>
 
 </odoo>

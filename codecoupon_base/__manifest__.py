@@ -43,6 +43,7 @@
     ],
     'data': [
         'views/coupons.xml',
+        'views/settings.xml',
         'views/menu.xml'
     ],
     'images': [

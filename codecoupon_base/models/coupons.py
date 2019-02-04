@@ -8,23 +8,30 @@ from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
 
+def _default_website(self):
+    return self.env['website'].search([], limit=1)
+
+
 class Coupons(models.Model):
     _name = "codecoupon_base.coupons"
 
+    # Set default code length
+    website_id = fields.Many2one('website', string="Website to apply", default=_default_website, required=True)
+    code_def_length = fields.Integer(related='website_id.codecoupon_length')
+
     # Generate random coupon code
     def code_generate(self):
-        #
-        # Добавить возможность установки длины кода в настройках панели
-        #
+        # Set minimum code length
+        length = self.code_def_length
         characters = string.ascii_uppercase + string.digits
-        length = 6
         return ''.join(random.choice(characters) for _ in range(length))
+
     _sql_constraints = [
         ("code_uniq", "unique (code)", "The coupon code must be unique!"),
     ]
 
     # General part
-    code = fields.Char(string=_("Coupon code"), default=code_generate)
+    code = fields.Char(string=_("Coupon code"), default=code_generate, required=True)
     name = fields.Char(string=_("Coupon name"), required=True)
     is_active = fields.Boolean(string=_("Is active?"), default=True)
     # Quantity
@@ -98,12 +105,10 @@ class Coupons(models.Model):
     @api.constrains("code")
     def _check_coupon_code_length(self):
         for r in self:
-            #
-            # Добавить возможность установки длины кода в настройках панели
-            #
+            # Validation of code length
             if r.code:
-                if len(r.code) < 4:
-                    raise ValidationError(_("Coupon code must have at least four characters"))
+                if len(r.code) < self.code_def_length:
+                    raise ValidationError(_("Coupon code must have at least %d characters" % self.code_def_length))
 
     @api.multi
     def write(self, values):
