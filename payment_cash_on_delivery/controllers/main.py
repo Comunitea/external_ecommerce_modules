@@ -43,6 +43,8 @@ class CashOnDeliveryController(WebsiteSale):
 
         super(CashOnDeliveryController, self).payment_validate(transaction_id=None, sale_order_id=None, **post)
 
-        order.with_context(send_email=True).action_confirm()
+        # Attention: Be carefully to create others payment methods
+        if order.payment_acquirer_id.provider != 'transfer':
+            order.with_context(send_email=True).action_confirm()
 
         return request.redirect('/shop/confirmation')
