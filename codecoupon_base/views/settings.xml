@@ -36,6 +36,11 @@
                                     <field name="website_id" readonly="1"/>
                                 </div>
                                 <div class="row mb8">
+                                    <label class="col-md-4" for="codecoupon_dev"/>
+                                    <field name="codecoupon_dev"/>
+                                    <p class="text-muted ml16">This option will be used to read the LOG messages</p>
+                                </div>
+                                <div class="row mb8">
                                     <label class="col-md-4" for="codecoupon_length"/>
                                     <field name="codecoupon_length"/>
                                 </div>

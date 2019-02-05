@@ -46,7 +46,9 @@
         'views/history.xml',
         'views/sale_order.xml',
         'views/settings.xml',
-        'views/menu.xml'
+        'views/menu.xml',
+        'templates/checkout.xml',
+        'templates/head.xml'
     ],
     'images': [
         '/static/description/icon.png',

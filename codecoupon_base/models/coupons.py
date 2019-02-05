@@ -46,7 +46,9 @@ class Coupons(models.Model):
         ], string=_("Is applicable: "), default="all"
     )
     product_ids = fields.Many2many("product.product", string=_("Applicable products"),
-                                   domain=[("active", "=", True), ("product_tmpl_id.website_published", "=", True)])
+                                   domain=[("active", "=", True),
+                                           ("product_tmpl_id.website_published", "=", True),
+                                           ["sale_ok", "=", True]])
     category_ids = fields.Many2many("product.public.category", string=_("Applicable categories"))
     discount_type = fields.Selection([
         ("fixed", _("Fixed discount")),
@@ -99,8 +101,8 @@ class Coupons(models.Model):
                 raise ValidationError(_("\"Minimum cart total\" must be positive"))
             if r.max_cart < 0:
                 raise ValidationError(_("\"Maximum cart total\" must be positive"))
-            if r.min_cart > r.max_cart:
-                raise ValidationError(_("\"Minimum cart total\" must be later then \"Maximum cart total\""))
+            if r.min_cart > r.max_cart and not r.max_cart == 0:
+                raise ValidationError(_("\"Minimum cart total\" must must be less than \"Maximum cart total\""))
 
     @api.constrains("code")
     def _check_coupon_code_length(self):

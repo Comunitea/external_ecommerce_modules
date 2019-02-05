@@ -14,6 +14,8 @@ class Website(models.Model):
 
     codecoupon_state = fields.Boolean(_("CodeCoupon module is active"), default=False)
     codecoupon_length = fields.Integer(_("Default coupon min length"), default=6)
+    codecoupon_dev = fields.Boolean(_("Developer mode"), default=False,
+                                    help=_("This option will be used to read the LOG messages"))
 
 
 class ResConfigSettings(models.TransientModel):
@@ -23,6 +25,7 @@ class ResConfigSettings(models.TransientModel):
     website_id = fields.Many2one('website', string="website", default=_default_website, required=True)
     codecoupon_state = fields.Boolean(related='website_id.codecoupon_state')
     codecoupon_length = fields.Integer(related='website_id.codecoupon_length')
+    codecoupon_dev = fields.Boolean(related='website_id.codecoupon_dev')
 
     def activate_codecoupon(self):
         for r in self:

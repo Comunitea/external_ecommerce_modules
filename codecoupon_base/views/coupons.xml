@@ -96,13 +96,13 @@
                             <div class="row mb32" attrs="{'invisible': [('coupon_type', 'in', ('all', 'category'))]}">
                                 <label for="product_ids" class="col-md-12"/>
                                 <div class="col-md-12">
-                                    <field name="product_ids" widget="many2many_tags"/>
+                                    <field name="product_ids" widget="many2many_tags" attrs="{'required': [('coupon_type', '=', 'product')]}"/>
                                 </div>
                             </div>
                             <div class="row mb32" attrs="{'invisible': [('coupon_type', 'in', ('all', 'product'))]}">
                                 <label for="category_ids" class="col-md-12"/>
                                 <div class="col-md-12">
-                                    <field name="category_ids" widget="many2many_tags"/>
+                                    <field name="category_ids" widget="many2many_tags" attrs="{'required': [('coupon_type', '=', 'category')]}"/>
                                 </div>
                             </div>
                             <div class="row mb8">
