@@ -29,7 +29,7 @@
                                        t-att-data-lang="lg[0]"
                                        class="js_change_lang"
                                        rel="nofollow">
-                                        <img t-att-src="'/theme_base/static/img/flag_%s.png' % lg[0].split('_')[0]"
+                                        <img t-att-src="'/theme_base_init/static/img/flag_%s.png' % lg[0].split('_')[0]"
                                              t-att-title="lg[1].split('/').pop()"
                                              t-att-alt="lg[1].split('/').pop()"
                                              t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
