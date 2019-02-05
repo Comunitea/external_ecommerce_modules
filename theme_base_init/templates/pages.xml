@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+     <!-- Page Theme -->
+    <template id="theme_can_page_template">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <h1>Page Title</h1>
+                    <ul class="name_page">
+                        <li>Link 1</li>
+                        <li>Link 2</li>
+                        <li>Link 3</li>
+                    </ul>
+                    <!-- Snippets' area -->
+                    <div class="oe_structure" />
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <record id="id_page" model="website.page">
+         <field name="name">Page Name</field>
+         <field name="website_published">True</field>
+         <field name="url">/url_page</field>
+         <field name="view_id" ref="theme_can_page_template"/>
+     </record>
+
+    <record id="theme_can_page_link" model="website.menu">
+        <field name="name">Page Link Name</field>
+        <field name="page_id" ref="id_page"/>
+        <field name="parent_id" ref="website.main_menu" />
+        <field name="sequence" type="int">99</field>
+    </record>
+
+ </odoo>

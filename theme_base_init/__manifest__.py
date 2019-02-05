@@ -26,7 +26,7 @@
 ##############################################################################
 
 {
-    'name': 'Base Module to Init Website Custom Theme',
+    'name': 'Theme Base to Init',
     'version': '1.0',
     'summary': 'FrontEnd customization for Website Custom Theme Website',
     'description': 'This is a theme module that contains styles and layout elements for front-end part.',
@@ -43,9 +43,12 @@
         'module_base'
     ],
     'data': [
-        'templates/head.xml',
-        'templates/header.xml',
-        'templates/footer.xml',
+        # 'templates/head.xml',
+        # 'templates/header.xml',
+        # 'templates/footer.xml',
+        # 'templates/pages.xml'
+        # 'templates/options.xml',
+        # 'templates/snippets.xml'
     ],
     'images': [
         '/static/description/icon.png',
