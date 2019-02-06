@@ -58,3 +58,20 @@ class ProductMeta(models.Model):
             })
         # Write
         return super(ProductMeta, self).write(values)
+
+    @api.model
+    def create(self, values):
+        has_slug = values.get('slug', False)
+        if not has_slug or has_slug == '':
+            # If slug isn't established -> create from product name
+            new_slug = values['name']
+            values.update({
+                'slug': self._slug_validation(new_slug)
+            })
+        else:
+            # If slug is established -> validate
+            values.update({
+                'slug': self._slug_validation(has_slug)
+            })
+        # Create
+        return super(ProductMeta, self).create(values)
