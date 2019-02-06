@@ -253,3 +253,47 @@ class CouponControl(http.Controller):
             return self.return_gen(_("An error has occurred!"), "danger", False, develop)
 
         return self.return_gen(message, flag, success, develop)
+
+
+class CouponAutoRemove(WebsiteSale):
+
+    def _coupon_remove(self, order):
+        coupon = order.applied_coupon
+        coupon_to_remove = request.env['product.product'].sudo().search(
+            [('default_code', '=', coupon.code)],
+            limit=1
+        )
+        # Delete the history element
+        coupon_history = request.env['codecoupon_base.history'].sudo().search(
+            [('order', '=', order.id)],
+            limit=1
+        )
+        if coupon_history:
+            coupon_history.unlink()
+        # Update coupon balance (if it's countable)
+        if coupon.is_counted:
+            coupon.write({'total': coupon.total + 1})
+        # Remove coupon from order
+        order._cart_update(product_id=coupon_to_remove.id, add_qty=-1)
+        order.write({'applied_coupon': ''})
+
+    """
+    Coupon auto-remove on cart change
+    """
+    @http.route(['/shop/cart/update_json'], type='json', auth="public", methods=['POST'], website=True, csrf=False)
+    def cart_update_json(self, product_id, line_id=None, add_qty=None, set_qty=None, display=True):
+        order = request.website.sale_get_order()
+        if order.applied_coupon:
+            self._coupon_remove(order)
+        return super(CouponAutoRemove, self).cart_update_json(product_id, line_id=line_id, add_qty=add_qty,
+                                                              set_qty=set_qty, display=display)
+
+    """
+    Coupon auto-remove if the module is disabled 
+    """
+    @http.route(['/shop/cart'], type='http', auth="public", website=True)
+    def cart(self, access_token=None, revive='', **post):
+        order = request.website.sale_get_order()
+        if order.applied_coupon and not request.website.codecoupon_state:
+            self._coupon_remove(order)
+        return super(CouponAutoRemove, self).cart(access_token=access_token, revive=revive, **post)
