@@ -21,7 +21,7 @@
                         </form>
                         <div class="ccb_advice mt4">
                             <p class="bg-danger"
-                               t-esc="codecoupon_adv_msg or 'It will be eliminated with a some change in the cart'"/>
+                               t-esc="request.website.codecoupon_adv_msg or 'It will be eliminated with a some change in the cart'"/>
                         </div>
                         <div class="ccb_message mt4"/>
                     </div>

@@ -1,0 +1,692 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* codecoupon_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-07 11:06+0000\n"
+"PO-Revision-Date: 2019-02-07 11:06+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:181
+#, python-format
+msgid " <br/>- and coupon product (id: %s) already existed"
+msgstr " <br/>- y producto del cupón (id: %s) ya existía"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:192
+#, python-format
+msgid " <br/>- and coupon product (id: %s) was created"
+msgstr " <br/>- y producto del cupón (id: %s) había creado"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:258
+#, python-format
+msgid " <br/>- and history element was deleted"
+msgstr " <br/>- y elemento de historia había eleminado"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:99
+#, python-format
+msgid " <br/>- and is available for current user"
+msgstr " <br/>- y está disponible para el usuario"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:87
+#, python-format
+msgid " <br/>- and is available for use"
+msgstr " <br/>- y está disponible para su uso"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:133
+#: code:addons/codecoupon_base/controllers/codecoupon.py:147
+#: code:addons/codecoupon_base/controllers/codecoupon.py:159
+#, python-format
+msgid " <br/>- and it was applied for products: %s"
+msgstr " <br/>- y fue aplicado a los productos: %s"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:204
+#, python-format
+msgid " <br/>- and was added a history element with id %s"
+msgstr " <br/>- y había creado un elemnto de historia con id %s"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:209
+#, python-format
+msgid " <br/>- and your discount is %s €"
+msgstr " <br/>- y su descuento es %s €"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:80
+#, python-format
+msgid " <br/>- but is expired"
+msgstr " <br/>- pero está caducado"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:77
+#, python-format
+msgid " <br/>- but is still not available"
+msgstr " <br/>- pero todavía no está disponible"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:101
+#, python-format
+msgid " <br/>- but is unavailable for current user"
+msgstr " <br/>- pero no está disponible para el usuario"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:84
+#, python-format
+msgid " <br/>- but there is no more in the stock"
+msgstr " <br/>- pero ya no está en el stock"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:162
+#, python-format
+msgid " <br/>- but your order does not have products to apply"
+msgstr " <br/>- pero su pedido no tiene productos para aplicarlo"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:115
+#, python-format
+msgid " <br/>- but your order total is too high"
+msgstr " <br/>- pero el total de su pedido es demasiado alto"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:110
+#, python-format
+msgid " <br/>- but your order total is too low"
+msgstr " <br/>- pero el total de su pedido es demasiado bajo"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:214
+#: code:addons/codecoupon_base/controllers/codecoupon.py:263
+#, python-format
+msgid " <br/>- rest of current coupons: %d"
+msgstr " <br/>- el balance del cupón actual es: %d"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:69
+#, python-format
+msgid " exists and is active"
+msgstr " existe y está activo"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:265
+#, python-format
+msgid " not found"
+msgstr " no encontrado"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:247
+#, python-format
+msgid " was eliminated"
+msgstr " fue eliminado"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:95
+#, python-format
+msgid "\"End date\" must be later then \"Start date\""
+msgstr "\"Fecha final\" debe ser más tarde que \"Fecha de inicio\""
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:103
+#, python-format
+msgid "\"Maximum cart total\" must be positive"
+msgstr "\"El total maximo del carrito\" debe ser positivo"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:101
+#, python-format
+msgid "\"Minimum cart total\" must be positive"
+msgstr "\"El total mínimo del carrito\" debe ser positivo"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:105
+#, python-format
+msgid "\"Minimum cart total\" must must be less than \"Maximum cart total\""
+msgstr "\"El total mínimo del carrito\" debe ser más pequeño que \"El total maximo\""
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_total_discount
+msgid "<span class=\"col-xs-6 text-right text-success\">Discount:</span>"
+msgstr "<span class=\"col-xs-6 text-right text-success\">Descuento:</span>"
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_coupons_form
+msgid "Activate coupon"
+msgstr "Activar cupón"
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_settings_form
+msgid "Activate module"
+msgstr "Activar módulo"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:25
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_settings_codecoupon_adv_msg
+#: model:ir.model.fields,field_description:codecoupon_base.field_website_codecoupon_adv_msg
+#, python-format
+msgid "Advice of auto elimination"
+msgstr "Aviso sobre auto-eliminación"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:43
+#: selection:codecoupon_base.coupons,coupon_type:0
+#, python-format
+msgid "All Products"
+msgstr "Todos los productos"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:268
+#, python-format
+msgid "An error has occurred!"
+msgstr "Ha ocurrido un error!"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:52
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_category_ids
+#, python-format
+msgid "Applicable categories"
+msgstr "Categorías para aplicar"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:48
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_product_ids
+#, python-format
+msgid "Applicable products"
+msgstr "Productos para aplicar"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/sale_order.py:11
+#: model:ir.model.fields,field_description:codecoupon_base.field_sale_order_applied_coupon
+#, python-format
+msgid "Applied coupon"
+msgstr "Cupón aplicado"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:20
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_settings_codecoupon_appl_title
+#: model:ir.model.fields,field_description:codecoupon_base.field_website_codecoupon_appl_title
+#, python-format
+msgid "Applied coupon form title"
+msgstr "El título de la forma con un cupón aplicado"
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_website_sale_cart
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:39
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_total
+#, python-format
+msgid "Balance of coupons"
+msgstr "Balance de cupones"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:15
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_settings_codecoupon_state
+#: model:ir.model.fields,field_description:codecoupon_base.field_website_codecoupon_state
+#, python-format
+msgid "CodeCoupon module is active"
+msgstr "Módulo CodeCoupon está activo"
+
+#. module: codecoupon_base
+#: model:ir.actions.act_window,name:codecoupon_base.ccb_base_settings
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_settings_form
+msgid "CodeCoupon module settings"
+msgstr "Ajustes de módulo CodeCoupon"
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_settings_form
+msgid "CodeCoupon settings"
+msgstr "Ajustes de módulo CodeCoupon"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:34
+#: code:addons/codecoupon_base/models/history.py:12
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_code
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_history_code
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_website_sale_cart
+#, python-format
+msgid "Coupon code"
+msgstr "Código del cupón"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:113
+#, python-format
+msgid "Coupon code must have at least %d characters"
+msgstr "El código de cupón debe tener al menos %d caracteres"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:21
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_settings_codecoupon_form_text
+#: model:ir.model.fields,field_description:codecoupon_base.field_website_codecoupon_form_text
+#, python-format
+msgid "Coupon form input title"
+msgstr "Título del campo input de formulario"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:19
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_settings_codecoupon_form_title
+#: model:ir.model.fields,field_description:codecoupon_base.field_website_codecoupon_form_title
+#, python-format
+msgid "Coupon form title"
+msgstr "Título del formulario de los cupones"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:51
+#, python-format
+msgid "Coupon module is disabled"
+msgstr "Módulo de cupones está deshabilitado"
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_settings_form
+msgid "Coupon module state:\n"
+"                                        <strong attrs=\"{'invisible': [('codecoupon_state', '=', False)]}\" class=\"text-success\">active</strong>\n"
+"                                        <strong attrs=\"{'invisible': [('codecoupon_state', '=', True)]}\" class=\"text-danger\">disabled</strong>"
+msgstr "Estado del módulo:\n"
+"                                        <strong attrs=\"{'invisible': [('codecoupon_state', '=', False)]}\" class=\"text-success\">activo</strong>\n"
+"                                        <strong attrs=\"{'invisible': [('codecoupon_state', '=', True)]}\" class=\"text-danger\">inactivo</strong>"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:35
+#: code:addons/codecoupon_base/models/history.py:11
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_name
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_history_name
+#, python-format
+msgid "Coupon name"
+msgstr "Nombre del cupón"
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_coupons_form
+msgid "Coupon state:\n"
+"                                <strong attrs=\"{'invisible': [('is_active', '=', False)]}\" class=\"text-success\">active</strong>\n"
+"                                <strong attrs=\"{'invisible': [('is_active', '=', True)]}\" class=\"text-danger\">disabled</strong>"
+msgstr "Estado del cupón:\n"
+"                                <strong attrs=\"{'invisible': [('is_active', '=', False)]}\" class=\"text-success\">activo</strong>\n"
+"                                <strong attrs=\"{'invisible': [('is_active', '=', True)]}\" class=\"text-danger\">inactivo</strong>"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:83
+#, python-format
+msgid "Coupon value must be positive"
+msgstr "Valor del cupón debe ser positivo"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:54
+#: code:addons/codecoupon_base/controllers/codecoupon.py:226
+#, python-format
+msgid "Coupon with code %s"
+msgstr "El cupón con el código %s"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:90
+#, python-format
+msgid "Coupon with code <strong>%s</strong> not found"
+msgstr "El cupón con el código <strong>%s</strong> no encontrado"
+
+#. module: codecoupon_base
+#: model:ir.ui.menu,name:codecoupon_base.ccb_coupons
+msgid "Coupons list"
+msgstr "Lista de cupones"
+
+#. module: codecoupon_base
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_create_uid
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_history_create_uid
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_settings_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: codecoupon_base
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_create_date
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_history_create_date
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_settings_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: codecoupon_base
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_history_currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_settings_form
+msgid "Current website"
+msgstr "Página WEB actual"
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_coupons_form
+msgid "Deactivate coupon"
+msgstr "Desactivar coupon"
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_settings_form
+msgid "Deactivate module"
+msgstr "Desactivar módulo"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:16
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_code_def_length
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_settings_codecoupon_length
+#: model:ir.model.fields,field_description:codecoupon_base.field_website_codecoupon_length
+#, python-format
+msgid "Default coupon min length"
+msgstr "Longitud mínima del cupón"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:67
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_note
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_coupons_form
+#, python-format
+msgid "Description note"
+msgstr "Nota"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:17
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_settings_codecoupon_dev
+#: model:ir.model.fields,field_description:codecoupon_base.field_website_codecoupon_dev
+#, python-format
+msgid "Developer mode"
+msgstr "Modo desarrollador"
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_settings_form
+msgid "Discard"
+msgstr "Descartar"
+
+#. module: codecoupon_base
+#: model:ir.ui.menu,name:codecoupon_base.ccb_main_menu
+msgid "Discount coupons"
+msgstr "Cupones de descuento"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:56
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_discount_type
+#, python-format
+msgid "Discount type"
+msgstr "Tipo de descuento"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:57
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_value
+#, python-format
+msgid "Discount value"
+msgstr "Valor de descuento"
+
+#. module: codecoupon_base
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_display_name
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_history_display_name
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_settings_display_name
+msgid "Display Name"
+msgstr "Nombre a Mostrar"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:63
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_end_date
+#, python-format
+msgid "End Date"
+msgstr "Fecha Finalización"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:22
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_settings_codecoupon_err_msg
+#: model:ir.model.fields,field_description:codecoupon_base.field_website_codecoupon_err_msg
+#, python-format
+msgid "Error message"
+msgstr "Mensaje de error"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:54
+#: selection:codecoupon_base.coupons,discount_type:0
+#, python-format
+msgid "Fixed discount"
+msgstr "Descuento fijo"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:45
+#: selection:codecoupon_base.coupons,coupon_type:0
+#, python-format
+msgid "For any categories"
+msgstr "Para categorías concretas"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:44
+#: selection:codecoupon_base.coupons,coupon_type:0
+#, python-format
+msgid "For any products"
+msgstr "Para productos concretas"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:19
+#, python-format
+msgid "Have a discount coupon?"
+msgstr "¿Tiene un cúpon de descuento?"
+
+#. module: codecoupon_base
+#: model:ir.actions.act_window,name:codecoupon_base.ccb_history_list
+msgid "History of discount coupons use"
+msgstr "Historia del uso de los cupones"
+
+#. module: codecoupon_base
+#: model:ir.ui.menu,name:codecoupon_base.ccb_history
+msgid "History of usage"
+msgstr "Historia del uso"
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_coupons_form
+msgid "If the value of the date fields isn't established, the coupon is applicable for any date."
+msgstr "Si no se establece el valor de los campos de fecha, el cupón se aplica a cualquier fecha."
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_coupons_form
+msgid "If the value of the total cart fields is 0, the coupon is applicable for any total cart."
+msgstr "Si el valor de los campos del carrito total es 0, el cupón es aplicable para cualquier carrito total."
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_coupons_form
+msgid "If this field is empty, the coupon is applicable for all users."
+msgstr "Si este campo está vacío, el cupón es aplicable para todos los usuarios."
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:24
+#, python-format
+msgid "Invalid coupon!"
+msgstr "¡El cupón es invalido!"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:36
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_is_active
+#, python-format
+msgid "Is active?"
+msgstr "¿Es activo?"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:46
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_coupon_type
+#, python-format
+msgid "Is applicable: "
+msgstr "Es aplicable: "
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:38
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_is_counted
+#, python-format
+msgid "Is counted?"
+msgstr "¿Es contable?"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:28
+#, python-format
+msgid "It will be eliminated with a some change in the cart"
+msgstr "Será eliminado con algún cambio en el carrito"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:60
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_partner_ids
+#, python-format
+msgid "List of Partners who can use this coupon"
+msgstr "Lista de clientes que pueden usar este cupón"
+
+#. module: codecoupon_base
+#: model:ir.actions.act_window,name:codecoupon_base.ccb_coupons_list
+msgid "List of discount coupons"
+msgstr "Lista de cupones de descuento"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:65
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_max_cart
+#, python-format
+msgid "Maximum cart total"
+msgstr "El total máximo del carrito"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:64
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_min_cart
+#, python-format
+msgid "Minimum cart total"
+msgstr "El total mínimo del carrito"
+
+#. module: codecoupon_base
+#: model:ir.ui.menu,name:codecoupon_base.ccb_settings
+msgid "Module settings"
+msgstr "Configuración del módulo"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:89
+#, python-format
+msgid "Number of coupons must be positive"
+msgstr "Número de cupones debe ser positivo"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/history.py:13
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_history_order
+#, python-format
+msgid "Order"
+msgstr "Pedido"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/history.py:18
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_history_cart_total
+#, python-format
+msgid "Order amount total"
+msgstr "Importe total del pedido"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/history.py:15
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_history_date
+#, python-format
+msgid "Order date"
+msgstr "Fecha del pedido"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/history.py:14
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_history_partner
+#, python-format
+msgid "Partner"
+msgstr "Cliente"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:55
+#: selection:codecoupon_base.coupons,discount_type:0
+#, python-format
+msgid "Percentage discount"
+msgstr "Porcentaje de descuento"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:21
+#, python-format
+msgid "Put it in this field and apply"
+msgstr "Ponlo en este campo y aplica"
+
+#. module: codecoupon_base
+#: model:ir.model,name:codecoupon_base.model_sale_order
+msgid "Quotation"
+msgstr "Presupuesto"
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_website_sale_cart
+msgid "Remove"
+msgstr "Eliminar"
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_settings_form
+msgid "Save"
+msgstr "Guardar"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/coupons.py:62
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_start_date
+#, python-format
+msgid "Start Date"
+msgstr "Fecha de Inicio"
+
+#. module: codecoupon_base
+#: sql_constraint:codecoupon_base.coupons:0
+msgid "The coupon code must be unique!"
+msgstr "¡El código del cupón debe ser único.!"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:26
+#: model:ir.model.fields,help:codecoupon_base.field_codecoupon_base_settings_codecoupon_adv_msg
+#: model:ir.model.fields,help:codecoupon_base.field_website_codecoupon_adv_msg
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_settings_form
+#, python-format
+msgid "This message will be displayed how advice of auto coupon elimination in case of cart change"
+msgstr "Este mensaje se mostrará como aviso de eliminación automática de cupones en caso de cambio de carrito"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:23
+#: model:ir.model.fields,help:codecoupon_base.field_codecoupon_base_settings_codecoupon_err_msg
+#: model:ir.model.fields,help:codecoupon_base.field_website_codecoupon_err_msg
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_settings_form
+#, python-format
+msgid "This message will be displayed in case of any error"
+msgstr "Este mensaje se mostrará en caso de algún error"
+
+#. module: codecoupon_base
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_coupons_form
+msgid "This note contains information only for administrator users."
+msgstr "Esta nota contiene información solo para usuarios administradores."
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:18
+#: model:ir.model.fields,help:codecoupon_base.field_codecoupon_base_settings_codecoupon_dev
+#: model:ir.model.fields,help:codecoupon_base.field_website_codecoupon_dev
+#: model:ir.ui.view,arch_db:codecoupon_base.ccb_settings_form
+#, python-format
+msgid "This option will be used to read the LOG messages"
+msgstr "Esta opción se utilizará para leer los mensajes de LOG."
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/sale_order.py:15
+#: model:ir.model.fields,field_description:codecoupon_base.field_sale_order_ccb_discount
+#, python-format
+msgid "Total coupon discount"
+msgstr "El descuento total del cupón"
+
+#. module: codecoupon_base
+#: model:ir.model,name:codecoupon_base.model_website
+msgid "Website"
+msgstr "Sitio web"
+
+#. module: codecoupon_base
+#: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_coupons_website_id
+msgid "Website to apply"
+msgstr "Sitio web para aplicar"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/models/settings.py:20
+#, python-format
+msgid "You have a coupon applied"
+msgstr "Tiene un cupón aplicado"
