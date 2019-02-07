@@ -46,6 +46,32 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-xs-12 col-md-4 o_setting_box">
+                            <div class="o_setting_right_pane ">
+                                <div class="row mb8">
+                                    <label class="col-md-4" for="codecoupon_form_title"/>
+                                    <field name="codecoupon_form_title"/>
+                                </div>
+                                <div class="row mb8">
+                                    <label class="col-md-4" for="codecoupon_form_text"/>
+                                    <field name="codecoupon_form_text"/>
+                                </div>
+                                <div class="row mb8">
+                                    <label class="col-md-4" for="codecoupon_appl_title"/>
+                                    <field name="codecoupon_appl_title"/>
+                                </div>
+                                <div class="row mb8">
+                                    <label class="col-md-4" for="codecoupon_err_msg"/>
+                                    <field name="codecoupon_err_msg"/>
+                                    <p class="text-muted ml16">This message will be displayed in case of any error</p>
+                                </div>
+                                <div class="row mb8">
+                                    <label class="col-md-4" for="codecoupon_adv_msg"/>
+                                    <field name="codecoupon_adv_msg"/>
+                                    <p class="text-muted ml16">This message will be displayed how advice of auto coupon elimination in case of cart change</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>

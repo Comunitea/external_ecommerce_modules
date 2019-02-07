@@ -64,3 +64,19 @@ odoo.define('codecoupon_base.couponcontrol', function (require) {
         });
     });
 });
+/* Coupon form hide on any cart change */
+$('#cart_products').ready(function(){
+    var object = this;
+    $(object).on("change", "input.js_quantity", function(){
+        /* Show load spinner and remove coupon form if order has a coupon applied */
+        $('.wp-ccb_load').toggle();
+        setTimeout(function(){
+            if($('.ccb_wrap').hasClass('ccb_to_remove')){
+                $('.ccb_wrap').remove();
+                /* Auto page reload after the waiting time */
+                setTimeout(function(){window.location.replace(window.location.href)}, 3000);
+            }
+            $('.wp-ccb_load').toggle();
+        }, 250);
+    });
+});

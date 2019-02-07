@@ -7,6 +7,28 @@ from datetime import datetime
 from odoo import http, _
 from odoo.http import request
 from odoo.addons.website_sale.controllers.main import WebsiteSale
+from odoo.addons.website_sale_options.controllers.main import WebsiteSaleOptions
+
+
+def _coupon_remove(order):
+    coupon = order.applied_coupon
+    coupon_to_remove = request.env['product.product'].sudo().search(
+        [('default_code', '=', coupon.code)],
+        limit=1
+    )
+    # Delete the history element
+    coupon_history = request.env['codecoupon_base.history'].sudo().search(
+        [('order', '=', order.id)],
+        limit=1
+    )
+    if coupon_history:
+        coupon_history.unlink()
+    # Update coupon balance (if it's countable)
+    if coupon.is_counted:
+        coupon.write({'total': coupon.total + 1})
+    # Remove coupon from order
+    order._cart_update(product_id=coupon_to_remove.id, add_qty=-1)
+    order.write({'applied_coupon': ''})
 
 
 class CouponControl(http.Controller):
@@ -36,10 +58,8 @@ class CouponControl(http.Controller):
         # Set developer mode
         develop = request.website.codecoupon_dev or False
 
-        # Set message content
-        #
-        # Подтянуть сообщения об ошибках из настроек модуля
-        #
+        # Set default error message
+        ccb_msg_err = request.website.codecoupon_err_msg or "Invalid coupon!"
 
         # Search the coupon to apply
         domain = [('code', '=', coupon_code)]
@@ -68,7 +88,7 @@ class CouponControl(http.Controller):
                 success = True
         else:
             return self.return_gen(_("Coupon with code <strong>%s</strong> not found" % coupon_code),
-                              "danger", False, develop)
+                                   "danger", False, develop)
 
         # Check user data
         session_user = request.env.user
@@ -112,7 +132,7 @@ class CouponControl(http.Controller):
                 if have_one:
                     message += _(" <br/>- and it was applied for products: %s" % list)
             else:
-                return self.return_gen(_("Invalid coupon!"), "danger", False, develop)
+                return self.return_gen(ccb_msg_err, "danger", False, develop)
 
         if coupon.coupon_type == 'category' and success:
             to_apply_list = coupon.category_ids.ids
@@ -126,7 +146,7 @@ class CouponControl(http.Controller):
                 if have_one:
                     message += _(" <br/>- and it was applied for products: %s" % list)
             else:
-                return self.return_gen(_("Invalid coupon!"), "danger", False, develop)
+                return self.return_gen(ccb_msg_err, "danger", False, develop)
 
         if coupon.coupon_type == 'all' and success:
             list = ''
@@ -195,7 +215,7 @@ class CouponControl(http.Controller):
 
         # Set error message for developer or custom mode
         if not develop and not success:
-            message = _("Coupon with code %s is invalid" % coupon_code)
+            message = ccb_msg_err
 
         return self.return_gen(message, flag, success, develop)
 
@@ -209,11 +229,6 @@ class CouponControl(http.Controller):
 
         # Set developer mode
         develop = request.website.codecoupon_dev or False
-
-        # Set message content
-        #
-        # Подтянуть сообщения об ошибках из настроек модуля
-        #
 
         # Search the coupon to remove
         domain = [('code', '=', coupon_code)]
@@ -255,38 +270,39 @@ class CouponControl(http.Controller):
         return self.return_gen(message, flag, success, develop)
 
 
-class CouponAutoRemove(WebsiteSale):
-
-    def _coupon_remove(self, order):
-        coupon = order.applied_coupon
-        coupon_to_remove = request.env['product.product'].sudo().search(
-            [('default_code', '=', coupon.code)],
-            limit=1
-        )
-        # Delete the history element
-        coupon_history = request.env['codecoupon_base.history'].sudo().search(
-            [('order', '=', order.id)],
-            limit=1
-        )
-        if coupon_history:
-            coupon_history.unlink()
-        # Update coupon balance (if it's countable)
-        if coupon.is_counted:
-            coupon.write({'total': coupon.total + 1})
-        # Remove coupon from order
-        order._cart_update(product_id=coupon_to_remove.id, add_qty=-1)
-        order.write({'applied_coupon': ''})
-
+class CouponAutoOptRemove(WebsiteSaleOptions):
     """
-    Coupon auto-remove on cart change
+    Coupon auto-remove on cart change (change option product)
+    """
+    @http.route(['/shop/cart/update_option'], type='http', auth="public", methods=['POST'], website=True,
+                multilang=False)
+    def cart_options_update_json(self, product_id, add_qty=1, set_qty=0, goto_shop=None, lang=None, **kw):
+        order = request.website.sale_get_order()
+        if order.applied_coupon:
+            _coupon_remove(order)
+        return super(CouponAutoOptRemove, self).cart_options_update_json(product_id=product_id, add_qty=add_qty,
+                                                                         set_qty=set_qty, goto_shop=goto_shop,
+                                                                         lang=lang, **kw)
+
+
+class CouponAutoRemove(WebsiteSale):
+    """
+    Coupon auto-remove on cart change (ajax & http routes)
     """
     @http.route(['/shop/cart/update_json'], type='json', auth="public", methods=['POST'], website=True, csrf=False)
     def cart_update_json(self, product_id, line_id=None, add_qty=None, set_qty=None, display=True):
         order = request.website.sale_get_order()
         if order.applied_coupon:
-            self._coupon_remove(order)
+            _coupon_remove(order)
         return super(CouponAutoRemove, self).cart_update_json(product_id, line_id=line_id, add_qty=add_qty,
                                                               set_qty=set_qty, display=display)
+
+    @http.route(['/shop/cart/update'], type='http', auth='public', methods=['POST'], website=True, csrf=True)
+    def cart_update(self, product_id, add_qty=1, set_qty=0, **kw):
+        order = request.website.sale_get_order()
+        if order.applied_coupon:
+            _coupon_remove(order)
+        return super(CouponAutoRemove, self).cart_update(product_id=product_id, add_qty=add_qty, set_qty=set_qty, **kw)
 
     """
     Coupon auto-remove if the module is disabled 
@@ -295,5 +311,5 @@ class CouponAutoRemove(WebsiteSale):
     def cart(self, access_token=None, revive='', **post):
         order = request.website.sale_get_order()
         if order.applied_coupon and not request.website.codecoupon_state:
-            self._coupon_remove(order)
+            _coupon_remove(order)
         return super(CouponAutoRemove, self).cart(access_token=access_token, revive=revive, **post)

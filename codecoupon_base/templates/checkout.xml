@@ -7,8 +7,8 @@
             <div class="row mb16">
                 <div class="col-xs-12 col-sm-5 col-sm-push-7"
                      t-if="request.website.codecoupon_state and website_sale_order and website_sale_order.website_order_line">
-                    <div class="ccb_wrap" t-if="website_sale_order.applied_coupon">
-                        <h4>You have a coupon applied</h4>
+                    <div class="ccb_wrap ccb_to_remove" t-if="website_sale_order.applied_coupon">
+                        <h4 t-esc="request.website.codecoupon_appl_title or 'You have a coupon applied'"/>
                         <form method="post" id="ccb_to_remove">
                             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                             <div class="input-group">
@@ -19,13 +19,15 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="ccb_message mt4">
-                            <p class="bg-info">It is eliminated with some change in cart</p>
+                        <div class="ccb_advice mt4">
+                            <p class="bg-danger"
+                               t-esc="codecoupon_adv_msg or 'It will be eliminated with a some change in the cart'"/>
                         </div>
+                        <div class="ccb_message mt4"/>
                     </div>
-                    <div class="ccb_wrap" t-else="">
-                        <h4>Have a discount coupon?</h4>
-                        <p>Put it in this field and apply</p>
+                    <div class="ccb_wrap ccb_to_apply" t-else="">
+                        <h4 t-esc="request.website.codecoupon_form_title or 'Have a discount coupon?'"/>
+                        <p t-esc="request.website.codecoupon_form_text or 'Put it in this field and apply'"/>
                         <form method="post" id="ccb_to_apply">
                             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                             <div class="input-group">
@@ -51,6 +53,19 @@
                         <div class="ccb_load-spinner"/>
                     </div>
                 </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Add total cart discount summary line -->
+    <template id="ccb_total_discount" inherit_id="website_sale.total">
+        <xpath expr="//div[@id='order_total_untaxed']" position="before">
+            <div class="row ccb_discount" id="order_total_discount" t-if="website_sale_order.ccb_discount">
+                <span class="col-xs-6 text-right text-success">Discount:</span>
+                <span class="col-xs-6 text-right-not-xs text-left-xs text-success">
+                    <span t-field="website_sale_order.ccb_discount" style="white-space: nowrap;"
+                          t-options="{'widget': 'monetary','from_currency': website_sale_order.pricelist_id.currency_id,'display_currency': website.currency_id}"/>
+                </span>
             </div>
         </xpath>
     </template>

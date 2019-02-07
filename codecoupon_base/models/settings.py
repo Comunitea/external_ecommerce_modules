@@ -16,6 +16,16 @@ class Website(models.Model):
     codecoupon_length = fields.Integer(_("Default coupon min length"), default=6)
     codecoupon_dev = fields.Boolean(_("Developer mode"), default=False,
                                     help=_("This option will be used to read the LOG messages"))
+    codecoupon_form_title = fields.Char(_("Coupon form title"), default=_("Have a discount coupon?"))
+    codecoupon_appl_title = fields.Char(_("Applied coupon form title"), default=_("You have a coupon applied"))
+    codecoupon_form_text = fields.Char(_("Coupon form input title"), default=_("Put it in this field and apply"))
+    codecoupon_err_msg = fields.Char(_("Error message"),
+                                     help=_("This message will be displayed in case of any error"),
+                                     default=_("Invalid coupon!"))
+    codecoupon_adv_msg = fields.Text(_("Advice of auto elimination"),
+                                     help=_("This message will be displayed how advice of "
+                                            "auto coupon elimination in case of cart change"),
+                                     default=_("It will be eliminated with a some change in the cart"))
 
 
 class ResConfigSettings(models.TransientModel):
@@ -26,6 +36,11 @@ class ResConfigSettings(models.TransientModel):
     codecoupon_state = fields.Boolean(related='website_id.codecoupon_state')
     codecoupon_length = fields.Integer(related='website_id.codecoupon_length')
     codecoupon_dev = fields.Boolean(related='website_id.codecoupon_dev')
+    codecoupon_form_title = fields.Char(related='website_id.codecoupon_form_title')
+    codecoupon_appl_title = fields.Char(related='website_id.codecoupon_appl_title')
+    codecoupon_form_text = fields.Char(related='website_id.codecoupon_form_text')
+    codecoupon_err_msg = fields.Char(related='website_id.codecoupon_err_msg')
+    codecoupon_adv_msg = fields.Text(related='website_id.codecoupon_adv_msg')
 
     def activate_codecoupon(self):
         for r in self:
