@@ -16,16 +16,17 @@ class Website(models.Model):
     codecoupon_length = fields.Integer(_("Default coupon min length"), default=6)
     codecoupon_dev = fields.Boolean(_("Developer mode"), default=False,
                                     help=_("This option will be used to read the LOG messages"))
-    codecoupon_form_title = fields.Char(_("Coupon form title"), default=_("Have a discount coupon?"))
-    codecoupon_appl_title = fields.Char(_("Applied coupon form title"), default=_("You have a coupon applied"))
-    codecoupon_form_text = fields.Char(_("Coupon form input title"), default=_("Put it in this field and apply"))
-    codecoupon_err_msg = fields.Char(_("Error message"),
-                                     help=_("This message will be displayed in case of any error"),
-                                     default=_("Invalid coupon!"))
+    codecoupon_form_title = fields.Char(_("Coupon form title"), default=_("Have a discount coupon?"), translate=True)
+    codecoupon_appl_title = fields.Char(_("Applied coupon form title"),
+                                        default=_("You have a coupon applied"), translate=True)
+    codecoupon_form_text = fields.Char(_("Coupon form input title"),
+                                       default=_("Put it in this field and apply"), translate=True)
+    codecoupon_err_msg = fields.Char(_("Error message"), default=_("Invalid coupon!"), translate=True,
+                                     help=_("This message will be displayed in case of any error"))
     codecoupon_adv_msg = fields.Text(_("Advice of auto elimination"),
+                                     default=_("It will be eliminated with a some change in the cart"),
                                      help=_("This message will be displayed how advice of "
-                                            "auto coupon elimination in case of cart change"),
-                                     default=_("It will be eliminated with a some change in the cart"))
+                                            "auto coupon elimination in case of cart change"), translate=True)
 
 
 class ResConfigSettings(models.TransientModel):
