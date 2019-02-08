@@ -44,6 +44,8 @@
         'website_multi_company',
         'website_multi_company_crm',
         'website_multi_company_sale',
+        'website_multi_company_portal',
+        'website_multi_company_sale_delivery',
     ],
     'data': [
     ],
