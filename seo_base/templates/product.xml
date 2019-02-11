@@ -27,7 +27,7 @@
         </xpath>
         <xpath expr="//div[hasclass('carousel-inner')]/t/div[hasclass('item')]" position="replace">
             <div class="item">
-                <img t-att-alt="pimg.name" t-att-title="pimg.name" class="product_detail_img js_variant_img"
+                <img t-att-alt="pimg.name" t-att-title="pimg.name" class="product_detail_img"
                      t-attf-src="/web/image/product.image/{{pimg.id}}/image/"/>
             </div>
         </xpath>

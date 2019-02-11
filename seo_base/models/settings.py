@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, models, fields, _
+from odoo import http, api, models, fields, _
+from odoo.http import request
 from odoo.exceptions import ValidationError
 
 
 def _default_website(self):
-    return self.env['website'].search([], limit=1)
+    host = request.httprequest.host.split(':')[0]
+    website = self.env['website'].search([('domain', '=ilike', host)], limit=1)
+    if not website:
+        website = self.env['website'].search([], limit=1)
+    return website
 
 
 class Website(models.Model):
