@@ -34,11 +34,22 @@ odoo.define("website_sale_one_step_checkout_charge_payment_fee.osc", function (r
                 self.addShipping(self, e)
             });
 
-            $('#address-modal').on('click', '#js_confirm_address', function (ev) {
+            $('#select_this_address').on('click', 'a', function (ev) {
+                $('#col-3').append('<div class="wp-load-spinner"/>');
+                setTimeout(function(){
+                    window.location.reload(true);
+                }, 1000)
+            });
+
+             $('#address-modal').on('click', '#js_confirm_address', function (ev) {
                 ev.preventDefault();
                 ev.stopPropagation();
                 // Upon confirmation, validate data.
                 self.validateModalAddress();
+                $('#col-3').append('<div class="wp-load-spinner"/>');
+                setTimeout(function(){
+                    window.location.reload(true);
+                }, 1000)
                 return false;
             });
 
