@@ -1,0 +1,20 @@
+@bcb_bg_color: @color-bg;
+@bcb_href_color: @color-href;
+@bcb_current_color: @color-current;
+
+.wp_breadcrumbs_base {
+    background-color: @bcb_bg_color;
+}
+.breadcrumbs_base {
+
+    & ol.breadcrumb {
+        background-color: @bcb_bg_color;
+        margin-bottom: 0;
+        & a {
+            color: @bcb_href_color;
+        }
+        & span {
+            color: @bcb_current_color;
+        }
+    }
+}

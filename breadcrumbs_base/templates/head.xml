@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Add custom styles -->
+    <template id="bcb_website_assets_frontend" inherit_id="website.assets_frontend" name="Add custom css styles">
+        <xpath expr="link[last()]" position="after">
+            <link href="/breadcrumbs_base/static/css/breadcrumbs.less" rel="stylesheet" type="text/less"/>
+        </xpath>
+    </template>
+
+</odoo>
