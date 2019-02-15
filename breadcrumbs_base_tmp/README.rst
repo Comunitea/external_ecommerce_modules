@@ -2,28 +2,26 @@
    :alt: License: AGPL-3
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
 
-=======================
-Breadcrumbs base module
-=======================
+==========================
+Breadcrumbs base templates
+==========================
 
-Friendly breadcrumbs for eCommerce
-----------------------------------
+Additional module for Breadcrumbs Base
+--------------------------------------
 
-This module adds friendly multi-level breadcrumbs for your WEB.
-
-The Breadcrumbs generator is available to call in any template:
-
-::
-
-    <t t-call="breadcrumbs_base.bcb_main_wrap"/>
-
-Moreover, this module adds parent_id field to website.page model. This allows to add parent page for static pages.
+This module adds friendly multi-level breadcrumbs bar after "Main menu" block in all web pages.
 
     **Attention!**
 
-    This module don't have templates for front-end part of website.
+    This module removes all other breadcrumb bars from the website.
 
-    For correct front-end functionality you need to install additional module **breadcrumbs_base_tmp**.
+    For current use of this module **is necessary** to add these restrictions to the less of your theme:
+
+    * @color-bg (background of breadcrumbs bar)
+    * @color-href (color of links)
+    * @color-current (color of current element)
+
+This module uses default Bootstrap elements.
 
 Author
 ------

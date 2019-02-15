@@ -19,7 +19,7 @@ class BreadCrumbs(models.Model):
     @api.multi
     def generate_breadcrumbs(self, main_object):
         crumb = self.env['breadcrumbs_base.crumb'].sudo()
-        breadcrumbs = self.env['breadcrumbs_base.crumb']
+        breadcrumbs = self.env['breadcrumbs_base.crumb'].sudo()
 
         def _generate_one(name, url, active):
             # Search for the current crumb element and create it if it does not exist

@@ -26,9 +26,9 @@
 ##############################################################################
 
 {
-    'name': 'Breadcrumbs base module',
+    'name': 'Breadcrumbs base templates',
     'version': '1.0',
-    'summary': 'Friendly breadcrumbs for eCommerce',
+    'summary': 'Additional module for Breadcrumbs Base',
     'description': '',
     'category': 'Website',
     'author': 'Comunitea',
@@ -39,12 +39,11 @@
         'Rubén Seijas <ruben@comunitea.com>',
     ],
     'depends': [
-        'website',
-        'website_sale'
+        'breadcrumbs_base'
     ],
     'data': [
-        'views/page_view.xml',
-        'templates/breadcrumbs.xml'
+        'templates/breadcrumbs_bar.xml',
+        'templates/head.xml',
     ],
     'images': [
         '/static/description/icon.png',

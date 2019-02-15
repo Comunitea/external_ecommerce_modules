@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Add breadcrumb bar to the main frontend layout -->
+    <template id="bcb_portal_frontend_layout" inherit_id="portal.frontend_layout" name="Add breadcrumb bar to the main frontend layout">
+        <xpath expr="//main/t" position="before">
+            <t t-call="breadcrumbs_base.bcb_main_wrap"/>
+        </xpath>
+    </template>
+
+    <!-- Remove the product breadcrumb's bar -->
+    <template id="bcb_website_sale_product" inherit_id="website_sale.product" name="Remove product breadcrumb's bar">
+        <xpath expr="//ol[hasclass('breadcrumb')]" position="attributes">
+            <attribute name="t-if">True == False</attribute>
+        </xpath>
+    </template>
+
+    <!-- Remove the My Account breadcrumb's bar -->
+    <template id="bcb_portal_portal_layout" inherit_id="portal.portal_layout" name="Remove the My Account breadcrumb's bar">
+        <xpath expr="//div[hasclass('o_portal')]" position="attributes">
+            <attribute name="t-if">True == False</attribute>
+        </xpath>
+    </template>
+
+    <!-- Remove the Blog breadcrumb's bar -->
+    <!--<template id="bcb_website_blog_blog_breadcrumb" inherit_id="website_blog.blog_breadcrumb" name="Remove the Blog breadcrumb's bar">
+        <xpath expr="//div[hasclass('container')]" position="attributes">
+            <attribute name="t-if">True == False</attribute>
+        </xpath>
+    </template>-->
+
+</odoo>
