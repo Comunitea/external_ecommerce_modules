@@ -40,6 +40,8 @@
     ],
     'depends': [
         'ecommerce_base',
+        'seo_base',
+        'breadcrumbs_base'
     ],
     'data': [
     ],
