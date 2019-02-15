@@ -60,6 +60,17 @@ class Website(models.Model):
     sw_offline = fields.Boolean(_("Use service worker offline cache"), default=False)
     sw_code = fields.Text(_("Service worker cache list"))
 
+    @api.multi
+    def unlink(self):
+        for r in self:
+            domain = [('website_id', '=', r.id)]
+            # Remove website settings with a website delete
+            r.env['sitemap_base.settings'].sudo().search(domain).unlink()
+            r.env['robots_txt.settings'].sudo().search(domain).unlink()
+            r.env['seo_general.settings'].sudo().search(domain).unlink()
+            r.env['web_app.settings'].sudo().search(domain).unlink()
+            return super(Website, r).unlink()
+
 
 class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
