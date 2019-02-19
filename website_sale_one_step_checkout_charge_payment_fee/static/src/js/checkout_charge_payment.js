@@ -34,22 +34,11 @@ odoo.define("website_sale_one_step_checkout_charge_payment_fee.osc", function (r
                 self.addShipping(self, e)
             });
 
-            $('#select_this_address').on('click', 'a', function (ev) {
-                $('#col-3').append('<div class="wp-load-spinner"/>');
-                setTimeout(function(){
-                    window.location.reload(true);
-                }, 1000)
-            });
-
-             $('#address-modal').on('click', '#js_confirm_address', function (ev) {
+            $('#address-modal').on('click', '#js_confirm_address', function (ev) {
                 ev.preventDefault();
                 ev.stopPropagation();
                 // Upon confirmation, validate data.
                 self.validateModalAddress();
-                $('#col-3').append('<div class="wp-load-spinner"/>');
-                setTimeout(function(){
-                    window.location.reload(true);
-                }, 1000)
                 return false;
             });
 
@@ -100,6 +89,90 @@ odoo.define("website_sale_one_step_checkout_charge_payment_fee.osc", function (r
                     }
                 });
                 return false;
+            });
+        },validateModalAddress: function () {
+            var self = this;
+            var formElems = $('#osc-modal-form input, #osc-modal-form select'),
+                data = {};
+
+            data = self.getPostFields(formElems, data);
+
+            // For validation we need `submitted`
+            data.submitted = true;
+            $('.oe_website_sale_osc .has-error').removeClass('has-error');
+
+            // Show load spinner
+            $('#col-3').append('<div class="wp-load-spinner"/>');
+
+            // Ajax call
+            ajax.jsonRpc('/shop/checkout/render_address/', 'call', data).then(function (result) {
+                if (result.success) {
+                    $('#js_confirm_address').attr("disabled", false);
+
+                    // Update frontend address view
+                    $('#col-1').html(result.template);
+
+                    // Re-enable JS event listeners
+                    $('.js-billing-address .js_edit_address').on('click', function (e) {
+                        self.editBilling(null, self, e)
+                    });
+                    $('.js-shipping-address .js_edit_address').on('click', function (e) {
+                        self.editShipping(self, e)
+                    });
+                    $("#add-shipping-address").on('click', 'a', function (e) {
+                        self.addShipping(self, e)
+                    });
+                    self.changeShipping();
+
+                    // Reload page and hide Modal in case of success
+                    setTimeout(function(){
+                        window.location.reload(true);
+                        $('#address-modal').modal('hide');
+                    }, 250)
+                } else if (result.errors) {
+                    // Hide load spinner in case of errors
+                    $('div.wp-load-spinner').remove();
+                    if (result.errors.error_message) {
+                        $(".text-danger").remove();
+                        var $name = $('.checkout_autoformat > .div_name');
+                        var prefix = '<h5 class="text-danger">';
+                        var suffix = '</h5>';
+                        $(result.errors.error_message).each(function () {
+                            $name.prepend(
+                                prefix + this + suffix
+                            )
+                        })
+                    }
+                    self.displayFormErrors(result.errors);
+                } else {
+                    // ???
+                    window.location.href = '/shop';
+                }
+            });
+        },changeShipping: function () {
+            // Change kanban shipping in OSC
+            $('#osc_shipping').on('click', '.js_change_shipping', function () {
+                if (!$('body.editor_enable').length) {
+                    // Show load spinner
+                    $('#col-3').append('<div class="wp-load-spinner"/>');
+                    // Change old
+                    var $old = $('.all_shipping').find('.panel.border_primary');
+                    $old.find('.btn-ship').toggle();
+                    $old.addClass('js_change_shipping');
+                    $old.removeClass('border_primary');
+                    // Set new
+                    var $new = $(this).parent('div.one_kanban').find('.panel');
+                    $new.find('.btn-ship').toggle();
+                    $new.removeClass('js_change_shipping');
+                    $new.addClass('border_primary');
+                    // Action
+                    var $form = $(this).parent('div.one_kanban').find('form.hide');
+                    $.post($form.attr('action'), $form.serialize() + '&xhr=1');
+                    // Reload page to apply new shipping rules
+                    setTimeout(function(){
+                        window.location.reload(true);
+                    }, 250)
+                }
             });
         }
     });

@@ -32,8 +32,11 @@ class SaleOrder(models.Model):
             else:
                 order.amount_cash_on_delivery = sum(order.order_line.filtered('payment_fee_line')
                                                     .mapped('price_total'))
-            # Add Weight
-            order.total_weight = sum(order.order_line.filtered('product_id.weight').mapped('product_id.weight'))
+            # Add Weight to order
+            total_weight = 0
+            for r in order.order_line:
+                total_weight += r.product_id.weight * r.product_uom_qty
+            order.total_weight = total_weight
 
     @api.depends('order_line.payment_fee_line')
     def _compute_has_cash_on_delivery(self):
