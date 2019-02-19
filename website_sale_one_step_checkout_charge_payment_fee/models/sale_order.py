@@ -20,6 +20,8 @@ class SaleOrder(models.Model):
     has_cash_on_delivery = fields.Boolean(
         compute='_compute_has_cash_on_delivery', string='Has cash on delivery',
         help="Has an order line set for cash on delivery", store=True)
+    total_weight = fields.Float('Peso', digits=0, compute='_compute_amount_cash_on_delivery',
+                                store=True, track_visibility='always')
 
     @api.depends('order_line.price_unit', 'order_line.tax_id', 'order_line.discount', 'order_line.product_uom_qty')
     def _compute_amount_cash_on_delivery(self):
@@ -30,6 +32,8 @@ class SaleOrder(models.Model):
             else:
                 order.amount_cash_on_delivery = sum(order.order_line.filtered('payment_fee_line')
                                                     .mapped('price_total'))
+            # Add Weight
+            order.total_weight = sum(order.order_line.filtered('product_id.weight').mapped('product_id.weight'))
 
     @api.depends('order_line.payment_fee_line')
     def _compute_has_cash_on_delivery(self):
