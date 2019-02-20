@@ -2,7 +2,7 @@
 # © 2018 Comunitea - Pavel Smirnov <pavel@comunitea.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import http
+from odoo import http, SUPERUSER_ID
 from odoo.http import request
 from odoo.addons.website_sale.controllers.main import WebsiteSale
 
@@ -19,8 +19,9 @@ class CategoryRedirect(WebsiteSale):
     ], type='http', auth='public', website=True)
     def shop(self, page=0, category=None, search='', ppg=False, **post):
         if category and category.slug:
+            route = '/category/%s/page/%d' % (category.slug, page) if page else '/category/%s' % category.slug
             return http.local_redirect(
-                '/category/%s' % category.slug,
+                route,
                 dict(http.request.httprequest.args),
                 True,
                 code='301'
@@ -30,13 +31,15 @@ class CategoryRedirect(WebsiteSale):
     """
     Search the eCommerce category en base of new SLUG URL.
     """
-    @http.route('/category/<path:path>', type='http', auth='public', website=True)
+    @http.route([
+        '/category/<path:path>',
+        '/category/<path:path>/page/<int:page>'
+    ], type='http', auth='public', website=True)
     def _shop(self, path, page=0, category=None, search='', ppg=False, **post):
         cat_list = request.env['product.public.category']
         category = cat_list.sudo().search([('slug', '=', path)], limit=1)
         if category:
-            result = super(CategoryRedirect, self).shop(
-                page=page, category=category, search=search, ppg=ppg, **post)
+            result = super(CategoryRedirect, self).shop(page=page, category=category, search=search, ppg=ppg, **post)
         else:
             result = request.env['ir.http'].reroute('/404')
         return result
@@ -64,9 +67,13 @@ class ProductRedirect(WebsiteSale):
     def _product(self, path, product=None, category='', search='', **kwargs):
         prod_list = request.env['product.template']
         product = prod_list.sudo().search([('slug', '=', path)], limit=1)
+        user = request.env.uid
         if product:
-            result = super(ProductRedirect, self).product(
-                product=product, category=category, search=search, **kwargs)
+            if not product.website_published and user != SUPERUSER_ID:
+                return request.render('website.403')
+            else:
+                result = super(ProductRedirect, self).product(
+                    product=product, category=category, search=search, **kwargs)
         else:
             result = request.env['ir.http'].reroute('/404')
         return result
