@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+        <data noupdate="1">
+
+            <!--Delete Default Pages-->
+            <delete id="website.homepage_page" model="website.page"/>
+            <delete id="website.aboutus_page" model="website.page"/>
+            <delete id="terms_page" model="website.page"/>
+            <delete id="privacy_page" model="website.page"/>
+            <delete id="advise_page" model="website.page"/>
+
+        </data>
+</odoo>
