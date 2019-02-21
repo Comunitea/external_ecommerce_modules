@@ -78,7 +78,7 @@ class BreadCrumbs(models.Model):
                 parent_res.reverse()
                 for res in parent_res:
                     parent = self.env['website.page'].sudo().search([('id', '=', res)])
-                    breadcrumbs += _generate_one(parent.name, slug(parent), False)
+                    breadcrumbs += _generate_one(parent.name, parent.url, False)
             breadcrumbs += _generate_one(page.name, page.url, True)
         elif main_object._name == 'ir.ui.view':
             view = main_object
@@ -89,9 +89,19 @@ class BreadCrumbs(models.Model):
                     parent_res.reverse()
                     for res in parent_res:
                         parent = self.env['website.page'].sudo().search([('id', '=', res)])
-                        breadcrumbs += _generate_one(parent.name, slug(parent), False)
+                        breadcrumbs += _generate_one(parent.name, parent.url, False)
                 breadcrumbs += _generate_one(page.name, page.url, True)
             else:
                 breadcrumbs += _generate_one(view.name, slug(view), True)
+        elif main_object._name == 'blog.blog':
+            blog = main_object
+            breadcrumbs += _generate_one(blog.name, slug(blog), True)
+        elif main_object._name == 'blog.post':
+            post = main_object
+            blog = post.blog_id
+            # Add parent blog crumb
+            breadcrumbs += _generate_one(blog.name, '/blog/%s' % slug(blog), False)
+            # Add post crumb
+            breadcrumbs += _generate_one(post.name, slug(post), True)
 
         return breadcrumbs
