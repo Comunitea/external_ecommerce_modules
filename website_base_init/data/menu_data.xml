@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+        <data noupdate="1">
+
+            <!--Delete Default Menus-->
+            <delete id="website.main_menu" model="website.menu"/>
+            <delete id="website.menu_homepage" model="website.menu"/>
+            <delete id="website.menu_shop" model="website.menu"/>
+            <delete id="website.menu_contactus" model="website.menu"/>
+            <delete id="website_sale_product_brand.menu_website_sale_brand" model="website.menu"/>
+
+        </data>
+</odoo>

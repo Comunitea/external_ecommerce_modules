@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="1">
+
+        <!-- company views -->
+        <record id="view_company_form_inherit_website_instagram" model="ir.ui.view">
+        <field name="name">res.company.form.inherit.website.instagram</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="website.view_company_form_inherit_website"/>
+            <field name="arch" type="xml">
+                <group name="social_media" position="inside">
+                    <field name="social_instagram"/>
+                </group>
+            </field>
+        </record>
+    </data>
+
+</odoo>

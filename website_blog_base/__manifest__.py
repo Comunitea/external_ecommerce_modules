@@ -26,9 +26,9 @@
 ##############################################################################
 
 {
-    'name': 'Multi Company Base Modules',
+    'name': 'Website blog base',
     'version': '1.0',
-    'summary': 'Provide all base modules for using a multi-website company',
+    'summary': 'Friendly blog extension for eCommerce',
     'description': '',
     'category': 'Website',
     'author': 'Comunitea',
@@ -39,15 +39,10 @@
         'Rubén Seijas <ruben@comunitea.com>',
     ],
     'depends': [
-        'ecommerce_base',
-        'web_website',
-        'website_multi_company',
-        'website_multi_company_crm',
-        'website_multi_company_sale',
-        'website_multi_company_portal',
-        'website_multi_company_sale_delivery',
+        'website_blog'
     ],
     'data': [
+        'views/blog_post_view.xml'
     ],
     'images': [
         '/static/description/icon.png',

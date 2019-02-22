@@ -40,10 +40,19 @@
     ],
     'depends': [
         'ecommerce_base',
+        'website_blog',
+        'mass_mailing',
+        'website_form_builder',
         'seo_base',
         'breadcrumbs_base'
     ],
     'data': [
+        'data/company_data.xml',
+        'data/menu_data.xml',
+        'data/page_data.xml',
+        'data/website_data.xml',
+        'views/res_company_views.xml',
+        'views/website_views.xml',
     ],
     'images': [
         '/static/description/icon.png',
