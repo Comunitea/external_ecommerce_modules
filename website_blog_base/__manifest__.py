@@ -42,7 +42,8 @@
         'website_blog'
     ],
     'data': [
-        'views/blog_post_view.xml'
+        'views/blog_post_view.xml',
+        'templates/latest_posts.xml'
     ],
     'images': [
         '/static/description/icon.png',

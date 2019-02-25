@@ -12,7 +12,8 @@ Friendly blog extension for eCommerce
 This module adds different features to base website blog:
 
 * Add content html-field to back-end post view;
-* Add image field to post model.
+* Add short post description field (introduction);
+* Add post image field.
 
 Author
 ------
