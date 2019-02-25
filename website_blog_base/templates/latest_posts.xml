@@ -30,7 +30,7 @@
                 <div>
                     <p t-esc="post.introduction"/>
                 </div>
-                <a href="slug(post)" title="Read more..." class="btn btn-primary">Read more <i class="fa fa-long-arrow-right"/></a>
+                <a t-attf-href="/blog/#{slug(post.blog_id)}/post/#{slug(post)}" title="Read more..." class="btn btn-primary">Read more <i class="fa fa-long-arrow-right"/></a>
             </div>
         </div>
     </template>
