@@ -65,6 +65,7 @@ class Website(models.Model):
         for r in self:
             domain = [('website_id', '=', r.id)]
             # Remove website settings with a website delete
+            r.env['res.config.settings'].sudo().search(domain).unlink()
             r.env['sitemap_base.settings'].sudo().search(domain).unlink()
             r.env['robots_txt.settings'].sudo().search(domain).unlink()
             r.env['seo_general.settings'].sudo().search(domain).unlink()
