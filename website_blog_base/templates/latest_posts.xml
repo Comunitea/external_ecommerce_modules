@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
+    <!-- Latest news block -->
+    <template id="wbb_latest_post_wrap">
+        <div class="row mt32 mb32 latest_posts-wrap" t-if="latest_posts">
+            <div class="col-md-12 latest_posts-title">
+                <h2 class="text-center mt32 mb32" t-esc="latest_posts['title']"/>
+            </div>
+            <t t-set="col_md" t-value="latest_posts['col_md']"/>
+            <t t-foreach="latest_posts['posts']" t-as="post">
+                <t t-call="website_blog_base.wbb_latest_post"/>
+            </t>
+            <div class="col-md-12 latest_posts-all-posts">
+                <div class="text-center">
+                    <a href="/blog" class="mt32 mb32 btn btn-default" t-esc="latest_posts['read_all']"/>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Latest news element -->
     <template id="wbb_latest_post">
         <div t-attf-class="col-md-#{col_md} col-sm-6 col-xs-12 mb16">
             <div class="mr16 latest_posts-post">

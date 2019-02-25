@@ -8,10 +8,10 @@ class WebsiteBlog(models.Model):
     _inherit = 'website'
 
     @api.multi
-    def latest_posts(self, website, qty, columns):
-
+    def latest_posts(self, qty, columns, title, read_all):
         # Search blog of current website
-        domain = [('website_ids', 'ilike', website.id)]
+        website = self.id
+        domain = [('website_ids', 'ilike', website)]
         blog = request.env['blog.blog'].sudo().search(domain, limit=1)
 
         # Search published posts if blog exists
@@ -27,6 +27,8 @@ class WebsiteBlog(models.Model):
         # Return of latest posts
         result = {
             'posts': post_list,
-            'col_md': col_md
+            'col_md': col_md,
+            'title': title or _("Our latest news"),
+            'read_all': read_all or _("Read all our news")
         }
         return result
