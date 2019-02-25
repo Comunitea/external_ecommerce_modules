@@ -1,6 +1,9 @@
 Website Custom Theme
 ====================
 
+Provides a Custom Theme for Website.
+------------------------------------
+
 This is a theme module that contains styles and layout elements for front-end part.
 
 Author

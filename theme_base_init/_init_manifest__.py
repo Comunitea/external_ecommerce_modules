@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
 #
-# © 2018 Comunitea
-# Pavel Smirnov <pavel@comunitea.com>
-# Rubén Seijas <ruben@comunitea.com>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-#
 ##############################################################################
 #
-#    Copyright (C) {year} {company} All Rights Reserved
-#    ${developer} <{mail}>$
+#    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+#    © 2019 Comunitea - Ruben Seijas <ruben@comunitea.com>
+#    © 2019 Comunitea - Pavel Smirnov <pavel@comunitea.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -28,8 +24,8 @@
 {
     'name': 'Theme Base to Init',
     'version': '1.0',
-    'summary': 'FrontEnd customization for Website Custom Theme Website',
-    'description': 'This is a theme module that contains styles and layout elements for front-end part.',
+    'summary': 'FrontEnd customization for Custom Theme Website',
+    'description': '',
     'category': 'Theme/Ecommerce',
     'author': 'Comunitea',
     'website': 'http://www.comunitea.com',
@@ -39,16 +35,22 @@
         'Rubén Seijas <ruben@comunitea.com>',
     ],
     'depends': [
-        # 'multi_company_base',  # Only for multi-websites
-        'module_base'
+        'website_base_init'
     ],
     'data': [
-        # 'templates/head.xml',
-        # 'templates/header.xml',
-        # 'templates/footer.xml',
-        # 'templates/pages.xml'
+        'data/menu_data.xml',
+        'data/page_data.xml',
+        'templates/head.xml',
+        'templates/header.xml',
+        'templates/footer.xml',
         # 'templates/options.xml',
         # 'templates/snippets.xml'
+        'templates/breadcrumbs_bar.xml',
+        'templates/pages.xml',
+        'templates/page_home.xml',
+        'templates/page_normal.xml',
+        'templates/page_newsletter.xml',
+        'templates/page_with_sections.xml',
     ],
     'images': [
         '/static/description/icon.png',

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-    <template id="theme_xxx_website_layout" inherit_id="website.layout">
+    <template id="theme_name_website_layout" inherit_id="website.layout">
         <xpath expr="//div[@id='wrapwrap']//div[hasclass('navbar')]" position="before">
             <div class="wp-contact-navbar">
                 <div class="container contact-navbar">
@@ -29,7 +29,7 @@
                                        t-att-data-lang="lg[0]"
                                        class="js_change_lang"
                                        rel="nofollow">
-                                        <img t-att-src="'/theme_base_init/static/img/flag_%s.png' % lg[0].split('_')[0]"
+                                        <img t-att-src="'/theme_base_init/static/img/flags/flag_%s.png' % lg[0].split('_')[0]"
                                              t-att-title="lg[1].split('/').pop()"
                                              t-att-alt="lg[1].split('/').pop()"
                                              t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
