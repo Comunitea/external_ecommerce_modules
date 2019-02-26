@@ -39,9 +39,6 @@
                 <field name="url">/</field>
                 <field name="view_id" ref="theme_name_homepage" />
             </record>
-            <record id="theme_name" model="website">
-                <field name="homepage_id" ref="theme_name_homepage_page" />
-            </record>
 
         </data>
 </odoo>

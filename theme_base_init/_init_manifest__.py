@@ -26,7 +26,7 @@
     'version': '1.0',
     'summary': 'FrontEnd customization for Custom Theme Website',
     'description': '',
-    'category': 'Theme/Ecommerce',
+    'category': 'Theme',
     'author': 'Comunitea',
     'website': 'http://www.comunitea.com',
     'license': 'AGPL-3',
