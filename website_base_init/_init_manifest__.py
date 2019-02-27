@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
 #
-# © 2018 Comunitea
-# Pavel Smirnov <pavel@comunitea.com>
-# Rubén Seijas <ruben@comunitea.com>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-#
 ##############################################################################
 #
-#    Copyright (C) {year} {company} All Rights Reserved
-#    ${developer} <{mail}>$
+#    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+#    © 2019 Comunitea - Ruben Seijas <ruben@comunitea.com>
+#    © 2019 Comunitea - Pavel Smirnov <pavel@comunitea.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -26,9 +22,9 @@
 ##############################################################################
 
 {
-    'name': 'Base Module to Init Website Backend',
+    'name': 'Website Base Modules',
     'version': '1.0',
-    'summary': 'Provides a Skeleton to build a generic backend base module',
+    'summary': 'Provides all you need to configure and init Website Ecommerce',
     'description': '',
     'category': 'Website',
     'author': 'Comunitea',
@@ -40,11 +36,18 @@
     ],
     'depends': [
         'ecommerce_base',
-        'website_blog',
-        'mass_mailing',
-        'website_form_builder',
         'seo_base',
-        'breadcrumbs_base'
+        'codecoupon_base',
+        'breadcrumbs_base',
+        'breadcrumbs_base_tmp',
+        'website_theme_install',
+        # Only if blog
+        'website_blog',
+        'breadcrumbs_base_blog',
+        # Only if Newsletter
+        'mass_mailing',
+        # Only if need custom forms
+        'website_form_builder',
     ],
     'data': [
         'data/company_data.xml',

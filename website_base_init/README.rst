@@ -1,8 +1,8 @@
-Base Module to Init Website Backend
-===================================
+Website Base Modules
+====================
 
-Website base customization module
----------------------------------
+Provides all you need to configure and init Website Ecommerce.
+--------------------------------------------------------------
 
 This module contains dependencies, models, views, controllers, bug fixes and translations.
 

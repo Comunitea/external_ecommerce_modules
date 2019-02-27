@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
 #
-# © 2018 Comunitea
-# Pavel Smirnov <pavel@comunitea.com>
-# Rubén Seijas <ruben@comunitea.com>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-#
 ##############################################################################
 #
-#    Copyright (C) {year} {company} All Rights Reserved
-#    ${developer} <{mail}>$
+#    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+#    © 2019 Comunitea - Ruben Seijas <ruben@comunitea.com>
+#    © 2019 Comunitea - Pavel Smirnov <pavel@comunitea.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -26,11 +22,11 @@
 ##############################################################################
 
 {
-    'name': 'E-commerce Base Modules',
+    'name': 'Ecommerce Base Modules',
     'version': '1.0',
-    'summary': 'Provide all Website base e-commerce modules for a basic installation.',
+    'summary': 'Provides all Website Ecommerce modules for a basic installation.',
     'description': '',
-    'category': 'Website',
+    'category': 'Ecommerce',
     'author': 'Comunitea',
     'website': 'http://www.comunitea.com',
     'license': 'AGPL-3',
