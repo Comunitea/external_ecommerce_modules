@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Add menus Website and Menus to BackEnd part -->
+        <menuitem name="Menus"
+                  id="menus_list"
+                  action="website.action_website_menu"
+                  parent="website.menu_website_global_configuration"
+                  sequence="25"
+                  groups="base.group_no_one"/>
+
+        <record id="action_website_list" model="ir.actions.act_window">
+            <field name="name">Website list</field>
+            <field name="res_model">website</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="website.view_website_tree"/>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem name="Website"
+                  id="default_website_list"
+                  action="action_website_list"
+                  parent="website.menu_website_global_configuration"
+                  sequence="30"
+                  groups="base.group_no_one"/>
+
+    </data>
+</odoo>

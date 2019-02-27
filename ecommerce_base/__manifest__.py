@@ -60,6 +60,7 @@
         'templates/head.xml',
         'templates/footer.xml',
         'templates/contactus.xml',
+        'views/website.xml',
     ],
     'images': [
         '/static/description/icon.png',
