@@ -42,7 +42,7 @@
         'breadcrumbs_base_tmp',
         'website_theme_install',
         # Only if blog
-        'website_blog',
+        'website_blog_base',
         'breadcrumbs_base_blog',
         # Only if Newsletter
         'mass_mailing',
