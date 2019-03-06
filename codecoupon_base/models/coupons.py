@@ -6,10 +6,7 @@ import string
 import random
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
-
-
-def _default_website(self):
-    return self.env['website'].search([], limit=1)
+from odoo.addons.codecoupon_base.models.settings import _default_website
 
 
 class Coupons(models.Model):
