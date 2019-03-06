@@ -11,8 +11,13 @@ It also contains styles and layout elements, bug fixes and module translations.
 Module features
 ---------------
 
-FrontEnd part:
+Back-End part:
 ~~~~~~~~~~~~~~
+
+* Add menus of Websites and Menus
+
+Front-End part:
+~~~~~~~~~~~~~~~
 
 * Footer
     * [ADD] Odoo copyright replace
