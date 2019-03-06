@@ -49,7 +49,7 @@
         'website_sale_stock',
         'website_sale_stock_options',
         'website_sale_comparison',
-        'website_sale_product_brand',
+        # 'website_sale_product_brand',
         'website_sale_wishlist',
         'website_sale_delivery',
         'website_payment',
