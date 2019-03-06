@@ -44,7 +44,8 @@ class BreadCrumbs(models.Model):
             # Add shop crumb
             breadcrumbs += _generate_one(_("Products"), '/shop', False)
             # Add parent categories crumb
-            parent_cat = product.public_categ_ids[0]
+            if product.public_categ_ids:
+                parent_cat = product.public_categ_ids[0]
 
             if parent_cat:
                 parent_res = _get_parent(parent_cat, [])
