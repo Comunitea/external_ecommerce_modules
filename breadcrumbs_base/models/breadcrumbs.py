@@ -47,12 +47,12 @@ class BreadCrumbs(models.Model):
             if product.public_categ_ids:
                 parent_cat = product.public_categ_ids[0]
 
-            if parent_cat:
-                parent_res = _get_parent(parent_cat, [])
-                parent_res.reverse()
-                for res in parent_res:
-                    cat = self.env['product.public.category'].sudo().search([('id', '=', res)])
-                    breadcrumbs += _generate_one(cat.name, '/category/%s' % cat.slug, False)
+                if parent_cat:
+                    parent_res = _get_parent(parent_cat, [])
+                    parent_res.reverse()
+                    for res in parent_res:
+                        cat = self.env['product.public.category'].sudo().search([('id', '=', res)])
+                        breadcrumbs += _generate_one(cat.name, '/category/%s' % cat.slug, False)
 
             # Add current product crumb
             breadcrumbs += _generate_one(product.name, '/product/%s' % product.slug, True)
