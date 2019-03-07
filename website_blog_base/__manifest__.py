@@ -43,6 +43,7 @@
     ],
     'data': [
         'views/blog_post_view.xml',
+        'templates/elements.xml',
         'templates/latest_posts.xml'
     ],
     'images': [
