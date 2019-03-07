@@ -15,9 +15,10 @@ class CategoryRedirect(WebsiteSale):
         '/shop',
         '/shop/page/<int:page>',
         '/shop/category/<model("product.public.category"):category>',
-        '/shop/category/<model("product.public.category"):category>/page/<int:page>'
+        '/shop/category/<model("product.public.category"):category>/page/<int:page>',
+        '/shop/brands'
     ], type='http', auth='public', website=True)
-    def shop(self, page=0, category=None, search='', ppg=False, **post):
+    def shop(self, page=0, category=None, brand=None, search='', ppg=False, **post):
         if category and category.slug:
             route = '/category/%s/page/%d' % (category.slug, page) if page else '/category/%s' % category.slug
             return http.local_redirect(
@@ -26,7 +27,12 @@ class CategoryRedirect(WebsiteSale):
                 True,
                 code='301'
             )
-        return super(CategoryRedirect, self).shop(page=page, category=category, search=search, ppg=ppg, **post)
+        if brand:
+            context = dict(request.env.context)
+            context.setdefault('brand_id', int(brand))
+            request.env.context = context
+        return super(CategoryRedirect, self).shop(page=page, category=category, brand=brand, search=search, ppg=ppg,
+                                                  **post)
 
     """
     Search the eCommerce category en base of new SLUG URL.
