@@ -52,10 +52,11 @@ class BreadCrumbs(models.Model):
                     parent_res.reverse()
                     for res in parent_res:
                         cat = self.env['product.public.category'].sudo().search([('id', '=', res)])
-                        breadcrumbs += _generate_one(cat.name, '/category/%s' % cat.slug, False)
+                        cat_url = '/category/%s' % cat.slug if cat.slug else '/shop/category/%s' % slug(cat)
+                        breadcrumbs += _generate_one(cat.name, cat_url, False)
 
             # Add current product crumb
-            breadcrumbs += _generate_one(product.name, '/product/%s' % product.slug, True)
+            breadcrumbs += _generate_one(product.name, '', True)
         elif main_object._name == 'product.public.category':
             category = main_object
             # Add shop crumb
@@ -68,10 +69,11 @@ class BreadCrumbs(models.Model):
                 parent_res.reverse()
                 for res in parent_res:
                     cat = self.env['product.public.category'].sudo().search([('id', '=', res)])
-                    breadcrumbs += _generate_one(cat.name, '/category/%s' % cat.slug, False)
+                    cat_url = '/category/%s' % cat.slug if cat.slug else '/shop/category/%s' % slug(cat)
+                    breadcrumbs += _generate_one(cat.name, cat_url, False)
 
             # Add current category crumb
-            breadcrumbs += _generate_one(category.name, '/category/%s' % category.slug, True)
+            breadcrumbs += _generate_one(category.name, '', True)
         elif main_object._name == 'website.page':
             page = main_object
             if page.parent_id:
