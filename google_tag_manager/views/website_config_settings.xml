@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_website_config_settings" model="ir.ui.view">
+        <field name="name">Google Tag Manager: Website settings</field>
+        <field name="model">website.config.settings</field>
+        <field name="inherit_id" ref="website.view_website_config_settings"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='google_analytics_key']" position="after">
+                <label for="google_tag_manager_key"/>
+                <div name="google_tag_manager_key">
+                    <div>
+                        <div name="google_tag_manager_key" class="oe_inline">
+                            <field name="google_tag_manager_key" placeholder="GTM-XXXXXXX"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
