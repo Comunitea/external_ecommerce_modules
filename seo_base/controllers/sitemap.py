@@ -90,11 +90,13 @@ class Sitemap(Website):
                 domain += [('website_published', '=', True)]
                 if is_multi:
                     domain += [('website_ids', '=like', current_website.id)]
+                    domain += [('website_indexed', '=', True)]
                 page_ids = request.env['website.page'].sudo().search(domain)
 
                 for r in page_ids:
-                    loc = '%s%s' % (root, r.url[1:])
-                    sitemap_content += create_one(loc, r.write_date[:-9], freq_def, '', prio_def)
+                    if r.url:
+                        loc = '%s%s' % (root, r.url[1:])
+                        sitemap_content += create_one(loc, r.write_date[:-9], freq_def, '', prio_def)
 
             if request.website.map_add_cats:
                 # Add product public categories

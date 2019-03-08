@@ -2,11 +2,16 @@
 # © 2018 Comunitea - Pavel Smirnov <pavel@comunitea.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import api, fields, models, _
+from odoo import http, api, fields, models, _
+from odoo.http import request
 
 
 def _default_website(self):
-    return self.env['website'].search([], limit=1)
+    host = request.httprequest.host.split(':')[0]
+    website = self.env['website'].search([('domain', '=ilike', host)], limit=1)
+    if not website:
+        website = self.env['website'].search([], limit=1)
+    return website
 
 
 class Website(models.Model):
@@ -27,6 +32,15 @@ class Website(models.Model):
                                      default=_("It will be eliminated with a some change in the cart"),
                                      help=_("This message will be displayed how advice of "
                                             "auto coupon elimination in case of cart change"), translate=True)
+
+    @api.multi
+    def unlink(self):
+        for r in self:
+            domain = [('website_id', '=', r.id)]
+            # Remove website settings and coupons with a website delete
+            r.env['res.config.settings'].sudo().search(domain).unlink()
+            r.env['codecoupon_base.coupons'].sudo().search(domain).unlink()
+            return super(Website, r).unlink()
 
 
 class ResConfigSettings(models.TransientModel):
