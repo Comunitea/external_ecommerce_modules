@@ -54,7 +54,7 @@
         'templates/robots.xml',
         'templates/seo.xml',
         'templates/sitemap.xml',
-        # 'templates/shop.xml', # Only one-company webs
+        'templates/shop.xml',
         'templates/webapp.xml',
     ],
     'images': [

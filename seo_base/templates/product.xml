@@ -53,19 +53,13 @@
                        t-attf-src="/web/image/product.template/{{product.id}}/image_medium"/></span>
         </xpath>
         <!-- Friendly URL for product (from image) -->
-        <!--<xpath expr="//div[hasclass('oe_product_image')]/a" position="attributes">
+        <xpath expr="//div[hasclass('oe_product_image')]/a" position="attributes">
             <attribute name="t-att-href">'/product/%s' % product.slug if product.slug else keep('/shop/product/%s' % slug(product))</attribute>
-        </xpath>-->
-        <!-- Only one-company webs
-             Friendly URL for product (from image) -->
-        <!--<xpath expr="//div[hasclass('oe_product_image')]/a" position="attributes">
+        </xpath>
+        <!-- Friendly URL for product (from name) -->
+        <xpath expr="//a[@itemprop='name']" position="attributes">
             <attribute name="t-att-href">'/product/%s' % product.slug if product.slug else keep('/shop/product/%s' % slug(product))</attribute>
-        </xpath>-->
-        <!-- Only one-company webs
-             Friendly URL for product (from name) -->
-        <!--<xpath expr="//a[@itemprop='name']" position="attributes">
-            <attribute name="t-att-href">'/product/%s' % product.slug if product.slug else keep('/shop/product/%s' % slug(product))</attribute>
-        </xpath>-->
+        </xpath>
     </template>
 
 </odoo>
