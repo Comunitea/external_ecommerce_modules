@@ -17,7 +17,7 @@ class BreadCrumbs(models.Model):
     _inherit = 'website'
 
     @api.multi
-    def generate_breadcrumbs(self, main_object):
+    def generate_breadcrumbs(self, main_object, website):
         crumb = self.env['breadcrumbs_base.crumb'].sudo()
         breadcrumbs = self.env['breadcrumbs_base.crumb'].sudo()
 
@@ -85,7 +85,10 @@ class BreadCrumbs(models.Model):
             breadcrumbs += _generate_one(page.name, page.url, True)
         elif main_object._name == 'ir.ui.view':
             view = main_object
-            page = self.env['website.page'].sudo().search([('view_id', '=', view.id)])
+            # Find the current website page that uses this view
+            domain = [('view_id', '=', view.id)]
+            domain += [('website_ids', '=like', website.id)]
+            page = self.env['website.page'].sudo().search(domain)
             if page:
                 if page.parent_id:
                     parent_res = _get_parent(page.parent_id, [])

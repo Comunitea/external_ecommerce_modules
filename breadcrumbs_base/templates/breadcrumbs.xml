@@ -11,7 +11,7 @@
                             <li>
                                 <a href="/"><i class="fa fa-home"/></a>
                             </li>
-                            <t t-set="breadcrumbs" t-value="website.generate_breadcrumbs(main_object)"/>
+                            <t t-set="breadcrumbs" t-value="website.generate_breadcrumbs(main_object, website)"/>
                             <t t-if="breadcrumbs">
                                 <t t-foreach="breadcrumbs" t-as="crumb">
                                     <li t-att-class="'active' if crumb.active else None">
