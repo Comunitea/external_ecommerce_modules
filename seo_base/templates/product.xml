@@ -62,4 +62,11 @@
         </xpath>
     </template>
 
+    <!-- Product item add to cart button used by /shop -->
+    <template id="website_sale_products_add_to_cart" inherit_id="website_sale.products_add_to_cart">
+        <xpath expr="//t[2]/a" position="attributes">
+            <attribute name="t-att-href">'/product/%s' % product.slug if product.slug else keep('/shop/product/%s' % slug(product))</attribute>
+        </xpath>
+    </template>
+
 </odoo>
