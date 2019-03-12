@@ -32,7 +32,7 @@ class DoofinderFeed(Website):
         def get_tags(tag_ids):
             result = ''
             for tag in tag_ids:
-                result += ' %s/ ' % tag.name
+                result += '%s/' % tag.name
             return result[:-1]
 
         def get_parent(object, result):
