@@ -70,7 +70,7 @@ class DoofinderFeed(Website):
                 'alternate_description': '',  # X_x
                 'meta_keywords': prod.product_meta_keywords or '',
                 'meta_title': prod.product_meta_title or prod.name,
-                'meta_description': prod.product_meta_description or prod.description_short or '',
+                'meta_description': prod.product_meta_description or prod.description_short,
                 'image_link': '%sweb/image/product.template/%s/image/' % (root, prod.id) if prod.image else '',
                 'categories': get_categories(prod.public_categ_ids) if prod.public_categ_ids else '',
                 'availability': 'out of stock' if prod.availability == 'warning' else 'in stock',
