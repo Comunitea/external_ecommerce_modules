@@ -2,6 +2,7 @@
 # © 2019 Comunitea - Pavel Smirnov <pavel@comunitea.com> & Ruben Seijas <ruben@comunitea.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
+import re
 from odoo import http, api, models, fields
 from odoo.http import request
 from odoo.addons.website.controllers.main import Website
@@ -48,7 +49,7 @@ class DoofinderFeed(Website):
             for cat in cat_ids:
                 if cat.parent_id:
                     result += get_parent(cat.parent_id, '')
-                result += '%s %%%%' % cat.name
+                result += '%s %%%% ' % cat.name
             return result[:-4]
 
         def create_line(values):
@@ -81,7 +82,8 @@ class DoofinderFeed(Website):
                 'price': prod.list_price or '',
                 'sale_price': '',  # X_x
             }
-            feed_content += create_line(values)
+            feed_content += re.sub("^\s+|\n|\r|\s+$", '', create_line(values))
+            feed_content += '\n'
 
         # Add product lines to file template
         content = view.render_template('doofinder_search.feed_wrap', {'content': feed_content})

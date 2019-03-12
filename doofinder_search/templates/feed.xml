@@ -7,7 +7,25 @@
 <t t-raw="content"/>
 </template>
 
-<template id="feed_line"><t t-esc="values['id']"/>|<t t-esc="values['title']"/>|<t t-esc="values['link']"/>|<t t-esc="values['description']"/>|<t t-esc="values['alternate_description']"/>|<t t-esc="values['meta_keywords']"/>|<t t-esc="values['meta_title']"/>|<t t-esc="values['meta_description']"/>|<t t-esc="values['image_link']"/>|<t t-raw="values['categories']"/>|<t t-esc="values['availability']"/>|<t t-esc="values['brand']"/>|<t t-esc="values['mpn']"/>|<t t-esc="values['extra_title_1']"/>|<t t-esc="values['extra_title_2']"/>|<t t-esc="values['tags']"/>|<t t-esc="values['price']"/>|<t t-esc="values['sale_price']"/>
+<template id="feed_line">
+<t t-esc="values['id']"/>|
+<t t-esc="values['title']"/>|
+<t t-esc="values['link']"/>|
+<t t-esc="values['description']"/>|
+<t t-esc="values['alternate_description']"/>|
+<t t-esc="values['meta_keywords']"/>|
+<t t-esc="values['meta_title']"/>|
+<t t-esc="values['meta_description']"/>|
+<t t-esc="values['image_link']"/>|
+<t t-raw="values['categories']"/>|
+<t t-esc="values['availability']"/>|
+<t t-esc="values['brand']"/>|
+<t t-esc="values['mpn']"/>|
+<t t-esc="values['extra_title_1']"/>|
+<t t-esc="values['extra_title_2']"/>|
+<t t-esc="values['tags']"/>|
+<t t-esc="values['price']"/>|
+<t t-esc="values['sale_price']"/>
 </template>
 
 </odoo>
