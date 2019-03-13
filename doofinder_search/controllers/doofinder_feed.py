@@ -38,10 +38,10 @@ class DoofinderFeed(Website):
         def get_parent(object, result):
             parent = object.parent_id
             if parent:
-                result += ' %s > ' % parent.name
+                result += '%s > ' % parent.name
                 if parent.parent_id:
                     get_parent(parent, result)
-            result += ' %s > ' % object.name
+            result += '%s > ' % object.name
             return result
 
         def get_categories(cat_ids):
@@ -67,21 +67,22 @@ class DoofinderFeed(Website):
                 'title': prod.name,
                 'link': '%sproduct/%s' % (root, prod.slug) if prod.slug else '%sshop/product/%s' % (root, slug(prod)),
                 'description': prod.description_short or '',
-                'alternate_description': '',  # X_x
-                'meta_keywords': prod.product_meta_keywords or '',
-                'meta_title': prod.product_meta_title or prod.name,
-                'meta_description': prod.product_meta_description or prod.description_short,
+                # 'alternate_description': '',  # X_x
+                # 'meta_keywords': prod.product_meta_keywords or '',
+                # 'meta_title': prod.product_meta_title or prod.name,
+                # 'meta_description': prod.product_meta_description or prod.description_short,
                 'image_link': '%sweb/image/product.template/%s/image/' % (root, prod.id) if prod.image else '',
                 'categories': get_categories(prod.public_categ_ids) if prod.public_categ_ids else '',
                 'availability': 'out of stock' if prod.availability == 'warning' else 'in stock',
-                'brand': 'Nostrumsport',
+                # 'brand': 'Nostrumsport',
                 'mpn': prod.default_code or '',
-                'extra_title_1': '',  # X_x
-                'extra_title_2': '',  # X_x
+                # 'extra_title_1': '',  # X_x
+                # 'extra_title_2': '',  # X_x
                 'tags': get_tags(prod.tag_ids) if prod.tag_ids else '',
                 'price': prod.list_price or '',
-                'sale_price': '',  # X_x
+                # 'sale_price': '',  # X_x
             }
+            # Delete spaces and line breaks
             feed_content += re.sub("^\s+|\n|\r|\s+$", '', create_line(values))
             feed_content += '\n'
 

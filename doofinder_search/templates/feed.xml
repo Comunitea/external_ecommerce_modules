@@ -3,11 +3,25 @@
 
 <!-- ATTENTION: all lines should not have tabulation -->
 
-<template id="feed_wrap">id|title|link|description|alternate_description|meta_keywords|meta_title|meta_description|image_link|categories|availability|brand|mpn|extra_title_1|extra_title_2|tags|price|sale_price
+<!-- id|title|link|description|alternate_description|meta_keywords|meta_title|meta_description|image_link|categories|availability|brand|mpn|extra_title_1|extra_title_2|tags|price|sale_price -->
+<template id="feed_wrap">id|title|link|description|image_link|categories|availability|mpn|tags|price
 <t t-raw="content"/>
 </template>
 
 <template id="feed_line">
+<t t-esc="values['id']"/>|
+<t t-raw="values['title']"/>|
+<t t-esc="values['link']"/>|
+<t t-raw="values['description']"/>|
+<t t-raw="values['image_link']"/>|
+<t t-raw="values['categories']"/>|
+<t t-esc="values['availability']"/>|
+<t t-esc="values['mpn']"/>|
+<t t-esc="values['tags']"/>|
+<t t-esc="values['price']"/>
+</template>
+
+<!--<template id="feed_line">
 <t t-esc="values['id']"/>|
 <t t-raw="values['title']"/>|
 <t t-esc="values['link']"/>|
@@ -26,6 +40,6 @@
 <t t-esc="values['tags']"/>|
 <t t-esc="values['price']"/>|
 <t t-esc="values['sale_price']"/>
-</template>
+</template>-->
 
 </odoo>
