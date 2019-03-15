@@ -62,6 +62,15 @@ class DoofinderFeed(Website):
         product_ids = request.env['product.template'].sudo().search(domain)
 
         for prod in product_ids:
+
+            # Price control
+            price = 'N/D'
+            if not prod.hide_website_price:
+                if prod.website_public_price - prod.website_price > 0.01 and prod.pricelist_id.discount_policy == 'with_discount':
+                    price = prod.website_public_price
+                else:
+                    price = prod.website_price
+
             values = {
                 'id': prod.id,
                 'title': prod.name,
@@ -79,7 +88,7 @@ class DoofinderFeed(Website):
                 # 'extra_title_1': '',  # X_x
                 # 'extra_title_2': '',  # X_x
                 'tags': get_tags(prod.tag_ids) if prod.tag_ids else '',
-                'price': prod.list_price or '',
+                'price': price,  # prod.list_price or '', #  price has price control, list_price has not
                 # 'sale_price': '',  # X_x
             }
             # Delete spaces and line breaks
