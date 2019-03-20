@@ -6,7 +6,6 @@
             <record id="theme_name_main_menu" model="website.menu">
                 <field name="name">Main Menu</field>
                 <field name="website_id" ref="theme_base_init.theme_name"/>
-                <field name="website_published">True</field>
             </record>
 
             <!--Home Menu-->
@@ -16,7 +15,6 @@
                 <field name="parent_id" ref="theme_name_main_menu"/>
                 <field name="sequence" type="int">10</field>
                 <field name="website_id" ref="base.main_company"/>
-                <field name="website_published">True</field>
             </record>
 
             <!-- split between ir_ui_view & website_page record to keep external_id on ir_ui_view -->
@@ -35,7 +33,6 @@
                 </field>
             </record>
             <record id="theme_name_homepage_page" model="website.page">
-                <field name="website_published">True</field>
                 <field name="url">/</field>
                 <field name="view_id" ref="theme_name_homepage" />
             </record>
