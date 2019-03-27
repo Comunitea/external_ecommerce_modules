@@ -73,9 +73,11 @@ class ProductRedirect(WebsiteSale):
     def _product(self, path, product=None, category='', search='', **kwargs):
         prod_list = request.env['product.template']
         product = prod_list.sudo().search([('slug', '=', path)], limit=1)
-        user = request.env.uid
+        user_id = request.env.uid
+        user = request.env.user
         if product:
-            if not product.website_published and user != SUPERUSER_ID:
+            if not product.website_published and user_id != SUPERUSER_ID and \
+                    not user.has_group('website.group_website_designer'):
                 return request.render('website.403')
             else:
                 result = super(ProductRedirect, self).product(
