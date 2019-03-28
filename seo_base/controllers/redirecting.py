@@ -70,18 +70,20 @@ class ProductRedirect(WebsiteSale):
     Search the product en base of new SLUG URL
     """
     @http.route('/product/<path:path>', type='http', auth="public", website=True)
-    def _product(self, path, product=None, category='', search='', **kwargs):
+    def slug_product(self, path, category='', search='', **kwargs):
         prod_list = request.env['product.template']
-        product = prod_list.sudo().search([('slug', '=', path)], limit=1)
-        user_id = request.env.uid
-        user = request.env.user
-        if product:
-            if not product.website_published and user_id != SUPERUSER_ID and \
-                    not user.has_group('website.group_website_designer'):
-                return request.render('website.403')
-            else:
-                result = super(ProductRedirect, self).product(
-                    product=product, category=category, search=search, **kwargs)
+
+        # Search with user permissions
+        product = prod_list.search([('slug', '=', path)], limit=1)
+
+        # Search without user permissions
+        product_sudo = prod_list.sudo().search([('slug', '=', path)], limit=1)
+
+        """
+        If the product exists (it is not important if the user has access to this product) 
+        return the standard template with normal user permissions.
+        """
+        if product_sudo:
+            return super(ProductRedirect, self).product(product=product, category=category, search=search, **kwargs)
         else:
-            result = request.env['ir.http'].reroute('/404')
-        return result
+            return request.env['ir.http'].reroute('/404')
