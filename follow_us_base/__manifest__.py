@@ -43,6 +43,7 @@
         'website_mass_mailing',
     ],
     'data': [
+        'views/website_settings.xml',
         'templates/head.xml',
         'templates/follow-us-form.xml',
         'data/newsletter-page.xml',

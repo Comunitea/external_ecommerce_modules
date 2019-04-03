@@ -2,12 +2,14 @@
 # © 2018 Comunitea - Pavel Smirnov <pavel@comunitea.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import api, models
+from odoo import api, models, fields, _
 from odoo.http import request
 
 
-class Follower(models.Model):
+class Website(models.Model):
     _inherit = 'website'
+
+    default_newsletter = fields.Many2one('mail.mass_mailing.list', string=_("Default newsletter channel"))
 
     @api.multi
     def check_follower(self, channel):
