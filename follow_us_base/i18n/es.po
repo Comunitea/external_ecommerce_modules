@@ -1,0 +1,138 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* follow_us_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-04 07:28+0000\n"
+"PO-Revision-Date: 2019-04-04 07:28+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid ",\n"
+"                        and the"
+msgstr ",\n"
+"                        y los"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid ",\n"
+"                        the"
+msgstr ",\n"
+"                        la"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "<strong>This website doesn't have any active newsletter channel. Please try later.</strong>"
+msgstr "<strong>Este sitio web no tiene ningún canal de suscripción activo. Por favor intente mas tarde.</strong>"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "An error has occurred."
+msgstr "Ha ocurrido un error."
+
+#. module: follow_us_base
+#: code:addons/follow_us_base/models/website.py:12
+#: model:ir.model.fields,field_description:follow_us_base.field_website_default_newsletter
+#, python-format
+msgid "Default newsletter channel"
+msgstr "Canal de suscripción por defecto"
+
+#. module: follow_us_base
+#: code:addons/follow_us_base/controllers/subscribe.py:45
+#: model:ir.model.fields,field_description:follow_us_base.field_website_default_newsletter
+#, python-format
+msgid "Your email is already on the current Newsletter list"
+msgstr "Su email ya está en la lista de miembros de este canal"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "Invalid e-mail address."
+msgstr "Dirección de email incorrecta."
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_newsletter_page_ir_ui_view
+#: model:ir.ui.view,arch_db:follow_us_base.fub_newsletter_page_template
+#: model:website.page,arch_db:follow_us_base.fub_newsletter_page
+#: model:website.page,name:follow_us_base.fub_newsletter_page
+msgid "Newsletter"
+msgstr "Canal de noticias"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "Subscribe"
+msgstr "Suscribir"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "Subscribe to our newsletter and keep up to date with all the news!"
+msgstr "Suscríbete a nuestro newsletter y mantente al día de todas las novedades!"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "Thanks for your subscription!"
+msgstr "¡Gracias por su suscripción!"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "Unsubscribe"
+msgstr "Anular suscripción"
+
+#. module: follow_us_base
+#: model:ir.model,name:follow_us_base.model_website
+msgid "Website"
+msgstr "Sitio Web"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "With subscribe I accept the"
+msgstr "Con la suscripción yo acepto el"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "You have been successfully unsubscribed!"
+msgstr "Usted ha sido dado de baja con éxito!"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "Your email"
+msgstr "Su email"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "is already on the current Newsletter list."
+msgstr "ya está en la lista de miembros de este canal."
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "legal advice"
+msgstr "aviso legal"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "of this website."
+msgstr "de este Sitio Web."
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "privacy policy"
+msgstr "política de privacidad"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "terms of use"
+msgstr "términos de Uso"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "your email..."
+msgstr "su correo electrónico..."
+

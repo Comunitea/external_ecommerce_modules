@@ -18,6 +18,7 @@ class SubscribeActions(http.Controller):
     @http.route(['/followus/subscribe'], type="json", auth="public", methods=['POST'], website=True)
     def subscribe(self, email, channel):
         success = False
+        message = ''
 
         if not channel:
             # If channel is not established
@@ -35,9 +36,16 @@ class SubscribeActions(http.Controller):
 
         if partner:
             already_exist = mail_contacts.search([('email', '=', email)])
+            # If the contact already exists
             if already_exist:
-                # If the contact already exists, add it as a follower for the newsletter channel
                 list_ids = already_exist.list_ids.ids
+
+                # If the contact is already on the list of channel: quit
+                if mailing_list.id in list_ids:
+                    message = _('Your email is already on the current Newsletter list')
+                    return json.dumps({'success': success, 'message': message})
+
+                # Add it as a follower for the newsletter channel
                 list_ids.append(mailing_list.id)
                 update = already_exist.write({'list_ids': [(6, 0, list_ids)]})
                 if update:
@@ -54,13 +62,17 @@ class SubscribeActions(http.Controller):
                     success = True
         else:
             # Create a new follower
-            self.ensure_one()
-            create = self.add_to_list(email, mailing_list.id)
+            create = mail_contacts.create({
+                    'name': email,
+                    'email': email,
+                    'list_ids': [(4, mailing_list.id)]
+                })
             if create:
                 success = True
 
         values = {
             'success': success,
+            'message': message
         }
         return json.dumps(values)
 

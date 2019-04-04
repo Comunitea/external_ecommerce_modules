@@ -37,6 +37,7 @@
             <div class="alert alert-success hidden fub_thanks">Thanks for your subscription!</div>
             <div class="alert alert-danger hidden fub_error">An error has occurred.</div>
             <div class="alert alert-warning hidden fub_unsubscribed">You have been successfully unsubscribed!</div>
+            <div class="alert alert-warning hidden fub_message"/>
         </div>
         <div t-else="" class="mb32">
             <div class="alert alert-danger text-center">

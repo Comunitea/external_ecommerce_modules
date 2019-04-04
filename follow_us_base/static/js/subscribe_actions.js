@@ -19,11 +19,15 @@ odoo.define('follow_us_base.subscribe_actions', function (require) {
                 }).then(function (data) {
                     data = $.parseJSON(data);
                     if(data['success'] == true){
-                        $('.fub_error').addClass('hidden');
+                        $('.wp-subscription_form .alert').addClass('hidden');
                         $('.subscription_form').hide();
                         $('.fub_thanks').removeClass('hidden');
                     }else{
-                        $('.fub_error').removeClass('hidden');
+                        if(data['message'] != ''){
+                            $('.fub_message').html(data['message']).removeClass('hidden');
+                        }else{
+                            $('.fub_error').removeClass('hidden');
+                        }
                     }
                 });
             }
@@ -41,7 +45,7 @@ odoo.define('follow_us_base.subscribe_actions', function (require) {
             }).then(function (data) {
                 data = $.parseJSON(data);
                 if(data['success'] == true){
-                    $('.fub_error').addClass('hidden');
+                    $('.wp-subscription_form .alert').addClass('hidden');
                     $('.un_subscription_form').hide();
                     $('.fub_unsubscribed').removeClass('hidden');
                 }else{
