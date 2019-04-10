@@ -11,7 +11,8 @@ class FeedExport(models.Model):
     name = fields.Char(string=_("Name"), required=True)
     author = fields.Char(string=_("Feed author:"))
     note = fields.Html(string=_("Help description (only for admin-users)"))
-    link = fields.Char(string=_("URL of export XML file"), compute='_set_export_feed_url')
+    link = fields.Char(string=_("URL of XML file"), compute='_set_export_feed_url')
+    link_down = fields.Char(string=_("Download URL"), compute='_set_export_feed_url')
     product_ids = fields.Many2many('product.template', string=_("Products to add"),
                                    domain=['&',
                                            ('website_published', '=', True),
@@ -25,7 +26,8 @@ class FeedExport(models.Model):
     def _set_export_feed_url(self):
         base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
         for feed in self:
-            feed.link = '%s/google-merchant/export/feed-%d.xml' % (base_url, feed.id)
+            feed.link = '%s/google-merchant/open/feed-%d.xml' % (base_url, feed.id)
+            feed.link_down = '%s/google-merchant/download/feed-%d.xml' % (base_url, feed.id)
 
     @api.multi
     @api.constrains('category_ids')
@@ -67,5 +69,12 @@ class FeedExport(models.Model):
         return {
             'type': 'ir.actions.act_url',
             'url': self.link,
+            'target': 'new'
+        }
+
+    def download_feed(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'url': self.link_down,
             'target': 'new'
         }

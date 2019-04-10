@@ -22,7 +22,7 @@
         &lt;g:price&gt;<t t-esc="price"/>&lt;/g:price&gt;
         &lt;g:shipping&gt;
             &lt;g:country&gt;ES&lt;/g:country&gt;
-            &lt;g:price&gt;6.96 EUR&lt;/g:price&gt;
+            &lt;g:price&gt;5.75 EUR&lt;/g:price&gt;
         &lt;/g:shipping&gt;
         <t t-is="product_type">&lt;g:product_type&gt;<t t-raw="product_type"/>&lt;/g:product_type&gt;</t>
     </entry>

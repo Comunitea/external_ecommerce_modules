@@ -32,7 +32,8 @@
                             <h2><field name="name" required="1"/></h2>
                             <div attrs="{'invisible': [('total', '=', 0)]}">
                                 XML file: <field name="link" class="oe_link"/>
-                                <button name="open_feed" string="Open URL" type="object" class="btn btn-sm ml16 btn-default"/>
+                                <button name="open_feed" string="Open XML" type="object" class="btn btn-sm ml16 btn-default"/>
+                                <button name="download_feed" string="Download" type="object" class="btn btn-sm ml16 btn-info"/>
                             </div>
                             <h4>Total: <span class="text-danger"><field name="total" readonly="1"/></span> products</h4>
                         </div>

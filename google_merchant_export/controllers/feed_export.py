@@ -20,8 +20,8 @@ class ExportFeeds(http.Controller):
             'url': url,
         })
 
-    @http.route('/google-merchant/export/feed-<int:feed_id>.xml', type='http', auth='user', website=True)
-    def export_feeds(self, feed_id):
+    @http.route('/google-merchant/<path:mode>/feed-<int:feed_id>.xml', type='http', auth='user', website=True)
+    def export_feeds(self, mode, feed_id):
         attachment = request.env['ir.attachment']
         view = request.env['ir.ui.view']
         mimetype = 'application/xml;charset=utf-8'
@@ -91,4 +91,9 @@ class ExportFeeds(http.Controller):
         content = view.render_template('google_merchant_export.xml_wrap', {'head': head, 'values': values})
         self.create_file(path, content, mimetype)
 
-        return request.make_response(content, [('Content-Type', mimetype)])
+        # Set headers
+        headers = [('Content-Type', mimetype)]
+        if mode == 'download':
+            headers.append(('Content-Disposition', 'attachment'))
+
+        return request.make_response(content, headers)
