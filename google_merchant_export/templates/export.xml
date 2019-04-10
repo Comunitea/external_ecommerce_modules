@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+<template id="xml_wrap">&lt;?xml version="1.0"?&gt;
+&lt;feed xmlns="http://www.w3.org/2005/Atom" xmlns:g="http://base.google.com/ns/1.0"&gt;
+    <title t-esc="head['title']"/>
+    &lt;link rel="self" href="<t t-esc="head['link']"/>"&gt;&lt;/link&gt;
+    <updated t-esc="head['updated']"/>
+    <t t-raw="values"/>
+&lt;/feed&gt;
+</template>
+
+<template id="feed_wrap">
+    <entry>
+        &lt;g:id&gt;<t t-esc="id"/>&lt;/g:id&gt;
+        &lt;g:title&gt;<t t-esc="title"/>&lt;/g:title&gt;
+        &lt;g:description&gt;<t t-esc="description"/>&lt;/g:description&gt;
+        &lt;g:link&gt;<t t-esc="link"/>&lt;/g:link&gt;
+        &lt;g:image_link&gt;<t t-esc="image_link"/>&lt;/g:image_link&gt;
+        &lt;g:condition&gt;<t t-esc="condition"/>&lt;/g:condition&gt;
+        &lt;g:availability&gt;<t t-esc="availability"/>&lt;/g:availability&gt;
+        &lt;g:price&gt;<t t-esc="price"/>&lt;/g:price&gt;
+        &lt;g:shipping&gt;
+            &lt;g:country&gt;ES&lt;/g:country&gt;
+            &lt;g:price&gt;6.96 EUR&lt;/g:price&gt;
+        &lt;/g:shipping&gt;
+        <t t-is="product_type">&lt;g:product_type&gt;<t t-raw="product_type"/>&lt;/g:product_type&gt;</t>
+    </entry>
+</template>
+
+</odoo>
