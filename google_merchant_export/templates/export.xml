@@ -6,6 +6,9 @@
     <title t-esc="head['title']"/>
     &lt;link rel="self" href="<t t-esc="head['link']"/>"&gt;&lt;/link&gt;
     <updated t-esc="head['updated']"/>
+    <author>
+    <name t-esc="head['author']"/>
+    </author>
     <t t-raw="values"/>
 &lt;/feed&gt;
 </template>
