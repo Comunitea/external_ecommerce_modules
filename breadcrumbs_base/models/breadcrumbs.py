@@ -3,6 +3,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo import api, models, fields, _
+from odoo.http import request
 from odoo.addons.http_routing.models.ir_http import slug
 
 
@@ -89,6 +90,11 @@ class BreadCrumbs(models.Model):
             domain = [('view_id', '=', view.id)]
             domain += [('website_ids', '=like', website.id)]
             page = self.env['website.page'].sudo().search(domain)
+            # If there is no page with current view -> search page with current url
+            if not page:
+                path = request.httprequest.path
+                domain = [('url', '=', path), ('website_ids', '=like', website.id)]
+                page = self.env['website.page'].sudo().search(domain)
             if page:
                 if page.parent_id:
                     parent_res = _get_parent(page.parent_id, [])
