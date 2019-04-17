@@ -42,6 +42,7 @@
         'website_sale',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'views/feed.xml',
         'views/menu.xml',
         'templates/export.xml'
