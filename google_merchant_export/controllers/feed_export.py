@@ -12,7 +12,7 @@ class ExportFeeds(http.Controller):
 
     def create_file(self, url, content, mimetype):
         attachment = request.env['ir.attachment']
-        return attachment.create({
+        return attachment.sudo().create({
             'datas': content.encode('base64'),
             'mimetype': mimetype,
             'type': 'binary',
@@ -38,7 +38,7 @@ class ExportFeeds(http.Controller):
         # Check if the file already exists
         exist = attachment.search(domain, limit=1)
         if exist:
-            exist.unlink()
+            exist.sudo().unlink()
 
         # Set export file data
         now = datetime.datetime.now()
