@@ -48,7 +48,10 @@ class ProductMeta(models.Model):
             has_slug = values.get('slug', False)
             if not has_slug or has_slug == '':
                 # If slug not exists or is empty -> create from product name & id and validate
-                new_slug = '%s-%s' % (record.name, record.id)
+                if not record.slug:
+                    new_slug = '%s-%s' % (record.name, record.id)
+                else:
+                    new_slug = record.slug
                 values.update({
                     'slug': record._slug_validation(new_slug)
                 })
