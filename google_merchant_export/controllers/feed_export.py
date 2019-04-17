@@ -20,7 +20,7 @@ class ExportFeeds(http.Controller):
             'url': url,
         })
 
-    @http.route('/google-merchant/<path:mode>/feed-<int:feed_id>.xml', type='http', auth='user', website=True)
+    @http.route('/google-merchant/<path:mode>/feed-<int:feed_id>.xml', type='http', auth='public', website=True)
     def export_feeds(self, mode, feed_id):
         attachment = request.env['ir.attachment']
         view = request.env['ir.ui.view']
@@ -83,7 +83,16 @@ class ExportFeeds(http.Controller):
             })
 
         # Add products to the XML file
-        products = feed.product_ids
+        if feed.export_all:
+            domain = [('website_published', '=', True),
+                      ('list_price', '>', '0'),
+                      ('description_short', '!=', ''),
+                      ('sale_ok', '=', True),
+                      ('image', '!=', '')]
+            products = request.env['product.template'].sudo().search(domain)
+        else:
+            products = feed.product_ids
+
         for res in products:
             values += new_feed(res)
 

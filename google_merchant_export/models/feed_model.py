@@ -4,6 +4,12 @@
 
 from odoo import api, fields, models, _
 
+PROD_DOMAIN = [('website_published', '=', True),
+               ('list_price', '>', '0'),
+               ('description_short', '!=', ''),
+               ('sale_ok', '=', True),
+               ('image', '!=', '')]
+
 
 class FeedExport(models.Model):
     _name = 'google_merchant_export.feed'
@@ -13,13 +19,8 @@ class FeedExport(models.Model):
     note = fields.Html(string=_("Help description (only for admin-users)"))
     link = fields.Char(string=_("URL of XML file"), compute='_set_export_feed_url')
     link_down = fields.Char(string=_("Download URL"), compute='_set_export_feed_url')
-    product_ids = fields.Many2many('product.template', string=_("Products to add"),
-                                   domain=['&',
-                                           ('website_published', '=', True),
-                                           ('list_price', '>', '0'),
-                                           ('description_short', '!=', ''),
-                                           ('sale_ok', '=', True),
-                                           ('image', '!=', '')])
+    export_all = fields.Boolean(string=_("Export all products"))
+    product_ids = fields.Many2many('product.template', string=_("Products to add"), domain=PROD_DOMAIN)
     category_ids = fields.Many2many('product.public.category', string=_("Product categories to add"))
     total = fields.Integer(string=_("Products total"), compute='_set_total')
 
@@ -43,14 +44,8 @@ class FeedExport(models.Model):
             # Add products of categories to the list
             categories = feed.category_ids
             if categories:
-                domain = ['&',
-                          ('website_published', '=', True),
-                          ('list_price', '>', '0'),
-                          ('description_short', '!=', ''),
-                          ('sale_ok', '=', True),
-                          ('image', '!=', ''),
-                          ('public_categ_ids', 'in', categories.ids)
-                          ]
+                domain = PROD_DOMAIN
+                domain += ('public_categ_ids', 'in', categories.ids)
                 products = self.env['product.template'].search(domain)
                 prod_list.extend(products.ids)
 
@@ -63,7 +58,10 @@ class FeedExport(models.Model):
     def _set_total(self):
         for feed in self:
             # Set total number of products
-            feed.total = len(feed.product_ids)
+            if feed.export_all:
+                feed.total = self.env['product.template'].search_count(PROD_DOMAIN)
+            else:
+                feed.total = len(feed.product_ids)
 
     def open_feed(self):
         return {

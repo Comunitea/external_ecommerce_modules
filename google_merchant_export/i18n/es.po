@@ -21,28 +21,28 @@ msgid "Download"
 msgstr "Descargar"
 
 #. module: google_merchant_export
-#: code:addons/google_merchant_export/models/feed_model.py:15
+#: code:addons/google_merchant_export/models/feed_model.py:21
 #: model:ir.model.fields,field_description:google_merchant_export.field_google_merchant_export_feed_link_down
 #, python-format
 msgid "Download URL"
 msgstr "Enlace para descargar"
 
 #. module: google_merchant_export
-#: code:addons/google_merchant_export/models/feed_model.py:12
+#: code:addons/google_merchant_export/models/feed_model.py:18
 #: model:ir.model.fields,field_description:google_merchant_export.field_google_merchant_export_feed_author
 #, python-format
 msgid "Feed author:"
 msgstr "Autor de Feed:"
 
 #. module: google_merchant_export
-#: code:addons/google_merchant_export/models/feed_model.py:13
+#: code:addons/google_merchant_export/models/feed_model.py:19
 #: model:ir.model.fields,field_description:google_merchant_export.field_google_merchant_export_feed_note
 #, python-format
 msgid "Help description (only for admin-users)"
 msgstr "Descripción técnica (solo para los usuarios admin)"
 
 #. module: google_merchant_export
-#: code:addons/google_merchant_export/models/feed_model.py:11
+#: code:addons/google_merchant_export/models/feed_model.py:17
 #: model:ir.model.fields,field_description:google_merchant_export.field_google_merchant_export_feed_name
 #, python-format
 msgid "Name"
@@ -59,21 +59,21 @@ msgid "Product Template"
 msgstr "Plantilla de producto"
 
 #. module: google_merchant_export
-#: code:addons/google_merchant_export/models/feed_model.py:23
+#: code:addons/google_merchant_export/models/feed_model.py:24
 #: model:ir.model.fields,field_description:google_merchant_export.field_google_merchant_export_feed_category_ids
 #, python-format
 msgid "Product categories to add"
 msgstr "Categorías para añadir"
 
 #. module: google_merchant_export
-#: code:addons/google_merchant_export/models/feed_model.py:16
+#: code:addons/google_merchant_export/models/feed_model.py:23
 #: model:ir.model.fields,field_description:google_merchant_export.field_google_merchant_export_feed_product_ids
 #, python-format
 msgid "Products to add"
 msgstr "Productos para añadir"
 
 #. module: google_merchant_export
-#: code:addons/google_merchant_export/models/feed_model.py:24
+#: code:addons/google_merchant_export/models/feed_model.py:25
 #: model:ir.model.fields,field_description:google_merchant_export.field_google_merchant_export_feed_total
 #, python-format
 msgid "Products total"
@@ -85,7 +85,12 @@ msgid "Total:"
 msgstr "Total:"
 
 #. module: google_merchant_export
-#: code:addons/google_merchant_export/models/feed_model.py:14
+#: model:ir.ui.view,arch_db:google_merchant_export.export_feed_form
+msgid "</span> products</h4>"
+msgstr "</span> productos</h4>"
+
+#. module: google_merchant_export
+#: code:addons/google_merchant_export/models/feed_model.py:20
 #: model:ir.model.fields,field_description:google_merchant_export.field_google_merchant_export_feed_link
 #, python-format
 msgid "URL of XML file"
@@ -95,3 +100,15 @@ msgstr "URL de archivo XML"
 #: model:ir.ui.view,arch_db:google_merchant_export.export_feed_form
 msgid "XML file:"
 msgstr "Archivo XML:"
+
+#. module: google_merchant_export
+#: model:ir.ui.view,arch_db:google_merchant_export.export_feed_form
+msgid "Export all products published on the web that have the required fields covered."
+msgstr "Exportar todos los productos publicados en la web que tengan los campos requeridos cubiertos."
+
+#. module: google_merchant_export
+#: code:addons/google_merchant_export/models/feed_model.py:22
+#: model:ir.model.fields,field_description:google_merchant_export.field_google_merchant_export_feed_export_all
+#, python-format
+msgid "Export all products"
+msgstr "Exportar todos los productos"

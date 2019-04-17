@@ -40,11 +40,17 @@
                     </div>
                     <div class="row mb16">
                         <div class="col-md-10 col-sm-12">
+                            <field name="export_all"/><label for="export_all"/>
+                            <p class="text-muted ml4">Export all products published on the web that have the required fields covered.</p>
+                        </div>
+                    </div>
+                     <div class="row mb16" attrs="{'invisible': [('export_all', '=', True)]}">
+                        <div class="col-md-10 col-sm-12">
                             <label for="category_ids" class="mb8"/>
                             <field name="category_ids" widget="many2many_tags" options="{'no_open': True, 'create': false, 'create_edit': false}"/>
                         </div>
                     </div>
-                    <div class="row mb16">
+                    <div class="row mb16" attrs="{'invisible': [('export_all', '=', True)]}">
                         <div class="col-md-10 col-sm-12">
                             <label for="product_ids" class="mb8"/>
                             <field name="product_ids" widget="many2many_tags" options="{'no_open': True, 'create': false, 'create_edit': false}"/>
