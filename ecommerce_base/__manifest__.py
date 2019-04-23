@@ -48,7 +48,7 @@
         'website_sale_management',
         'website_sale_stock',
         'website_sale_stock_options',
-        'website_sale_comparison',
+        # 'website_sale_comparison',  # Translations Problems with website_multi_theme. Add in another manifest.
         # 'website_sale_product_brand',
         'website_sale_wishlist',
         'website_sale_delivery',
