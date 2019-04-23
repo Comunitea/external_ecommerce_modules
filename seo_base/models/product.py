@@ -61,7 +61,8 @@ class ProductMeta(models.Model):
                     'slug': record._slug_validation(has_slug)
                 })
             # Write
-            return super(ProductMeta, record).write(values)
+            super(ProductMeta, record).write(values)
+        return True
 
     @api.model
     def create(self, values):
