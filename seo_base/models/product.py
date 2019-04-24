@@ -62,6 +62,7 @@ class ProductMeta(models.Model):
                 })
             # Write
             super(ProductMeta, record).write(values)
+            values.pop('slug')
         return True
 
     @api.model
