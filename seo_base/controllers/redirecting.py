@@ -19,6 +19,12 @@ class CategoryRedirect(WebsiteSale):
         '/shop/brands'
     ], type='http', auth='public', website=True)
     def shop(self, page=0, category=None, brand=None, search='', ppg=False, **post):
+
+        # Prevent search box inside category
+        if search and category:
+            return request.redirect("/shop?search=%s" % search)
+
+        # If not search box
         if category and category.slug:
             route = '/category/%s/page/%d' % (category.slug, page) if page else '/category/%s' % category.slug
             return http.local_redirect(
