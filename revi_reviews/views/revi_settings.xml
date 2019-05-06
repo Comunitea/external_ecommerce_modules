@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="revi_reviews_settings_form" model="ir.ui.view">
+        <field name="name">Revi API settings</field>
+        <field name="model">revi_reviews.settings</field>
+        <field name="arch" type="xml">
+            <form string="Revi API settings" class="oe_form_configuration o_base_settings">
+                <div class="o_control_panel">
+                    <div class="o_panel">
+                        <div class="title h2 mb0 mt4 mr8 text-muted hidden-xs">Revi API settings</div>
+                    </div>
+                    <header>
+                        <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                        <button string="Cancel" type="object" name="cancel" class="oe_link" special="cancel"/>
+                    </header>
+                </div>
+                <div class="mr32 ml16">
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-xs-12 col-md-4 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <div class="row mb16">
+                                    <label class="col-md-4" string="Current website"/>
+                                    <div class="col-md-7">
+                                        <field name="website_id" readonly="1"/>
+                                    </div>
+                                </div>
+                                <div class="row mb16">
+                                    <label class="col-md-4" for="revi_api_key"/>
+                                    <div class="col-md-7">
+                                        <field name="revi_api_key" required="True"/>
+                                    </div>
+                                </div>
+                                <div class="row mb8">
+                                    <label class="col-md-4" for="revi_def_state"/>
+                                    <div class="col-md-7">
+                                        <field name="revi_def_state" widget="radio"/>
+                                    </div>
+                                </div>
+                                <div class="row mb16">
+                                    <div class="col-md-12">
+                                        <field name="revi_send_back"/>
+                                        <label for="revi_send_back"/>
+                                    </div>
+                                    <div class="col-md-12 text-muted ml4">Send opinion mails from back-end part</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="revi_reviews_settings_action" model="ir.actions.act_window">
+        <field name="name">Revi API settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">revi_reviews.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+    </record>
+
+</odoo>
