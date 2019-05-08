@@ -1,0 +1,181 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* revi_reviews
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-08 11:01+0000\n"
+"PO-Revision-Date: 2019-05-08 11:01+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: revi_reviews
+#: model:ir.ui.menu,name:revi_reviews.revi_reviews_settings
+msgid "API Settings"
+msgstr "Configuración API"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/sale_order.py:21
+#: selection:sale.order,revi_state:0
+#, python-format
+msgid "Already sent"
+msgstr "Ya fue enviado"
+
+#. module: revi_reviews
+#: model:ir.ui.view,arch_db:revi_reviews.revi_reviews_settings_form
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/website.py:17
+#: model:ir.model.fields,field_description:revi_reviews.field_revi_reviews_settings_revi_auto_send
+#: model:ir.model.fields,field_description:revi_reviews.field_website_revi_auto_send
+#, python-format
+msgid "Automatic sending of invitation emails"
+msgstr "Envío automatico de correos con invitación"
+
+#. module: revi_reviews
+#: model:ir.ui.view,arch_db:revi_reviews.revi_reviews_settings_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: revi_reviews
+#: model:ir.ui.view,arch_db:revi_reviews.revi_reviews_settings_form
+msgid "Current website"
+msgstr "Sitio web"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/sale_order.py:18
+#: selection:sale.order,revi_state:0
+#, python-format
+msgid "Don't send"
+msgstr "No enviar"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/website.py:13
+#: selection:website,revi_def_state:0
+#, python-format
+msgid "Don't send"
+msgstr "No enviar"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/sale_order.py:20
+#: selection:sale.order,revi_state:0
+#, python-format
+msgid "Error of send"
+msgstr "Error de enviar"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/sale_order.py:22
+#: model:ir.model.fields,field_description:revi_reviews.field_sale_order_revi_state
+#, python-format
+msgid "Opinion state"
+msgstr "Estado de opinión"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/website.py:15
+#: model:ir.model.fields,field_description:revi_reviews.field_revi_reviews_settings_revi_def_state
+#: model:ir.model.fields,field_description:revi_reviews.field_website_revi_def_state
+#, python-format
+msgid "Order state for send opinion mail"
+msgstr "Estado de los pedidos para enviar correos de opinión"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/website.py:14
+#: selection:website,revi_def_state:0
+#, python-format
+msgid "Pending"
+msgstr "Presupuesto enviado"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/website.py:11
+#: model:ir.model.fields,field_description:revi_reviews.field_revi_reviews_settings_revi_api_key
+#: model:ir.model.fields,field_description:revi_reviews.field_website_revi_api_key
+#, python-format
+msgid "Revi API key"
+msgstr "Clave Revi API"
+
+#. module: revi_reviews
+#: model:ir.actions.act_window,name:revi_reviews.revi_reviews_settings_action
+#: model:ir.ui.view,arch_db:revi_reviews.revi_reviews_settings_form
+msgid "Revi API settings"
+msgstr "Ajustes Revi API"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/sale_order.py:22
+#: model:ir.model.fields,help:revi_reviews.field_sale_order_revi_state
+#, python-format
+msgid "Revi mail state for this order"
+msgstr "Estado de datos de Revi para este pedido"
+
+#. module: revi_reviews
+#: model:ir.ui.menu,name:revi_reviews.revi_reviews_parent
+#: model:ir.ui.view,arch_db:revi_reviews.revi_reviews_sale_order_form_view
+msgid "Revi reviews"
+msgstr "Revi reviews"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/website.py:15
+#: selection:website,revi_def_state:0
+#, python-format
+msgid "Sale"
+msgstr "Pedido de venta"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/res_partner.py:12
+#: model:ir.model.fields,help:revi_reviews.field_res_partner_revi_use
+#: model:ir.model.fields,help:revi_reviews.field_res_users_revi_use
+#, python-format
+msgid "Send a Revi opinion mail to the current user when he making a purchase"
+msgstr "Enviar correo de opinión de Revi para este usuario cando el hace una compra"
+
+#. module: revi_reviews
+#: model:ir.ui.view,arch_db:revi_reviews.revi_reviews_settings_form
+msgid "Send opinion mails from back-end part"
+msgstr "Enviar correos de Revi también para los pedidos formados en back-end"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/res_partner.py:11
+#: model:ir.model.fields,field_description:revi_reviews.field_res_partner_revi_use
+#: model:ir.model.fields,field_description:revi_reviews.field_res_users_revi_use
+#, python-format
+msgid "Sent Revi mails"
+msgstr "Enviar correos de Revi"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/sale_order.py:16
+#: model:ir.model.fields,field_description:revi_reviews.field_sale_order_revi_use
+#, python-format
+msgid "Use Revi service"
+msgstr "Usar servicio Revi"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/website.py:16
+#: model:ir.model.fields,field_description:revi_reviews.field_revi_reviews_settings_revi_send_back
+#: model:ir.model.fields,field_description:revi_reviews.field_website_revi_send_back
+#, python-format
+msgid "Use back-end"
+msgstr "Usar para pedidos back-end"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/sale_order.py:19
+#: selection:sale.order,revi_state:0
+#, python-format
+msgid "Waiting for send"
+msgstr "Esperando para enviar"
+
+#. module: revi_reviews
+#: model:ir.model,name:revi_reviews.model_website
+msgid "Website"
+msgstr "Sitio web"
+
+#. module: revi_reviews
+#: model:ir.ui.view,arch_db:revi_reviews.revi_reviews_settings_form
+msgid "You can send invitation emails from the Revi control panel manually or do it automatically"
+msgstr "Puede enviar correos electrónicos de invitación desde el panel de control de Revi manualmente o hacerlo automáticamente"

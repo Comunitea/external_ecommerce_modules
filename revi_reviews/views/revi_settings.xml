@@ -39,6 +39,13 @@
                                 </div>
                                 <div class="row mb16">
                                     <div class="col-md-12">
+                                        <field name="revi_auto_send"/>
+                                        <label for="revi_auto_send"/>
+                                    </div>
+                                    <div class="col-md-12 text-muted ml4">You can send invitation emails from the Revi control panel manually or do it automatically</div>
+                                </div>
+                                <div class="row mb16">
+                                    <div class="col-md-12">
                                         <field name="revi_send_back"/>
                                         <label for="revi_send_back"/>
                                     </div>

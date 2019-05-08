@@ -9,4 +9,4 @@ class Partner(models.Model):
     _inherit = "res.partner"
 
     revi_use = fields.Boolean(string=_("Sent Revi mails"), default=True,
-                              help=_("Send an Revi opinion mail to the current user when making a purchase"))
+                              help=_("Send a Revi opinion mail to the current user when he making a purchase"))
