@@ -22,8 +22,11 @@ class ProductMeta(models.Model):
 
     def _slug_validation(self, value):
         # Set current website
-        host = request.httprequest.host.split(':')[0]
-        website = self.env['website'].search([('domain', '=ilike', host)])
+        domain = []
+        host = request and request.httprequest.host.split(':')[0]
+        if host:
+            domain = [('domain', '=ilike', host)]
+        website = self.env['website'].search(domain, limit=1)
 
         # Unicode validation
         uni = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')

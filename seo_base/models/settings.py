@@ -6,8 +6,11 @@ from odoo.exceptions import ValidationError
 
 
 def _default_website(self):
-    host = request.httprequest.host.split(':')[0]
-    website = self.env['website'].search([('domain', '=ilike', host)], limit=1)
+    domain = []
+    host = request and request.httprequest.host.split(':')[0]
+    if host:
+        domain = [('domain', '=ilike', host)]
+    website = self.env['website'].search(domain, limit=1)
     if not website:
         website = self.env['website'].search([], limit=1)
     return website
