@@ -11,9 +11,9 @@ Integration with Revi reviews service
 
 This module adds integration with Revi API.
 
-
-**NEED really module description!**
-
+* Send order data to your Revi control panel
+* Send data of products in order to Revi
+* Get product review info from your Revi account
 
 Author
 ------
