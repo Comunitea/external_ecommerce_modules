@@ -65,9 +65,11 @@ class DoofinderFeed(Website):
 
             # Price control
             price = 'N/D'
+            discount_price = ''
             if not prod.hide_website_price:
                 if prod.website_public_price - prod.website_price > 0.01 and prod.pricelist_id.discount_policy == 'with_discount':
                     price = prod.website_public_price
+                    discount_price = prod.website_price
                 else:
                     price = prod.website_price
 
@@ -89,7 +91,7 @@ class DoofinderFeed(Website):
                 # 'extra_title_2': '',  # X_x
                 'tags': get_tags(prod.tag_ids) if prod.tag_ids else '',
                 'price': price,  # prod.list_price or '', #  price has price control, list_price has not
-                # 'sale_price': '',  # X_x
+                'sale_price': discount_price,
             }
             # Delete spaces and line breaks
             feed_content += re.sub("^\s+|\n|\r|\s+$", '', create_line(values))
