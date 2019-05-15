@@ -67,7 +67,7 @@ class DoofinderFeed(Website):
             price = 'N/D'
             discount_price = ''
             if not prod.hide_website_price:
-                if prod.website_public_price - prod.website_price > 0.01 and prod.pricelist_id.discount_policy == 'with_discount':
+                if prod.website_public_price - prod.website_price > 0.01:
                     price = prod.website_public_price
                     discount_price = prod.website_price
                 else:
