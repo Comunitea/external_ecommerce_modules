@@ -11,6 +11,7 @@ class CategoryRedirect(WebsiteSale):
     """
     ECommerce category redirecting from custom Odoo URL to new friendly URL en base of SLUG field.
     """
+
     @http.route([
         '/shop',
         '/shop/page/<int:page>',
@@ -40,14 +41,15 @@ class CategoryRedirect(WebsiteSale):
         return super(CategoryRedirect, self).shop(page=page, category=category, brand=brand, search=search, ppg=ppg,
                                                   **post)
 
-    """
-    Search the eCommerce category en base of new SLUG URL.
-    """
     @http.route([
         '/category/<path:path>',
         '/category/<path:path>/page/<int:page>'
     ], type='http', auth='public', website=True)
     def _shop(self, path, page=0, category=None, search='', ppg=False, **post):
+        """
+        Search the eCommerce category en base of new SLUG URL.
+        """
+
         cat_list = request.env['product.public.category']
         category = cat_list.sudo().search([('slug', '=', path)], limit=1)
         if category:
@@ -61,8 +63,24 @@ class ProductRedirect(WebsiteSale):
     """
     Product redirecting from custom Odoo URL to new friendly URL en base of SLUG field.
     """
+
+    def _update_context(self):
+        """
+        Update request.env.context to keep in redirections and super calls
+        """
+        context = dict(request.env.context)
+        context.update({
+            # Show product stock by website warehouse
+            'warehouse': request.website.warehouse.id
+        })
+        request.env.context = context
+        return
+
     @http.route(['/shop/product/<model("product.template"):product>'], type='http', auth="public", website=True)
     def product(self, product, category='', search='', **kwargs):
+        """
+        Template render on whether or not there is slug url and context updated by website warehouse
+        """
         if product.slug:
             return http.local_redirect(
                 '/product/%s' % product.slug,
@@ -70,13 +88,18 @@ class ProductRedirect(WebsiteSale):
                 True,
                 code='301'
             )
+
+        self._update_context()
         return super(ProductRedirect, self).product(product=product, category=category, search=search, **kwargs)
 
-    """
-    Search the product en base of new SLUG URL
-    """
     @http.route('/product/<path:path>', type='http', auth="public", website=True)
     def slug_product(self, path, category='', search='', **kwargs):
+        """
+        Template render by SLUG URL and context updated by website warehouse
+
+        :return: the standard template with normal user permissions if the product exists else 404
+        """
+
         prod_list = request.env['product.template']
 
         # Search with user permissions
@@ -85,11 +108,8 @@ class ProductRedirect(WebsiteSale):
         # Search without user permissions
         product_sudo = prod_list.sudo().search([('slug', '=', path)], limit=1)
 
-        """
-        If the product exists (it is not important if the user has access to this product) 
-        return the standard template with normal user permissions.
-        """
         if product_sudo:
+            self._update_context()
             return super(ProductRedirect, self).product(product=product, category=category, search=search, **kwargs)
         else:
             return request.env['ir.http'].reroute('/404')
