@@ -30,6 +30,9 @@ class ProductTemplate(models.Model):
             if hello_call.status_code and hello_call.status_code in [200, 201]:
                 response = hello_call.json().get('data')
                 if response:
-                    avg_rating = response['product']['avg_rating']
+                    avg_rating = int(response['product']['avg_rating'])
+                    num_ratings = int(response['product']['num_ratings'])
+                    if num_ratings < 1:
+                        avg_rating = 0
 
             return avg_rating
