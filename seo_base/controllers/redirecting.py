@@ -26,7 +26,8 @@ class CategoryRedirect(WebsiteSale):
             return request.redirect("/shop?search=%s" % search)
 
         # If category is digit (in order_by parameter)
-        if category and category.isdigit():
+        order = post.get('order', False)
+        if order and category.isdigit():
             category = request.env['product.public.category'].sudo().search([('id', '=', category)])
 
         # If not search box
@@ -34,7 +35,7 @@ class CategoryRedirect(WebsiteSale):
             route = '/category/%s/page/%d' % (category.slug, page) if page else '/category/%s' % category.slug
             return http.local_redirect(
                 route,
-                dict(http.request.httprequest.args),
+                http.request.httprequest.args,
                 True,
                 code='301'
             )
