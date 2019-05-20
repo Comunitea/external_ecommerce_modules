@@ -26,8 +26,9 @@ class CategoryRedirect(WebsiteSale):
             return request.redirect("/shop?search=%s" % search)
 
         # If category is digit (in order_by parameter)
+        import ipdb;ipdb.set_trace()
         order = post.get('order', False)
-        if order and category.isdigit():
+        if order and isinstance(category, str):
             category = request.env['product.public.category'].sudo().search([('id', '=', category)])
 
         # If not search box
