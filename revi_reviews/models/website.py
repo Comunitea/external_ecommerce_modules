@@ -11,7 +11,6 @@ class Website(models.Model):
     revi_api_key = fields.Char(string=_("Revi API key"))
     revi_def_state = fields.Selection([
         ('skip', _("Don't send")),
-        ('sent', _("Pending")),
-        ('sale', _("Sale"))], string=_("Order state for send opinion mail"), default='sale')
-    revi_send_back = fields.Boolean(string=_("Use back-end"))
+        ('open', _("Open invoice"))], string=_("State for send data to Revi"), default='skip')
+    # revi_send_back = fields.Boolean(string=_("Use back-end"))
     revi_auto_send = fields.Boolean(string=_("Automatic sending of invitation emails"), default=False)

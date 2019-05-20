@@ -44,7 +44,8 @@
     'data': [
         'views/revi_settings.xml',
         'views/revi_menu.xml',
-        'views/sale_order.xml',
+        'views/account_invoice.xml',
+        # 'views/sale_order.xml',
         'views/res_partner.xml'
     ],
     'images': [
