@@ -22,7 +22,7 @@ class ProductTemplate(models.Model):
             }
 
             # Set API URL with product id
-            revi_product_info = 'https://test.revi.io/api/v1/product_info?id_product=%d' % self.id
+            revi_product_info = 'https://revi.io/api/v1/product_info?id_product=%d' % self.id
 
             # Post call to Revi
             hello_call = requests.get(revi_product_info, headers=headers)
@@ -31,5 +31,8 @@ class ProductTemplate(models.Model):
                 response = hello_call.json().get('data')
                 if response:
                     avg_rating = response['product']['avg_rating']
+                    num_ratings = int(response['product']['num_ratings'])
+                    if num_ratings < 1:
+                        avg_rating = 0
 
             return avg_rating

@@ -42,8 +42,13 @@
                                         <field name="revi_auto_send"/>
                                         <label for="revi_auto_send"/>
                                     </div>
-                                    <div class="col-md-12 text-muted ml4">You can send invitation emails from the Revi control panel manually or do it automatically</div>
+                                    <div class="col-md-12 text-muted ml4">
+                                        The data is always sent to the Revi panel automatically.<br/>
+                                        You can also send the opinion mails automatically. <br/>
+                                        If this option is inactive, the mails will be send manually from the Revi panel.
+                                    </div>
                                 </div>
+                                <!--
                                 <div class="row mb16">
                                     <div class="col-md-12">
                                         <field name="revi_send_back"/>
@@ -51,6 +56,7 @@
                                     </div>
                                     <div class="col-md-12 text-muted ml4">Send opinion mails from back-end part</div>
                                 </div>
+                                -->
                             </div>
                         </div>
                     </div>

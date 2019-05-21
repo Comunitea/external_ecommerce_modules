@@ -4,7 +4,7 @@
 <!-- ATTENTION: all lines should not have tabulation -->
 
 <!-- id|title|link|description|alternate_description|meta_keywords|meta_title|meta_description|image_link|categories|availability|brand|mpn|extra_title_1|extra_title_2|tags|price|sale_price -->
-<template id="feed_wrap">id|title|link|description|image_link|categories|availability|mpn|tags|price
+<template id="feed_wrap">id|title|link|description|image_link|categories|availability|mpn|tags|price|sale_price
 <t t-raw="content"/>
 </template>
 
@@ -18,7 +18,8 @@
 <t t-esc="values['availability']"/>|
 <t t-esc="values['mpn']"/>|
 <t t-esc="values['tags']"/>|
-<t t-esc="values['price']"/>
+<t t-esc="values['price']"/>|
+<t t-esc="values['sale_price']"/>
 </template>
 
 <!--<template id="feed_line">
