@@ -27,6 +27,7 @@ class ProductTemplate(models.Model):
             # Post call to Revi
             hello_call = requests.get(revi_product_info, headers=headers)
 
+            rating = {}
             if hello_call.status_code and hello_call.status_code in [200, 201]:
                 response = hello_call.json().get('data')
                 if response:
@@ -34,6 +35,7 @@ class ProductTemplate(models.Model):
                     num_ratings = int(response['product']['num_ratings'])
                     if num_ratings < 1:
                         avg_rating = 0
+                        plural = False
                     else:
                         plural = False if num_ratings in [1, 11, 21, 31, 41, 51, 61, 71, 81, 91] else True
 
