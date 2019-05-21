@@ -15,7 +15,7 @@
                 fbq('track', 'PageView');
             </script>
             <noscript t-if="website and website.facebook_pixel_key and not editable">
-                <img height="1" width="1" src="https://www.facebook.com/tr?id={{ website.facebook_pixel_key }}&amp;ev=PageView&amp;noscript=1"/>
+                <img height="1" width="1" t-attf-src="https://www.facebook.com/tr?id={{ website.facebook_pixel_key }}&amp;ev=PageView&amp;noscript=1" />
             </noscript>
             <!-- End Facebook Pixel Code -->
         </xpath>
