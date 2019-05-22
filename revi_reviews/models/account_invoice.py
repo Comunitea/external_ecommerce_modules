@@ -74,6 +74,10 @@ class AccountInvoice(models.Model):
             if revi_state not in ['skip', 'sent']:
                 next_step = True
 
+            # Send only for customer invoice
+            if res.type != 'out_invoice':
+                next_step = False
+
             if next_step and res.revi_use and partner.revi_use and partner.email:
                 next_step = True
             else:
