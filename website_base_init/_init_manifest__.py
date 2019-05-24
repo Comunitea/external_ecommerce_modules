@@ -45,7 +45,7 @@
         'website_blog_base',
         'breadcrumbs_base_blog',
         # Only if Newsletter
-        'mass_mailing',
+        'follow_us_base',
         # Only if need custom forms
         'website_form_builder',
     ],
