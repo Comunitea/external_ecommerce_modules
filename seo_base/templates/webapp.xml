@@ -2,48 +2,50 @@
 <odoo>
 
     <!-- Manifest.json template -->
-    <template id="web_app_manifest_template" name="Manifest.json template">{
-        "short_name": "<t t-raw="values['short_name']"/>",
-        "name": "<t t-raw="values['name']"/>",
-        "description": "<t t-raw="values['description']"/>",
-        "icons": [
-            {
-                "src": "/web/image/<t t-raw="values['icon_id']"/>/48x48",
-                "type": "image/png",
-                "sizes": "48x48"
-            },
-            {
-                "src": "/web/image/<t t-raw="values['icon_id']"/>/72x72",
-                "type": "image/png",
-                "sizes": "72x72"
-            },
-            {
-                "src": "/web/image/<t t-raw="values['icon_id']"/>/96x96",
-                "type": "image/png",
-                "sizes": "96x96"
-            },
-            {
-                "src": "/web/image/<t t-raw="values['icon_id']"/>/144x144",
-                "type": "image/png",
-                "sizes": "144x144"
-            },
-            {
-                "src": "/web/image/<t t-raw="values['icon_id']"/>/192x192",
-                "type": "image/png",
-                "sizes": "192x192"
-            },
-            {
-                "src": "/web/image/<t t-raw="values['icon_id']"/>/512x512",
-                "type": "image/png",
-                "sizes": "512x512"
-            }
-        ],
-        "start_url": "<t t-raw="values['start_url']"/>",
-        "background_color": "<t t-raw="values['background_color']"/>",
-        "theme_color": "<t t-raw="values['theme_color']"/>",
-        "display": "<t t-raw="values['display']"/>",
-        "lang": "<t t-raw="values['lang']"/>"<t t-raw="values['content']"/>
-    }</template>
+    <template id="web_app_manifest_template" name="Manifest.json template">
+        {
+            "short_name": "<t t-raw="values['short_name']"/>",
+            "name": "<t t-raw="values['name']"/>",
+            "description": "<t t-raw="values['description']"/>",
+            "icons": [
+                {
+                    "src": "/web/image/<t t-raw="values['icon_id']"/>/48x48",
+                    "type": "image/png",
+                    "sizes": "48x48"
+                },
+                {
+                    "src": "/web/image/<t t-raw="values['icon_id']"/>/72x72",
+                    "type": "image/png",
+                    "sizes": "72x72"
+                },
+                {
+                    "src": "/web/image/<t t-raw="values['icon_id']"/>/96x96",
+                    "type": "image/png",
+                    "sizes": "96x96"
+                },
+                {
+                    "src": "/web/image/<t t-raw="values['icon_id']"/>/144x144",
+                    "type": "image/png",
+                    "sizes": "144x144"
+                },
+                {
+                    "src": "/web/image/<t t-raw="values['icon_id']"/>/192x192",
+                    "type": "image/png",
+                    "sizes": "192x192"
+                },
+                {
+                    "src": "/web/image/<t t-raw="values['icon_id']"/>/512x512",
+                    "type": "image/png",
+                    "sizes": "512x512"
+                }
+            ],
+            "start_url": "<t t-raw="values['start_url']"/>",
+            "background_color": "<t t-raw="values['background_color']"/>",
+            "theme_color": "<t t-raw="values['theme_color']"/>",
+            "display": "<t t-raw="values['display']"/>",
+            "lang": "<t t-raw="values['lang']"/>"<t t-raw="values['content']"/>
+        }
+    </template>
 
     <!-- Set manifest.json link into the head -->
     <template id="website_layout_manifest_add" inherit_id="website.layout">
@@ -99,7 +101,8 @@
                                 console.log("Service Worker unregistered");
                             </t>
                             });
-                    </t>}
+                    </t>
+                    }
                 });
             </script>
         </xpath>

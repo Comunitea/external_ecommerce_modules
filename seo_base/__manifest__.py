@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# © 2018 Comunitea
-# Pavel Smirnov <pavel@comunitea.com>
-# Rubén Seijas <ruben@comunitea.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+# See README.rst file on addon root folder for more details
 #
 ##############################################################################
 #
@@ -26,17 +24,19 @@
 ##############################################################################
 
 {
-    'name': 'SEO base module',
-    'version': '1.0',
-    'summary': 'Website base module for SEO optimization',
-    'description': '',
+    'name': 'SEO Base',
+    'version': '11.0.1.0.0',
+    'summary': 'Website with basic functions for SEO optimization. \
+        This module contains several configurations for different optimizations on the website. \
+        It is compatible with the multi-website modules.',
     'category': 'Website',
-    'author': 'Comunitea',
-    'website': 'http://www.comunitea.com',
+    'author': 'Comunitea, ' 'Odoo Community Association (OCA)',
+    'website': 'https://github.com/OCA/website',
     'license': 'AGPL-3',
     'contributors': [
         'Pavel Smirnov <pavel@comunitea.com>',
         'Rubén Seijas <ruben@comunitea.com>',
+        'Juan Vázquez Moreno <vmjuan90@gmail.com>',
     ],
     'depends': [
         'website',
@@ -59,8 +59,6 @@
     ],
     'images': [
         '/static/description/icon.png',
-    ],
-    'qweb': [
     ],
     'installable': True,
     'application': True,

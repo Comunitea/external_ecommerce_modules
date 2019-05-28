@@ -5,6 +5,7 @@
         <field name="name">Seo base product meta fields</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="priority">110</field>
         <field name="arch" type="xml">
             <xpath expr="//notebook[last()]" position="inside">
                 <page string="Website SEO">
@@ -24,6 +25,7 @@
                     </group>
                 </page>
             </xpath>
+            <!-- It is necessary to be replace -->
             <xpath expr="//group[@name='description_internal']" position="replace"/>
         </field>
     </record>

@@ -115,6 +115,7 @@
             </form>
         </field>
     </record>
+
     <record id="sitemap_base_settings" model="ir.actions.act_window">
         <field name="name">Sitemap settings</field>
         <field name="type">ir.actions.act_window</field>
@@ -122,6 +123,7 @@
         <field name="view_mode">form</field>
         <field name="target">inline</field>
     </record>
+
     <!-- Robots.txt part -->
     <record id="robots_txt_settings_form" model="ir.ui.view">
         <field name="name">Robots.txt base module settings</field>
@@ -166,6 +168,7 @@
             </form>
         </field>
     </record>
+
     <record id="robots_txt_settings" model="ir.actions.act_window">
         <field name="name">Robots.txt settings</field>
         <field name="type">ir.actions.act_window</field>
@@ -173,6 +176,7 @@
         <field name="view_mode">form</field>
         <field name="target">inline</field>
     </record>
+
     <!-- General part -->
     <record id="seo_general_settings_form" model="ir.ui.view">
         <field name="name">General SEO base module settings</field>
@@ -221,6 +225,7 @@
             </form>
         </field>
     </record>
+
     <record id="seo_general_settings" model="ir.actions.act_window">
         <field name="name">General SEO settings</field>
         <field name="type">ir.actions.act_window</field>
@@ -228,6 +233,7 @@
         <field name="view_mode">form</field>
         <field name="target">inline</field>
     </record>
+
     <!-- Web app part -->
      <record id="web_app_settings_form" model="ir.ui.view">
         <field name="name">Progressive WEB APP settings</field>
@@ -357,6 +363,7 @@
             </form>
         </field>
      </record>
+
     <record id="web_app_settings" model="ir.actions.act_window">
         <field name="name">Progressive WEB APP settings</field>
         <field name="type">ir.actions.act_window</field>

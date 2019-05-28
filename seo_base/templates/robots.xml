@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-<template id="robots_txt_wrap" name="Robots.txt template">
-<t t-raw="content"/>
-</template>
+    <template id="robots_txt_wrap" name="Robots.txt template">
+        <t t-raw="content"/>
+    </template>
 
 </odoo>

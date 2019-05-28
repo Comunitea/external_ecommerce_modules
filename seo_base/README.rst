@@ -2,16 +2,21 @@
    :alt: License: AGPL-3
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
 
-===============
-SEO base module
-===============
+========
+SEO Base
+========
 
-Website base module for SEO optimization
-----------------------------------------
+Website with basic functions for SEO optimization
+-------------------------------------------------
 
-This module contains several modules for different optimizations on the website.
+This module contains several configurations for different optimizations on the website.
 
-It is compatible with the multi-website.
+It is compatible with the multi-website modules.
+
+Configuration
+=============
+
+To use this module, see menu "Website > SEO Settings".
 
 Sitemap.xml
 ~~~~~~~~~~~
@@ -90,25 +95,37 @@ Javascript front-end
 
 Move links of Odoo javascript attachments from HEAD to FOOTER for more productivity and faster page loading speed.
 
+Credits
+=======
+
 Author
 ------
 
-Developer: Comunitea, info@comunitea.com
+Developer: Comunitea, Odoo Community Association (OCA).
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Comunitea
-* Pavel Smirnov, pavel@comunitea.com
-* Rubén Seijas, ruben@comunitea.com
+* Pavel Smirnov <pavel@comunitea.com>
+* Rubén Seijas <ruben@comunitea.com>
+* Juan Vázquez Moreno <vmjuan90@gmail.com>
 
 Maintainer
-~~~~~~~~~~
+----------
+.. image:: https://odoo-community.org/logo.png
+   :alt: Odoo Community Association
+   :target: https://odoo-community.org
 
-This module is maintained by the Comunitea http://www.comunitea.com.
+This module is maintained by the OCA.
+
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
+
+To contribute to this module, please visit https://odoo-community.org.
 
 Disclaimer of Warranties
-------------------------
+========================
 
     **Attention!**
 

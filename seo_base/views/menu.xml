@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <menuitem name="SEO settings" id="seo_base_settings" parent="website.menu_website_configuration" sequence="110"/>
+    <menuitem id="seo_base_settings" name="SEO settings" parent="website.menu_website_configuration" sequence="110"/>
         <menuitem name="General" id="seo_general_settings_menu"
                   parent="seo_base_settings" sequence="5" action="seo_general_settings"/>
         <menuitem name="Sitemap.xml" id="sitemap_base_settings_menu"
