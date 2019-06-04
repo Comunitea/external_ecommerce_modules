@@ -39,10 +39,6 @@ class CategoryRedirect(WebsiteSale):
                 True,
                 code='301'
             )
-        if brand:
-            context = dict(request.env.context)
-            context.setdefault('brand_id', int(brand))
-            request.env.context = context
         return super(CategoryRedirect, self).shop(page=page, category=category, brand=brand, search=search, ppg=ppg,
                                                   **post)
 
