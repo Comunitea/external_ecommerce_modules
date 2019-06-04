@@ -36,3 +36,11 @@ Comunitea provides this application without warranty of any kind.
 
 Comunitea does not warrant that the module will meet your requirements;
 that the current application will be uninterrupted, timely, secure, or error-free or that any defects or errors will be corrected.
+
+Credits
+-------
+
+Images
+~~~~~~
+
+* Icons made by Freepik from https://www.flaticon.com is licensed by http://creativecommons.org/licenses/by/3.0/ CC 3.0 BY

@@ -13,6 +13,7 @@
     <!--Add custom scripts-->
     <template id="theme_name_website_assets_editor" inherit_id="website.assets_editor">
         <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/theme_base_init/static/js/main.js" />
             <script type="text/javascript" src="/theme_base_init/static/js/snippet.js" />
         </xpath>
     </template>
