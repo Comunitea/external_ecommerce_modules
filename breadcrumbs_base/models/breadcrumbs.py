@@ -14,22 +14,23 @@ class Crumb(models.Model):
     active = fields.Boolean()
 
 
+def _generate_one(name, url, active):
+    crumb = request.env['breadcrumbs_base.crumb'].sudo()
+    # Find the current crumb element and create it if it doesn't exist
+    exist = crumb.search([('name', '=', name), ('url', '=', url), ('active', '=', active)])
+    if exist:
+        result = exist
+    else:
+        result = crumb.create({'name': name, 'url': url, 'active': active})
+    return result
+
+
 class BreadCrumbs(models.Model):
     _inherit = 'website'
 
     @api.multi
     def generate_breadcrumbs(self, main_object, website):
-        crumb = self.env['breadcrumbs_base.crumb'].sudo()
         breadcrumbs = self.env['breadcrumbs_base.crumb'].sudo()
-
-        def _generate_one(name, url, active):
-            # Search for the current crumb element and create it if it does not exist
-            exist = crumb.search([('name', '=', name), ('url', '=', url), ('active', '=', active)])
-            if exist:
-                result = exist
-            else:
-                result = crumb.create({'name': name, 'url': url, 'active': active})
-            return result
 
         def _get_parent(object, result):
             parent = object.parent_id
