@@ -71,8 +71,7 @@ class ProductRedirect(WebsiteSale):
         """
         context = dict(request.env.context)
         context.update({
-            # Show product stock by website warehouse
-            'warehouse': request.website.warehouse.id
+            # You can inherit this controller and update the context
         })
         request.env.context = context
         return
