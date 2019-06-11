@@ -55,6 +55,7 @@
         'website_payment',
         'website_sale_require_login',
         'website_sale_require_legal',
+        'sgeede_infinite_scroll'
     ],
     'data': [
         'templates/head.xml',

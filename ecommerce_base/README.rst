@@ -25,6 +25,13 @@ Front-End part:
     * [ADD] Contact form e-mail JS validation
     * [FIX] Legal advice label position
 
+Infinite product scroll
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Add the SGEEDE Infinite Scroll module.
+
+You can activate or deactivate this function in the front-end editor.
+
 Author
 ------
 
