@@ -10,5 +10,7 @@
                   parent="seo_base_settings" sequence="20" action="robots_txt_settings"/>
         <menuitem name="Web App" id="web_app_settings_menu"
                   parent="seo_base_settings" sequence="30" action="web_app_settings"/>
+        <menuitem name="Analytics" id="analytics_settings_menu"
+                  parent="seo_base_settings" sequence="40" action="analytics_settings"/>
 
 </odoo>

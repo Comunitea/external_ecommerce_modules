@@ -62,6 +62,8 @@ class Website(models.Model):
     web_app_code = fields.Text(_("Manifest additional code"))
     sw_offline = fields.Boolean(_("Use service worker offline cache"), default=False)
     sw_code = fields.Text(_("Service worker cache list"))
+    google_tag_manager_key = fields.Char(_("Google tag manager key"))
+    facebook_pixel_key = fields.Char(_("Facebook Pixel key"))
 
     @api.multi
     def unlink(self):
@@ -137,3 +139,12 @@ class WebAppConfigSettings(models.TransientModel):
     web_app_code = fields.Text(related='website_id.web_app_code')
     sw_offline = fields.Boolean(related='website_id.sw_offline')
     sw_code = fields.Text(related='website_id.sw_code')
+
+
+class AnalyticsConfigSettings(models.TransientModel):
+    _inherit = 'res.config.settings'
+    _name = 'seo_analytics.settings'
+
+    website_id = fields.Many2one('website', string="website", default=_default_website, required=True)
+    google_tag_manager_key = fields.Char(related='website_id.google_tag_manager_key')
+    facebook_pixel_key = fields.Char(related='website_id.facebook_pixel_key')

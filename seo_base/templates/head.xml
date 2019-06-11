@@ -9,6 +9,23 @@
         <xpath expr="//t[@t-call-assets='web_editor.summernote'][@t-css='false']" position="replace"/>
         <xpath expr="//t[@t-call-assets='web_editor.assets_editor'][@t-css='false']" position="replace"/>
         <xpath expr="//t[@t-call-assets='website.assets_editor'][@t-css='false']" position="replace"/>
+        <!-- Add analytics noscript links -->
+        <xpath expr="//div[@id='wrapwrap']" position="before">
+            <t t-if="website and website.google_tag_manager_key and not editable">
+                <!-- Google Tag Manager (noscript) -->
+                <noscript>
+                    <iframe t-attf-src="https://www.googletagmanager.com/ns.html?id={{ website.google_tag_manager_key }}" height="0" width="0" style="display:none;visibility:hidden"/>
+                </noscript>
+                <!-- End Google Tag Manager (noscript) -->
+            </t>
+            <t t-if="website and website.facebook_pixel_key and not editable">
+                <!-- Facebook Pixel Code (noscript) -->
+                <noscript>
+                    <img height="1" width="1" t-attf-src="https://www.facebook.com/tr?id={{ website.facebook_pixel_key }}&amp;ev=PageView&amp;noscript=1" />
+                </noscript>
+                <!-- Facebook Pixel Code (noscript) -->
+            </t>
+        </xpath>
     </template>
 
     <template id="portal_frontend_layout_add" inherit_id="portal.frontend_layout">
@@ -20,6 +37,37 @@
             <t t-call-assets="web_editor.summernote" t-css="false" groups="website.group_website_publisher"/>
             <t t-call-assets="web_editor.assets_editor" t-css="false" groups="website.group_website_publisher"/>
             <t t-call-assets="website.assets_editor" t-css="false" groups="website.group_website_publisher"/>
+        </xpath>
+    </template>
+
+    <template id="web_layout_add" inherit_id="web.layout">
+        <xpath expr="//meta[@charset='utf-8']" position="before">
+            <t t-if="website and website.google_tag_manager_key and not editable">
+                <!-- Google Tag Manager -->
+                <script>
+                    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                    })(window,document,'script','dataLayer','<t t-esc="website.google_tag_manager_key"/>');
+                </script>
+                <!-- End Google Tag Manager -->
+            </t>
+            <t t-if="website and website.facebook_pixel_key and not editable">
+                <!-- Facebook Pixel Code -->
+                <script>
+                    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
+                    n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                    n.queue=[];t=b.createElement(e);t.async=!0;
+                    t.src=v;s=b.getElementsByTagName(e)[0];
+                    s.parentNode.insertBefore(t,s)}(window,document,'script',
+                    'https://connect.facebook.net/en_US/fbevents.js');
+                    fbq('init', '<t t-esc="website.facebook_pixel_key"/>');
+                    fbq('track', 'PageView');
+                </script>
+                <!-- End Facebook Pixel Code -->
+            </t>
         </xpath>
     </template>
 
