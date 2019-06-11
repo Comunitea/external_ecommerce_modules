@@ -4,44 +4,15 @@
     <template id="website_layout_head_add" inherit_id="website.layout">
         <!-- Only one-company webs
              Replace javascript source in the head -->
+        <!--
         <xpath expr="//t[@t-call-assets='web.assets_common'][@t-css='false']" position="replace"/>
         <xpath expr="//t[@t-call-assets='web.assets_frontend'][@t-css='false']" position="replace"/>
         <xpath expr="//t[@t-call-assets='web_editor.summernote'][@t-css='false']" position="replace"/>
         <xpath expr="//t[@t-call-assets='web_editor.assets_editor'][@t-css='false']" position="replace"/>
         <xpath expr="//t[@t-call-assets='website.assets_editor'][@t-css='false']" position="replace"/>
+        -->
         <!-- Add analytics noscript links -->
-        <xpath expr="//div[@id='wrapwrap']" position="before">
-            <t t-if="website and website.google_tag_manager_key and not editable">
-                <!-- Google Tag Manager (noscript) -->
-                <noscript>
-                    <iframe t-attf-src="https://www.googletagmanager.com/ns.html?id={{ website.google_tag_manager_key }}" height="0" width="0" style="display:none;visibility:hidden"/>
-                </noscript>
-                <!-- End Google Tag Manager (noscript) -->
-            </t>
-            <t t-if="website and website.facebook_pixel_key and not editable">
-                <!-- Facebook Pixel Code (noscript) -->
-                <noscript>
-                    <img height="1" width="1" t-attf-src="https://www.facebook.com/tr?id={{ website.facebook_pixel_key }}&amp;ev=PageView&amp;noscript=1" />
-                </noscript>
-                <!-- Facebook Pixel Code (noscript) -->
-            </t>
-        </xpath>
-    </template>
-
-    <template id="portal_frontend_layout_add" inherit_id="portal.frontend_layout">
-        <!-- Only one-company webs
-             Set javascript source after the footer -->
-        <xpath expr="//div[@id='wrapwrap']/footer" position="inside">
-            <t t-call-assets="web.assets_common" t-css="false"/>
-            <t t-call-assets="web.assets_frontend" t-css="false"/>
-            <t t-call-assets="web_editor.summernote" t-css="false" groups="website.group_website_publisher"/>
-            <t t-call-assets="web_editor.assets_editor" t-css="false" groups="website.group_website_publisher"/>
-            <t t-call-assets="website.assets_editor" t-css="false" groups="website.group_website_publisher"/>
-        </xpath>
-    </template>
-
-    <template id="web_layout_add" inherit_id="web.layout">
-        <xpath expr="//meta[@charset='utf-8']" position="before">
+        <xpath expr="//meta[last()]" position="after">
             <t t-if="website and website.google_tag_manager_key and not editable">
                 <!-- Google Tag Manager -->
                 <script>
@@ -69,6 +40,36 @@
                 <!-- End Facebook Pixel Code -->
             </t>
         </xpath>
+        <xpath expr="//t[@t-set='head_website']" position="after">
+            <t t-if="website and website.google_tag_manager_key and not editable">
+                <!-- Google Tag Manager (noscript) -->
+                <noscript>
+                    <iframe t-attf-src="https://www.googletagmanager.com/ns.html?id={{ website.google_tag_manager_key }}" height="0" width="0" style="display:none;visibility:hidden"/>
+                </noscript>
+                <!-- End Google Tag Manager (noscript) -->
+            </t>
+            <t t-if="website and website.facebook_pixel_key and not editable">
+                <!-- Facebook Pixel Code (noscript) -->
+                <noscript>
+                    <img height="1" width="1" t-attf-src="https://www.facebook.com/tr?id={{ website.facebook_pixel_key }}&amp;ev=PageView&amp;noscript=1" />
+                </noscript>
+                <!-- Facebook Pixel Code (noscript) -->
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_frontend_layout_add" inherit_id="portal.frontend_layout">
+        <!-- Only one-company webs
+             Set javascript source after the footer -->
+        <!--
+        <xpath expr="//div[@id='wrapwrap']/footer" position="inside">
+            <t t-call-assets="web.assets_common" t-css="false"/>
+            <t t-call-assets="web.assets_frontend" t-css="false"/>
+            <t t-call-assets="web_editor.summernote" t-css="false" groups="website.group_website_publisher"/>
+            <t t-call-assets="web_editor.assets_editor" t-css="false" groups="website.group_website_publisher"/>
+            <t t-call-assets="website.assets_editor" t-css="false" groups="website.group_website_publisher"/>
+        </xpath>
+        -->
     </template>
 
 </odoo>

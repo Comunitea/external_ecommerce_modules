@@ -75,21 +75,6 @@ __
     cookies and user sessions.
 
 
-Infinite product scroll
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Add the SGEEDE Infinite Scroll module.
-
-You can activate or deactivate this function in the front-end editor.
-
-Javascript front-end
-~~~~~~~~~~~~~~~~~~~~
-
-    **Warning!**
-    Test mode
-
-Move links of Odoo javascript attachments from HEAD to FOOTER for more productivity and faster page loading speed.
-
 Author
 ------
 

@@ -40,8 +40,7 @@
     ],
     'depends': [
         'website',
-        'website_sale',
-        'sgeede_infinite_scroll'
+        'website_sale'
     ],
     'data': [
         'views/product_meta.xml',
@@ -49,7 +48,7 @@
         'views/settings.xml',
         'views/menu.xml',
         'templates/favicon.xml',
-        # 'templates/head.xml', # Only one-company webs
+        'templates/head.xml',
         'templates/product.xml',
         'templates/robots.xml',
         'templates/seo.xml',

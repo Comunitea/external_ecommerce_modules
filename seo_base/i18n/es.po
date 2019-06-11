@@ -150,6 +150,7 @@ msgstr "La frecuencia"
 #: model:ir.ui.view,arch_db:seo_base.seo_general_settings_form
 #: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
 #: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+#: model:ir.ui.view,arch_db:seo_base.analytics_settings_form
 msgid "Current website"
 msgstr "Página WEB actual"
 
@@ -179,6 +180,7 @@ msgstr "Modo de desarrollador activa función CONSOLE.LOG de varios scripts"
 #: model:ir.ui.view,arch_db:seo_base.seo_general_settings_form
 #: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
 #: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+#: model:ir.ui.view,arch_db:seo_base.analytics_settings_form
 msgid "Discard"
 msgstr "Descartar"
 
@@ -403,6 +405,7 @@ msgstr "Configuración de SEO"
 #: model:ir.ui.view,arch_db:seo_base.seo_general_settings_form
 #: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
 #: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
+#: model:ir.ui.view,arch_db:seo_base.analytics_settings_form
 msgid "Save"
 msgstr "Guardar"
 
@@ -532,3 +535,18 @@ msgid "You can customize what browser UI is shown when your app is launched.<br/
 msgstr "Puede personalizar la interfaz de usuario del navegador que se muestra cuando se inicia su aplicación.<br/>\n"
 "                                        Puede ocultar la barra de direcciones y el navegador o configurar la pantalla completamente completa."
 
+#. module: seo_base
+#: model:ir.ui.menu,name:seo_base.analytics_settings_menu
+msgid "Analytics"
+msgstr "Analítica"
+
+#. module: seo_base
+#: model:ir.actions.act_window,name:seo_base.analytics_settings
+#: model:ir.ui.view,arch_db:seo_base.analytics_settings_form
+msgid "Analytics settings"
+msgstr "Ajustes de analítica web"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.analytics_settings_form
+msgid "Integration with analytical systems"
+msgstr "Integración con sistemas de analítica web"
