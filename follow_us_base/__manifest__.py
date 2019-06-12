@@ -47,6 +47,7 @@
         'templates/head.xml',
         'templates/follow-us-form.xml',
         'data/newsletter-page.xml',
+        'security/user_groups.xml',
     ],
     'images': [
         '/static/description/icon.png',
