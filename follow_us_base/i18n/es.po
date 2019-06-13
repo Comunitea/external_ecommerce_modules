@@ -48,7 +48,6 @@ msgstr "Canal de suscripción por defecto"
 
 #. module: follow_us_base
 #: code:addons/follow_us_base/controllers/subscribe.py:45
-#: model:ir.model.fields,field_description:follow_us_base.field_website_default_newsletter
 #, python-format
 msgid "Your email is already on the current Newsletter list"
 msgstr "Su email ya está en la lista de miembros de este canal"
