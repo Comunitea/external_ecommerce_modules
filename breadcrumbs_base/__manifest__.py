@@ -44,7 +44,8 @@
     ],
     'data': [
         'views/page_view.xml',
-        'templates/breadcrumbs.xml'
+        'templates/breadcrumbs.xml',
+        'security/ir.model.access.csv',
     ],
     'images': [
         '/static/description/icon.png',
