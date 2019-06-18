@@ -9,7 +9,8 @@ from odoo.addons.http_routing.models.ir_http import slug
 
 class Crumb(models.Model):
     _name = 'breadcrumbs_base.crumb'
-    name = fields.Text()
+
+    name = fields.Text(translate=True)
     url = fields.Text()
     active = fields.Boolean()
 
