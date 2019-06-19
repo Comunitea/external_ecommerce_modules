@@ -1,0 +1,8 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_codecoupon_base_coupons_user","codecoupon_base_coupons_user","model_codecoupon_base_coupons","base.group_user",1,0,0,0
+"access_codecoupon_base_coupons_website_publisher","codecoupon_base_coupons_website_publisher","model_codecoupon_base_coupons","website.group_website_publisher",1,1,1,0
+"access_codecoupon_base_coupons_website_designer","codecoupon_base_coupons_website_designer","model_codecoupon_base_coupons","website.group_website_designer",1,1,1,0
+
+"access_codecoupon_base_history_user","codecoupon_base_history_user","model_codecoupon_base_history","base.group_user",1,0,0,0
+"access_codecoupon_base_history_website_publisher","codecoupon_base_history_website_publisher","model_codecoupon_base_history","website.group_website_publisher",1,1,1,0
+"access_codecoupon_base_history_website_designer","codecoupon_base_history_website_designer","model_codecoupon_base_history","website.group_website_designer",1,1,1,0

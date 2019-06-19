@@ -11,7 +11,9 @@ Discount coupon module for eCommerce
 
 This module allows you to establish discount codes and apply them in the order in the confirmation stage.
 
-You can set several discount rules in the configuration of this module (in the menu of "Website" back-end section).
+You can set several discount rules in the configuration of this module in the menu Website > Discount coupons.
+
+You find three submenus: Coupons list, Module settings and History of usage.
 
 Author
 ------

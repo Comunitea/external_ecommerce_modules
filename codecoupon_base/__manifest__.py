@@ -48,7 +48,8 @@
         'views/settings.xml',
         'views/menu.xml',
         'templates/checkout.xml',
-        'templates/head.xml'
+        'templates/head.xml',
+        'security/ir.model.access.csv',
     ],
     'images': [
         '/static/description/icon.png',
