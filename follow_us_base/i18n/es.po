@@ -43,8 +43,8 @@ msgstr "Ha ocurrido un error."
 #: code:addons/follow_us_base/models/website.py:12
 #: model:ir.model.fields,field_description:follow_us_base.field_website_default_newsletter
 #, python-format
-msgid "Default newsletter channel"
-msgstr "Canal de suscripción por defecto"
+msgid "Newsletter channels"
+msgstr "Canales de suscripción"
 
 #. module: follow_us_base
 #: code:addons/follow_us_base/controllers/subscribe.py:45
@@ -77,13 +77,28 @@ msgstr "Suscríbete a nuestro newsletter y mantente al día de todas las novedad
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "Available channels:"
+msgstr "Canales disponibles:"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
 msgid "Thanks for your subscription!"
 msgstr "¡Gracias por su suscripción!"
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "The changes were saved correctly."
+msgstr "Los cambios se guardaron correctamente."
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
 msgid "Unsubscribe"
 msgstr "Anular suscripción"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+msgid "Update subscription"
+msgstr "Actualizar suscripción"
 
 #. module: follow_us_base
 #: model:ir.model,name:follow_us_base.model_website

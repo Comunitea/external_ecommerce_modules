@@ -3,55 +3,61 @@ odoo.define('follow_us_base.subscribe_actions', function (require) {
     var ajax = require('web.ajax');
 
     $(document).ready(function() {
-        /* Subscribe action */
         $('.js_subscribe_btn').on('click', function(e){
             e.preventDefault();
-            var email = $('input[name="email"]').val();
-            var channel = $('.subscription_form').attr('data-channel');
-            var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            var email = $('input[name="email"]').val(),
+                regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+                ids_to_subscribe = [],
+                ids_to_unsubscribe = [],
+                success_add = false,
+                success_del = false;
+
+            $('.channel-id input').each(function(){
+                if($(this).prop('checked')){
+                    ids_to_subscribe.push($(this).attr('data-channel'))
+                }else{
+                    ids_to_unsubscribe.push($(this).attr('data-channel'))
+                }
+            });
 
             if(!regex.test(email)){
                 $('.fub_invalid').removeClass('hidden');
             }else{
-                ajax.jsonRpc('/followus/subscribe', 'call', {
-                    'email': email,
-                    'channel': channel
-                }).then(function (data) {
-                    data = $.parseJSON(data);
-                    if(data['success'] == true){
-                        $('.wp-subscription_form .alert').addClass('hidden');
-                        $('.subscription_form').hide();
-                        $('.fub_thanks').removeClass('hidden');
-                    }else{
-                        if(data['message'] != ''){
-                            $('.fub_message').html(data['message']).removeClass('hidden');
+                $('.wp-subscription_form .alert').addClass('hidden');
+                if (ids_to_subscribe.length > 0){
+                    console.log('To subscribe: ' + ids_to_subscribe)
+                    /* Subscribe action */
+                    ajax.jsonRpc('/followus/subscribe', 'call', {
+                        'email': email,
+                        'channel_ids': ids_to_subscribe
+                    }).then(function (data) {
+                        data = $.parseJSON(data);
+                        if(data['success'] == true){
+                            $('.subscription_form').hide();
+                            $('.fub_save').removeClass('hidden');
                         }else{
                             $('.fub_error').removeClass('hidden');
                         }
-                    }
-                });
+                    });
+                }
+                if (ids_to_unsubscribe.length > 0){
+                    console.log('To unsubscribe: ' + ids_to_unsubscribe)
+                    /* Unsubscribe action */
+                    ajax.jsonRpc('/followus/unsubscribe', 'call', {
+                        'email': email,
+                        'channel_ids': ids_to_unsubscribe
+                    }).then(function (data) {
+                        data = $.parseJSON(data);
+                        if(data['success'] == true){
+                            $('.subscription_form').hide();
+                            $('.fub_save').removeClass('hidden');
+                        }else{
+                            $('.fub_error').removeClass('hidden');
+                        }
+                    });
+                }
             }
 
-        });
-        /* Unsubscribe action */
-        $('.js_un_subscribe_btn').on('click', function(e){
-            e.preventDefault();
-            var email = $('input[name="email"]').val();
-            var channel = $('.un_subscription_form').attr('data-channel');
-
-            ajax.jsonRpc('/followus/unsubscribe', 'call', {
-                'email': email,
-                'channel': channel
-            }).then(function (data) {
-                data = $.parseJSON(data);
-                if(data['success'] == true){
-                    $('.wp-subscription_form .alert').addClass('hidden');
-                    $('.un_subscription_form').hide();
-                    $('.fub_unsubscribed').removeClass('hidden');
-                }else{
-                    $('.fub_error').removeClass('hidden');
-                }
-            });
         });
     });
 });

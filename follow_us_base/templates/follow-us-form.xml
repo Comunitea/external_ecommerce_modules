@@ -2,41 +2,37 @@
 <odoo>
 
     <template id="fub_subscription_form" name="Subscription form template">
-        <t t-set="channel_id" t-value="website.default_newsletter.id"/>
-        <div class="wp-subscription_form" t-if="channel_id">
-            <t t-set="is_follower" t-value="website.check_follower(channel_id)"/>
-            <t t-if="not is_follower">
-                <p class="mb16">Subscribe to our newsletter and keep up to date with all the news!</p>
-                <div class="subscription_form" t-att-data-channel="channel_id">
-                    <div class="input-group mb8">
-                        <input type="email" name="email" class="form-control" placeholder="your email..."
-                               t-att-value="user_id.email if website.user_id != user_id else None"/>
-                        <span class="input-group-btn">
-                            <a href="#" class="btn btn-primary js_subscribe_btn">Subscribe</a>
-                        </span>
-                    </div>
-                    <div class="alert alert-danger hidden fub_invalid">Invalid e-mail address.</div>
-                    <div class="small mt4 mb8">
-                        With subscribe I accept the <a href="/legal/advice">legal advice</a>,
-                        the <a href="/legal/privacy-policy">privacy policy</a>,
-                        and the <a href="/legal/terms-of-use">terms of use</a> of this website.
+        <t t-set="channel_ids" t-value="website.default_newsletter"/>
+        <div class="wp-subscription_form" t-if="channel_ids">
+            <p class="mb16">Subscribe to our newsletter and keep up to date with all the news!</p>
+            <h4>Available channels:</h4>
+            <t t-foreach="channel_ids" t-as="channel">
+                <div class="form-group mt8 mb8">
+                    <div class="checkbox channel-id">
+                        <label t-attf-for="mailing_list-{{channel.id}}">
+                            <input t-attf-id="mailing_list-{{channel.id}}" type="checkbox" t-att-checked="'checked' if website.check_follower(channel.id) else None" t-att-data-channel="channel.id"/>
+                            <t t-esc="channel.name"/>
+                        </label>
                     </div>
                 </div>
             </t>
-            <t t-else="">
-                <p class="mb16">Your email <strong t-esc="is_follower.email"/> is already on the current Newsletter list.</p>
-                <div class="un_subscription_form" t-att-data-channel="channel_id">
-                    <div class="input-group mb8">
-                        <input type="email" name="email" class="form-control" t-att-value="is_follower.email" readonly="readonly"/>
-                        <span class="input-group-btn">
-                            <a href="#" class="btn btn-warning js_un_subscribe_btn">Unsubscribe</a>
-                        </span>
-                    </div>
+            <div class="subscription_form">
+                <div class="input-group mb8">
+                    <input type="email" name="email" class="form-control" placeholder="your email..."
+                           t-att-value="user_id.email if website.user_id != user_id else None"/>
+                    <span class="input-group-btn">
+                        <a href="#" class="btn btn-primary js_subscribe_btn">Update subscription</a>
+                    </span>
                 </div>
-            </t>
-            <div class="alert alert-success hidden fub_thanks">Thanks for your subscription!</div>
+                <div class="alert alert-danger hidden fub_invalid">Invalid e-mail address.</div>
+                <div class="small mt4 mb8">
+                    With subscribe I accept the <a href="/legal/advice">legal advice</a>,
+                    the <a href="/legal/privacy-policy">privacy policy</a>,
+                    and the <a href="/legal/terms-of-use">terms of use</a> of this website.
+                </div>
+            </div>
+            <div class="alert alert-success hidden fub_save">The changes were saved correctly.</div>
             <div class="alert alert-danger hidden fub_error">An error has occurred.</div>
-            <div class="alert alert-warning hidden fub_unsubscribed">You have been successfully unsubscribed!</div>
             <div class="alert alert-warning hidden fub_message"/>
         </div>
         <div t-else="" class="mb32">

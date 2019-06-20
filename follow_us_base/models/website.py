@@ -9,7 +9,7 @@ from odoo.http import request
 class Website(models.Model):
     _inherit = 'website'
 
-    default_newsletter = fields.Many2one('mail.mass_mailing.list', string=_("Default newsletter channel"))
+    default_newsletter = fields.Many2many('mail.mass_mailing.list', string=_("Newsletter channels"))
 
     @api.multi
     def check_follower(self, channel):

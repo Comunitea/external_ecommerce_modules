@@ -27,7 +27,7 @@
 
 {
     'name': 'FollowUs module',
-    'version': '1.0',
+    'version': '1.1',
     'summary': 'Add front-end users to mass_mailing list',
     'description': '',
     'category': 'Website',
@@ -47,6 +47,7 @@
         'templates/head.xml',
         'templates/follow-us-form.xml',
         'data/newsletter-page.xml',
+        'security/ir.model.access.csv',
         'security/user_groups.xml',
     ],
     'images': [
