@@ -70,7 +70,7 @@ msgstr "Canal de noticias"
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
 #: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "Subscribe"
-msgstr "Suscribir"
+msgstr "Suscribirme"
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
@@ -110,7 +110,6 @@ msgstr "Sitio Web"
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
-#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "With subscribe I accept the"
 msgstr "Con la suscripción yo acepto el"
 
@@ -132,25 +131,21 @@ msgstr "ya está en la lista de miembros de este canal."
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
-#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "legal advice"
 msgstr "aviso legal"
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
-#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "of this website."
 msgstr "de este Sitio Web."
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
-#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "privacy policy"
 msgstr "política de privacidad"
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
-#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "terms of use"
 msgstr "términos de Uso"
 
@@ -169,3 +164,43 @@ msgstr "Únete a"
 #: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "Subscribe to our newsletter"
 msgstr "Suscríbete a nuestro newsletter"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
+msgid "With subscribe I accept the"
+msgstr "Con la suscripción yo acepto el"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
+msgid "legal advice"
+msgstr "aviso legal"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
+msgid ", the"
+msgstr ", la"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
+msgid "privacy policy"
+msgstr "política de privacidad"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
+msgid "and the"
+msgstr "y los"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
+msgid "terms of use"
+msgstr "términos de Uso"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
+msgid "of this website."
+msgstr "de este Sitio Web."

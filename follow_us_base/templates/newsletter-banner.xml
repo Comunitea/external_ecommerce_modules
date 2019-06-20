@@ -7,8 +7,8 @@
             <div id="follow_us_newsletter_banner" class="container">
                 <div class="row subscription-banner mt16" t-att-data-channel="channel">
                     <div class="col-md-3 col-sm-12 ">
-                        <h2 class="mt0 mb0">Join <t t-esc="website.name"/></h2>
-                        <div class="mt4">Subscribe to our newsletter</div>
+                        <h2 class="mt0 mb0 join-title">Join <t t-esc="website.name"/></h2>
+                        <div class="mt4 subscribe-title">Subscribe to our newsletter</div>
                     </div>
                     <div class="col-md-5 col-sm-12">
                         <t t-set="is_follower" t-value="website.check_follower(channel)"/>
@@ -21,10 +21,8 @@
                                         <a href="#" class="btn btn-primary js_subscribe_banner_btn">Subscribe</a>
                                     </span>
                                 </div>
-                                <div class="small mt4 mb8">
-                                    With subscribe I accept the <a href="/legal/advice">legal advice</a>,
-                                    the <a href="/legal/privacy-policy">privacy policy</a>,
-                                    and the <a href="/legal/terms-of-use">terms of use</a> of this website.
+                                <div class="small mb8 legal-terms">
+                                    With subscribe I accept the <a href="/legal/advice">legal advice</a>, the <a href="/legal/privacy-policy">privacy policy</a> and the <a href="/legal/terms-of-use">terms of use</a> of this website.
                                 </div>
                             </t>
                             <t t-else="">
