@@ -4,6 +4,7 @@
     <!-- Add module styles & scripts to website head -->
     <template id="fub_website_assets_frontend" inherit_id="website.assets_frontend">
         <xpath expr="//script[last()]" position="after">
+			<script type="text/javascript" src="/follow_us_base/static/js/banner_actions.js"/>
 			<script type="text/javascript" src="/follow_us_base/static/js/subscribe_actions.js"/>
 		</xpath>
     </template>

@@ -46,6 +46,7 @@
         'views/website_settings.xml',
         'templates/head.xml',
         'templates/follow-us-form.xml',
+        'templates/newsletter-banner.xml',
         'data/newsletter-page.xml',
         'security/ir.model.access.csv',
         'security/user_groups.xml',

@@ -41,7 +41,7 @@ msgstr "Ha ocurrido un error."
 
 #. module: follow_us_base
 #: code:addons/follow_us_base/models/website.py:12
-#: model:ir.model.fields,field_description:follow_us_base.field_website_default_newsletter
+#: model:ir.model.fields,field_description:follow_us_base.field_website_newsletter_ids
 #, python-format
 msgid "Newsletter channels"
 msgstr "Canales de suscripción"
@@ -54,6 +54,7 @@ msgstr "Su email ya está en la lista de miembros de este canal"
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "Invalid e-mail address."
 msgstr "Dirección de email incorrecta."
 
@@ -67,6 +68,7 @@ msgstr "Canal de noticias"
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "Subscribe"
 msgstr "Suscribir"
 
@@ -82,6 +84,7 @@ msgstr "Canales disponibles:"
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "Thanks for your subscription!"
 msgstr "¡Gracias por su suscripción!"
 
@@ -91,7 +94,7 @@ msgid "The changes were saved correctly."
 msgstr "Los cambios se guardaron correctamente."
 
 #. module: follow_us_base
-#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "Unsubscribe"
 msgstr "Anular suscripción"
 
@@ -107,16 +110,18 @@ msgstr "Sitio Web"
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "With subscribe I accept the"
 msgstr "Con la suscripción yo acepto el"
 
 #. module: follow_us_base
-#: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "You have been successfully unsubscribed!"
 msgstr "Usted ha sido dado de baja con éxito!"
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "Your email"
 msgstr "Su email"
 
@@ -127,26 +132,40 @@ msgstr "ya está en la lista de miembros de este canal."
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "legal advice"
 msgstr "aviso legal"
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "of this website."
 msgstr "de este Sitio Web."
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "privacy policy"
 msgstr "política de privacidad"
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "terms of use"
 msgstr "términos de Uso"
 
 #. module: follow_us_base
 #: model:ir.ui.view,arch_db:follow_us_base.fub_subscription_form
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
 msgid "your email..."
 msgstr "su correo electrónico..."
 
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
+msgid "Join"
+msgstr "Únete a"
+
+#. module: follow_us_base
+#: model:ir.ui.view,arch_db:follow_us_base.newsletter_banner
+msgid "Subscribe to our newsletter"
+msgstr "Suscríbete a nuestro newsletter"

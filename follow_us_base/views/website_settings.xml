@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="website.view_website_form"/>
             <field name="arch" type="xml">
                 <group name="social_media" position="inside">
-                    <field name="default_newsletter" widget="many2many_tags" options="{'not_delete': True}"/>
+                    <field name="newsletter_ids" widget="many2many_tags" options="{'not_delete': True}"/>
                 </group>
             </field>
         </record>

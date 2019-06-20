@@ -2,7 +2,7 @@
 <odoo>
 
     <template id="fub_subscription_form" name="Subscription form template">
-        <t t-set="channel_ids" t-value="website.default_newsletter"/>
+        <t t-set="channel_ids" t-value="website.newsletter_ids"/>
         <div class="wp-subscription_form" t-if="channel_ids">
             <p class="mb16">Subscribe to our newsletter and keep up to date with all the news!</p>
             <h4>Available channels:</h4>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="newsletter_banner" name="Newsletter horizontal banner">
+        <t t-set="channel" t-value="channel if channel else website.default_channel()"/>
+        <section t-if="channel" class="wp-subscription-banner">
+            <div id="follow_us_newsletter_banner" class="container">
+                <div class="row subscription-banner mt16" t-att-data-channel="channel">
+                    <div class="col-md-3 col-sm-12 ">
+                        <h2 class="mt0 mb0">Join <t t-esc="website.name"/></h2>
+                        <div class="mt4">Subscribe to our newsletter</div>
+                    </div>
+                    <div class="col-md-5 col-sm-12">
+                        <t t-set="is_follower" t-value="website.check_follower(channel)"/>
+                        <div class="subscription_form ml32">
+                            <t t-if="not is_follower" >
+                                <div class="input-group mb8">
+                                    <input type="email" name="email" class="form-control" placeholder="your email..."
+                                           t-att-value="user_id.email if website.user_id != user_id else None"/>
+                                    <span class="input-group-btn">
+                                        <a href="#" class="btn btn-primary js_subscribe_banner_btn">Subscribe</a>
+                                    </span>
+                                </div>
+                                <div class="small mt4 mb8">
+                                    With subscribe I accept the <a href="/legal/advice">legal advice</a>,
+                                    the <a href="/legal/privacy-policy">privacy policy</a>,
+                                    and the <a href="/legal/terms-of-use">terms of use</a> of this website.
+                                </div>
+                            </t>
+                            <t t-else="">
+                                <div class="input-group mb8">
+                                    <input type="email" name="email" class="form-control" readonly="readonly"
+                                           t-att-value="is_follower.email"/>
+                                    <span class="input-group-btn">
+                                        <a href="#" class="btn btn-warning js_un_subscribe_banner_btn">Unsubscribe</a>
+                                    </span>
+                                </div>
+                            </t>
+                        </div>
+                        <div class="alert alert-danger hidden fub_invalid">Invalid e-mail address.</div>
+                        <div class="alert alert-success hidden fub_thanks">Thanks for your subscription!</div>
+                        <div class="alert alert-warning hidden fub_unsubscribed">You have been successfully unsubscribed!</div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <h2 class="social-column mt0 ml32">
+                            <a t-att-href="website.social_facebook" t-if="website.social_facebook" rel="nofollow" target="_blank"><i class="fa fa-facebook-square"/></a>
+                            <a t-att-href="website.social_twitter" t-if="website.social_twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter"/></a>
+                            <a t-att-href="website.social_linkedin" t-if="website.social_linkedin" rel="nofollow" target="_blank"><i class="fa fa-linkedin"/></a>
+                            <a t-att-href="website.social_youtube" t-if="website.social_youtube" rel="nofollow" target="_blank"><i class="fa fa-youtube-play"/></a>
+                            <a t-att-href="website.social_googleplus" t-if="website.social_googleplus" rel="publisher" target="_blank"><i class="fa fa-google-plus-square"/></a>
+                            <a t-att-href="website.social_github" t-if="website.social_github" rel="nofollow" target="_blank"><i class="fa fa-github"/></a>
+                            <a t-att-href="website.social_instagram" t-if="website.social_instagram" rel="nofollow" target="_blank"><i class="fa fa-instagram"/></a>
+                            <span t-if="hash_tag" t-esc="hash_tag" class="ml4 text-uppercase"/>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

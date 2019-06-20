@@ -5,7 +5,6 @@
 import json
 from odoo import http, _
 from odoo.http import request
-import ipdb
 
 
 def search_channel(channel_ids):
@@ -79,8 +78,6 @@ class SubscribeActions(http.Controller):
             'message': message
         }
 
-        # ipdb.set_trace()
-
         return json.dumps(values)
 
     @http.route(['/followus/unsubscribe'], type="json", auth="public", methods=['POST'], website=True)
@@ -112,7 +109,5 @@ class SubscribeActions(http.Controller):
             'success': success,
             'message': message
         }
-
-        # ipdb.set_trace()
 
         return json.dumps(values)

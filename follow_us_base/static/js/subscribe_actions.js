@@ -25,7 +25,6 @@ odoo.define('follow_us_base.subscribe_actions', function (require) {
             }else{
                 $('.wp-subscription_form .alert').addClass('hidden');
                 if (ids_to_subscribe.length > 0){
-                    console.log('To subscribe: ' + ids_to_subscribe)
                     /* Subscribe action */
                     ajax.jsonRpc('/followus/subscribe', 'call', {
                         'email': email,
@@ -41,7 +40,6 @@ odoo.define('follow_us_base.subscribe_actions', function (require) {
                     });
                 }
                 if (ids_to_unsubscribe.length > 0){
-                    console.log('To unsubscribe: ' + ids_to_unsubscribe)
                     /* Unsubscribe action */
                     ajax.jsonRpc('/followus/unsubscribe', 'call', {
                         'email': email,
