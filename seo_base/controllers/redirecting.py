@@ -7,6 +7,26 @@ from odoo.http import request
 from odoo.addons.website_sale.controllers.main import WebsiteSale
 
 
+def shop_control_access(website):
+    if not website.web_public_shop:
+        user = request.env.user
+        rules = website.shop_access_rules
+
+        is_b2b = user.has_group('sale.group_show_price_subtotal')
+        is_portal = user.has_group('base.group_portal')
+        is_admin = user.has_group('website.group_website_publisher') \
+                   or user.has_group('website.group_website_publisher') \
+                   or user.id == SUPERUSER_ID
+
+        if not is_admin:
+            if (rules == 'b2b' and not is_b2b) or (rules == 'portal' and not is_portal):
+                if is_portal:
+                    return request.render("website.403")
+                else:
+                    return request.redirect('/web/login?redirect=%s' % request.httprequest.path)
+    return False
+
+
 class CategoryRedirect(WebsiteSale):
     """
     ECommerce category redirecting from custom Odoo URL to new friendly URL en base of SLUG field.
@@ -20,6 +40,12 @@ class CategoryRedirect(WebsiteSale):
         '/shop/brands'
     ], type='http', auth='public', website=True)
     def shop(self, page=0, category=None, brand=None, search='', ppg=False, **post):
+
+        # Call to the user access control function
+        if request.website:
+            result = shop_control_access(request.website)
+            if result:
+                return result
 
         # Prevent search box inside category
         if search and category:
@@ -51,6 +77,12 @@ class CategoryRedirect(WebsiteSale):
         Search the eCommerce category en base of new SLUG URL.
         """
 
+        # Call to the user access control function
+        if request.website:
+            result = shop_control_access(request.website)
+            if result:
+                return result
+
         cat_list = request.env['product.public.category']
         category = cat_list.sudo().search([('slug', '=', path)], limit=1)
         if category:
@@ -81,6 +113,13 @@ class ProductRedirect(WebsiteSale):
         """
         Template render on whether or not there is slug url and context updated by website warehouse
         """
+
+        # Call to the user access control function
+        if request.website:
+            result = shop_control_access(request.website)
+            if result:
+                return result
+
         if product.slug:
             return http.local_redirect(
                 '/product/%s' % product.slug,
@@ -99,6 +138,12 @@ class ProductRedirect(WebsiteSale):
 
         :return: the standard template with normal user permissions if the product exists else 404
         """
+
+        # Call to the user access control function
+        if request.website:
+            result = shop_control_access(request.website)
+            if result:
+                return result
 
         prod_list = request.env['product.template']
 

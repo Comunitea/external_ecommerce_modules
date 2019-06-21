@@ -202,8 +202,8 @@
                                 </div>
                                 <label class="mt16" for="console_mode"/>
                                 <div class="text-muted">
-                                        Developer mode activates the CONSOLE.LOG function of several scripts
-                                    </div>
+                                    Developer mode activates the CONSOLE.LOG function of several scripts
+                                </div>
                                 <div class="mt8">
                                     <field name="console_mode" class="o_light_label" widget="radio" required="True"/>
                                 </div>
@@ -212,6 +212,25 @@
                                     <field name="slug_length" required="True"/>
                                     <div class="text-muted">
                                         Default max length of slug field (from 20 to 99)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-4 o_setting_box">
+                            <div class="mb8">
+                                <div class="o_setting_left_pane">
+                                    <field name="web_public_shop"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="web_public_shop"/>
+                                    <div class="text-muted">
+                                        Open the store for public users. Otherwise, the access rules must be established.
+                                    </div>
+                                    <div class="mt8" attrs="{'invisible': [('web_public_shop','=',True)]}">
+                                        <label class="o_form_label" for="shop_access_rules">Set access rules:</label>
+                                        <div class="mt4">
+                                            <field name="shop_access_rules" class="o_light_label" widget="radio"/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -64,6 +64,11 @@ class Website(models.Model):
     sw_code = fields.Text(_("Service worker cache list"))
     google_tag_manager_key = fields.Char(_("Google tag manager key"))
     facebook_pixel_key = fields.Char(_("Facebook Pixel key"))
+    web_public_shop = fields.Boolean(string=_("Public shop"), default=True)
+    shop_access_rules = fields.Selection(selection=[
+        ('portal', _("Only portal users")),
+        ('b2b', _("Only portal B2B users"))
+    ], string=_("Store access rules"), default='portal')
 
     @api.multi
     def unlink(self):
@@ -115,6 +120,8 @@ class SeoGeneralConfigSettings(models.TransientModel):
     slug_length = fields.Integer(related='website_id.slug_length')
     cache_mode = fields.Selection(related='website_id.cache_mode')
     console_mode = fields.Selection(related='website_id.console_mode')
+    web_public_shop = fields.Boolean(related='website_id.web_public_shop')
+    shop_access_rules = fields.Selection(related='website_id.shop_access_rules')
 
     @api.constrains('slug_length')
     def _check_slug_length_value(self):
