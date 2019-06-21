@@ -68,7 +68,7 @@ class Website(models.Model):
     shop_access_rules = fields.Selection(selection=[
         ('portal', _("Only portal users")),
         ('b2b', _("Only portal B2B users"))
-    ], string=_("Store access rules"), default='portal')
+    ], string=_("Store access rules:"), default='portal')
 
     @api.multi
     def unlink(self):

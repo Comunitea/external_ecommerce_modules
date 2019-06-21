@@ -553,17 +553,19 @@ msgstr "Integración con sistemas de analítica web"
 
 #. module: seo_base
 #: code:addons/seo_base/models/settings.py:67
-#: model:ir.model.fields,field_description:seo_base.field_web_public_shop
+#: model:ir.model.fields,field_description:seo_base.field_seo_general_settings_web_public_shop
+#: model:ir.model.fields,field_description:seo_base.field_website_web_public_shop
 #, python-format
 msgid "Public shop"
 msgstr "Tienda pública"
 
 #. module: seo_base
 #: code:addons/seo_base/models/settings.py:71
-#: model:ir.model.fields,field_description:seo_base.field_shop_access_rules
+#: model:ir.model.fields,field_description:seo_base.field_seo_general_settings_shop_access_rules
+#: model:ir.model.fields,field_description:seo_base.field_website_shop_access_rules
 #, python-format
-msgid "Store access rules"
-msgstr "Reglas de acceso a la tienda"
+msgid "Store access rules:"
+msgstr "Reglas de acceso a la tienda:"
 
 #. module: seo_base
 #: selection:website,shop_access_rules:0
