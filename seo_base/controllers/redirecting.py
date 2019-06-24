@@ -23,7 +23,13 @@ def shop_control_access(website):
                 if is_portal:
                     return request.render("website.403")
                 else:
-                    return request.redirect('/web/login?redirect=%s' % request.httprequest.path)
+                    path = request.httprequest.path
+                    query = request.httprequest.query_string
+                    if query:
+                        query = query.decode('utf-8')
+                        query = query.replace('&', '%26')
+                        path += '?%s' % query
+                    return request.redirect('/web/login?redirect=%s' % path)
     return False
 
 
