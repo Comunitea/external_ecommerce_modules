@@ -749,3 +749,9 @@ msgstr "Tiene un cupón aplicado"
 #: model:ir.model.fields,field_description:codecoupon_base.field_codecoupon_base_settings_website_id
 msgid "website"
 msgstr "sitio web"
+
+#. module: codecoupon_base
+#: code:addons/codecoupon_base/controllers/codecoupon.py:95
+#, python-format
+msgid " <br/>- but is unavailable for current website"
+msgstr " <br/>- pero no está disponible para este sitio web"

@@ -90,6 +90,12 @@ class CouponControl(http.Controller):
             return self.return_gen(_("Coupon with code <strong>%s</strong> not found" % coupon_code),
                                    "danger", False, develop)
 
+        # Check website data
+        if not coupon.website_id.id == request.website.id:
+            message += _(" <br/>- but is unavailable for current website")
+            flag = "warning"
+            success = False
+
         # Check user data
         session_user = request.env.user
         session_partner_id = session_user.partner_id.id

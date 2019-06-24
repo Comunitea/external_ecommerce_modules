@@ -33,7 +33,7 @@
                             <div class="input-group">
                                 <input name="ccb_code" class="form-control" type="text" placeholder="Coupon code"/>
                                 <div class="input-group-btn">
-                                    <button class="btn btn-success">Apply</button>
+                                    <button class="btn btn-primary">Apply</button>
                                 </div>
                             </div>
                         </form>
