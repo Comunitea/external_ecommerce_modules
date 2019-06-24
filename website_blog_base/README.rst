@@ -1,10 +1,25 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-   :alt: License: AGPL-3
-   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
-
 =================
 Website blog base
 =================
+
+.. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
+    :target: https://odoo-community.org/page/development-status
+    :alt: Production
+.. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
+    :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
+    :alt: License: LGPL-3
+.. |badge3| image:: https://img.shields.io/badge/github-Comunitea-gray.png?logo=github
+    :target: https://github.com/Comunitea/
+    :alt: Comunitea
+.. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FBLOG-lightgray.png?logo=github
+    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/11.0/website_blog_base
+    :alt: Comunitea / SEO
+.. |badge5| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
+    :target: https://github.com/Comunitea/external_ecommerce_modules/blob/11.0/website_blog_base/i18n/es.po
+    :alt: Spanish Translated
+
+
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 Friendly blog extension for eCommerce
 -------------------------------------
@@ -15,6 +30,10 @@ This module adds different features to base website blog:
 * Add short post description field (introduction);
 * Add post image field.
 
+It is compatible with the multi-website.
+
+Set this in Website > Blog
+
 Author
 ------
 
@@ -23,7 +42,6 @@ Developer: Comunitea, info@comunitea.com
 Contributors
 ~~~~~~~~~~~~
 
-* Comunitea
 * Pavel Smirnov, pavel@comunitea.com
 * Rubén Seijas, ruben@comunitea.com
 

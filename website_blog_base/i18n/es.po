@@ -17,15 +17,17 @@ msgstr ""
 
 #. module: website_blog_base
 #: code:addons/website_blog_base/models/blog_blog.py:15
+#: model:ir.model.fields,field_description:website_blog_base.field_blog_blog_for_customers
 #, python-format
 msgid "Available for B2C users"
 msgstr "Disponible para los usuarios B2C"
 
 #. module: website_blog_base
 #: code:addons/website_blog_base/models/blog_blog.py:14
+#: model:ir.model.fields,field_description:website_blog_base.field_blog_blog_for_retailers
 #, python-format
-msgid "Available for retail B2B users"
-msgstr "Disponible para los usuarios retailer B2C"
+msgid "Available for B2B users"
+msgstr "Disponible para los usuarios B2C"
 
 #. module: website_blog_base
 #: model:ir.model,name:website_blog_base.model_blog_post
@@ -35,7 +37,7 @@ msgstr "Entrada del blog"
 #. module: website_blog_base
 #: model:ir.ui.view,arch_db:website_blog_base.wbb_website_blog_index
 msgid "Contactus"
-msgstr "Contáctenos"
+msgstr "Contacto"
 
 #. module: website_blog_base
 #: code:addons/website_blog_base/models/website_blog.py:31
@@ -94,3 +96,18 @@ msgstr "Sitio web"
 #: model:ir.ui.view,arch_db:website_blog_base.wbb_website_blog_index
 msgid "You don't have access to this page"
 msgstr "No tiene acceso para ver este contenido"
+
+#. module: website_blog_base
+#: model:ir.ui.view,arch_db:website_blog_base.access_view_blog_blog_form
+msgid "Access control"
+msgstr "Control de Acceso al Blog"
+
+#. module: website_blog_base
+#: model:ir.ui.view,name:website_blog_base.wbb_view_blog_post_form
+msgid "Add content and image fields to the blog.post view"
+msgstr "Añada contenido e imágenes a la vista del blog"
+
+#. module: website_blog_base
+#: model:ir.ui.view,arch_db:website_blog_base.wbb_view_blog_post_form
+msgid "Post content"
+msgstr "Contenido del Post"
