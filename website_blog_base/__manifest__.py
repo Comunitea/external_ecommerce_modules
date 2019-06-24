@@ -42,7 +42,9 @@
         'website_blog'
     ],
     'data': [
+        'views/blog_blog.xml',
         'views/blog_post_view.xml',
+        'templates/blog.xml',
         'templates/elements.xml',
         'templates/latest_posts.xml'
     ],

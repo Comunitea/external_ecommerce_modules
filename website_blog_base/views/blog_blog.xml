@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="access_view_blog_blog_form" model="ir.ui.view">
+        <field name="name">Access control blog form view</field>
+        <field name="model">blog.blog</field>
+        <field name="inherit_id" ref="website_blog.view_blog_blog_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group name="blog_user_access" string="Access control" colspan="2" cols="4">
+                    <field name="for_retailers"/>
+                    <field name="for_customers"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

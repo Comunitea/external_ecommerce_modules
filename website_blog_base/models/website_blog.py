@@ -32,3 +32,24 @@ class WebsiteBlog(models.Model):
             'read_all': read_all or _("Read all our news")
         }
         return result
+
+    @api.multi
+    def access_to_blog(self, blog):
+        website = self
+        user = request.env.user
+        access = True
+
+        if website.id not in blog.website_ids.ids:
+            access = False
+
+        if access and website.name == 'Point Sport':
+            access = False
+            user_b2b = user.has_group('sale.group_show_price_subtotal')
+            user_b2c = user.has_group('sale.group_show_price_total') or user.has_group('base.group_public')
+            user_admin = user.has_group('website.group_website_publisher') \
+                         or user.has_group('website.group_website_designer')
+
+            if (blog.for_retailers and user_b2b) or (blog.for_customers and user_b2c and not user_b2b) or user_admin:
+                access = True
+
+        return access
