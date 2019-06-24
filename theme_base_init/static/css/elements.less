@@ -33,6 +33,7 @@ a {
 }
 .pagination > li > a, .pagination > li > span {
     color: @color-light;
+    padding: 6px 10px;
 }
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
     color: @color-dark;
@@ -41,4 +42,42 @@ a {
 /* ECommerce categories*/
 #o_shop_collapse_category li i.fa {
     color: @color-dark;
+}
+
+/* Newsletter banner */
+.wp-subscription-banner {
+    background-color: @color-light;
+    color: @white;
+    & a, a:hover {
+        color: @white;
+        &.btn-primary {
+            background-color: @white;
+            border-color: @white;
+            color: @color-dark;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            &:hover {
+                background-color: @color-dark;
+                border-color: @color-dark;
+                color: @white;
+            }
+        }
+    }
+    & h2.join-title {
+        font-weight: 600;
+        font-size: 26px;
+    }
+    & .social-column span {
+        font-size: 26px;
+    }
+    & .legal-terms {
+        font-size: 12px;
+        line-height: 1;
+    }
+}
+/*Labels */
+.label-primary {
+    background-color: @color-dark;
+    color: @white;
 }
