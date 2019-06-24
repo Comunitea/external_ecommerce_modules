@@ -66,8 +66,8 @@ class Website(models.Model):
     facebook_pixel_key = fields.Char(_("Facebook Pixel key"))
     web_public_shop = fields.Boolean(string=_("Public shop"), default=True)
     shop_access_rules = fields.Selection(selection=[
-        ('portal', _("Only portal users")),
-        ('b2b', _("Only portal B2B users"))
+        ('b2c', _("Only portal users logged with B2C")),
+        ('b2b', _("Only portal users logged with B2B"))
     ], string=_("Store access rules:"), default='portal')
 
     @api.multi

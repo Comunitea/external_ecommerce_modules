@@ -569,13 +569,13 @@ msgstr "Reglas de acceso a la tienda:"
 
 #. module: seo_base
 #: selection:website,shop_access_rules:0
-msgid "Only portal users"
-msgstr "Solo usuarios portal"
+msgid "Only portal users logged with B2C"
+msgstr "Solo usuarios portal registrados con B2C"
 
 #. module: seo_base
 #: selection:website,shop_access_rules:0
-msgid "Only portal B2B users"
-msgstr "Solo B2B usuarios portal"
+msgid "Only portal users logged with B2B"
+msgstr "Solo usuarios portal registrados con B2B"
 
 #. module: seo_base
 #: model:ir.ui.view,arch_db:seo_base.seo_general_settings_form

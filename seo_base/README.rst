@@ -1,17 +1,52 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-   :alt: License: AGPL-3
-   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
-
-===============
-SEO base module
-===============
-
+========================================
 Website base module for SEO optimization
-----------------------------------------
+========================================
+
+.. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
+    :target: https://odoo-community.org/page/development-status
+    :alt: Production
+.. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
+    :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
+    :alt: License: LGPL-3
+.. |badge3| image:: https://img.shields.io/badge/github-Comunitea-gray.png?logo=github
+    :target: https://github.com/Comunitea/
+    :alt: Comunitea
+.. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FSEO-lightgray.png?logo=github
+    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/11.0/seo_base
+    :alt: Comunitea / SEO
+.. |badge5| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
+    :target: https://github.com/Comunitea/external_ecommerce_modules/blob/11.0/seo_base/i18n/es.po
+    :alt: Spanish Translated
+
+
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module contains several modules for different optimizations on the website.
 
 It is compatible with the multi-website.
+
+**Table of contents**
+
+.. contents::
+   :local:
+
+Analytics
+~~~~~~~~~
+
+Integration with analytical systems:
+
+- Google Tag Manager
+- Facebook Pixel
+
+Set this in Website > SEO Configuration > Analytics
+
+Shop access rules
+~~~~~~~~~~~~~~~~~
+
+You can manage your shop access. True by default.
+If you wish may enable for user type (B2B or B2C).
+
+Set this in Website > SEO Configuration > General > Public Shop
 
 Sitemap.xml
 ~~~~~~~~~~~
@@ -20,6 +55,8 @@ This module creates a sitemap.xml file in the root path of the website.
 
 You can use the back-end part for the configuration of this map.
 
+Set this in Website > SEO Configuration > Sitemap.xml
+
 Robots.txt
 ~~~~~~~~~~
 
@@ -27,10 +64,14 @@ This module creates a Robots.txt file in the root path of the website.
 
 You can use the back-end part for the change of cache time and set robots.txt content.
 
+Set this in Website > SEO Configuration > Robots.txt
+
 ECommerce category & product friendly URL's
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Product and ECommerce public category redirecting from custom Odoo URL to new friendly URL en base of SLUG field.
+Product and ECommerce public category redirecting from custom Odoo URL to new friendly URL by SLUG field.
+
+This part works with shop access rules prevent redirection by user
 
 - For products: **from** *EXAMPLE.COM/shop/product/sku-product-name-id* **to** *EXAMPLE.COM/product/product-name*
 - For public categories: **from** *EXAMPLE.COM/shop/category/category-name-id* **to** *EXAMPLE.COM/category/category-name*
@@ -67,6 +108,8 @@ Progressive web app
 - Add Manifest.json;
 - Add a **Service Worker** (with offline cache) to the Web App.
 
+Set this in Website > SEO Configuration > Web App
+
 __
 
     **Warning!**
@@ -83,7 +126,6 @@ Developer: Comunitea, info@comunitea.com
 Contributors
 ~~~~~~~~~~~~
 
-* Comunitea
 * Pavel Smirnov, pavel@comunitea.com
 * Rubén Seijas, ruben@comunitea.com
 

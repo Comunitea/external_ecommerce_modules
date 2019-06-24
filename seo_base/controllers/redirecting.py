@@ -15,8 +15,7 @@ def shop_control_access(website):
         is_b2b = user.has_group('sale.group_show_price_subtotal')
         is_portal = user.has_group('base.group_portal')
         is_admin = user.has_group('website.group_website_publisher') \
-                   or user.has_group('website.group_website_publisher') \
-                   or user.id == SUPERUSER_ID
+            or user.id == SUPERUSER_ID
 
         if not is_admin:
             if (rules == 'b2b' and not is_b2b) or (rules == 'portal' and not is_portal):
