@@ -1,2 +1,3 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
 "public_access_mass_mailing_list","Public access to mail.mass_mailing.list","website_mass_mailing.model_mail_mass_mailing_list","base.group_public",1,0,0,0
+"portal_access_mass_mailing_list","Portal access to mail.mass_mailing.list","website_mass_mailing.model_mail_mass_mailing_list","base.group_portal",1,0,0,0

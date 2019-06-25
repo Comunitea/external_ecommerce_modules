@@ -11,6 +11,18 @@ Add front-end users to mass_mailing list
 
 This module adds **Follow us** page with a subscription form to the website.
 
+The page with newsletter channel list has URL *EXAMPLE.COM/page/newsletter*
+
+For put the newsletter horizontal banner you need to set this code to your template:
+
+::
+
+    <t t-call="follow_us_base.newsletter_banner">
+        <t t-set="channel" t-value="CHANNEL_ID"/>           # required
+        <t t-set="hash_tag" t-value="'YOUR_HASH_TAG'"/>     # optional
+    </t>
+
+
 Author
 ------
 

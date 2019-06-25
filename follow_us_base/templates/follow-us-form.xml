@@ -19,7 +19,7 @@
             <div class="subscription_form">
                 <div class="input-group mb8">
                     <input type="email" name="email" class="form-control" placeholder="your email..."
-                           t-att-value="user_id.email if website.user_id != user_id else None"/>
+                           t-att-value="user_id.partner_id.email if website.user_id != user_id else None"/>
                     <span class="input-group-btn">
                         <a href="#" class="btn btn-primary js_subscribe_btn">Update subscription</a>
                     </span>
