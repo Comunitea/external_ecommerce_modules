@@ -1,0 +1,18 @@
+.oe_cart {
+    & .wizard {
+        & a.text-success {
+            color: @color-dark;
+            &:hover {
+                color: @color-light;
+            }
+        }
+        & li.text-primary {
+            background: #fbfbfb;
+            font-weight: 600;
+            color: @color-text;
+            & .chevron:before {
+                border-left: 10px solid #fbfbfb;
+            }
+        }
+    }
+}
