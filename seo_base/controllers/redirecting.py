@@ -13,22 +13,25 @@ def shop_control_access(website):
         rules = website.shop_access_rules
 
         is_b2b = user.has_group('sale.group_show_price_subtotal')
+        is_b2c = user.has_group('sale.group_show_price_total')
         is_portal = user.has_group('base.group_portal')
         is_admin = user.has_group('website.group_website_publisher') \
-            or user.id == SUPERUSER_ID
+                   or user.has_group('website.group_website_designer') \
+                   or user.id == SUPERUSER_ID
 
         if not is_admin:
-            if (rules == 'b2b' and not is_b2b) or (rules == 'portal' and not is_portal):
-                if is_portal:
-                    return request.render("website.403")
-                else:
-                    path = request.httprequest.path
-                    query = request.httprequest.query_string
-                    if query:
-                        query = query.decode('utf-8')
-                        query = query.replace('&', '%26')
-                        path += '?%s' % query
-                    return request.redirect('/web/login?redirect=%s' % path)
+            # If the user is not logged in --> to login
+            if not is_portal:
+                path = request.httprequest.path
+                query = request.httprequest.query_string
+                if query:
+                    query = query.decode('utf-8')
+                    query = query.replace('&', '%26')
+                    path += '?%s' % query
+                return request.redirect('/web/login?redirect=%s' % path)
+            # If the user hasn't permission --> return error 403
+            elif (rules == 'b2b' and not is_b2b) or (rules == 'b2c' and not is_b2c):
+                return request.render("website.403")
     return False
 
 
