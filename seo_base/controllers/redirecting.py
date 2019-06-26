@@ -31,7 +31,7 @@ def shop_control_access(website):
                 return request.redirect('/web/login?redirect=%s' % path)
             # If the user hasn't permission --> return error 403
             elif (rules == 'b2b' and not is_b2b) or (rules == 'b2c' and not is_b2c):
-                return request.render("website.403")
+                return request.render("seo_base.403_access_to_store")
     return False
 
 

@@ -55,6 +55,7 @@
         'templates/sitemap.xml',
         'templates/shop.xml',
         'templates/webapp.xml',
+        'templates/access.xml',
     ],
     'images': [
         '/static/description/icon.png',

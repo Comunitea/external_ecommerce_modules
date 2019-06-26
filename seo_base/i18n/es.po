@@ -586,3 +586,68 @@ msgstr "Abrir la tienda para los usuarios públicos. De lo contrario, las reglas
 #: model:ir.ui.view,arch_db:seo_base.seo_general_settings_form
 msgid "Set access rules:"
 msgstr "Establecer reglas de acceso:"
+
+#. module: seo_base
+#: model:ir.ui.view,name:seo_base.403_access_to_store
+msgid "403 user access error"
+msgstr "Error de acceso 403"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.403_access_to_store
+msgid "403: Forbidden"
+msgstr "403: Prohibido"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.403_access_to_store
+msgid "You do not have access to this page"
+msgstr "Usted no tiene permiso para acceder a esta página"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.403_access_to_store
+msgid "You need to"
+msgstr "Es necesario"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.403_access_to_store
+msgid "Log In"
+msgstr "iniciar sesión
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.403_access_to_store
+msgid "how a different user to see the content"
+msgstr "como un usuario diferente para ver el contenido"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.403_access_to_store
+msgid "If you have any problem, please"
+msgstr "Si tiene algun problema, por favor"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.403_access_to_store
+msgid "contact with us"
+msgstr "pónganse en contacto con nosotros"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.403_access_to_store
+msgid "by phone"
+msgstr "por teléfono"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.403_access_to_store
+msgid "or email"
+msgstr "o correo electrónico"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.403_access_to_store
+msgid "Start page"
+msgstr "Página de Inicio"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.403_access_to_store
+msgid "Change account"
+msgstr "Cambiar la cuenta"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.403_access_to_store
+msgid "Contactus"
+msgstr "Contacto"
