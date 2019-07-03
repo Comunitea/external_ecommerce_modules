@@ -2,6 +2,12 @@
 <odoo>
 
     <template id="theme_name_website_footer_custom" inherit_id="website.footer_custom">
+
+        <!-- Put footer on checkout again -->
+        <xpath expr="//div[@id='footer']" position="attributes">
+            <attribute name="t-if"></attribute>
+        </xpath>
+
         <xpath expr="//div[@id='footer']//div[hasclass('row')]" position="replace">
             <div class="row">
                 <div class="col-md-4">
