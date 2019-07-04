@@ -80,4 +80,14 @@
         </xpath>
     </template>
 
+    <!-- Replace cart text iin header. Just icon -->
+    <template id="theme_name_website_sale_header" name="Header THEME NAME Template" inherit_id="website_sale.header">
+        <xpath expr="//li[@id='my_cart']/a" position="replace">
+            <a href="/shop/cart">
+                <i class="fa fa-shopping-cart"/>
+                <sup t-attf-class="my_cart_quantity label label-primary" t-esc="website_sale_order and website_sale_order.cart_quantity or ''" />
+            </a>
+        </xpath>
+    </template>
+
 </odoo>
