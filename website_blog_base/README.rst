@@ -8,7 +8,7 @@ Website blog base
 .. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
     :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-Comunitea-gray.png?logo=github
+.. |badge3| image:: https://img.shields.io/badge/github-Comunitea-lightgray.png?logo=github
     :target: https://github.com/Comunitea/
     :alt: Comunitea
 .. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FBLOG-lightgray.png?logo=github

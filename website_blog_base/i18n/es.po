@@ -27,7 +27,7 @@ msgstr "Disponible para los usuarios B2C"
 #: model:ir.model.fields,field_description:website_blog_base.field_blog_blog_for_retailers
 #, python-format
 msgid "Available for B2B users"
-msgstr "Disponible para los usuarios B2C"
+msgstr "Disponible para los usuarios B2B"
 
 #. module: website_blog_base
 #: model:ir.model,name:website_blog_base.model_blog_post
