@@ -121,17 +121,13 @@ class SeoGeneralConfigSettings(models.TransientModel):
     cache_mode = fields.Selection(related='website_id.cache_mode',
                                   selection=[("1second", "Developer mode"), ("12hours", "Normal mode")],
                                   string="CACHE_TIME: ",
-                                  default="1second")
+                                  default="12hours")
     console_mode = fields.Selection(related='website_id.console_mode',
                                     selection=[("dev", "Developer mode"), ("usr", "Normal mode")],
                                     string=_("Browser console mode: "),
                                     default="usr")
     web_public_shop = fields.Boolean(related='website_id.web_public_shop', default=True)
-    shop_access_rules = fields.Selection(related='website_id.shop_access_rules',
-                                         selection=[('b2c', _("Only portal users logged with B2C")),
-                                                    ('b2b', _("Only portal users logged with B2B"))],
-                                         string=_("Store access rules:"),
-                                         default='portal')
+    shop_access_rules = fields.Selection(related='website_id.shop_access_rules')
 
     @api.constrains('slug_length')
     def _check_slug_length_value(self):
