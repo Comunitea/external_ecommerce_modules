@@ -15,9 +15,7 @@ def shop_control_access(website):
         is_b2b = user.has_group('sale.group_show_price_subtotal')
         is_b2c = user.has_group('sale.group_show_price_total')
         is_portal = user.has_group('base.group_portal')
-        is_admin = user.has_group('website.group_website_publisher') \
-                   or user.has_group('website.group_website_designer') \
-                   or user.id == SUPERUSER_ID
+        is_admin = user.has_group('website.group_website_publisher') or user.has_group('base.group_user')
 
         if not is_admin:
             # If the user is not logged in --> to login
