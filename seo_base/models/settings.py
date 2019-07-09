@@ -68,7 +68,7 @@ class Website(models.Model):
     shop_access_rules = fields.Selection(selection=[
         ('b2c', _("Only portal users logged with B2C")),
         ('b2b', _("Only portal users logged with B2B"))
-    ], string=_("Store access rules:"), default='portal')
+    ], string=_("Store access rules:"), default='b2b')
 
     @api.multi
     def unlink(self):
@@ -127,7 +127,10 @@ class SeoGeneralConfigSettings(models.TransientModel):
                                     string=_("Browser console mode: "),
                                     default="usr")
     web_public_shop = fields.Boolean(related='website_id.web_public_shop', default=True)
-    shop_access_rules = fields.Selection(related='website_id.shop_access_rules')
+    shop_access_rules = fields.Selection(related='website_id.shop_access_rules',
+                                         selection=[('b2c', _("Only portal users logged with B2C")),
+                                                    ('b2b', _("Only portal users logged with B2B"))],
+                                         string=_("Store access rules:"), default='b2b')
 
     @api.constrains('slug_length')
     def _check_slug_length_value(self):
