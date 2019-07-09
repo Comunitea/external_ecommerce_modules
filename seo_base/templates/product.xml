@@ -2,7 +2,7 @@
 <odoo>
 
     <!-- The product template changes -->
-    <template id="website_sale_product_add" inherit_id="website_sale.product">
+    <template id="website_sale_product_add" name="Product Seo Base Template" inherit_id="website_sale.product">
         <xpath expr="//div[@id='product_details']//hr[@t-if='product.description_sale']" position="attributes">
             <attribute name="t-if">product.description_short</attribute>
         </xpath>
@@ -46,7 +46,7 @@
     </template>
 
     <!-- Product item used by /shop and /shop/cart -->
-    <template id="website_sale_products_item_add" inherit_id="website_sale.products_item">
+    <template id="website_sale_products_item_add" name="Product Item Seo Base Template" inherit_id="website_sale.products_item">
         <!-- Image URL and attributes -->
         <xpath expr="//div[hasclass('oe_product_image')]/a/span" position="replace">
             <span><img t-att-alt="product.name" t-att-title="product.name"
@@ -63,9 +63,9 @@
     </template>
 
     <!-- Product item add to cart button used by /shop -->
-    <template id="website_sale_products_add_to_cart" inherit_id="website_sale.products_add_to_cart">
+    <template id="website_sale_products_add_to_cart" name="Add to Cart Seo Base Template" inherit_id="website_sale.products_add_to_cart">
         <xpath expr="//t[2]/a" position="attributes">
-            <attribute name="t-att-href">'/product/%s' % product.slug if product.slug else keep('/shop/product/%s' % slug(product))</attribute>
+            <attribute name="t-att-href">keep('/product/%s', page=(pager['page']['num'] if pager['page']['num']&gt;1 else None)) % product.slug if product.slug else keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))</attribute>
         </xpath>
     </template>
 

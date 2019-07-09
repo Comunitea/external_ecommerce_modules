@@ -117,7 +117,7 @@ class ProductRedirect(WebsiteSale):
     @http.route(['/shop/product/<model("product.template"):product>'], type='http', auth="public", website=True)
     def product(self, product, category='', search='', **kwargs):
         """
-        Template render on whether or not there is slug url and context updated by website warehouse
+        Template render on whether or not there is slug url and context updated by inheritance
         """
 
         # Call to the user access control function
@@ -140,7 +140,7 @@ class ProductRedirect(WebsiteSale):
     @http.route('/product/<path:path>', type='http', auth="public", website=True)
     def slug_product(self, path, category='', search='', **kwargs):
         """
-        Template render by SLUG URL and context updated by website warehouse
+        Template render by SLUG URL and context updated by inheritance
 
         :return: the standard template with normal user permissions if the product exists else 404
         """
