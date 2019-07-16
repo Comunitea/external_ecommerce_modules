@@ -21,18 +21,35 @@ Website blog base
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-Friendly blog extension for eCommerce
--------------------------------------
-
-This module adds different features to base website blog:
-
-* Add content html-field to back-end post view;
-* Add short post description field (introduction);
-* Add post image field.
+This module contains several optimizations on the website blog.
 
 It is compatible with the multi-website.
 
+**Table of contents**
+
+.. contents::
+   :local:
+
+Friendly blog extension for eCommerce
+-------------------------------------
+
+This module include different features to blog:
+
+* Add content html-field to back-end post view;
+* Add short post description field (introduction);
+* Add post image field;
+* Show latest news in three or six columns sections
+* Add snippet for editor web (Can be called by t-call too if you wish);
+* Add control access by user and show an 403 custom template
+* Add demo mode
+
 Set this in Website > Blog
+
+Known issues
+------------
+
+if the snippet is used via web editor the user control access take no effect but can be called by t-call too if you wish and then works fine.
+
 
 Author
 ------

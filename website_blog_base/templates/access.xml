@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="403_access_to_blog" name="403 User Access Error Template">
+        <div class="container">
+            <div class="col-md-8 col-md-offset-2 col-sm-12 text-center">
+                <h1 class="mt32">403: Forbidden</h1>
+                <div class="mt32 mb32">
+                    <h2 class="mb32 title">You do not have access to this page</h2>
+                    <p class="mb8 first-paragraph">You need to be<a href="/web/login">Logged</a> and your user must have enough permissions.</p>
+                    <p class="mb32 second-paragraph">If you have any problem, please <a href="/contactus">contact with us</a> by phone <a t-attf-href="tel::#{res_company.phone}" t-esc="res_company.phone"/> or email <a t-attf-href="mailto:#{res_company.email}" t-esc="res_company.email"/> </p>
+                    <div class="mb32 button-section">
+                        <a href="/" class="btn btn-warning btn-large">Start page</a>
+                        <a href="/web/login?redirect=/blog" class="btn btn-success btn-large">Log In</a>
+                        <a href="/contactus" class="btn btn-primary">Contactus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</odoo>

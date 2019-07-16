@@ -12,7 +12,7 @@
                     * title of button "Read all news": string, muy be empty
              -->
             <t t-set="latest_posts"
-               t-value="website.latest_posts(3, 3, 'Our latest news', 'Read all our news')"/>
+               t-value="website.latest_posts(3, 3, 'Our latest post', 'Read all our post')"/>
             <!-- Call the main template of latest news block-->
             <t t-call="website_blog_base.wbb_latest_post_wrap"/>
         </div>

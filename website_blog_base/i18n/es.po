@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-24 14:40+0000\n"
-"PO-Revision-Date: 2019-06-24 14:40+0000\n"
+"POT-Creation-Date: 2019-07-16 15:37+0000\n"
+"PO-Revision-Date: 2019-07-16 15:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,11 +16,34 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: website_blog_base
-#: code:addons/website_blog_base/models/blog_blog.py:15
-#: model:ir.model.fields,field_description:website_blog_base.field_blog_blog_for_customers
-#, python-format
-msgid "Available for B2C users"
-msgstr "Disponible para los usuarios B2C"
+#: model:ir.ui.view,name:website_blog_base.403_access_to_blog
+msgid "403 User Access Error Template"
+msgstr "403 User Access Error Template"
+
+#. module: website_blog_base
+#: model:ir.ui.view,arch_db:website_blog_base.403_access_to_blog
+msgid "403: Forbidden"
+msgstr "403: Prohibido"
+
+#. module: website_blog_base
+#: model:ir.ui.view,arch_db:website_blog_base.access_view_blog_blog_form
+msgid "Access control"
+msgstr "Control de Acceso al Blog"
+
+#. module: website_blog_base
+#: model:ir.ui.view,name:website_blog_base.access_view_blog_blog_form
+msgid "Access control blog form view"
+msgstr "Access control blog form view"
+
+#. module: website_blog_base
+#: model:ir.ui.view,name:website_blog_base.wbb_view_blog_post_form
+msgid "Add content and image fields to the blog.post view"
+msgstr "Añada contenido e imágenes a la vista del blog"
+
+#. module: website_blog_base
+#: model:ir.ui.view,name:website_blog_base.wbb_website_blog_blogs
+msgid "All Blogs section"
+msgstr "All Blogs section"
 
 #. module: website_blog_base
 #: code:addons/website_blog_base/models/blog_blog.py:14
@@ -30,20 +53,82 @@ msgid "Available for B2B users"
 msgstr "Disponible para los usuarios B2B"
 
 #. module: website_blog_base
+#: code:addons/website_blog_base/models/blog_blog.py:15
+#: model:ir.model.fields,field_description:website_blog_base.field_blog_blog_for_customers
+#, python-format
+msgid "Available for B2C users"
+msgstr "Disponible para los usuarios B2C"
+
+#. module: website_blog_base
 #: model:ir.model,name:website_blog_base.model_blog_post
 msgid "Blog Post"
 msgstr "Entrada del blog"
 
 #. module: website_blog_base
-#: model:ir.ui.view,arch_db:website_blog_base.wbb_website_blog_index
+#: model:ir.ui.view,name:website_blog_base.snippets
+msgid "Blog Snippets Template"
+msgstr "Blog Snippets Template"
+
+#. module: website_blog_base
+#: model:ir.ui.view,name:website_blog_base.wbb_website_blog_index
+msgid "Blog/post wrap control access"
+msgstr "Blog/post wrap control access"
+
+#. module: website_blog_base
+#: model:ir.model,name:website_blog_base.model_blog_blog
+msgid "Blogs"
+msgstr "Blogs"
+
+#. module: website_blog_base
+#: model:ir.ui.view,arch_db:website_blog_base.403_access_to_blog
 msgid "Contactus"
 msgstr "Contacto"
 
 #. module: website_blog_base
-#: code:addons/website_blog_base/models/website_blog.py:31
+#: model:ir.ui.view,arch_db:website_blog_base.403_access_to_blog
+msgid "If you have any problem, please"
+msgstr "Si tiene algun problema, por favor"
+
+#. module: website_blog_base
+#: model:ir.ui.view,name:website_blog_base.s_latest_post
+msgid "Latest Post"
+msgstr "Últimas entradas del blog"
+
+#. module: website_blog_base
+#: model:ir.ui.view,name:website_blog_base.wbb_website_blog_latest_blogs
+msgid "Latest blogs and posts with access control"
+msgstr "Latest blogs and posts with access control"
+
+#. module: website_blog_base
+#: model:ir.ui.view,name:website_blog_base.wbb_website_blog_latest_blogs_s_three_columns
+msgid "Latest blogs and posts with access control in three columns"
+msgstr "Latest blogs and posts with access control in three columns"
+
+#. module: website_blog_base
+#: model:ir.ui.view,arch_db:website_blog_base.403_access_to_blog
+msgid "Log In"
+msgstr "Entrar"
+
+#. module: website_blog_base
+#: model:ir.ui.view,arch_db:website_blog_base.403_access_to_blog
+msgid "Logged"
+msgstr "Logueado"
+
+#. module: website_blog_base
+#: model:ir.ui.view,arch_db:website_blog_base.wbb_website_blog_blogs
+msgid "Our Blogs"
+msgstr "Nuestros blogs"
+
+#. module: website_blog_base
+#: code:addons/website_blog_base/models/website_blog.py:55
 #, python-format
-msgid "Our latest news"
-msgstr "Últimas noticias"
+msgid "Our latest post"
+msgstr "Últimas entradas"
+
+#. module: website_blog_base
+#: model:ir.ui.view,arch_db:website_blog_base.wbb_view_blog_post_form
+msgid "Post content"
+msgstr "Contenido de la entrada"
 
 #. module: website_blog_base
 #: code:addons/website_blog_base/models/blog_post.py:9
@@ -53,10 +138,16 @@ msgid "Post main image"
 msgstr "Imagen principal"
 
 #. module: website_blog_base
-#: code:addons/website_blog_base/models/website_blog.py:32
+#: code:addons/website_blog_base/models/website_blog.py:56
 #, python-format
-msgid "Read all our news"
-msgstr "Leer todas noticias"
+msgid "Read all our post"
+msgstr "Leer todas las entradas"
+
+#. module: website_blog_base
+#: model:ir.ui.view,arch_db:website_blog_base.s_latest_post
+#: model:ir.ui.view,arch_db:website_blog_base.wbb_latest_post_s_three_columns
+msgid "Read more"
+msgstr "Leer más"
 
 #. module: website_blog_base
 #: model:ir.ui.view,arch_db:website_blog_base.wbb_latest_post
@@ -76,7 +167,7 @@ msgid "Short post description"
 msgstr "Descripción corta"
 
 #. module: website_blog_base
-#: model:ir.ui.view,arch_db:website_blog_base.wbb_website_blog_index
+#: model:ir.ui.view,arch_db:website_blog_base.403_access_to_blog
 msgid "Start page"
 msgstr "Página de Inicio"
 
@@ -85,7 +176,7 @@ msgstr "Página de Inicio"
 #: model:ir.model.fields,help:website_blog_base.field_blog_post_image
 #, python-format
 msgid "This is image of post preview"
-msgstr "Es la imagen de priview de la entrada"
+msgstr "Es la imagen de la vista previa de la entrada"
 
 #. module: website_blog_base
 #: model:ir.model,name:website_blog_base.model_website
@@ -93,21 +184,46 @@ msgid "Website"
 msgstr "Sitio web"
 
 #. module: website_blog_base
-#: model:ir.ui.view,arch_db:website_blog_base.wbb_website_blog_index
-msgid "You don't have access to this page"
-msgstr "No tiene acceso para ver este contenido"
+#: model:ir.ui.view,arch_db:website_blog_base.403_access_to_blog
+msgid "You do not have access to this page"
+msgstr "Usted no tiene permiso para acceder a esta página"
 
 #. module: website_blog_base
-#: model:ir.ui.view,arch_db:website_blog_base.access_view_blog_blog_form
-msgid "Access control"
-msgstr "Control de Acceso al Blog"
+#: model:ir.ui.view,arch_db:website_blog_base.403_access_to_blog
+msgid "You need to be"
+msgstr "Necesita estar"
 
 #. module: website_blog_base
-#: model:ir.ui.view,name:website_blog_base.wbb_view_blog_post_form
-msgid "Add content and image fields to the blog.post view"
-msgstr "Añada contenido e imágenes a la vista del blog"
+#: model:ir.ui.view,arch_db:website_blog_base.403_access_to_blog
+msgid "and your user must have enough permissions."
+msgstr "y que su usuario tenga los permisos necesarios"
 
 #. module: website_blog_base
-#: model:ir.ui.view,arch_db:website_blog_base.wbb_view_blog_post_form
-msgid "Post content"
-msgstr "Contenido del Post"
+#: model:ir.ui.view,arch_db:website_blog_base.403_access_to_blog
+msgid "by phone"
+msgstr "por teléfono"
+
+#. module: website_blog_base
+#: model:ir.ui.view,arch_db:website_blog_base.403_access_to_blog
+msgid "contact with us"
+msgstr "pónganse en contacto con nosotros"
+
+#. module: website_blog_base
+#: model:ir.ui.view,arch_db:website_blog_base.403_access_to_blog
+msgid "or email"
+msgstr "o correo electrónico"
+
+#. module: website_blog_base
+#: model:ir.ui.view,name:website_blog_base.wbb_latest_post
+msgid "wbb_latest_post"
+msgstr "wbb_latest_post"
+
+#. module: website_blog_base
+#: model:ir.ui.view,name:website_blog_base.wbb_latest_post_s_three_columns
+msgid "wbb_latest_post_s_three_columns"
+msgstr "wbb_latest_post_s_three_columns"
+
+#. module: website_blog_base
+#: model:ir.ui.view,name:website_blog_base.wbb_latest_post_wrap
+msgid "wbb_latest_post_wrap"
+msgstr "wbb_latest_post_wrap"

@@ -44,6 +44,8 @@
     'data': [
         'views/blog_blog.xml',
         'views/blog_post_view.xml',
+        'views/snippets.xml',
+        'templates/access.xml',
         'templates/blog.xml',
         'templates/elements.xml',
         'templates/latest_posts.xml'

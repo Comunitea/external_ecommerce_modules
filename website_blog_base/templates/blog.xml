@@ -23,17 +23,64 @@
             <attribute name="t-if">access</attribute>
         </xpath>
         <xpath expr="//div[@id='wrap']/t[1]" position="after">
-            <div t-else="" class="container">
-                <div class="col-md-12 text-center">
-                    <div class="mt32 mb32">
-                        <h2 class="mb32">You don't have access to this page</h2>
-                        <div>
-                            <a href="/" class="btn btn-warning btn-large">Start page</a>
-                            <a href="/contactus" class="btn btn-primary">Contactus</a>
-                        </div>
-                    </div>
+            <t t-call="website_blog_base.403_access_to_blog" t-if="not access"/>
+        </xpath>
+    </template>
+
+    <template id="wbb_website_blog_blogs" name="All Blogs section">
+        <div class="col-md-12 text-center">
+            <h1>Our Blogs</h1>
+        </div>
+        <div class="row">
+            <t t-foreach="blogs" t-as="blog">
+                <div class="col-md-4">
+                    <h3>
+                        <a class="mr8" t-attf-href="#{blog_url(blog=blog.id)}"><span t-field="blog.name"/></a>
+                    </h3>
+                    <h4>
+                        <span t-field="blog.subtitle"/>
+                    </h4>
                 </div>
-            </div>
+            </t>
+        </div>
+    </template>
+
+    <!-- /BLOG page template (latest posts) with s_three_columns snippet -->
+    <template id="wbb_website_blog_latest_blogs_s_three_columns" inherit_id="website_blog.latest_blogs" name="Latest blogs and posts with access control in three columns">
+
+        <xpath expr="//div[@id='wrap']" position="before">
+            <t t-set="blogs" t-value="website.blogs()"/>
+            <t t-set="access" t-value="website.access_to_blogs(blogs)"/>
+        </xpath>
+
+        <xpath expr="//div[@id='wrap']" position="attributes">
+            <attribute name="t-if">access</attribute>
+        </xpath>
+
+        <xpath expr="//div[@id='wrap']" position="after">
+            <t t-if="not access">
+                <div id="wrap">
+                    <t t-call="website_blog_base.403_access_to_blog"/>
+                </div>
+            </t>
+        </xpath>
+
+        <!-- Show blogs if there are more than one -->
+        <xpath expr="//div[hasclass('col-md-12')]" position="before">
+            <t t-if="blogs and len(blogs) > 1">
+                <t t-call="website_blog_base.wbb_website_blog_blogs"/>
+            </t>
+        </xpath>
+
+        <!-- Post content -->
+        <xpath expr="//t[@t-foreach='posts']" position="replace">
+            <t t-set="latest_posts" t-value="website.latest_posts(6, 3, '', '')"/>
+            <!-- Call the main template of latest news block-->
+            <section class="s_three_columns">
+                <t t-foreach="latest_posts['posts']" t-as="post">
+                    <t t-call="website_blog_base.wbb_latest_post_s_three_columns"/>
+                </t>
+            </section>
         </xpath>
     </template>
 
