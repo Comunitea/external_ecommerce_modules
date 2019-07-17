@@ -227,3 +227,13 @@ msgstr "wbb_latest_post_s_three_columns"
 #: model:ir.ui.view,name:website_blog_base.wbb_latest_post_wrap
 msgid "wbb_latest_post_wrap"
 msgstr "wbb_latest_post_wrap"
+
+#. module: website_blog_base
+#: model:ir.ui.view,arch_db:website_blog_base.wbb_website_blog_latest_blogs_s_three_columns
+msgid "No blog post yet."
+msgstr "Sin entradas aún."
+
+#. module: website_blog_base
+#: model:ir.ui.view,arch_db:website_blog_base.wbb_website_blog_latest_blogs_s_three_columns
+msgid "Click on \"New Page\" in the top-right corner to write your first blog post."
+msgstr "Haga clic en la opción \"Nueva página\" de la esquina superior derecha para escribir su primera entrada del blog."

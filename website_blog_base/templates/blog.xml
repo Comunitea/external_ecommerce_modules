@@ -73,6 +73,9 @@
         </xpath>
 
         <!-- Post content -->
+        <xpath expr="//div[hasclass('clearfix')]" position="attributes">
+            <attribute name="t-if">(count % 6) == 0</attribute>
+        </xpath>
         <xpath expr="//t[@t-foreach='posts']" position="replace">
             <t t-set="latest_posts" t-value="website.latest_posts(6, 3, '', '')"/>
             <!-- Call the main template of latest news block-->
@@ -81,6 +84,16 @@
                     <t t-call="website_blog_base.wbb_latest_post_s_three_columns"/>
                 </t>
             </section>
+            <div t-if="not latest_posts['posts']" class="container mb64">
+                <div class="col-md-12 text-center">
+                    <p class="css_editable_hidden">
+                        <h3>No blog post yet.</h3>
+                    </p>
+                  <p groups="website.group_website_designer">
+                        Click on "New Page" in the top-right corner to write your first blog post.
+                    </p>
+                </div>
+            </div>
         </xpath>
     </template>
 
