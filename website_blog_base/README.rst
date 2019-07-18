@@ -45,6 +45,7 @@ This module include different features to blog:
 * Add advise No blog post yet in latest post
 * Change blog_post_complete to include right column
 * Change blog_post_short view in two columns and change teaser by subtitle
+* Render posts short list like as latest posts (Traditional view can be used too)
 
 Set this in Website > Blog
 

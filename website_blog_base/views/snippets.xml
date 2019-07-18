@@ -12,15 +12,15 @@
         <t t-set="access" t-value="website.access_to_blogs(blogs)"/>
         <t t-set="latest_posts" t-value="website.latest_posts(3, 3, '', '')"/>
         <t t-set="col_md" t-value="latest_posts['col_md']"/>
-        <section class="s_three_columns">
-            <div class="container" t-if="access">
+        <section class="s_three_columns" t-if="access and len(latest_posts['posts']) > 2">
+            <div class="container">
                 <div class="row mt32">
                     <div class="col-md-12">
                         <h1 class="text-center mt32" t-esc="latest_posts['title']"/>
                     </div>
                 </div>
             </div>
-            <div class="container" t-if="access">
+            <div class="container">
                 <div class="row">
                     <t t-foreach="latest_posts['posts']" t-as="post">
                         <div t-attf-class="col-md-#{col_md} mt32 mb48">
@@ -28,6 +28,7 @@
                                 <div class="mb8 latest_posts-img" t-attf-style="background: url(/web/image/blog.post/#{post.id}/image/500x500) center / cover; width: 100%; height: 200px;"/>
                             </a>
                             <h4 class="mt16 o_default_snippet_text" t-esc="post.name"/>
+                            <h6 class="o_default_snippet_text" t-esc="post.subtitle"/>
                             <p class="o_default_snippet_text" t-esc="post.introduction"/>
                             <a class="btn btn-primary" t-attf-href="/blog/#{slug(post.blog_id)}/post/#{slug(post)}" title="Read more" alt="Read more" rel="nofollow">Read more</a>
                         </div>
@@ -35,6 +36,6 @@
                 </div>
             </div>
         </section>
-</template>
+    </template>
 
 </odoo>
