@@ -209,7 +209,13 @@
         </xpath>
 
         <xpath expr="//div[@id='blog_content']" position="replace">
-            <div id="blog_content" t-field="blog_post.content" class="blog_content mt32"/>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2" t-ignore="True" id="main_column">
+                        <div id="blog_content" t-field="blog_post.content" class="blog_content mt32"/>
+                    </div>
+                </div>
+            </div>
         </xpath>
     </template>
 
