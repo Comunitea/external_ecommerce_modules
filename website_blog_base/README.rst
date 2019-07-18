@@ -42,6 +42,9 @@ This module include different features to blog:
 * Add snippet for editor web (Can be called by t-call too if you wish);
 * Add control access by user and show an 403 custom template
 * Add demo mode
+* Add advise No blog post yet in latest post
+* Change blog_post_complete to include right column
+* Change blog_post_short view in two columns and change teaser by subtitle
 
 Set this in Website > Blog
 
