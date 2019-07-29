@@ -47,7 +47,6 @@
         'views/snippets.xml',
         'templates/access.xml',
         'templates/blog.xml',
-        'templates/elements.xml',
         'templates/latest_posts.xml'
     ],
     'images': [

@@ -8,13 +8,26 @@ from odoo.http import request
 class WebsiteBlog(models.Model):
     _inherit = 'website'
 
+    def _check_domain_blog(self):
+        """
+        In case multi_website we add current website_id to domain.
+        :return: a domain to search blogs for current website.
+        """
+        website_domain = [('active', '=', True)]
+        web_list = request.env['website'].sudo().search([('name', '!=', '')])
+        is_multi = True if len(web_list) > 1 else False
+        if is_multi:
+            website_domain += [('website_ids', '=', self.id)]
+        return website_domain
+
     @api.multi
     def blogs(self):
         """
-        :return: all active blogs for current website
+        Search all blogs for current website.
+        :return: a list of blogs.
         """
         website = self.id
-        domain_blog = [('website_ids', '=', website), ('active', '=', True)]
+        domain_blog = self._check_domain_blog()
         blogs = request.env['blog.blog'].sudo().search(domain_blog)
 
         return blogs
@@ -32,7 +45,7 @@ class WebsiteBlog(models.Model):
         """
         # Search blog of current website
         website = self.id
-        domain_blog = [('website_ids', '=', website)]
+        domain_blog = self._check_domain_blog()
         blogs = request.env['blog.blog'].sudo().search(domain_blog)
 
         # Search published posts if blog exists
