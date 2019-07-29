@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Delete guarantee text -->
+    <xpath expr="//div[@id='product_details']/p[last()]" position="replace"/>
+    <xpath expr="//div[@id='product_details']//hr[last()]" position="replace"/>
+
+</odoo>

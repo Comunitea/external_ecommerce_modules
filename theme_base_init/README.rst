@@ -1,10 +1,31 @@
+====================
 Website Custom Theme
 ====================
 
-Provides a Custom Theme for Website.
-------------------------------------
+.. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
+    :target: https://odoo-community.org/page/development-status
+    :alt: Production
+.. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
+    :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
+    :alt: License: LGPL-3
+.. |badge3| image:: https://img.shields.io/badge/github-Comunitea-gray.png?logo=github
+    :target: https://github.com/Comunitea/
+    :alt: Comunitea
+.. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FTHEME_NAME-lightgray.png?logo=github
+    :target: https://github.com/Comunitea/CMNT_00168_2018_CAN
+    :alt: Comunitea / THEME_NAME
+.. |badge5| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
+    :target: https://github.com/Comunitea/THEME_REPO/tree/master/project-addons/THEME_NAME/i18n
+    :alt: Spanish Translated
 
-This is a theme module that contains styles and layout elements for front-end part.
+|badge1| |badge2| |badge3| |badge4| |badge5|
+
+This module provides a theme for website that contains styles and layout elements for front-end part.
+
+**Table of contents**
+
+.. contents::
+   :local:
 
 Author
 ------

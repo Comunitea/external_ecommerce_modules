@@ -80,7 +80,7 @@
         </xpath>
     </template>
 
-    <!-- Replace cart text iin header. Just icon -->
+    <!-- Replace cart text in header. Just icon -->
     <template id="theme_name_website_sale_header" name="Header THEME NAME Template" inherit_id="website_sale.header">
         <xpath expr="//li[@id='my_cart']/a" position="replace">
             <a href="/shop/cart">

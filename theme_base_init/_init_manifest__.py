@@ -43,6 +43,7 @@
         'templates/head.xml',
         'templates/header.xml',
         'templates/footer.xml',
+        'templates/product.xml',
         # 'templates/options.xml',
         # 'templates/snippets.xml'
         'templates/breadcrumbs_bar.xml',
