@@ -6,7 +6,7 @@
         <field name="model">blog.post</field>
         <field name="inherit_id" ref="website_blog.view_blog_post_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='ranking']/.." position="after">
+            <xpath expr="//field[@name='ranking']/.." position="after" groups="website.group_website_publisher">
                 <div class="content">
                     <div class="row">
                         <div class="col-md-12 clearfix"><separator string="Post content"/></div>

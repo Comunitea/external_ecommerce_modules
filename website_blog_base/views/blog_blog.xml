@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="website_blog.view_blog_blog_form"/>
         <field name="arch" type="xml">
             <xpath expr="//sheet" position="inside">
-                <group name="blog_user_access" string="Access control" colspan="2" cols="4">
+                <group name="blog_user_access" string="Access control" colspan="2" cols="4" groups="website.group_website_publisher">
                     <field name="for_retailers"/>
                     <field name="for_customers"/>
                 </group>

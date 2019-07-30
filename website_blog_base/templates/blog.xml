@@ -33,7 +33,8 @@
         </div>
         <div class="row">
             <t t-foreach="blogs" t-as="blog">
-                <div class="col-md-4">
+                <t t-set="access" t-value="website.access_to_blog(blog)"/>
+                <div class="col-md-4" t-if="access">
                     <h3>
                         <a class="mr8" t-attf-href="#{blog_url(blog=blog.id)}"><span t-field="blog.name"/></a>
                     </h3>
@@ -105,12 +106,13 @@
         </xpath>
         <xpath expr="//div[@id='blog_right_column']" position="inside">
             <t t-set="blogs" t-value="website.blogs()"/>
-            <t t-set="access" t-value="website.access_to_blogs(blogs)"/>
+            <t t-set="access" t-value="website.access_to_blogs(blogs)" t-if="blogs"/>
             <section class="mt32 mb32" t-if="access">
                 <h4>Our Blogs</h4>
                 <ul class="nav nav-pills nav-stacked">
                     <t t-foreach="blogs" t-as="nav_blog">
-                        <li t-att-class="nav_blog.id == blog.id and 'active' or None">
+                        <t t-set="access_blog" t-value="website.access_to_blog(nav_blog)"/>
+                        <li t-att-class="nav_blog.id == blog.id and 'active' or None" t-if="access_blog">
                             <a t-attf-href="#{blog_url(blog=nav_blog, tag=False, date_begin=False, date_end=False)}">
                                 <span t-field="nav_blog.name"/>
                             </a>
@@ -124,9 +126,8 @@
     <!-- Blog Post List: Displaying a list of Blog Posts in two columns and change teaser by subtitle -->
     <template id="wbb_website_blog_blog_post_short" name="Blog Posts List with subtitle" inherit_id="website_blog.blog_post_short">
         <xpath expr="//div[@name='blog_post']" position="replace">
-                        <t t-call="website_blog_base.wbb_s_post_short_list"/>
-             <!--  Render posts list traditional  -->
-<!--            <t t-call="website_blog_base.wbb_post_short_list"/>-->
+            <!--  Render posts list traditional  -->
+            <!--  <t t-call="website_blog_base.wbb_post_short_list"/> -->
             <!--  Render posts list like as latest posts  -->
             <t t-call="website_blog_base.wbb_s_post_short_list"/>
         </xpath>
@@ -181,8 +182,8 @@
         <section class="s_three_columns">
             <div class="container">
                 <div class="row">
-                    <t t-foreach="blog_posts" t-as="blog_post" name="blog_post">
-                        <div t-attf-class="col-md-6">
+                    <t t-foreach="blog_posts" t-as="blog_post">
+                        <div t-attf-class="col-md-6" t-if="blog_post.website_published" name="blog_post">
                             <a t-attf-href="/blog/#{slug(blog_post.blog_id)}/post/#{slug(blog_post)}" title="Read more" alt="Read more" rel="nofollow">
                                 <div class="mb8 latest_posts-img" t-attf-style="background: url(/web/image/blog.post/#{blog_post.id}/image/500x500) center / cover; width: 100%; height: 200px;"/>
                             </a>
@@ -243,12 +244,11 @@
                     <t t-set="classname">pull-right</t>
                 </t>
             </div>
-            <div class="container">
+            <div class="container" name="post_complete">
                 <div class="row">
                     <div id="title" class="blog_header" t-ignore="True">
                         <t t-call="website_blog.blog_cover">
                             <t t-set="cover_properties" t-value="blog_post_cover_properties"/>
-
                             <div class="blog_title">
                                 <h1 t-field="blog_post.name" id="blog_post_name" t-att-data-blog-id="blog_post.id" placeholder="Blog Post Title"/>
                                 <h2 t-field="blog_post.subtitle" placeholder="Subtitle"/>
@@ -323,13 +323,15 @@
             <attribute name="class">col-sm-8</attribute>
         </xpath>
         <xpath expr="//div[@id='blog_right_column']" position="inside">
-            <section class="mt32 mb32">
+            <t t-set="blogs" t-value="website.blogs()"/>
+            <t t-set="access" t-value="website.access_to_blogs(blogs)"/>
+            <section class="mt32 mb32" t-if="access">
                 <h4>Our Blogs</h4>
                 <ul class="nav nav-pills nav-stacked">
                     <t t-set="blogs" t-value="website.blogs()"/>
                     <t t-foreach="blogs" t-as="nav_blog">
-                        <t t-set="access" t-value="website.access_to_blog(blog)"/>
-                        <li t-att-class="nav_blog.id == blog.id and 'active' or None" t-if="access">
+                        <t t-set="access_blog" t-value="website.access_to_blog(nav_blog)"/>
+                        <li t-att-class="nav_blog.id == blog.id and 'active' or None" t-if="access_blog">
                             <a t-attf-href="#{blog_url(blog=nav_blog, tag=False, date_begin=False, date_end=False)}">
                                 <span t-field="nav_blog.name"/>
                             </a>

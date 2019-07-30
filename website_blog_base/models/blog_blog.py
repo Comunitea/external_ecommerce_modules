@@ -11,5 +11,5 @@ from odoo import http, api, models, fields, _
 class Blog(models.Model):
     _inherit = 'blog.blog'
 
-    for_retailers = fields.Boolean(string=_("Available for B2B users"), default=True)
+    for_retailers = fields.Boolean(string=_("Available for B2B users"), default=False)
     for_customers = fields.Boolean(string=_("Available for B2C users"), default=True)

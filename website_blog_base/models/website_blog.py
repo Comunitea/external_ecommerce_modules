@@ -26,7 +26,6 @@ class WebsiteBlog(models.Model):
         Search all blogs for current website.
         :return: a list of blogs.
         """
-        website = self.id
         domain_blog = self._check_domain_blog()
         blogs = request.env['blog.blog'].sudo().search(domain_blog)
 
@@ -44,10 +43,7 @@ class WebsiteBlog(models.Model):
         :return: result dict with the last post of all blogs of current website ordered by date desc..
         """
         # Search blog of current website
-        website = self.id
-        domain_blog = self._check_domain_blog()
-        blogs = request.env['blog.blog'].sudo().search(domain_blog)
-
+        blogs = self.blogs()
         # Search published posts if blog exists
         posts = []
         if blogs:
@@ -77,17 +73,8 @@ class WebsiteBlog(models.Model):
         :param blog: blog to check
         :return: True if user has access to this blog, false otherwise
         """
-        user = request.env.user
-        access = False
-
-        user_b2b = user.has_group('sale.group_show_price_subtotal')
-        user_b2c = user.has_group('sale.group_show_price_total') or user.has_group('base.group_public')
-        user_admin = user.has_group('website.group_website_publisher') or user.has_group('base.group_user')
-
-        if (blog.for_retailers and user_b2b) or (blog.for_customers and user_b2c) or user_admin:
-            access = True
-
-        return access
+        blogs = [blog]
+        return self._access_to_blogs(blogs)
 
     @api.multi
     def access_to_blogs(self, blogs):
@@ -95,6 +82,13 @@ class WebsiteBlog(models.Model):
         Check user permission access for all blogs
         :param blogs: blogs to check
         :return: True if user has access to all blogs, false otherwise
+        """
+        return self._access_to_blogs(blogs)
+
+    def _access_to_blogs(self, blogs):
+        """
+        Check user access for all received blogs.
+        :return: True if user has access, false otherwise.
         """
         user = request.env.user
         access = False
@@ -104,7 +98,7 @@ class WebsiteBlog(models.Model):
         user_admin = user.has_group('website.group_website_publisher') or user.has_group('base.group_user')
 
         for blog in blogs:
-            if (blog.for_retailers and user_b2b) or (blog.for_customers and user_b2c) or user_admin:
+            if blog and ((blog.for_retailers and user_b2b) or (blog.for_customers and user_b2c) or user_admin):
                 access = True
 
         return access
