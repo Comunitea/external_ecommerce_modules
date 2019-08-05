@@ -1,29 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <!-- Add breadcrumb bar to the main frontend layout -->
-    <template id="theme_name_breadcrumbs_bar" inherit_id="portal.frontend_layout">
-        <xpath expr="//main/t" position="before">
-            <t t-call="breadcrumbs_base.bcb_main_wrap"/>
-        </xpath>
-    </template>
-
     <!-- Remove the product breadcrumb's bar -->
-    <template id="theme_name_breadcrumbs_product_remove" inherit_id="website_multi_theme.auto_view_fir_website_sale_product">
+    <template id="wb_breadcrumbs_product_remove" name="Remove Product BreadCrumbs" inherit_id="website_sale.product">
         <xpath expr="//ol[hasclass('breadcrumb')]" position="attributes">
             <attribute name="t-if">True == False</attribute>
         </xpath>
     </template>
 
     <!-- Remove the My Account breadcrumb's bar -->
-    <template id="theme_name_breadcrumbs_account_remove" inherit_id="portal.portal_layout">
+    <template id="wb_breadcrumbs_account_remove" name="Remove Account BreadCrumbs" inherit_id="portal.portal_layout">
         <xpath expr="//div[hasclass('o_portal')]" position="attributes">
             <attribute name="t-if">True == False</attribute>
         </xpath>
     </template>
 
     <!-- Remove the Blog breadcrumb's bar -->
-    <template id="theme_name_breadcrumbs_blog_remove" inherit_id="website_blog.blog_breadcrumb">
+    <template id="wb_breadcrumbs_blog_remove" name="Remove Blog BreadCrumbs" inherit_id="website_blog.blog_breadcrumb">
         <xpath expr="//div[hasclass('container')]" position="attributes">
             <attribute name="t-if">True == False</attribute>
         </xpath>

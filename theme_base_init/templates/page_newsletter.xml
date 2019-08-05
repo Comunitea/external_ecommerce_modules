@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-    <template id="theme_name_page_newsletter" inherit_id="theme_bas.page_newsletter">
+    <template id="THEME_NAME_page_newsletter" inherit_id="theme_bas.page_newsletter">
         <xpath expr="//div[@class='container']" position="inside">
             <div class="row mt32 mb32">
                 <div class="col-md-12">

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Accept Legal with check -->
+    <template id="can_accept_legal_terms_with_check_snippet" name="Full Legal Acceptance With Check Snippet">
+        <div class="form-group form-field o_website_form_required">
+            <div class="col-md-7 col-md-offset-3 col-sm-8 col-sm-offset-4">
+                <div class="checkbox">
+                    <input type="checkbox" value="accepted" id="privacy_policy" name="privacy_policy" class="o_website_form_input ml0" required="required"/>
+                    <label for="privacy_policy">
+                        <t t-call="website_legal_page.acceptance_full"/>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Accept Legal without checkbox -->
+    <template id="can_accept_legal_terms_without_check_snippet" name="Full Legal Acceptance Without Check Snippet">
+        I accept the <a href="/legal/advice">legal advice</a>, the <a href="/legal/privacy-policy">privacy policy</a>, and the <a href="/legal/terms-of-use">terms of use</a> of this website.
+    </template>
+
+</odoo>

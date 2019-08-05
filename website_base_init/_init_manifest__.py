@@ -51,11 +51,15 @@
     ],
     'data': [
         'data/company_data.xml',
-        # 'data/menu_data.xml',  # No delete elements, just transform
-        # 'data/page_data.xml',  # No delete elements, just transform
         'data/website_data.xml',
         'views/res_company_views.xml',
         'views/website_views.xml',
+        'views/product_views.xml',
+        'templates/header.xml',
+        'templates/account.xml',
+        'templates/snippets.xml',
+        'templates/breadcrumbs_bar.xml',
+        'templates/shop.xml',
     ],
     'images': [
         '/static/description/icon.png',

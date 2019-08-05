@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-        <data noupdate="1">
+        <data>
 
             <!--Update Main Company-->
             <record id="base.main_company" model="res.company">

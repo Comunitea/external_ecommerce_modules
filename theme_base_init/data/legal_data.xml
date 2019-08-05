@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="THEME_NAME_advise_page" name="Aviso legal - theme_name"/>
+
+    <template id="THEME_NAME_privacy_page" name="Política de privacidad - theme_name"/>
+
+    <template id="THEME_NAME_terms_page" name="Terminos legales - theme_name"/>
+
+</odoo>

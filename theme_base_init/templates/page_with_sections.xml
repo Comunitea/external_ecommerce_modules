@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-    <template id="theme_name_page_with_sections" inherit_id="theme_bas.page_with_sections">
+    <template id="THEME_NAME_page_with_sections" inherit_id="theme_bas.page_with_sections">
         <xpath expr="//div[@class='container']" position="inside">
             <section id="first_section">
                 <!--Carousel-->

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Set Up Responsive Logo Show -->
+    <template id="THEME_NAME_logo_show" name="Logo Show THEME_NAME Template" inherit_id="website.layout_logo_show">
+        <xpath expr="//a[hasclass('navbar-brand')]/span" position="replace">
+            <img class="img img-responsive" src="/THEME_NAME/static/img/THEME_NAME/img-logo.png" alt="website.name"/>
+        </xpath>
+    </template>
+
+    <!-- Call breadcrumbs -->
+    <template id="wbm_website_layout" name="Layout Canilike Template" inherit_id="website.layout">
+        <xpath expr="//div[@id='wrapwrap']//div[hasclass('navbar')]" position="after">
+            <t t-call="breadcrumbs_base.bcb_main_wrap" t-if="(xmlid == 'website_sale.products' or xmlid == 'website_base_multi_can.can_recipes_list_template' or 'portal' in xmlid)"/>
+        </xpath>
+    </template>
+
+    <!-- Remove Cart icon text -->
+    <template id="wbm_website_sale_header_cart" name="Header Cart Canilike Template" inherit_id="website_sale.header">
+        <xpath expr="//li[@id='my_cart']/a" position="replace">
+            <a href="/shop/cart">
+                <i class="fa fa-shopping-cart"/>
+                <sup t-attf-class="my_cart_quantity label label-primary" t-esc="website_sale_order and website_sale_order.cart_quantity or ''" />
+            </a>
+        </xpath>
+    </template>
+
+    <!-- Remove Wishlist icon text -->
+    <template id="can_website_sale_header_wishlist" name="Header Wishlist Canilike Template" inherit_id="website_sale_wishlist.header">
+        <xpath expr="//header//ul[@id='top_menu']/li[@id='my_cart']" position="after">
+            <t t-if="request.env.ref('website_sale_wishlist.add_to_wishlist').active">
+                <t t-set='wishcount' t-value="len(request.env['product.wishlist'].current())"/>
+                <li id="my_wish" t-att-style="not wishcount and 'display:none;'">
+                    <a href="/shop/wishlist">
+                        <i class="fa fa-heart"/>
+                        <sup t-attf-class="my_wish_quantity o_animate_blink label label-primary"><t t-esc='wishcount'/></sup>
+                    </a>
+                </li>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Add language selector -->
+    <template id="wbm_portal_frontend_layout" name="Frontend Layout Canilike Template" inherit_id="portal.frontend_layout">
+        <xpath expr="//ul[@id='top_menu']" position="inside">
+            <t t-if="(request and request.is_frontend_multilang and len(languages) &gt; 1)">
+                <li class="divider"/>
+                <li class="dropdown language_menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img t-att-src="'/THEME_NAME/static/img/flags/flag_%s.png' % lang.split('_')[0]" style="max-height: 21px;"/>
+                        <span t-esc="lang.split('_')[0]"/>
+                        <span class="caret"/>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <t t-foreach="languages" t-as="lg">
+                            <li t-if="lg[0] != lang">
+                                <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
+                                   t-att-data-default-lang="(editable or translatable) and 'true' if website and lg[0] == website.default_lang_code else None"
+                                   t-att-data-lang="lg[0]"
+                                   class="js_change_lang"
+                                   rel="nofollow">
+                                    <img t-att-src="'/THEME_NAME/static/img/flags/flag_%s.png' % lg[0].split('_')[0]"
+                                         t-att-title="lg[1].split('/').pop()"
+                                         t-att-alt="lg[1].split('/').pop()"
+                                         t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"/>
+                                    <span t-esc="lg[0].split('_')[0]"/>
+                                </a>
+                            </li>
+                        </t>
+                    </ul>
+                </li>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

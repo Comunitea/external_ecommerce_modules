@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-    <template id="theme_name_page_brand_umbro" inherit_id="theme_bas.page_brand_umbro">
+    <template id="THEME_NAME_page_brand_umbro" inherit_id="theme_bas.page_brand_umbro">
         <xpath expr="//div[@class='container']" position="inside">
             <div id="carousel_brand_umbro" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">

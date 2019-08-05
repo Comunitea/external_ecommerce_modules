@@ -3,6 +3,8 @@
 
     <!-- The product template changes -->
     <template id="website_sale_product_add" name="Product Seo Base Template" inherit_id="website_sale.product">
+
+        <!-- Product descriptions -->
         <xpath expr="//div[@id='product_details']//hr[@t-if='product.description_sale']" position="attributes">
             <attribute name="t-if">product.description_short</attribute>
         </xpath>
@@ -18,6 +20,7 @@
                 </div>
             </div>
         </xpath>
+
         <!-- Image URL and attributes -->
         <xpath expr="//div[hasclass('carousel-inner')]/div[2]" position="replace">
             <div t-attf-class="item#{'' if variant_img else ' active'}">
@@ -31,6 +34,7 @@
                      t-attf-src="/web/image/product.image/{{pimg.id}}/image/"/>
             </div>
         </xpath>
+
         <!-- ECommerce category link in breadcrumbs -->
         <xpath expr="//ol[hasclass('breadcrumb')]/li[@t-if='category']" position="replace">
             <li t-if="product.public_categ_ids">
@@ -43,6 +47,10 @@
                 </t>
             </li>
         </xpath>
+
+        <!-- Hide guarantee -->
+        <xpath expr="//div[@id='product_details']//hr[last()]" position="replace"/>
+        <xpath expr="//div[@id='product_details']/p[last()]" position="replace"/>
     </template>
 
     <!-- Product item used by /shop and /shop/cart -->

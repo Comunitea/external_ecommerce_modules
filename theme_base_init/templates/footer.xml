@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-    <template id="theme_name_website_footer_custom" inherit_id="website.footer_custom">
+    <template id="THEME_NAME_website_footer_custom" inherit_id="website.footer_default">
 
         <!-- Put footer on checkout again -->
         <xpath expr="//div[@id='footer']" position="attributes">
-            <attribute name="t-if"></attribute>
+            <attribute name="t-if"/>
         </xpath>
 
         <xpath expr="//div[@id='footer']//div[hasclass('row')]" position="replace">

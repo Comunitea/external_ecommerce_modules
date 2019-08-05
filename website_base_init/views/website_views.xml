@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-    <data noupdate="1">
+    <data>
 
         <!-- website views -->
         <record id="view_website_form_instagram" model="ir.ui.view">
@@ -11,9 +10,11 @@
             <field name="arch" type="xml">
                 <group name="social_media" position="inside">
                     <field name="social_instagram"/>
+                    <field name="email"/>
+                    <field name="phone"/>
                 </group>
             </field>
         </record>
-    </data>
 
+    </data>
 </odoo>

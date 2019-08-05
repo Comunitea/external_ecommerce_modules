@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-    <template id="theme_name_homepage_content">
+    <template id="THEME_NAME_homepage_content">
         <t t-call="website.layout">
             <div id="wrap">
                 <div class="container">

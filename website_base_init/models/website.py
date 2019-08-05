@@ -13,6 +13,8 @@ class Website(models.Model):
     _inherit = 'website'
 
     email = fields.Char(string='Website Email', related="company_id.email")
+    phone = fields.Char(string='Website Phone', related="company_id.phone")
+    social_instagram = fields.Char(string='Instagram Account', related="company_id.social_instagram")
 
 
 class ResConfigSettings(models.TransientModel):
@@ -20,6 +22,9 @@ class ResConfigSettings(models.TransientModel):
 
     website_id = fields.Many2one('website', string="website", default=_default_website, required=True)
     social_instagram = fields.Char(string='Website Email', related='website_id.social_instagram')
+    email = fields.Char(related='website_id.email')
+    phone = fields.Char(related='website_id.phone')
+
 
 
 

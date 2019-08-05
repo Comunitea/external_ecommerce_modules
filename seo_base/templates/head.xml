@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
+    <template id="portal_frontend_layout_add" inherit_id="portal.frontend_layout">
+        <!-- Only one-company webs
+             Set javascript source after the footer -->
+        <!--
+        <xpath expr="//div[@id='wrapwrap']/footer" position="inside">
+            <t t-call-assets="web.assets_common" t-css="false"/>
+            <t t-call-assets="web.assets_frontend" t-css="false"/>
+            <t t-call-assets="web_editor.summernote" t-css="false" groups="website.group_website_publisher"/>
+            <t t-call-assets="web_editor.assets_editor" t-css="false" groups="website.group_website_publisher"/>
+            <t t-call-assets="website.assets_editor" t-css="false" groups="website.group_website_publisher"/>
+        </xpath>
+        -->
+    </template>
+
     <template id="website_layout_head_add" inherit_id="website.layout">
         <!-- Only one-company webs
              Replace javascript source in the head -->
@@ -58,18 +72,11 @@
         </xpath>
     </template>
 
-    <template id="portal_frontend_layout_add" inherit_id="portal.frontend_layout">
-        <!-- Only one-company webs
-             Set javascript source after the footer -->
-        <!--
-        <xpath expr="//div[@id='wrapwrap']/footer" position="inside">
-            <t t-call-assets="web.assets_common" t-css="false"/>
-            <t t-call-assets="web.assets_frontend" t-css="false"/>
-            <t t-call-assets="web_editor.summernote" t-css="false" groups="website.group_website_publisher"/>
-            <t t-call-assets="web_editor.assets_editor" t-css="false" groups="website.group_website_publisher"/>
-            <t t-call-assets="website.assets_editor" t-css="false" groups="website.group_website_publisher"/>
+    <!-- Add seo assets -->
+    <template id="sb_website_assets_frontend" name="Website Assets SEO" inherit_id="website.assets_frontend">
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/seo_base/static/js/main.js"/>
         </xpath>
-        -->
     </template>
 
 </odoo>

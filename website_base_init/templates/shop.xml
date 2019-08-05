@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Product item used by /shop and /shop/cart -->
+    <template id="wb_website_sale_products_item" name="Product Item Template" inherit_id="website_sale.products_item">
+
+        <!-- Include default code in product item -->
+        <xpath expr="//section/h5" position="before">
+            <div class="product_default_code">
+                <p t-esc="product.default_code" t-if="product.default_code"/>
+            </div>
+        </xpath>
+
+    </template>
+
+</odoo>

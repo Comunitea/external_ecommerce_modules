@@ -38,16 +38,12 @@
         'website_base_init'
     ],
     'data': [
+        'data/legal_data.xml',
         'data/menu_data.xml',
         'data/page_data.xml',
         'templates/head.xml',
-        'templates/header.xml',
         'templates/footer.xml',
         'templates/product.xml',
-        # 'templates/options.xml',
-        # 'templates/snippets.xml'
-        'templates/breadcrumbs_bar.xml',
-        'templates/pages.xml',
         'templates/page_home.xml',
         'templates/page_normal.xml',
         'templates/page_newsletter.xml',

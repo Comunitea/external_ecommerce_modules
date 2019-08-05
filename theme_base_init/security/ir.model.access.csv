@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_NAME_MODEL_public","NAME_MODEL_public","model_NAME_MODEL","base.group_public",1,0,0,0
+"access_NAME_MODEL_portal","NAME_MODEL_portal","model_NAME_MODEL","base.group_portal",1,0,0,0
+"access_NAME_MODEL_user","NAME_MODEL_user","model_NAME_MODEL","base.group_user",1,0,0,0
+"access_NAME_MODEL_website_publisher","NAME_MODEL_website_publisher","model_NAME_MODEL","website.group_website_publisher",1,1,1,0

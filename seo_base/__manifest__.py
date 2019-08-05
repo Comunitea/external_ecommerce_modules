@@ -40,7 +40,8 @@
     ],
     'depends': [
         'website',
-        'website_sale'
+        'website_sale',
+        'website_canonical_url',
     ],
     'data': [
         'views/product_meta.xml',

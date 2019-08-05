@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <!-- Only one-company webs
-         Changes of eCommerce category URL in the left shop sidebar -->
-    <template id="website_sale_categories_recursive_add" inherit_id="website_sale.categories_recursive">
+    <!-- Changes of eCommerce category URL in the left shop sidebar -->
+    <template id="website_sale_categories_recursive_add" name="Category list slug" inherit_id="website_sale.categories_recursive">
         <xpath expr="//li/a" position="attributes">
             <attribute name="t-att-href">'/category/%s' % c.slug if c.slug else '/shop/category/%s' % slug(c)</attribute>
+        </xpath>
+    </template>
+
+    <!-- Changes of eCommerce category URL in the left shop sidebar when collapse category is active -->
+    <template id="sb_website_sale_option_collapse_categories_recursive" name="Collapse Category Recursive Slug" inherit_id="website_sale.option_collapse_categories_recursive">
+        <xpath expr="//a" position="attributes">
+            <attribute name="t-att-href">'/category/%s' % categ.slug if categ.slug else keep('/shop/category/' + slug(categ), category=0)</attribute>
         </xpath>
     </template>
 

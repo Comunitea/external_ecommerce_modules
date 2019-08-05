@@ -40,7 +40,6 @@
         'website',
         'website_mail',
         'website_cookie_notice',
-        'website_crm',
         'website_crm_recaptcha',
         'website_crm_privacy_policy',
         'website_crm_phone_validation',
@@ -57,6 +56,7 @@
         'website_sale_require_legal',
         'sgeede_infinite_scroll',
         'base_search_fuzzy',
+        'website_menu_by_user_status',
     ],
     'data': [
         'templates/head.xml',
