@@ -281,7 +281,7 @@
     </template>
 
     <!-- Option:Right Column for extra info for post complete -->
-    <template id="wbb_website_blog_index_right" name="Right Column Post" inherit_id="website_blog.blog_post_complete">
+    <template id="wbb_website_blog_index_right" name="Right Column Post" inherit_id="website_blog_base.wbb_website_blog_blog_post_complete">
         <xpath expr="//div[@id='main_column']" position="after">
             <div class="col-lg-3 col-lg-offset-1 col-sm-4" id="blog_right_column"/>
         </xpath>
