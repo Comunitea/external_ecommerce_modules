@@ -47,7 +47,6 @@
                             <a t-att-href="website.social_youtube" t-if="website.social_youtube" rel="nofollow" target="_blank"><i class="fa fa-youtube-play"/></a>
                             <a t-att-href="website.social_googleplus" t-if="website.social_googleplus" rel="publisher" target="_blank"><i class="fa fa-google-plus-square"/></a>
                             <a t-att-href="website.social_github" t-if="website.social_github" rel="nofollow" target="_blank"><i class="fa fa-github"/></a>
-                            <a t-att-href="website.social_instagram" t-if="website.social_instagram" rel="nofollow" target="_blank"><i class="fa fa-instagram"/></a>
                             <span t-if="hash_tag" t-esc="hash_tag" class="ml4 text-uppercase"/>
                         </h2>
                     </div>
