@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="multi_base_contact_us_content_template" name="Contact Us Refund" inherit_id="website.contactus">
+        <xpath expr="//div[hasclass('container')]/div[hasclass('row')]/div[hasclass('col-md-8')]" position="inside">
+            <t t-if="order">
+                <div class="mt32">
+                    <h1>Refund Request Form</h1>
+                </div>
+                <t t-call="portal_refunds_request.order_refund_contact_form"/>
+            </t>
+        </xpath>
+    </template>
+</odoo>

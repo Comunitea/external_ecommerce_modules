@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="multi_base_sale_portal_my_orders_view" name="My Sales Orders Add Refund" inherit_id="sale.portal_my_orders">
+        <xpath expr="//thead/tr[hasclass('active')]" position="inside">
+            <t t-if="website and website.refunds_contact">
+                <th>Refund</th>
+            </t>
+        </xpath>
+        <xpath expr="//t[@t-foreach='orders']/tr" position="inside">
+            <t t-if="website and website.refunds_contact">
+                <th>
+                    <a t-attf-href="/my/orders/refunds_form/order/{{ order.name }}">Request</a>
+                </th>
+            </t>
+        </xpath>
+    </template>
+    
+</odoo>
