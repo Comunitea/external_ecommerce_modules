@@ -62,18 +62,18 @@
         </xpath>
         <!-- Friendly URL for product (from image) -->
         <xpath expr="//div[hasclass('oe_product_image')]/a" position="attributes">
-            <attribute name="t-att-href">'/product/%s' % product.slug if product.slug else keep('/shop/product/%s' % slug(product))</attribute>
+            <attribute name="t-att-href">'/product/{}'.format(product.slug) if product.slug else keep('/shop/product/%s' % slug(product))</attribute>
         </xpath>
         <!-- Friendly URL for product (from name) -->
         <xpath expr="//a[@itemprop='name']" position="attributes">
-            <attribute name="t-att-href">'/product/%s' % product.slug if product.slug else keep('/shop/product/%s' % slug(product))</attribute>
+            <attribute name="t-att-href">'/product/{}'.format(product.slug) if product.slug else keep('/shop/product/%s' % slug(product))</attribute>
         </xpath>
     </template>
 
     <!-- Product item add to cart button used by /shop -->
     <template id="website_sale_products_add_to_cart" name="Add to Cart Seo Base Template" inherit_id="website_sale.products_add_to_cart">
         <xpath expr="//t[2]/a" position="attributes">
-            <attribute name="t-att-href">keep('/product/%s', page=(pager['page']['num'] if pager['page']['num']&gt;1 else None)) % product.slug if product.slug else keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))</attribute>
+            <attribute name="t-att-href">keep('/product/{}', page=(pager['page']['num'] if pager['page']['num']&gt;1 else None)).format(product.slug) if product.slug else keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']&gt;1 else None))</attribute>
         </xpath>
     </template>
 
