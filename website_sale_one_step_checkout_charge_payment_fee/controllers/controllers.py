@@ -37,6 +37,8 @@ class WebsiteSaleFee(WebsiteSale):
         :return: True when reload page is necessary, False otherwise
         """
         order = request.website.sale_get_order()
+        if not order:
+            return True
         payment_fee_id = post.get('payment_fee_id')
         selected_acquirer = request.env['payment.acquirer'].browse(int(order.sudo().payment_acquirer_id.id))
 
