@@ -31,19 +31,17 @@
         <div class="col-md-12 text-center">
             <h1>Our Blogs</h1>
         </div>
-        <div class="row">
-            <t t-foreach="blogs" t-as="blog">
-                <t t-set="access" t-value="website.access_to_blog(blog)"/>
-                <div class="col-md-4" t-if="access">
-                    <h3>
-                        <a class="mr8" t-attf-href="#{blog_url(blog=blog.id)}"><span t-field="blog.name"/></a>
-                    </h3>
-                    <h4>
-                        <span t-field="blog.subtitle"/>
-                    </h4>
-                </div>
-            </t>
-        </div>
+        <t t-foreach="blogs" t-as="blog">
+            <t t-set="access" t-value="website.access_to_blog(blog)"/>
+            <div class="col-md-4" t-if="access">
+                <h3>
+                    <a class="mr8" t-attf-href="#{blog_url(blog=blog.id)}"><span t-field="blog.name"/></a>
+                </h3>
+                <h4>
+                    <span t-field="blog.subtitle"/>
+                </h4>
+            </div>
+        </t>
     </template>
 
     <!-- /BLOG page template (latest posts) with s_three_columns snippet -->
