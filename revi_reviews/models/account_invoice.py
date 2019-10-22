@@ -206,10 +206,10 @@ class AccountInvoice(models.Model):
 
                     # Set new Revi state for changed account invoice
                     if success:
-                        # res.sudo().write({'revi_state': 'sent'})
+                        res.sudo().write({'revi_state': 'sent'})
                         super(AccountInvoice, res).write({'revi_state': 'sent'})
                     else:
-                        # res.sudo().write({'revi_state': 'error'})
+                        res.sudo().write({'revi_state': 'error'})
                         super(AccountInvoice, res).write({'revi_state': 'error'})
 
                 return super(AccountInvoice, res).write(values)
