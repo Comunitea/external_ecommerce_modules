@@ -42,6 +42,7 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def write(self, values):
+        resp = super(AccountInvoice, self).write(values)
         if values.get('state', False) and values['state'] == 'open':
             for res in self:
                 next_step = False
@@ -212,4 +213,4 @@ class AccountInvoice(models.Model):
                         res.sudo().write({'revi_state': 'error'})
                         # super(AccountInvoice, res).write({'revi_state': 'error'})
 
-        return super(AccountInvoice, self).write(values)
+        return resp
