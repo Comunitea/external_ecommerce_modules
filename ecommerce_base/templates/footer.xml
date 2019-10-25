@@ -2,15 +2,17 @@
 <odoo>
 
     <!-- Changes for footer copyright part (website/views/website_templates.xml) -->
-    <template id="website_layout_footer_copyright" inherit_id="website.layout_footer_copyright">
-        <xpath expr="//div[hasclass('pull-right')]" position="replace"/>
+    <template id="website_layout_footer_copyright" name="Footer Copyright Ecommerce Base" inherit_id="website.layout_footer_copyright">
+        <xpath expr="//div[hasclass('pull-right')]" position="attributes">
+            <attribute name="t-if">True == False</attribute>
+        </xpath>
         <xpath expr="//div[hasclass('container', 'mt16', 'mb8')]" position="attributes">
             <attribute name="class">container mt16 mb16</attribute>
         </xpath>
     </template>
 
     <!-- Changes for footer main part (website/views/website_templates.xml) -->
-    <template id="website_layout_adds" inherit_id="website.layout">
+    <template id="website_layout_adds" name="Main layout Ecommerce Base" inherit_id="website.layout">
         <xpath expr="//footer" position="after">
             <script src="/ecommerce_base/static/js/jquery.validate.min.js"
                     type="text/javascript"/>
