@@ -2,7 +2,7 @@
 <odoo>
 
     <!-- Insert parent_id filed to the website.page view -->
-    <record id="bcb_website_pages_form_view" model="ir.ui.view">
+    <record id="website_pages_form_view" model="ir.ui.view">
         <field name="name">Insert parent_id filed to the website.page view</field>
         <field name="model">website.page</field>
         <field name="inherit_id" ref="website.website_pages_form_view"/>

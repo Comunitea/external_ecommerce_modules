@@ -90,12 +90,12 @@ class BreadCrumbs(models.Model):
             view = main_object
             # Find the current website page that uses this view
             domain = [('view_id', '=', view.id)]
-            domain += [('website_ids', '=like', website.id)]
+            domain += [('website_id', '=', website.id)]
             page = self.env['website.page'].sudo().search(domain)
             # If there is no page with current view -> search page with current url
             if not page:
                 path = request.httprequest.path
-                domain = [('url', '=', path), ('website_ids', '=like', website.id)]
+                domain = [('url', '=', path), ('website_id', '=', website.id)]
                 page = self.env['website.page'].sudo().search(domain)
             if page:
                 if page.parent_id:

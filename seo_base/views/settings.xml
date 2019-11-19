@@ -124,7 +124,7 @@
     </record>
     <!-- Robots.txt part -->
     <record id="robots_txt_settings_form" model="ir.ui.view">
-        <field name="name">Robots.txt base module settings</field>
+        <field name="name">Robots base module settings</field>
         <field name="model">robots_txt.settings</field>
         <field name="arch" type="xml">
             <form string="Robots.txt module settings" class="oe_form_configuration o_base_settings">
@@ -167,7 +167,7 @@
         </field>
     </record>
     <record id="robots_txt_settings" model="ir.actions.act_window">
-        <field name="name">Robots.txt settings</field>
+        <field name="name">Robots settings</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">robots_txt.settings</field>
         <field name="view_mode">form</field>

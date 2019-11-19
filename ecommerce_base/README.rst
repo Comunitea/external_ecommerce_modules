@@ -1,36 +1,45 @@
-Ecommerce base modules
+eCommerce base modules
 ======================
 
-Provides all Website Ecommerce modules for a basic installation.
+.. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
+    :target: https://odoo-community.org/page/development-status
+    :alt: Production
+.. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
+    :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
+    :alt: License: LGPL-3
+.. |badge3| image:: https://img.shields.io/badge/github-Comunitea-gray.png?logo=github
+    :target: https://github.com/Comunitea/
+    :alt: Comunitea
+.. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FeCommerce-lightgray.png?logo=github
+    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/12.0/ecommerce_base
+    :alt: Comunitea / eCommerce
+.. |badge5| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
+    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/12.0/ecommerce_base/i18n/es.po
+    :alt: Spanish Translated
+
+|badge1| |badge2| |badge3| |badge4| |badge5|
+
+**Table of contents**
+
+.. contents::
+   :local:
+
+Provides all Website eCommerce modules for a basic installation.
 ----------------------------------------------------------------
 
-This module contains dependencies with the necessary modules to create base e-commerce page.
+This module contains dependencies with the necessary modules to create base eCommerce page.
 
 It also contains styles and layout elements, bug fixes and module translations.
 
 Module features
 ---------------
 
-Back-End part:
-~~~~~~~~~~~~~~
-
-* Add menus of Websites and Menus
-
-Front-End part:
-~~~~~~~~~~~~~~~
-
 * Footer
     * [ADD] Odoo copyright replace
+
 * Contact us
     * [ADD] Contact form e-mail JS validation
     * [FIX] Legal advice label position
-
-Infinite product scroll
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Add the SGEEDE Infinite Scroll module.
-
-You can activate or deactivate this function in the front-end editor.
 
 Author
 ------
@@ -40,9 +49,8 @@ Developer: Comunitea, info@comunitea.com
 Contributors
 ~~~~~~~~~~~~
 
-Pavel Smirnov, pavel@comunitea.com
-
-Rubén Seijas, ruben@comunitea.com
+* Pavel Smirnov, pavel@comunitea.com
+* Rubén Seijas, ruben@comunitea.com
 
 Maintainer
 ~~~~~~~~~~

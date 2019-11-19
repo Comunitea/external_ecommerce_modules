@@ -22,18 +22,18 @@
         </xpath>
 
         <!-- Image URL and attributes -->
-        <xpath expr="//div[hasclass('carousel-inner')]/div[2]" position="replace">
-            <div t-attf-class="item#{'' if variant_img else ' active'}">
-                <img t-att-alt="product.name" t-att-title="product.name" class="product_detail_img js_variant_img"
-                     t-attf-src="/website/image/product.template/{{product.id}}/image/"/>
-            </div>
-        </xpath>
-        <xpath expr="//div[hasclass('carousel-inner')]/t/div[hasclass('item')]" position="replace">
-            <div class="item">
-                <img t-att-alt="pimg.name" t-att-title="pimg.name" class="product_detail_img"
-                     t-attf-src="/web/image/product.image/{{pimg.id}}/image/"/>
-            </div>
-        </xpath>
+<!--        <xpath expr="//div[hasclass('carousel-inner')]/div[2]" position="replace">-->
+<!--            <div t-attf-class="item#{'' if variant_img else ' active'}">-->
+<!--                <img t-att-alt="product.name" t-att-title="product.name" class="product_detail_img js_variant_img"-->
+<!--                     t-attf-src="/website/image/product.template/{{product.id}}/image/"/>-->
+<!--            </div>-->
+<!--        </xpath>-->
+<!--        <xpath expr="//div[hasclass('carousel-inner')]/t/div[hasclass('item')]" position="replace">-->
+<!--            <div class="item">-->
+<!--                <img t-att-alt="pimg.name" t-att-title="pimg.name" class="product_detail_img"-->
+<!--                     t-attf-src="/web/image/product.image/{{pimg.id}}/image/"/>-->
+<!--            </div>-->
+<!--        </xpath>-->
 
         <!-- ECommerce category link in breadcrumbs -->
         <xpath expr="//ol[hasclass('breadcrumb')]/li[@t-if='category']" position="replace">

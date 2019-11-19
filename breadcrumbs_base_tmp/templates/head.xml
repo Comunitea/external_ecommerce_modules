@@ -2,7 +2,7 @@
 <odoo>
 
     <!-- Add custom styles -->
-    <template id="bcb_website_assets_frontend" inherit_id="website.assets_frontend" name="Add custom css styles">
+    <template id="website_assets_frontend" name="Website Assets Breadcrumbs Base Tmp" inherit_id="website.assets_frontend">
         <xpath expr="link[last()]" position="after">
             <link href="/breadcrumbs_base_tmp/static/css/breadcrumbs.less" rel="stylesheet" type="text/less"/>
         </xpath>

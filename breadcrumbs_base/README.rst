@@ -1,10 +1,26 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-   :alt: License: AGPL-3
-   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+================
+Breadcrumbs Base
+================
 
-=======================
-Breadcrumbs base module
-=======================
+.. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
+    :target: https://odoo-community.org/page/development-status
+    :alt: Production
+.. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
+    :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
+    :alt: License: LGPL-3
+.. |badge3| image:: https://img.shields.io/badge/github-Comunitea-gray.png?logo=github
+    :target: https://github.com/Comunitea/
+    :alt: Comunitea
+.. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FeCommerce-lightgray.png?logo=github
+    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/12.0/breadcrumbs_base
+    :alt: Comunitea / eCommerce
+
+|badge1| |badge2| |badge3| |badge4|
+
+**Table of contents**
+
+.. contents::
+   :local:
 
 Friendly breadcrumbs for eCommerce
 ----------------------------------
@@ -15,7 +31,7 @@ The Breadcrumbs generator is available to call in any template:
 
 ::
 
-    <t t-call="breadcrumbs_base.bcb_main_wrap"/>
+    <t t-call="breadcrumbs_base.breadcrumbs_bar"/>
 
 Moreover, this module adds parent_id field to website.page model. This allows to add parent page for static pages.
 
@@ -33,7 +49,6 @@ Developer: Comunitea, info@comunitea.com
 Contributors
 ~~~~~~~~~~~~
 
-* Comunitea
 * Pavel Smirnov, pavel@comunitea.com
 * Rubén Seijas, ruben@comunitea.com
 

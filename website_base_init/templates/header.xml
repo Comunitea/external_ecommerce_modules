@@ -11,7 +11,7 @@
     <!-- Call breadcrumbs -->
     <template id="wbm_website_layout" name="Layout Canilike Template" inherit_id="website.layout">
         <xpath expr="//div[@id='wrapwrap']//div[hasclass('navbar')]" position="after">
-            <t t-call="breadcrumbs_base.bcb_main_wrap" t-if="(xmlid == 'website_sale.products' or xmlid == 'website_base_multi_can.can_recipes_list_template' or 'portal' in xmlid)"/>
+            <t t-call="breadcrumbs_base.breadcrumbs_bar" t-if="(xmlid == 'website_sale.products' or xmlid == 'website_base_multi_can.can_recipes_list_template' or 'portal' in xmlid)"/>
         </xpath>
     </template>
 

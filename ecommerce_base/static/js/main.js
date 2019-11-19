@@ -1,5 +1,7 @@
 $(document).ready(function(){
-    var default_email_msg = 'Por favor, introduce una dirección de correo electrónico válida';
+    var core = require('web.core');
+    var _t = core._t;
+    var default_email_msg = _t('Please, enter a valid email address');
     $(".s_website_form").validate({
       rules: {
         email_from: {

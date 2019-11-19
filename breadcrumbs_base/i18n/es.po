@@ -38,7 +38,7 @@ msgstr "Nombre a mostrar"
 #. module: breadcrumbs_base
 #: model:ir.model.fields,field_description:breadcrumbs_base.field_breadcrumbs_base_crumb_id
 msgid "ID"
-msgstr "ID (identificación)"
+msgstr "ID (Identificación)"
 
 #. module: breadcrumbs_base
 #: model:ir.model.fields,field_description:breadcrumbs_base.field_breadcrumbs_base_crumb___last_update
