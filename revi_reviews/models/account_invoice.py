@@ -42,70 +42,22 @@ class AccountInvoice(models.Model):
 
     @api.multi
     def write(self, values):
+        """
+        We need to send invoice data to Revi only if state of invoice was changed and is OPEN.
+        OR
+        We need to send data if last attempt to send the data has FAILED (has state ERROR).
+        """
         resp = super(AccountInvoice, self).write(values)
+        website = request.env['website'].get_current_website()
+        language = website.default_lang_id.iso_code
+        root = request.httprequest.url_root
+
         if values.get('state', False) and values['state'] == 'open':
             for res in self:
-                next_step = False
-                revi_state = values.get('revi_state', False)
-                if not revi_state:
-                    revi_state = res.revi_state
-
-                website = request.env['website'].get_current_website()
-                language = website.default_lang_id.iso_code
-                root = request.httprequest.url_root
                 partner = res.partner_id
-
-                # Change partner in the invoice
-                partner_id = values.get('partner_id', False)
-                if partner_id:
-                    new_partner = request.env['res.partner'].sudo().search([('id', '=', partner_id)], limit=1)
-                    if new_partner:
-                        partner = new_partner
-                        # Set new Revi data on partner change
-                        if website.revi_def_state != 'skip' and partner.revi_use:
-                            res.sudo().write({
-                                'revi_use': True,
-                                'revi_state': 'waiting'
-                            })
-                        else:
-                            res.sudo().write({
-                                'revi_use': False,
-                                'revi_state': 'skip'
-                            })
-
-                if revi_state not in ['skip', 'sent']:
-                    next_step = True
-
-                # Send only for customer invoice
-                if res.type != 'out_invoice':
-                    next_step = False
-
-                if next_step and res.revi_use and partner.revi_use and partner.email:
-                    next_step = True
-                else:
-                    next_step = False
-
-                # Control of order state change
-                state = res.state
-                new_state = values.get('state', False)
-                """
-                We need to send invoice data to Revi only if state of invoice was changed and is OPEN.
-                OR
-                We need to send data if last attempt to send the data has FAILED (has state ERROR).
-                """
-                if next_step and new_state == 'open' and new_state != state:
-                    next_step = True
-                elif next_step and res.revi_state == 'error':
-                    next_step = True
-                else:
-                    next_step = False
-
-                # Check the Revi API settings
-                if website.revi_def_state == 'skip' or not website.revi_api_key:
-                    next_step = False
-
                 # Generate order & order_line data to send
-                if next_step:
+                if res.revi_use and ('waiting' in res.revi_state or 'error' in res.revi_state) \
+                        and partner.revi_use and partner.email and website.revi_api_key:
                     # Set order data
                     order_data = {
                         'orders': [{
@@ -115,11 +67,8 @@ class AccountInvoice(models.Model):
                             'email': partner.email,
                             'currency': res.currency_id.name,
                             'taxes': '%s' % res.amount_tax,
-                            #
-                            #
-                            'total_products': '%s' % len(res.invoice_line_ids.filtered(lambda x: x.product_id.type == 'product')),
-                            #
-                            #
+                            'total_products': '%s' % len(res.invoice_line_ids.filtered(
+                                lambda x: x.product_id.type == 'product')),
                             'total_paid': '%s' % res.amount_total,
                             'status': 'ready' if website.revi_auto_send else 'pending',
                             'order_date': res.create_date,
@@ -177,7 +126,6 @@ class AccountInvoice(models.Model):
                     hello_data = {
                         'test': 'Hello Revi!'
                     }
-                    success = False
 
                     def post_send(url, data, headers):
                         return requests.post(url, data=json.dumps(data), headers=headers)
@@ -193,6 +141,7 @@ class AccountInvoice(models.Model):
                     hello_call = post_send(revi_hello_url, hello_data, headers)
 
                     # Send data
+                    success = False
                     if post_success(hello_call):
                         # Send order
                         create_order = post_send(revi_order_url, order_data, headers)
@@ -208,9 +157,7 @@ class AccountInvoice(models.Model):
                     # Set new Revi state for changed account invoice
                     if success:
                         res.sudo().write({'revi_state': 'sent'})
-                        # super(AccountInvoice, res).write({'revi_state': 'sent'})
                     else:
                         res.sudo().write({'revi_state': 'error'})
-                        # super(AccountInvoice, res).write({'revi_state': 'error'})
 
         return resp
