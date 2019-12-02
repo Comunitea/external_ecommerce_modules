@@ -2,7 +2,7 @@
 <odoo>
 
     <!-- The product template changes -->
-    <template id="website_sale_product_add" name="Product Seo Base Template" inherit_id="website_sale.product">
+    <template id="website_sale_product" name="Product Seo Base" inherit_id="website_sale.product">
 
         <!-- Product descriptions -->
         <xpath expr="//div[@id='product_details']//hr[@t-if='product.description_sale']" position="attributes">
@@ -35,30 +35,33 @@
 <!--            </div>-->
 <!--        </xpath>-->
 
-        <!-- ECommerce category link in breadcrumbs -->
-        <xpath expr="//ol[hasclass('breadcrumb')]/li[@t-if='category']" position="replace">
-            <li t-if="product.public_categ_ids">
-                <t t-set="inc" t-value="0"/>
-                <t t-foreach="product.public_categ_ids" t-as="cat">
-                    <t t-if="inc==0">
-                        <a t-att-href="'/category/%s' % cat.slug if cat.slug else '/shop/category/%s' % slug(cat)" t-field="cat.name" />
-                    </t>
-                    <t t-set="inc" t-value="inc+1"/>
-                </t>
-            </li>
-        </xpath>
+        <!-- ECommerce category link in breadcrumbs without breadcrumbs_base_tmp module installed -->
+<!--        <xpath expr="//ol[hasclass('breadcrumb')]/li[@t-if='category']" position="replace">-->
+<!--            <li t-if="product.public_categ_ids">-->
+<!--                <t t-set="inc" t-value="0"/>-->
+<!--                <t t-foreach="product.public_categ_ids" t-as="cat">-->
+<!--                    <t t-if="inc==0">-->
+<!--                        <a t-att-href="'/category/%s' % cat.slug if cat.slug else '/shop/category/%s' % slug(cat)" t-field="cat.name" />-->
+<!--                    </t>-->
+<!--                    <t t-set="inc" t-value="inc+1"/>-->
+<!--                </t>-->
+<!--            </li>-->
+<!--        </xpath>-->
 
         <!-- Hide guarantee -->
-        <xpath expr="//div[@id='product_details']//hr[last()]" position="replace"/>
-        <xpath expr="//div[@id='product_details']/p[last()]" position="replace"/>
+<!--        <xpath expr="//div[@class='product_details']//hr[last()]" position="attributes">-->
+<!--            <attribute name="t-if">True == False</attribute>-->
+<!--        </xpath>-->
+        <xpath expr="//div[@id='product_details']/p[last()]" position="attributes">
+            <attribute name="t-if">True == False</attribute>
+        </xpath>
     </template>
 
     <!-- Product item used by /shop and /shop/cart -->
-    <template id="website_sale_products_item_add" name="Product Item Seo Base Template" inherit_id="website_sale.products_item">
+    <template id="website_sale_products_item" name="Product Item Seo Base" inherit_id="website_sale.products_item">
         <!-- Image URL and attributes -->
         <xpath expr="//div[hasclass('oe_product_image')]/a/span" position="replace">
-            <span><img t-att-alt="product.name" t-att-title="product.name"
-                       t-attf-src="/web/image/product.template/{{product.id}}/image_medium"/></span>
+            <span><img t-att-alt="product.name" t-att-title="product.name" t-attf-src="/web/image/product.template/{{product.id}}/image_medium"/></span>
         </xpath>
         <!-- Friendly URL for product (from image) -->
         <xpath expr="//div[hasclass('oe_product_image')]/a" position="attributes">

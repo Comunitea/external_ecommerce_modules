@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <template id="403_access_to_store" name="403 user access error">
+    <template id="403_access" name="403 Access Seo Base">
         <t t-call="website.layout">
             <div id="wrap">
                 <div class="container">

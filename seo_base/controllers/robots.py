@@ -49,7 +49,7 @@ class Robots(Home):
             robots_to_remove.unlink()
 
             # Create new robots.txt
-            content = view.render_template('seo_base.robots_txt_wrap', {'content': request.website.robots_txt_content})
+            content = view.render_template('seo_base.robots_txt', {'content': request.website.robots_txt_content})
             create_file('/robots-%d.txt' % current_website.id, content)
         else:
             content = cache_content

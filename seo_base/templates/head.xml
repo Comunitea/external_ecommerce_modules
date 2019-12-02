@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <template id="portal_frontend_layout_add" inherit_id="portal.frontend_layout">
-        <!-- Only one-company webs
-             Set javascript source after the footer -->
-        <!--
+    <template id="portal_frontend_layout" inherit_id="portal.frontend_layout" name="Main Frontend Layout Seo Base">
+        <!-- Set javascript source after the footer -->
         <xpath expr="//div[@id='wrapwrap']/footer" position="inside">
             <t t-call-assets="web.assets_common" t-css="false"/>
             <t t-call-assets="web.assets_frontend" t-css="false"/>
@@ -12,32 +10,55 @@
             <t t-call-assets="web_editor.assets_editor" t-css="false" groups="website.group_website_publisher"/>
             <t t-call-assets="website.assets_editor" t-css="false" groups="website.group_website_publisher"/>
         </xpath>
-        -->
     </template>
 
-    <template id="website_layout_head_add" inherit_id="website.layout">
-        <!-- Only one-company webs
-             Replace javascript source in the head -->
-        <!--
+    <template id="website_layout" inherit_id="website.layout" name="Main Layout Seo Base">
+        <!-- Replace javascript source in the head -->
         <xpath expr="//t[@t-call-assets='web.assets_common'][@t-css='false']" position="replace"/>
         <xpath expr="//t[@t-call-assets='web.assets_frontend'][@t-css='false']" position="replace"/>
         <xpath expr="//t[@t-call-assets='web_editor.summernote'][@t-css='false']" position="replace"/>
         <xpath expr="//t[@t-call-assets='web_editor.assets_editor'][@t-css='false']" position="replace"/>
         <xpath expr="//t[@t-call-assets='website.assets_editor'][@t-css='false']" position="replace"/>
-        -->
-        <!-- Add analytics noscript links -->
+
+         <!-- Add service worker javascript -->
+        <xpath expr="//script[@id='tracking_code']" position="before">
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    // Register Service Worker for Progressive Web App
+                    if('serviceWorker' in navigator) {
+                    <t t-if="website.sw_offline and website.sw_offline == True">
+                        navigator.serviceWorker.register('/sw.js').then(function() {
+                        <t t-if="website.console_mode and website.console_mode == 'dev'">
+                            console.log("Service Worker Registered");
+                        </t>
+                        });
+                    </t>
+                    <t t-else="">
+                        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                            for(let registration of registrations) {
+                                registration.unregister()
+                            }
+                            <t t-if="website.console_mode and website.console_mode == 'dev'">
+                                console.log("Service Worker unregistered");
+                            </t>
+                            });
+                    </t>}
+                });
+            </script>
+        </xpath>
+
+        <!-- Favicon -->
+        <xpath expr="//t[@t-set='x_icon']" position="attributes">
+            <attribute name="t-value">'/favicon.ico'</attribute>
+        </xpath>
+
+        <!-- Metadata -->
         <xpath expr="//meta[last()]" position="after">
-            <t t-if="website and website.google_tag_manager_key and not editable">
-                <!-- Google Tag Manager -->
-                <script>
-                    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                    j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
-                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                    })(window,document,'script','dataLayer','<t t-esc="website.google_tag_manager_key"/>');
-                </script>
-                <!-- End Google Tag Manager -->
-            </t>
+            <!-- Set manifest.json link into the head -->
+            <meta name="theme-color" t-att-content="website.web_app_theme_color" t-if="website.web_app_theme_color"/>
+            <link href="/manifest.json" rel="manifest"/>
+
+             <!-- Add analytics noscript links -->
             <t t-if="website and website.facebook_pixel_key and not editable">
                 <!-- Facebook Pixel Code -->
                 <script>
@@ -55,13 +76,6 @@
             </t>
         </xpath>
         <xpath expr="//t[@t-set='head_website']" position="after">
-            <t t-if="website and website.google_tag_manager_key and not editable">
-                <!-- Google Tag Manager (noscript) -->
-                <noscript>
-                    <iframe t-attf-src="https://www.googletagmanager.com/ns.html?id={{ website.google_tag_manager_key }}" height="0" width="0" style="display:none;visibility:hidden"/>
-                </noscript>
-                <!-- End Google Tag Manager (noscript) -->
-            </t>
             <t t-if="website and website.facebook_pixel_key and not editable">
                 <!-- Facebook Pixel Code (noscript) -->
                 <noscript>
@@ -69,6 +83,29 @@
                 </noscript>
                 <!-- Facebook Pixel Code (noscript) -->
             </t>
+        </xpath>
+
+        <!-- Set Product SEO Metadata or default website metadata-->
+        <!-- Meta Title -->
+        <xpath expr="//t[@t-if='not title']/t[2]" position="replace">
+            <t t-if="product and product.product_meta_title and product.product_meta_title != ''">
+                <t t-set="title" t-value="product.product_meta_title"/>
+            </t>
+            <t t-elif="main_object and 'website_meta_title' in main_object and main_object.website_meta_title">
+                <t t-set="title" t-value="main_object.website_meta_title"/>
+            </t>
+        </xpath>
+        <!-- Meta Description -->
+        <xpath expr="//t[@t-set='meta_description']" position="attributes">
+            <attribute name="t-value">
+                product.product_meta_description if product and product.product_meta_description and product.product_meta_description != '' else main_object and 'website_meta_keywords' in main_object and main_object.website_meta_keywords or website_meta_keywords
+            </attribute>
+        </xpath>
+        <!-- Meta Keywords -->
+        <xpath expr="//t[@t-set='meta_keywords']" position="attributes">
+            <attribute name="t-value">
+                product.product_meta_keywords if product and product.product_meta_keywords and product.product_meta_keywords != '' else main_object and 'website_meta_keywords' in main_object and main_object.website_meta_keywords or website_meta_keywords
+            </attribute>
         </xpath>
     </template>
 

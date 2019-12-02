@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <!-- Set Product SEO Metadata or default website metadata-->
+
     <template id="website_layout_seo_add" inherit_id="website.layout">
         <!-- Meta Title -->
         <xpath expr="//t[@t-if='not title']/t[2]" position="replace">

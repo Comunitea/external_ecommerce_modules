@@ -79,7 +79,7 @@ class ProgressiveWebApp(Website):
                     'content': website.web_app_code or ''
                 }
                 # Write content to template
-                content = view.render_template('seo_base.web_app_manifest_template', {'values': values})
+                content = view.render_template('seo_base.web_app_manifest', {'values': values})
 
             elif type == 'sw':
                 # Set content for sw.json
@@ -90,7 +90,7 @@ class ProgressiveWebApp(Website):
                     'content': website.sw_code or ''
                 }
                 # Write content to template
-                content = view.render_template('seo_base.web_app_sw_template', {'values': values})
+                content = view.render_template('seo_base.web_app_sw', {'values': values})
 
             else:
                 content = ''

@@ -407,10 +407,6 @@
                                     <field name="website_id" readonly="1"/>
                                 </div>
                                 <div class="row mb16">
-                                    <label class="col-md-4" for="google_tag_manager_key"/>
-                                    <field name="google_tag_manager_key" placeholder="GTM-XXXX"/>
-                                </div>
-                                <div class="row mb16">
                                     <label class="col-md-4" for="facebook_pixel_key"/>
                                     <field name="facebook_pixel_key" placeholder="your-pixel-id-goes-here"/>
                                 </div>
