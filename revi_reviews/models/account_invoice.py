@@ -33,7 +33,7 @@ class AccountInvoice(models.Model):
             })
 
         # Check order type
-        if website.revi_def_state != 'skip' and partner.revi_use:
+        if website.revi_def_state != 'skip' and partner.revi_use and vals['type'] == 'out_invoice':
             set_revi_state(True, 'waiting')
         else:
             set_revi_state(False, 'skip')
