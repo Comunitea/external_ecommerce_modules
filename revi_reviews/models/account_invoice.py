@@ -68,7 +68,7 @@ class AccountInvoice(models.Model):
                             'currency': res.currency_id.name,
                             'taxes': '%s' % res.amount_tax,
                             'total_products': '%s' % len(res.invoice_line_ids.filtered(
-                                lambda x: x.product_id.type == 'product')),
+                                lambda x: x.product_id.type == 'product' or x.product_id.type == 'service')),
                             'total_paid': '%s' % res.amount_total,
                             'status': 'ready' if website.revi_auto_send else 'pending',
                             'order_date': res.create_date,
@@ -97,7 +97,8 @@ class AccountInvoice(models.Model):
                     }
                     products_to_link = []
 
-                    invoice_lines = res.invoice_line_ids.filtered(lambda x: x.product_id.type == 'product')
+                    invoice_lines = res.invoice_line_ids.filtered(
+                        lambda x: x.product_id.type == 'product' or x.product_id.type == 'service')
                     for line in invoice_lines:
                         product = line.product_id.product_tmpl_id
                         product_data['products'].append(_gen_product_data(product))
