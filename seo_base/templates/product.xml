@@ -49,7 +49,7 @@
 <!--        </xpath>-->
 
         <!-- Hide guarantee -->
-<!--        <xpath expr="//div[@class='product_details']//hr[last()]" position="attributes">-->
+<!--        <xpath expr="//div[@id='product_details']//hr[last()]" position="attributes">-->
 <!--            <attribute name="t-if">True == False</attribute>-->
 <!--        </xpath>-->
         <xpath expr="//div[@id='product_details']/p[last()]" position="attributes">
