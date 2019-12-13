@@ -4,22 +4,35 @@
     <!-- Add breadcrumb bar to the main frontend layout -->
     <template id="portal_frontend_layout" name="Main Frontend Layout Breadcrumbs Base Tmp" inherit_id="portal.frontend_layout">
         <xpath expr="//main/t" position="before">
-            <t t-call="breadcrumbs_base.breadcrumbs_bar" t-if="'home' not in xmlid"/>
+            <t t-call="breadcrumbs_base.breadcrumbs_bar" t-if="'home' not in xmlid and 'portal' not in xmlid"/>
         </xpath>
     </template>
 
     <!-- Remove the product breadcrumb's bar -->
     <template id="website_sale_product" name="Product Breadcrumbs Base Tmp" inherit_id="website_sale.product">
-        <xpath expr="//ol[hasclass('breadcrumb')]" position="attributes">
-            <attribute name="t-if">True == False</attribute>
+        <!-- Replace breadcrumbs, search, pricelist and pager -->
+        <xpath expr="//div[hasclass('row')]" position="replace"/>
+        <!-- Add search, pricelist and pager without breadcrumbs -->
+        <xpath expr="//div[@id='wrap']//section" position="before">
+            <div class="products_pager form-inline justify-content-center mb32">
+                <t t-call="website_sale.search">
+                    <t t-set="_classes">o_website_sale_search</t>
+                </t>
+                <t t-call="website_sale.pricelist_list">
+                    <t t-set="_classes">ml-2</t>
+                </t>
+                <t t-call="website.pager" t-if="'website_sale.product' not in xmlid">
+                    <t t-set="_classes">ml-2</t>
+                </t>
+            </div>
         </xpath>
     </template>
 
-    <!-- Remove the My Account breadcrumb's bar -->
-    <template id="portal_portal_layout" name="Portal Layout Breadcrumbs Base Tmp" inherit_id="portal.portal_layout">
-        <xpath expr="//div[hasclass('o_portal')]" position="attributes">
-            <attribute name="t-if">True == False</attribute>
-        </xpath>
-    </template>
+    <!-- Remove the My Account breadcrumb's bar. No seems to be necessary at v.12 -->
+<!--    <template id="portal_portal_layout" name="Portal Layout Breadcrumbs Base Tmp" inherit_id="portal.portal_layout">-->
+<!--        <xpath expr="//div[hasclass('o_portal')]" position="attributes">-->
+<!--            <attribute name="t-if">True == False</attribute>-->
+<!--        </xpath>-->
+<!--    </template>-->
 
 </odoo>
