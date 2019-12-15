@@ -36,7 +36,7 @@
     ],
     'data': [
         'templates/head.xml',
-        'templates/footer.xml',
+        'templates/assets.xml',
     ],
     'images': [
         '/static/description/icon.png',
