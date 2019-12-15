@@ -5,7 +5,6 @@
     <template id="website_layout" name="Main layout eCommerce Base" inherit_id="website.layout">
         <xpath expr="//footer" position="after">
             <script src="/ecommerce_base/static/js/jquery.validate.min.js" type="text/javascript"/>
-            <script src="/ecommerce_base/static/js/main.js" type="text/javascript"/>
         </xpath>
     </template>
 
