@@ -33,6 +33,7 @@
         'website_payment',
         'website_menu_by_user_status',
         'website_odoo_debranding',
+        'website_form_builder',
     ],
     'data': [
         'templates/head.xml',
