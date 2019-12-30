@@ -2,7 +2,7 @@
 <odoo>
 
     <!-- Add breadcrumb bar to the main frontend layout -->
-    <template id="portal_frontend_layout" name="Main Frontend Layout Breadcrumbs Base Tmp" inherit_id="portal.frontend_layout">
+    <template id="portal_frontend_layout" name="Breadcrumbs Bar" inherit_id="portal.frontend_layout" active="True" customize_show="True">
         <xpath expr="//main/t" position="before">
             <t t-call="breadcrumbs_base.breadcrumbs_bar" t-if="'home' not in xmlid and 'portal' not in xmlid"/>
         </xpath>
