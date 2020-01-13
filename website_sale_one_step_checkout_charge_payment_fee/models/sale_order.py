@@ -76,11 +76,10 @@ class SaleOrder(models.Model):
         """
         for order in self:
             
-            product_ids = order.website_order_line.mapped('product_id')
-
-            cart_type = self._compute_cart_type(product_ids)
+            only_services = all(l.product_id.type in ('service', 'digital') for l in order.order_line
+                .filtered(lambda x: not x.payment_fee_line))
             
-            if len(cart_type) == 1 and cart_type[0].encode('ascii', 'ignore') == 'service':
+            if only_services:
                 order.amount_delivery = 0.0
             else:
                 
@@ -90,14 +89,3 @@ class SaleOrder(models.Model):
                 else:
                     order.amount_delivery = sum(order.order_line.filtered('is_delivery')
                                                 .filtered(lambda x: not x.payment_fee_line).mapped('price_total'))
-
-
-    @api.multi
-    def _compute_cart_type(self, products):
-        cart_type = []
-        for product in products:
-            if product.type not in cart_type:
-                cart_type.append(product.type)
-
-        return cart_type
-            
