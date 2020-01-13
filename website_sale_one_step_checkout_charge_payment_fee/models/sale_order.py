@@ -67,6 +67,7 @@ class SaleOrder(models.Model):
             order.only_services = all(l.product_id.type in ('service', 'digital') for l in order.website_order_line
                                       .filtered(lambda x: not x.payment_fee_line))
 
+        
     @api.depends('order_line.price_unit', 'order_line.tax_id', 'order_line.discount', 'order_line.product_uom_qty')
     def _compute_amount_delivery(self):
         """
@@ -74,9 +75,29 @@ class SaleOrder(models.Model):
         :return: default values less payment fee as amount delivery.
         """
         for order in self:
-            if self.env.user.has_group('sale.group_show_price_subtotal'):
-                order.amount_delivery = sum(order.order_line.filtered('is_delivery')
-                                            .filtered(lambda x: not x.payment_fee_line).mapped('price_subtotal'))
+            
+            product_ids = order.website_order_line.mapped('product_id')
+
+            cart_type = self._compute_cart_type(product_ids)
+            
+            if len(cart_type) == 1 and cart_type[0].encode('ascii', 'ignore') == 'service':
+                order.amount_delivery = 0.0
             else:
-                order.amount_delivery = sum(order.order_line.filtered('is_delivery')
-                                            .filtered(lambda x: not x.payment_fee_line).mapped('price_total'))
+                
+                if self.env.user.has_group('sale.group_show_price_subtotal'):
+                    order.amount_delivery = sum(order.order_line.filtered('is_delivery')
+                                                .filtered(lambda x: not x.payment_fee_line).mapped('price_subtotal'))
+                else:
+                    order.amount_delivery = sum(order.order_line.filtered('is_delivery')
+                                                .filtered(lambda x: not x.payment_fee_line).mapped('price_total'))
+
+
+    @api.multi
+    def _compute_cart_type(self, products):
+        cart_type = []
+        for product in products:
+            if product.type not in cart_type:
+                cart_type.append(product.type)
+
+        return cart_type
+            
