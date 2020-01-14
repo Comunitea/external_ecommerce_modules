@@ -79,7 +79,7 @@
             e.waitUntil(
                 caches.open(CACHE_NAME).then(function(cache) {
                     <t t-if="values['console_mode'] and values['console_mode'] == 'dev'">
-                        console.log("SW Open cache: ", CACHE_NAME);
+                        console.log("SW Install - Open cache: ", CACHE_NAME);
                     </t>
                     return cache.addAll([
                         '<t t-raw="values['start_url']"/>'<t t-raw="values['content']"/>
@@ -92,7 +92,7 @@
         self.addEventListener('activate', function(event) {
             var cacheWhitelist = ['<t t-raw="values['cache_name']"/>'];
             <t t-if="values['console_mode'] and values['console_mode'] == 'dev'">
-                console.log("SW Activating new cache: ", cacheWhitelist);
+                console.log("SW Activate - Activating cache: ", cacheWhitelist);
             </t>
             event.waitUntil(
                 caches.keys().then(function(cacheNames) {
@@ -100,7 +100,7 @@
                         cacheNames.map(function(cacheName) {
                             if (cacheWhitelist.indexOf(cacheName) === -1) {
                                 <t t-if="values['console_mode'] and values['console_mode'] == 'dev'">
-                                    console.log("SW Deleted cache: ", cacheName);
+                                    console.log("SW Activate - Delete cache: ", cacheName);
                                     return caches.delete(cacheName);
                                 </t>
                             }
@@ -117,7 +117,7 @@
                     // Cache hit - return response
                     if (response) {
                         <t t-if="values['console_mode'] and values['console_mode'] == 'dev'">
-                            console.log('SW Fetch resource found in cache: ', event.request.url);
+                            console.log('SW Fetch - Resource Found in cache: ', event.request.url);
                         </t>
                       return response;
                     }
@@ -131,7 +131,7 @@
                             // Check if we received a valid response
                             if(!response || response.status !== 200 || response.type !== 'basic') {
                                 <t t-if="values['console_mode'] and values['console_mode'] == 'dev'">
-                                    console.log('SW Fetch NO valid response: ', event.request.url);
+                                    console.log('SW Fetch - NO valid response: ', event.request.url);
                                 </t>
                                 return response;
                             }
@@ -141,9 +141,11 @@
                             // to clone it so we have two streams.
                             var responseToCache = response.clone();
                             caches.open(CACHE_NAME).then(function(cache) {
-                                if (event.request.url.indexOf('/longpolling/poll') === -1 || event.request.url.indexOf('/call_kw') === -1){
+                                if (event.request.url.indexOf('/longpolling/poll') === -1
+                                        || event.request.url.indexOf('/call_kw') === -1)
+                                        || event.request.url.indexOf('/dataset') === -1) {
                                     <t t-if="values['console_mode'] and values['console_mode'] == 'dev'">
-                                        console.log("SW Caching new resource: ", event.request.url);
+                                        console.log("SW Fetch - Caching new resource: ", event.request.url);
                                     </t>
                                     cache.put(event.request.url, responseToCache);
                                 }
@@ -152,13 +154,13 @@
                         }, function(error) {
                             // fetch failed
                             <t t-if="website.console_mode and website.console_mode == 'dev'">
-                                console.log('ServiceWorker fetch failed: ', error);
+                                console.log('SW Fetch - Failed: ', error);
                             </t>
                         }
                     ).catch(function(error) {
                          // fetch failed
                         <t t-if="website.console_mode and website.console_mode == 'dev'">
-                            console.log('ServiceWorker fetch failed: ', error);
+                            console.log('SW Fetch - Failed: ', error);
                         </t>
                     });
                 })

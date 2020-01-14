@@ -35,12 +35,12 @@
                             window.addEventListener('load', function() {
                                 navigator.serviceWorker.register('/sw.js').then(function(registration) {
                                     <t t-if="website.console_mode and website.console_mode == 'dev'">
-                                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                                        console.log('SW Load - Registration successful with scope: ', registration.scope);
                                     </t>
                                 }, function(err) {
                                     // registration failed
                                     <t t-if="website.console_mode and website.console_mode == 'dev'">
-                                        console.log('ServiceWorker registration failed: ', err);
+                                        console.log('SW Load - Registration failed: ', err);
                                     </t>
                                 });
                             });
@@ -49,7 +49,7 @@
                             navigator.serviceWorker.getRegistrations().then(function(registrations) {
                                 for(let registration of registrations) {
                                     <t t-if="website.console_mode and website.console_mode == 'dev'">
-                                        console.log("Service Worker unregistered with scope: " + registration.scope);
+                                        console.log("SW Load - Unregistered with scope: " + registration.scope);
                                     </t>
                                     registration.unregister()
                                 }
@@ -57,7 +57,7 @@
                         </t>
                     } else {
                         <t t-if="website.console_mode and website.console_mode == 'dev'">
-                            console.log('Browser does not support the Service-Worker!');
+                            console.log('SW Load - Browser NOT support the Service-Worker!');
                         </t>
                     }
 
@@ -69,7 +69,7 @@
                     }
                     window.addEventListener('beforeinstallprompt', (e) => {
                         <t t-if="website.console_mode and website.console_mode == 'dev'">
-                            console.log('SW A2HS prompt is ready to install app');
+                            console.log('SW beforeinstallprompt - A2HS prompt is ready to install app');
                         </t>
                         // Prevent Chrome 76 and later from showing the mini-infobar
                         e.preventDefault();
@@ -88,11 +88,11 @@
                                 deferredPrompt.userChoice.then((choiceResult) => {
                                     if (choiceResult.outcome === 'accepted') {
                                         <t t-if="website.console_mode and website.console_mode == 'dev'">
-                                            console.log('User accepted the A2HS prompt');
+                                            console.log('SW beforeinstallprompt - User accepted the A2HS prompt');
                                         </t>
                                     } else {
                                         <t t-if="website.console_mode and website.console_mode == 'dev'">
-                                            console.log('User dismissed the A2HS prompt');
+                                            console.log('SW beforeinstallprompt - User dismissed the A2HS prompt');
                                         </t>
                                     }
                                     deferredPrompt = null;
@@ -104,7 +104,7 @@
                     /* Determine if the app was successfully installed */
                     window.addEventListener('appinstalled', (evt) => {
                         <t t-if="website.console_mode and website.console_mode == 'dev'">
-                            console.log('a2hs installed');
+                            console.log('SW appinstalled - A2HS installed successful');
                         </t>
                     });
                 });
