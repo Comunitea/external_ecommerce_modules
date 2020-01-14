@@ -34,7 +34,7 @@ class SaleOrder(models.Model):
                                                     .mapped('price_total'))
             # Add Weight to order
             total_weight = 0
-            for r in order.order_line:
+            for r in order.order_line.filtered(lambda x: x.product_id.type not in ('service', 'digital')):
                 total_weight += r.product_id.weight * r.product_uom_qty
             order.total_weight = total_weight
 
@@ -62,8 +62,8 @@ class SaleOrder(models.Model):
         :return: default values less payment fee as quantity.
         """
         for order in self:
-            order.cart_quantity = int(sum(order.website_order_line.filtered(lambda x: not x.payment_fee_line)
-                                          .mapped('product_uom_qty')))
+            order.cart_quantity = int(sum(order.website_order_line.filtered(lambda x: not x.payment_fee_line \
+                and x.product_id.type not in ('service', 'digital')).mapped('product_uom_qty')))
             order.only_services = all(l.product_id.type in ('service', 'digital') for l in order.website_order_line
                                       .filtered(lambda x: not x.payment_fee_line))
 
@@ -75,17 +75,10 @@ class SaleOrder(models.Model):
         :return: default values less payment fee as amount delivery.
         """
         for order in self:
-            
-            only_services = all(l.product_id.type in ('service', 'digital') for l in order.order_line
-                .filtered(lambda x: not x.payment_fee_line))
-            
-            if only_services:
-                order.amount_delivery = 0.0
-            else:
                 
-                if self.env.user.has_group('sale.group_show_price_subtotal'):
-                    order.amount_delivery = sum(order.order_line.filtered('is_delivery')
-                                                .filtered(lambda x: not x.payment_fee_line).mapped('price_subtotal'))
-                else:
-                    order.amount_delivery = sum(order.order_line.filtered('is_delivery')
-                                                .filtered(lambda x: not x.payment_fee_line).mapped('price_total'))
+            if self.env.user.has_group('sale.group_show_price_subtotal'):
+                order.amount_delivery = sum(order.order_line.filtered('is_delivery')
+                                            .filtered(lambda x: not x.payment_fee_line).mapped('price_subtotal'))
+            else:
+                order.amount_delivery = sum(order.order_line.filtered('is_delivery')
+                                            .filtered(lambda x: not x.payment_fee_line).mapped('price_total'))
