@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Manifest.json template -->
+    <template id="web_app_manifest" name="Web App Manifest Seo">{
+        "short_name": "<t t-raw="values['short_name']"/>",
+        "name": "<t t-raw="values['name']"/>",
+        "description": "<t t-raw="values['description']"/>",
+        "icons": [
+            {
+                "src": "/web/image/<t t-raw="values['icon_id']"/>/48x48",
+                "type": "image/png",
+                "sizes": "48x48"
+            },
+            {
+                "src": "/web/image/<t t-raw="values['icon_id']"/>/72x72",
+                "type": "image/png",
+                "sizes": "72x72"
+            },
+            {
+                "src": "/web/image/<t t-raw="values['icon_id']"/>/96x96",
+                "type": "image/png",
+                "sizes": "96x96"
+            },
+            {
+                "src": "/web/image/<t t-raw="values['icon_id']"/>/120x120",
+                "type": "image/png",
+                "sizes": "120x120"
+            },
+            {
+                "src": "/web/image/<t t-raw="values['icon_id']"/>/144x144",
+                "type": "image/png",
+                "sizes": "144x144"
+            },
+            {
+                "src": "/web/image/<t t-raw="values['icon_id']"/>/152x152",
+                "type": "image/png",
+                "sizes": "152x152"
+            },
+            {
+                "src": "/web/image/<t t-raw="values['icon_id']"/>/167x167",
+                "type": "image/png",
+                "sizes": "167x167"
+            },
+            {
+                "src": "/web/image/<t t-raw="values['icon_id']"/>/180x180",
+                "type": "image/png",
+                "sizes": "180x180"
+            },
+            {
+                "src": "/web/image/<t t-raw="values['icon_id']"/>/192x192",
+                "type": "image/png",
+                "sizes": "192x192"
+            },
+            {
+                "src": "/web/image/<t t-raw="values['icon_id']"/>/512x512",
+                "type": "image/png",
+                "sizes": "512x512"
+            }
+        ],
+        "start_url": "<t t-raw="values['start_url']"/>",
+        "background_color": "<t t-raw="values['background_color']"/>",
+        "theme_color": "<t t-raw="values['theme_color']"/>",
+        "display": "<t t-raw="values['display']"/>",
+        "orientation": "<t t-raw="values['orientation']"/>",
+        "lang": "<t t-raw="values['lang']"/>"<t t-raw="values['content']"/>
+    }</template>
+
+    <!-- Service worker js template -->
+    <template id="web_app_sw" name="Web App Service Worker Seo">
+        /* Service Worker for Progressive Web App */
+        importScripts('/website_seo_settings/static/js/cache-polyfill.js');
+        var CACHE_NAME = '<t t-raw="values['cache_name']"/>'
+        <t t-if="values['console_mode'] and values['console_mode'] == 'dev'">
+            console.log("SW CACHE_NAME: ", CACHE_NAME);
+        </t>
+        /* Service working installation */
+        self.addEventListener('install', function(e) {
+            e.waitUntil(
+                caches.open(CACHE_NAME).then(function(cache) {
+                    <t t-if="values['console_mode'] and values['console_mode'] == 'dev'">
+                        console.log("SW Open cache: ", CACHE_NAME);
+                    </t>
+                    return cache.addAll([
+                        '<t t-raw="values['start_url']"/>'<t t-raw="values['content']"/>
+                    ]);
+                })
+            );
+        });
+
+        /* Service worker updates */
+        self.addEventListener('activate', function(event) {
+            var cacheWhitelist = ['<t t-raw="values['cache_name']"/>'];
+            <t t-if="values['console_mode'] and values['console_mode'] == 'dev'">
+                console.log("SW Activating new cache: ", cacheWhitelist);
+            </t>
+            event.waitUntil(
+                caches.keys().then(function(cacheNames) {
+                    return Promise.all(
+                        cacheNames.map(function(cacheName) {
+                            if (cacheWhitelist.indexOf(cacheName) === -1) {
+                                <t t-if="values['console_mode'] and values['console_mode'] == 'dev'">
+                                    console.log("SW Deleted cache: ", cacheName);
+                                    return caches.delete(cacheName);
+                                </t>
+                            }
+                        })
+                    );
+                })
+            );
+        });
+
+        /* Service worker fetching events */
+        self.addEventListener('fetch', function(event) {
+            event.respondWith(
+                caches.match(event.request).then(function(response) {
+                    // Cache hit - return response
+                    if (response) {
+                        <t t-if="values['console_mode'] and values['console_mode'] == 'dev'">
+                            console.log('SW Fetch resource found in cache: ', event.request.url);
+                        </t>
+                      return response;
+                    }
+                    // IMPORTANT: Clone the request. A request is a stream and
+                    // can only be consumed once. Since we are consuming this
+                    // once by cache and once by the browser for fetch, we need
+                    // to clone the response.
+                    var fetchRequest = event.request.clone();
+                    return fetch(fetchRequest).then(
+                        function(response) {
+                            // Check if we received a valid response
+                            if(!response || response.status !== 200 || response.type !== 'basic') {
+                                <t t-if="values['console_mode'] and values['console_mode'] == 'dev'">
+                                    console.log('SW Fetch NO valid response: ', event.request.url);
+                                </t>
+                                return response;
+                            }
+                            // IMPORTANT: Clone the response. A response is a stream
+                            // and because we want the browser to consume the response
+                            // as well as the cache consuming the response, we need
+                            // to clone it so we have two streams.
+                            var responseToCache = response.clone();
+                            caches.open(CACHE_NAME).then(function(cache) {
+                                if (event.request.url.indexOf('/longpolling/poll') === -1 || event.request.url.indexOf('/call_kw') === -1){
+                                    <t t-if="values['console_mode'] and values['console_mode'] == 'dev'">
+                                        console.log("SW Caching new resource: ", event.request.url);
+                                    </t>
+                                    cache.put(event.request.url, responseToCache);
+                                }
+                            });
+                            return response;
+                        }, function(error) {
+                            // fetch failed
+                            <t t-if="website.console_mode and website.console_mode == 'dev'">
+                                console.log('ServiceWorker fetch failed: ', error);
+                            </t>
+                        }
+                    ).catch(function(error) {
+                         // fetch failed
+                        <t t-if="website.console_mode and website.console_mode == 'dev'">
+                            console.log('ServiceWorker fetch failed: ', error);
+                        </t>
+                    });
+                })
+            );
+        });
+    </template>
+
+</odoo>

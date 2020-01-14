@@ -1,0 +1,1328 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* website_seo_settings
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-22 09:05+0000\n"
+"PO-Revision-Date: 2020-01-14 10:08+0000\n"
+"Last-Translator: <ruben@comunitea.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "'your_code_1',                                         'your_code_2',"
+msgstr "'tu_codigo_1',                                         'tu_codigo_2',"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "(Info here)"
+msgstr "(Info aquí)"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid ", '/styles/main.css'                                         , '/script/main.js'"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "0.5 by default. Must be between 0,1 and 1,0.\n"
+"                                    Assigning high priority to all the URLs of your site probably won't help."
+msgstr "0.5 por defecto. Debe estar entre 0,1 y 1,0.\n"
+"                                    Asignar una alta prioridad a todas las URLs probablemente no sea de ayuda. Úsalo si no las seleccionas todas."
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:136
+#, python-format
+msgid "12hours"
+msgstr "12horas"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:136
+#, python-format
+msgid "1second"
+msgstr "1segundo"
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.403_access
+msgid "403 Access Seo"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.403_access
+msgid "403: Forbidden"
+msgstr "403: Prohibido"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "<span class=\"fa fa-lg fa-globe\" title=\"Values set here are website-specific.\" groups=\"website.group_multi_website\"/>"
+msgstr "<span class=\"fa fa-lg fa-globe\" title=\"Los valores establecidos aquí son específicos del sitio web.\" groups=\"website.group_multi_website\"/>"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "<span>Open sitemap.xml file</span>"
+msgstr "<span>Abrir sitemap.xml</span>"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "<strong>Warning!</strong><br/>\n"
+"                                    This option can cause several problems with cache, cookies and user sessions mostly when update content are required."
+msgstr "<strong>Cuidado!</strong><br/>\n"
+"                                    Esta opción puede causar problemas con la caché, las cookies y las sessiones de usuario mayormente cuando se quiere actualizar nuevo contenido."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "<strong>browser:</strong> The application opens in a conventional browser tab or new window, depending on the browser and platform. No admit Add to Home Screen Prompt."
+msgstr "<strong>Navegador:</strong> La aplicación se abre en una pestaña o en una ventana nueva del navegador, dependiendo de la plataforma y el navegador. No admite instalación de la app."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "<strong>fullscreen:</strong> All of the available display area is used and no user agent chrome is shown."
+msgstr "<strong>Completa:</strong> Usa la totalidad de la pantalla disponible y no muestra el agente de chrome."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "<strong>minimal-ui:</strong> The application will look and feel like a standalone application, but will have a minimal set of UI elements for controlling navigation. The elements will vary by browser."
+msgstr "<strong>Mínima:</strong> Se mostrará el diseño de una aplicacion nativa pero mostrando los mínimos elementos para el control de la navegación. Los elementos de control pueden variar dependiendo del navegador."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "<strong>standalone:</strong> The application will look and feel like a standalone application."
+msgstr "<strong>Nativa:</strong> Se mostrará el diseño de una aplicacion nativa."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Activate Service Worker"
+msgstr "Activar Service Worker"
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.website_sale_products_add_to_cart
+msgid "Add to Cart Seo"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Analytics"
+msgstr "Analítica"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:91
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__web_app_background_color
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__web_app_background_color
+#, python-format
+msgid "App background color"
+msgstr "Color fondo app"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:86
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__web_app_cache_name
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__web_app_cache_name
+#, python-format
+msgid "App cache name"
+msgstr "Nombre caché app"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:84
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__web_app_icon
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__web_app_icon
+#, python-format
+msgid "App icon"
+msgstr "Icono app"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:85
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__web_app_name
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__web_app_name
+#, python-format
+msgid "App name"
+msgstr "Nombre app"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:89
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__web_app_description
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__web_app_description
+#, python-format
+msgid "App short description"
+msgstr "Descripción corta de la app"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:88
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__web_app_short_name
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__web_app_short_name
+#, python-format
+msgid "App short name"
+msgstr "Nombre corto de la app"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:90
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__web_app_start_url
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__web_app_start_url
+#, python-format
+msgid "App start URL"
+msgstr "Página incio app"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:92
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__web_app_theme_color
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__web_app_theme_color
+#, python-format
+msgid "App theme color"
+msgstr "Color tema app"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Background Color"
+msgstr "Color de Fondo"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:81
+#: model:ir.model.fields,help:website_seo_settings.field_res_config_settings__map_prio_def
+#: model:ir.model.fields,help:website_seo_settings.field_website__map_prio_def
+#, python-format
+msgid "Between 0,1 and 1,0"
+msgstr "Entre 0,1 y 1,0"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:73
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__map_add_blog
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__map_add_blog
+#, python-format
+msgid "Blog pages"
+msgstr "Páginas del Blog"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:96
+#: selection:website,web_app_display:0
+#, python-format
+msgid "Browser"
+msgstr "Navegador"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:141
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__console_mode
+#, python-format
+msgid "Browser console mode: "
+msgstr "Modo consola del navegador:"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "By default, if there is an answer, the cached value is returned. If it does not exist, the result of a fetch call is returned and then added to the cache.\n"
+"                                    Anyway, you can define what url's will be included in the service worker cache list.\n"
+"                                    It's important to put each element in single line between quotes with the comma at the beginning and press enter before prompt next one.\n"
+"                                    Ex: , '/styles/main.css'"
+msgstr "Por defecto, si hay respuesta se devuelve el valor de la caché sino se devuelve el resultado de una llamada fetch y se añade a la caché.\n"
+"                                    De todas formas se puede definir que URLs serán incluidas de inicio en la lista de la caché.\n"
+"                                    Es importante poner cada elemento a cachear entre comillas precedidos de una coma y pulsar enter antes de introducir el siguiente.\n"
+"                                    Ex: , '/styles/main.css'"
+
+#. module: website_seo_settings
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__cache_mode
+msgid "Cache mode: "
+msgstr "Modo caché: "
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Cache mode"
+msgstr "Modo caché"
+
+#. module: website_seo_settings
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__cache_mode
+msgid "Cache mode: "
+msgstr "Modo caché: "
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.website_sale_categories_recursive
+msgid "Category list Seo"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.403_access
+msgid "Change account"
+msgstr "Cambiar cuenta"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Change frequency"
+msgstr "Cambiar frecuencia"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:87
+#: model:ir.model.fields,help:website_seo_settings.field_res_config_settings__web_app_cache_name
+#: model:ir.model.fields,help:website_seo_settings.field_website__web_app_cache_name
+#, python-format
+msgid "Change this name let refresh cache when new resources are available"
+msgstr "Cambiar este nombre permite refrescar la caché cuando nuevos recursos están disponibles."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Change this name let refresh cache when new resources are available.\n"
+"                                    It's recommended use your app name follow by '-v1' to change only version number later."
+msgstr "Cambiar este nombre permite refrescar la caché cuando nuevos recursos están disponibles.\n"
+"                                    Es recomendable usar el nombre de tu app seguida de la versión '-v1' para posteriormente solo cambiar el número de la versión."
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.website_sale_option_collapse_categories_recursive
+msgid "Collapse Category Recursive Seo"
+msgstr ""
+
+#. module: website_seo_settings
+#: model:ir.model,name:website_seo_settings.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de Configuración"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Console Mode"
+msgstr "Modo Consola"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:59
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__console_mode
+#, python-format
+msgid "Console mode: "
+msgstr "Modo consola: "
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.403_access
+msgid "Contact us"
+msgstr "Contactar"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Control screen orientation. Use this selectively. Users prefer to select the orientation."
+msgstr "Orientación de pantalla. Use esto selectivamente. Los usuarios suelen preferir poder escoger la orientación."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Display types:"
+msgstr "Tipos de pantalla: "
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Current Website"
+msgstr "Sitio Web Actual"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:76
+#: selection:website,map_freq_def:0
+#, python-format
+msgid "Daily"
+msgstr "A diario"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Default max length of slug field (from 20 to 99)"
+msgstr "Largo máximo del campo slug (Desde 20 a 99)"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Define the way in which your app will start.\n"
+"                                    If you do not provide a start_url, the current page is used, and it is very unlikely that this is what users want.\n"
+"                                    Ex: /shop for start in www.your_website/shop"
+msgstr "Define el sitio donde se inicia la app.\n"
+"                                    Si no se especifica una url de inicio, la página en curso será la usada como tal y normalmente no es lo que los usuarios desean.\n"
+"                                    Ex: /shop para iniciar en www.tu_sitio/shop"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Description"
+msgstr "Descripción"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.product_template_form_view
+msgid "Descriptions"
+msgstr "Descripciones"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:51
+#: code:addons/website_seo_settings/models/settings.py:57
+#: code:addons/website_seo_settings/models/settings.py:136
+#: code:addons/website_seo_settings/models/settings.py:140
+#: selection:website,cache_mode:0
+#: selection:website,console_mode:0
+#, python-format
+msgid "Developer mode"
+msgstr "Modo desarrollador"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Display"
+msgstr "Pantalla"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:97
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__web_app_display
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__web_app_display
+#, python-format
+msgid "Display mode"
+msgstr "Modo de pantalla"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Ex: #7c7bad"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Ex: /shop"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Ex: app_name-v1"
+msgstr "Ex: nombre_app-v1"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Facebook Pixel"
+msgstr ""
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:106
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__facebook_pixel_key
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__facebook_pixel_key
+#, python-format
+msgid "Facebook Pixel key"
+msgstr ""
+
+#. module: website_seo_settings
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__map_add_icon
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__map_add_icon
+msgid "Favicon.ico"
+msgstr ""
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:79
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__map_freq_def
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__map_freq_def
+#, python-format
+msgid "Frequency update"
+msgstr "Frecuencia actualización"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/category.py:14
+#: code:addons/website_seo_settings/models/product.py:18
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_product__slug
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_public_category__slug
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_template__slug
+#, python-format
+msgid "Friendly URL"
+msgstr "URL Amigable"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/category.py:14
+#: code:addons/website_seo_settings/models/product.py:18
+#: model:ir.model.fields,help:website_seo_settings.field_product_product__slug
+#: model:ir.model.fields,help:website_seo_settings.field_product_public_category__slug
+#: model:ir.model.fields,help:website_seo_settings.field_product_template__slug
+#, python-format
+msgid "Friendly URL for SEO redirection"
+msgstr "URL Amigable para redirección SEO"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:61
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__slug_length
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__slug_length
+#, python-format
+msgid "Friendly URL max length"
+msgstr "Largo máximo para URL Amigable"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:153
+#, python-format
+msgid "Friendly URL max length must be between 20 and 99"
+msgstr "El largo máximo para URL Amigable debe estar entre 20 y 99"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/product.py:19
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_product__description_full
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_template__description_full
+#, python-format
+msgid "Full Description"
+msgstr "Descripción Completa"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/product.py:19
+#: model:ir.model.fields,help:website_seo_settings.field_product_product__description_full
+#: model:ir.model.fields,help:website_seo_settings.field_product_template__description_full
+#, python-format
+msgid "Full product description in HTML format"
+msgstr "Descripción completa en formato HTML"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:94
+#: selection:website,web_app_display:0
+#, python-format
+msgid "Fullscreen"
+msgstr "Completa"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "GTM-XXXXX"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "General"
+msgstr "General"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.portal_frontend_layout
+msgid "Get our free app (PWA). It won't take up space on your device"
+msgstr "Consiga nuestra app gratuita (WPA). No ocupará espacio en su dispositivo."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Google Tag Manager"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "How to get my Facebook Pixel API Key"
+msgstr "Como coseguir mi Facebook Pixel API Key"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "How to get my GTM container ID"
+msgstr "Como coseguir mi GTM container ID"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "How to get my Tracking ID"
+msgstr "Como coseguir mi Tracking ID"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Icon"
+msgstr "Icono"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:85
+#: model:ir.model.fields,help:website_seo_settings.field_res_config_settings__web_app_name
+#: model:ir.model.fields,help:website_seo_settings.field_website__web_app_name
+#, python-format
+msgid "Icon name on the homescreen of device"
+msgstr "Nombre del icono en la pantalla de inicio del dispositivo"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.403_access
+msgid "If you have any problem, please"
+msgstr "Si tiene problemas, por favor"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:91
+#: code:addons/website_seo_settings/models/settings.py:92
+#: model:ir.model.fields,help:website_seo_settings.field_res_config_settings__web_app_background_color
+#: model:ir.model.fields,help:website_seo_settings.field_res_config_settings__web_app_theme_color
+#: model:ir.model.fields,help:website_seo_settings.field_website__web_app_background_color
+#: model:ir.model.fields,help:website_seo_settings.field_website__web_app_theme_color
+#, python-format
+msgid "In the HEX format, ex: #7c7bad"
+msgstr "En formato hexadecimal, ex: #7c7bad"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Include blog main page and published blog posts in sitemap"
+msgstr "Incluye en el sitemap la página principal del blog y los post publicados"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Include favicon.ico in sitemap"
+msgstr "Incluye en el sitemap el favicon"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Include published product public categories in sitemap"
+msgstr "Incluye en el sitemap las categorías ecommerce publicadas"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Include published products in sitemap"
+msgstr "Incluye en el sitemap los productos publicados"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Include robots.txt in sitemap"
+msgstr "Incluye en el sitemap el archivo robots.txt"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Include static pages in sitemap"
+msgstr "Incluye en el sitemap las páginas estáticas"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Indicates your app’s icon image, which can consist of several images for different OSs and devices. Must be 512x512 pixel at least."
+msgstr "Es la imagen del icono de la app que considera todos los tamaños exigidos para diferentes Sistemas Operativos y dispositivos. Debe ser de al menos 512x512 pixels."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Indicates your app’s name which is displayed under the icon of your app on the home screen and various other places.\n"
+"                                    Keep the value of your name property short and simple."
+msgstr "Es el nombre de la app que será mostrado debajo del icono en la pantalla de inicio y diversos sitios.\n"
+"                                    Se recomienda usar un nombre corto y sencillo."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.portal_frontend_layout
+msgid "Install Our App"
+msgstr "Instalar App"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:99
+#: selection:website,web_app_orientation:0
+#, python-format
+msgid "Landscape"
+msgstr "Horizontal"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.403_access
+msgid "Log In"
+msgstr "Iniciar sesión"
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.portal_frontend_layout
+msgid "Main Frontend Layout Seo"
+msgstr ""
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.website_layout
+msgid "Main Layout Seo"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Manage all your tags without editing code."
+msgstr "Gestionar todas las etiquetas sin editar código."
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:101
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__web_app_code
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__web_app_code
+#, python-format
+msgid "Manifest additional code"
+msgstr "Código adiccional para el manifest.json"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/category.py:12
+#: code:addons/website_seo_settings/models/product.py:16
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_product__website_meta_description
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_public_category__website_meta_description
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_template__website_meta_description
+#, python-format
+msgid "Meta Description"
+msgstr "Descripción"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/category.py:13
+#: code:addons/website_seo_settings/models/product.py:17
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_product__website_meta_keywords
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_public_category__website_meta_keywords
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_template__website_meta_keywords
+#, python-format
+msgid "Meta Keywords"
+msgstr "Palabras Clave"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/category.py:11
+#: code:addons/website_seo_settings/models/product.py:15
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_product__website_meta_title
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_public_category__website_meta_title
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_template__website_meta_title
+#, python-format
+msgid "Meta Title"
+msgstr "Título"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.product_template_form_view
+msgid "Metadata"
+msgstr "Metadatos"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:95
+#: selection:website,web_app_display:0
+#, python-format
+msgid "Minimal"
+msgstr "Mínima"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:78
+#: selection:website,map_freq_def:0
+#, python-format
+msgid "Monthly"
+msgstr "Mensualmente"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "More info here"
+msgstr "Más info aquí"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Name"
+msgstr "Nombre"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:93
+#: selection:website,web_app_display:0
+#, python-format
+msgid "Native App"
+msgstr "Nativa"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:52
+#: code:addons/website_seo_settings/models/settings.py:58
+#: code:addons/website_seo_settings/models/settings.py:136
+#: code:addons/website_seo_settings/models/settings.py:140
+#: selection:website,cache_mode:0
+#: selection:website,console_mode:0
+#, python-format
+msgid "Normal mode"
+msgstr "Modo normal"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/category.py:16
+#: model:ir.model.fields,help:website_seo_settings.field_product_public_category__website_published
+#, python-format
+msgid "Only published categories are visible on the website"
+msgstr "Solo las categorías publicadas son visibles en el sitio web"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:64
+#: code:addons/website_seo_settings/models/settings.py:146
+#: selection:website,shop_access_rules:0
+#, python-format
+msgid "Only users B2B"
+msgstr "Solo usuarios B2B"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:63
+#: code:addons/website_seo_settings/models/settings.py:145
+#: selection:website,shop_access_rules:0
+#, python-format
+msgid "Only users B2C"
+msgstr "Solo usuarios B2C"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Open Manifest File"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Open Robots File"
+msgstr "Abrir archivo robots.txt"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Open Sitemap File"
+msgstr "Abrir archivo sitemap.xml"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Open in new tab"
+msgstr "Abrir en una nueva pestaña"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Open manifest file"
+msgstr "Abrir archivo manifest.json"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Open manifest.json file"
+msgstr "Abrir archivo manifest.json"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Open robots file"
+msgstr "Abrir archivo robots.txt"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Open robots.txt file"
+msgstr "Abrir archivo robots.txt"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Open sitemap file"
+msgstr "Abrir archivo sitemap.xml"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Open the manifest file of the current website in a new tab."
+msgstr "Abrir archivo manifest.json del sitio web actual en una nueva pestaña."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Open the robots.txt file of the current website in a new tab."
+msgstr "Abrir archivo robots.txt del sitio web actual en una nueva pestaña."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Open the sitemap file of the current website in a new tab."
+msgstr "Abrir archivo sitemap.xml del sitio web actual en una nueva pestaña."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Orientation"
+msgstr "Orientación"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:100
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__web_app_orientation
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__web_app_orientation
+#, python-format
+msgid "Orientation mode"
+msgstr "Modo orientación"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:98
+#: selection:website,web_app_orientation:0
+#, python-format
+msgid "Portrait"
+msgstr "Vertical"
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.website_sale_products_item
+msgid "Product Item Seo"
+msgstr ""
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.website_sale_product
+msgid "Product Seo"
+msgstr ""
+
+#. module: website_seo_settings
+#: model:ir.model,name:website_seo_settings.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:71
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__map_add_cats
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__map_add_cats
+#, python-format
+msgid "Product public categories"
+msgstr "Categorías ecommerce"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:62
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__web_public_shop
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__web_public_shop
+#, python-format
+msgid "Public shop"
+msgstr "Tienda Pública"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:72
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__map_add_prods
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__map_add_prods
+#, python-format
+msgid "Published products"
+msgstr "Productos publicados"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Robots"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Robots Content"
+msgstr "Contenido Robots"
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.robots_txt
+msgid "Robots Seo"
+msgstr ""
+
+#. module: website_seo_settings
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__map_add_robot
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__map_add_robot
+msgid "Robots.txt"
+msgstr ""
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:109
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__robots_txt_content
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__robots_txt_content
+#, python-format
+msgid "Robots.txt content"
+msgstr "Contenido robots.txt"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "SEO"
+msgstr ""
+
+#. module: website_seo_settings
+#: model:ir.actions.act_window,name:website_seo_settings.website_seo_settings_config_settings_action
+msgid "Seo Settings"
+msgstr "Configuración Seo"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Seo Settings on this page will apply to this website"
+msgstr "Toda la configuración Seo se aplicará a este sitio web"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Service Worker Additional Code"
+msgstr "Código Adicional para Service Worker"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Service Worker Cache Files"
+msgstr "Archivos a cachear por Service Worker"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Service Worker Cache Name"
+msgstr "Nombre Caché del Service Worker"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Service worker adds cache offline support for your web application."
+msgstr "El Service Worker añade soporte para tener caché sin conexión en la aplicación web."
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:103
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__sw_code
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__sw_code
+#, python-format
+msgid "Service worker cache list"
+msgstr "Lista de la caché del Service Worker"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set Cache Mode"
+msgstr "Establecer Modo Caché"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set Console Mode"
+msgstr "Establecer Modo Consola"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set Facebook Pixel API Key"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set Facebook Pixel API Key."
+msgstr "Establecer Facebook Pixel API Key."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set Shop Access Rules"
+msgstr "Establecer Reglas Acceso a Tienda"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set Slug length"
+msgstr "Establecer largo del Slug"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set WPA Background Color"
+msgstr "Establecer Color de Fondo de la app"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set WPA Description"
+msgstr "Establecer descripción de la app"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set WPA Display"
+msgstr "Establecer pantalla de la app"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set WPA Icon"
+msgstr "Establecer icono de la app"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set WPA Name"
+msgstr "Establecer nombre de la app"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set WPA Orientation"
+msgstr "Establecer orientación de la app"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set WPA Service Worker"
+msgstr "Establecer Service Worker para la app"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set WPA Short Name"
+msgstr "Establecer nombre corto de la app"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set WPA Start URL"
+msgstr "Establecer página de inicio de la app"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set WPA Theme Color"
+msgstr "Establecer color del tema para la app"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set robots content"
+msgstr "Establecer contenido del robots.txt"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set sitemap URL priority"
+msgstr "Incluir prioridad de las URLs en el sitemap"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set sitemap blog pages"
+msgstr "Incluir páginas del blog en el sitemap"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set sitemap favicon"
+msgstr "Incluir favicon en el sitemap"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set sitemap frequency update"
+msgstr "Establecer frecuencia de actualización del sitemap"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set sitemap products"
+msgstr "Incluir produtos en el sitemap"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set sitemap products public categories"
+msgstr "Incluir categoías ecommerce en el sitemap"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set sitemap robots"
+msgstr "Incluir robots.txt en el sitemap"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set sitemap static pages"
+msgstr "Incluir páginas estáticas en el sitemap"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Set web contents frequency update. Weekly by default."
+msgstr "Establecer la frecuencia de actualización. Semanal por defecto."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Defines the default theme color for the application. Use hexadecimal format."
+msgstr "Establece el color a usar para toda la aplicación. Usar formato hexadecimal."
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.website_sale_shop_product_carousel
+msgid "Shop Product Carousel Seo"
+msgstr ""
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:65
+#: code:addons/website_seo_settings/models/settings.py:147
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__shop_access_rules
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__shop_access_rules
+#, python-format
+msgid "Shop access rules:"
+msgstr "Reglas acceso tienda:"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Shop open for public users by default. Otherwise, the access rules must be established."
+msgstr "Tienda abierta para el usuario público por defecto. De otro modo, se deberán establecer las reglas de acceso."
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/product.py:21
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_product__description_short
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_template__description_short
+#, python-format
+msgid "Short Description"
+msgstr "Descripción Corta"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Short Name"
+msgstr "Nombre corto"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/product.py:21
+#: model:ir.model.fields,help:website_seo_settings.field_product_product__description_short
+#: model:ir.model.fields,help:website_seo_settings.field_product_template__description_short
+#, python-format
+msgid "Short description in plain text"
+msgstr "Descripción corta en texto plano"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Shortly describe your website."
+msgstr "Describe brevemente tu sitio web."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Sitemap"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.product_template_form_view
+msgid "Slug"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Slug Length"
+msgstr "Largo del Slug"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Specifies a background color to be used in splash screen and some app contexts. Use hexadecimal format."
+msgstr "Especifica un color de fondo para ser usado en la pantalla de bienvenida y en algunos contextos más. Use formato hexadecimal."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Start URL"
+msgstr "URL Inicio"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.403_access
+msgid "Start page"
+msgstr "Página inicio"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:70
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__map_add_pages
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__map_add_pages
+#, python-format
+msgid "Static pages"
+msgstr "Páginas estáticas"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Theme Color"
+msgstr "Color Tema"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "This field not support html tags. Just plain text."
+msgstr "Este campo no soporta etiquetas HTML. Solo texto plano."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Track visits in Google Analytics"
+msgstr "Seguimiento de visitas en Google Analytics"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Tracking ID"
+msgstr "ID de seguimiento"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "UA-XXXXXXXX-Y"
+msgstr ""
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:81
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__map_prio_def
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__map_prio_def
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+#, python-format
+msgid "URL priority"
+msgstr "Prioridad URL"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:169
+#, python-format
+msgid "URL priority must be between 0,1 and 1,0"
+msgstr "La prioridad de la URL debe estar entre 0,1 y 1,0"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Use Normal Mode by default. Developer Mode is constantly refreshing the cache."
+msgstr "Use el Modo Normal por defecto. El Modo Desarrollador está constantemente refrescando la caché."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Use Normal Mode by default. Developer mode activates the console messages for scripts."
+msgstr "Use el Modo Normal por defecto. El Modo Desarrollador solo activa la salida de mensajes por consola provenientes de los scripts."
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:102
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__sw_offline
+#: model:ir.model.fields,field_description:website_seo_settings.field_website__sw_offline
+#, python-format
+msgid "Use service worker offline cache"
+msgstr "Use la caché sin conexión del service worker"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "User-agent: *                                     Allow: /"
+msgstr ""
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.web_app_manifest
+msgid "Web App Manifest Seo"
+msgstr ""
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.web_app_sw
+msgid "Web App Service Worker Seo"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Web Progressive App"
+msgstr "Aplicación Web Progresiva"
+
+#. module: website_seo_settings
+#: model:ir.model,name:website_seo_settings.model_website
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "Website"
+msgstr "Sitio web"
+
+#. module: website_seo_settings
+#: model:ir.model,name:website_seo_settings.model_product_public_category
+msgid "Website Product Category"
+msgstr "Categoría del Producto"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/category.py:15
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_public_category__website_published
+#, python-format
+msgid "Website Published"
+msgstr "Publicado en Sitio web"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:77
+#: selection:website,map_freq_def:0
+#, python-format
+msgid "Weekly"
+msgstr "Semanalmente"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "When the value of your app name property fails to fit within the user’s screen, the value of this property is then the replacement to it.\n"
+"                                    It’s recommended that your short-name should be under 20 characters and lower. In fact, shoot for 10 characters."
+msgstr "Cuando el valor del nombre la la app falla por espacio en la pantalla, se toma este valor para sustituirla.\n"
+"                                    Es recomendable usar un nombre corto por debajo de los 20 caracteres, mejor incluso por debajo de 10 caracteres."
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "You can include additional code and will be added to the end of the JSON file.\n"
+"                                    It's important to put each element in single line between quotes with the comma at the beginning and press enter before prompt next one.\n"
+"                                    Ex: , 'your_code'"
+msgstr "Si lo desea puede incluir código adiccional al archivo manifest.json.\n"
+"                                    Es importante poner cada elemento a cachear entre comillas precedidos de una coma y pulsar enter antes de introducir el siguiente.\n"
+"                                    Ex: , 'tu_codigo'"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.403_access
+msgid "You do not have access to this page"
+msgstr "No tiene permiso para acceder a esta página"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.403_access
+msgid "You need to"
+msgstr "Necesita"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.403_access
+msgid "by phone"
+msgstr "por teléfono"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.403_access
+msgid "contact with us"
+msgstr "contacte"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:76
+#, python-format
+msgid "daily"
+msgstr "diariamente"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:140
+#, python-format
+msgid "dev"
+msgstr ""
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.403_access
+msgid "how a different user to see the content"
+msgstr "como un usuario diferente para ver el contenido"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:78
+#, python-format
+msgid "monthly"
+msgstr "mensualmente"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.403_access
+msgid "or email"
+msgstr "o correo electrónico"
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.product_template_form_view
+msgid "product.template.product.website.form"
+msgstr ""
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.res_config_settings_view_form
+msgid "res.config.settings.view.form.inherit.seo"
+msgstr ""
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.seo_public_category_form_view
+msgid "seo.public.category.form.view"
+msgstr ""
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.seo_public_category_tree_view
+msgid "seo.public.category.tree.view"
+msgstr ""
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:140
+#, python-format
+msgid "user"
+msgstr "usuario"
+
+#. module: website_seo_settings
+#: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__website_id
+msgid "website"
+msgstr "sitio web"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/settings.py:77
+#, python-format
+msgid "weekly"
+msgstr "semenalmente"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+msgid "your-pixel-id-goes-here"
+msgstr "tu-pixel-id-va-aqui"

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.product.website.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <!-- Products descriptions for product details -->
+            <xpath expr="//group[@name='shop']" position="inside">
+                <group string="Descriptions">
+                <field name="description_short"/>
+                <field name="description_full"/>
+                </group>
+            </xpath>
+            <!-- SEO Metadata Page -->
+            <xpath expr="//notebook[last()]" position="inside">
+                <page string="SEO">
+                    <group string="Slug">
+                        <field name="slug"/>
+                    </group>
+                    <group string="Metadata">
+                        <field name="website_meta_title"/>
+                        <field name="website_meta_keywords"/>
+                        <field name="website_meta_description"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

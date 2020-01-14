@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.seo</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="21"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="SEO" string="SEO" data-key="website_seo_settings" groups="website.group_website_publisher">
+
+                    <h2>General</h2>
+
+                    <div class="row mt16 o_settings_container" id="seo_general_settings">
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_general_website_settings" title="Current Website">
+                            <div class="o_setting_right_pane">
+                                <label string="Website" for="website_id"/>
+                                <div class="text-muted">
+                                    Seo Settings on this page will apply to this website
+                                </div>
+                                <div class="mt16">
+                                    <field name="website_id" widget="selection" readonly="1"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_general_slug_length_settings" title="Set Slug length">
+                            <div class="o_setting_right_pane">
+                                <label string="Slug Length" for="slug_length"/>
+                                <div class="text-muted">
+                                    Default max length of slug field (from 20 to 99)
+                                </div>
+                                <div class="mt16">
+                                    <field name="slug_length"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_general_cache_mode_settings" title="Set Cache Mode">
+                            <div class="o_setting_right_pane">
+                                <label string="Cache mode" for="cache_mode"/>
+                                <div class="text-muted">
+                                    Use Normal Mode by default. Developer Mode is constantly refreshing the cache.
+                                </div>
+                                <div class="mt16">
+                                    <field name="cache_mode" class="o_light_label" widget="radio"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_general_console_mode_settings" title="Set Console Mode">
+                            <div class="o_setting_right_pane">
+                                <label string="Console Mode" for="console_mode"/>
+                                <div class="text-muted">
+                                    Use Normal Mode by default. Developer mode activates the console messages for scripts.
+                                </div>
+                                <div class="mt16">
+                                    <field name="console_mode" class="o_light_label" widget="radio"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_general_shop_access_rules_settings" title="Set Shop Access Rules">
+                            <div class="o_setting_left_pane">
+                                <field name="web_public_shop"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="web_public_shop"/>
+                                <div class="text-muted">
+                                    Shop open for public users by default. Otherwise, the access rules must be established.
+                                </div>
+                                <div class="content-group" attrs="{'invisible': [('web_public_shop','=',True)]}">
+                                    <div class="mt16">
+                                        <field name="shop_access_rules" widget="radio" class="o_light_label"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Sitemap <a href="https://support.google.com/webmasters/answer/183668?hl=es" title="Open in new tab" target="_blank" id="robots_file" rel="noindex, nofollow">(Info here)</a></h2>
+
+                    <div class="row mt16 o_settings_container" id="seo_sitemap_settings">
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_sitemap_map_add_icon_settings" title="Set sitemap favicon">
+                            <div class="o_setting_left_pane">
+                                <field name="map_add_icon"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="map_add_icon"/>
+                                <div class="text-muted">
+                                    Include favicon.ico in sitemap
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_sitemap_map_add_robot_settings" title="Set sitemap robots">
+                            <div class="o_setting_left_pane">
+                                <field name="map_add_robot"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="map_add_robot"/>
+                                <div class="text-muted">
+                                    Include robots.txt in sitemap
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_sitemap_map_add_pages_settings" title="Set sitemap static pages">
+                            <div class="o_setting_left_pane">
+                                <field name="map_add_pages"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="map_add_pages"/>
+                                <div class="text-muted">
+                                    Include static pages in sitemap
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_sitemap_map_add_prods_settings" title="Set sitemap products">
+                            <div class="o_setting_left_pane">
+                                <field name="map_add_prods"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="map_add_prods"/>
+                                <div class="text-muted">
+                                    Include published products in sitemap
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_sitemap_map_add_cats_settings" title="Set sitemap products public categories">
+                            <div class="o_setting_left_pane">
+                                <field name="map_add_cats"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="map_add_cats"/>
+                                <div class="text-muted">
+                                    Include published product public categories in sitemap
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_sitemap_map_add_blog_settings" title="Set sitemap blog pages">
+                            <div class="o_setting_left_pane">
+                                <field name="map_add_blog"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="map_add_blog"/>
+                                <div class="text-muted">
+                                    Include blog main page and published blog posts in sitemap
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_sitemap_map_freq_def_settings" title="Set sitemap frequency update">
+                            <div class="o_setting_right_pane">
+                                <label string="Change frequency" for="map_freq_def"/>
+                                <div class="text-muted">
+                                    Set web contents frequency update. Weekly by default.
+                                </div>
+                                <div class="mt16">
+                                    <field name="map_freq_def"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_sitemap_map_prio_def_settings" title="Set sitemap URL priority">
+                            <div class="o_setting_right_pane">
+                                <label string="URL priority" for="map_prio_def"/>
+                                <div class="text-muted">
+                                    0.5 by default. Must be between 0,1 and 1,0.
+                                    Assigning high priority to all the URLs of your site probably won't help.
+                                </div>
+                                <div class="mt16">
+                                    <field name="map_prio_def"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_sitemap_open_settings" title="Open sitemap file">
+                            <div class="o_setting_right_pane">
+                                <label string="Open Sitemap File" for="sitemap_file"/>
+                                <div class="text-muted">
+                                    Open the sitemap file of the current website in a new tab.
+                                </div>
+                                <div class="mt16">
+                                    <a href="/sitemap.xml" class="oe_link fa fa-arrow-right" title="Open in new tab" target="_blank" id="sitemap_file">
+                                        <span>Open sitemap.xml file</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Web Progressive App <a href="https://developers.google.com/web/progressive-web-apps" title="Open in new tab" target="_blank" id="robots_file" rel="noindex, nofollow">(Info here)</a></h2>
+
+                    <div class="row mt16 o_settings_container" id="seo_web_app_settings">
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_web_app_icon_settings" title="Set WPA Icon">
+                            <div class="o_setting_right_pane">
+                                <label string="Icon" for="web_app_icon"/>
+                                <div class="text-muted">
+                                    Indicates your app’s icon image, which can consist of several images for different OSs and devices. Must be 512x512 pixel at least.
+                                </div>
+                                <div class="content-group">
+                                    <div class="row mt16 ml16">
+                                        <field name="web_app_icon" widget="image" class="float-left oe_avatar"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_web_app_name_settings" title="Set WPA Name">
+                            <div class="o_setting_right_pane">
+                                <label string="Name" for="web_app_name"/>
+                                <div class="text-muted">
+                                    Indicates your app’s name which is displayed under the icon of your app on the home screen and various other places.
+                                    Keep the value of your name property short and simple.
+                                </div>
+                                <div class="mt16">
+                                    <field name="web_app_name"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_web_app_short_name_settings" title="Set WPA Short Name">
+                            <div class="o_setting_right_pane">
+                                <label string="Short Name" for="web_app_short_name"/>
+                                <div class="text-muted">
+                                    When the value of your app name property fails to fit within the user’s screen, the value of this property is then the replacement to it.
+                                    It’s recommended that your short-name should be under 20 characters and lower. In fact, shoot for 10 characters.
+                                </div>
+                                <div class="mt16">
+                                    <field name="web_app_short_name"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_web_app_description_settings" title="Set WPA Description">
+                            <div class="o_setting_right_pane">
+                                <label string="Description" for="web_app_description"/>
+                                <div class="text-muted">
+                                    Shortly describe your website.
+                                </div>
+                                <div class="mt16">
+                                    <field name="web_app_description"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_web_app_start_url_settings" title="Set WPA Start URL">
+                            <div class="o_setting_right_pane">
+                                <label string="Start URL" for="web_app_start_url"/>
+                                <div class="text-muted">
+                                    Define the way in which your app will start.
+                                    If you do not provide a start_url, the current page is used, and it is very unlikely that this is what users want.
+                                    Ex: /shop for start in www.your_website/shop
+                                </div>
+                                <div class="mt16">
+                                    <field name="web_app_start_url" placeholder="Ex: /shop"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_web_app_background_color_settings" title="Set WPA Background Color">
+                            <div class="o_setting_right_pane">
+                                <label string="Background Color" for="web_app_background_color"/>
+                                <div class="text-muted">
+                                    Specifies a background color to be used in splash screen and some app contexts. Use hexadecimal format.
+                                </div>
+                                <div class="mt16">
+                                    <field name="web_app_background_color" placeholder="Ex: #7c7bad"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_web_app_theme_color_settings" title="Set WPA Theme Color">
+                            <div class="o_setting_right_pane">
+                                <label string="Theme Color" for="web_app_theme_color"/>
+                                <div class="text-muted">
+                                    Defines the default theme color for the application. Use hexadecimal format.
+                                </div>
+                                <div class="mt16">
+                                    <field name="web_app_theme_color" placeholder="Ex: #7c7bad"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_web_app_orientation_settings" title="Set WPA Orientation">
+                            <div class="o_setting_right_pane">
+                                <label string="Orientation" for="web_app_orientation"/>
+                                <div class="text-muted">
+                                    Control screen orientation. Use this selectively. Users prefer to select the orientation.
+                                </div>
+                                <div class="mt16">
+                                    <field name="web_app_orientation"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_web_app_display_settings" title="Set WPA Display">
+                            <div class="o_setting_right_pane">
+                                <label string="Display" for="web_app_display"/>
+                                <div class="text-muted">
+                                    Display types:
+                                    <ul class="list-unstyled">
+                                        <li><strong>standalone:</strong> The application will look and feel like a standalone application.</li>
+                                        <li><strong>browser:</strong> The application opens in a conventional browser tab or new window, depending on the browser and platform. No admit Add to Home Screen Prompt. </li>
+                                        <li><strong>fullscreen:</strong> All of the available display area is used and no user agent chrome is shown.</li>
+                                        <li><strong>minimal-ui:</strong> The application will look and feel like a standalone application, but will have a minimal set of UI elements for controlling navigation. The elements will vary by browser.</li>
+                                    </ul>
+                                </div>
+                                <div class="mt16">
+                                    <field name="web_app_display"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_manifest_open_settings" title="Open manifest file">
+                            <div class="o_setting_right_pane">
+                                <label string="Open Manifest File" for="manifest_file"/>
+                                <div class="text-muted">
+                                    Open the manifest file of the current website in a new tab.
+                                </div>
+                                <div>
+                                    <a href="/manifest.json" class="oe_link fa fa-arrow-right" title="Open in new tab" target="_blank" id="manifest_file">
+                                        Open manifest.json file
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_web_app_sw_settings" title="Set WPA Service Worker">
+                            <div class="o_setting_left_pane">
+                                <field name="sw_offline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Activate Service Worker" for="sw_offline"/>
+                                <div class="text-muted">
+                                    Service worker adds cache offline support for your web application.
+                                    <a href="https://developers.google.com/web/fundamentals/primers/service-workers" class="oe_link fa fa-arrow-right"
+                                       title="Open in new tab" target="_blank" id="robots_file" rel="noindex, nofollow">More info here</a>.
+                                </div>
+                                <div class="bg-warning mt4" attrs="{'invisible': [('sw_offline','=',False)]}" style="padding: 5px;">
+                                    <strong>Warning!</strong><br/>
+                                    This option can cause several problems with cache, cookies and user sessions mostly when update content are required.
+                                </div>
+                            </div>
+
+                            <div class="o_setting_right_pane mt16" attrs="{'invisible': [('sw_offline','=',False)]}">
+                                <label string="Service Worker Cache Name" for="web_app_cache_name"/>
+                                <div class="text-muted">
+                                    Change this name let refresh cache when new resources are available.
+                                    It's recommended use your app name follow by '-v1' to change only version number later.
+                                </div>
+                                <div class="mt16">
+                                    <field name="web_app_cache_name" placeholder="Ex: app_name-v1"/>
+                                </div>
+                            </div>
+
+                            <div class="o_setting_right_pane mt16" attrs="{'invisible': [('sw_offline','=',False)]}">
+                                <label string="Service Worker Cache Files" for="sw_code"/>
+                                <div class="text-muted">
+                                    By default, if there is an answer, the cached value is returned. If it does not exist, the result of a fetch call is returned and then added to the cache.
+                                    Anyway, you can define what url's will be included in the service worker cache list.
+                                    It's important to put each element in single line between quotes with the comma at the beginning and press enter before prompt next one.
+                                    Ex: , '/styles/main.css'
+                                </div>
+                                <div class="mt16">
+                                    <field name="sw_code" placeholder=", '/styles/main.css'
+                                        , '/script/main.js'"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="o_setting_right_pane" attrs="{'invisible': [('sw_offline','=',False)]}">
+                                <label string="Service Worker Additional Code" for="web_app_code"/>
+                                <div class="text-muted">
+                                    You can include additional code and will be added to the end of the JSON file.
+                                    It's important to put each element in single line between quotes with the comma at the beginning and press enter before prompt next one.
+                                    Ex: , 'your_code'
+                                </div>
+                                <div class="mt16">
+                                    <field name="web_app_code" placeholder=", 'your_code_1'
+                                        , 'your_code_2'
+                                    "/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Analytics</h2>
+
+                    <div class="row mt16 o_settings_container" id="seo_analytics_settings">
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_analytics_facebook_pixel_settings" title="Set Facebook Pixel API Key">
+                            <div class="o_setting_right_pane">
+                                <label string="Facebook Pixel" for="facebook_pixel_key"/>
+                                <div class="text-muted">
+                                    Set Facebook Pixel API Key.
+                                    <a href="https://developers.facebook.com/docs/facebook-pixel" class="oe_link fa fa-arrow-right"
+                                       title="Open in new tab" target="_blank" id="robots_file" rel="noindex, nofollow">More info here</a>.
+                                </div>
+                                <div  class="content-group">
+                                    <div class="mt16">
+                                        <field name="facebook_pixel_key" placeholder="your-pixel-id-goes-here"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="https://developers.facebook.com/docs/facebook-pixel"
+                                       class="oe_link fa fa-arrow-right" target="_blank">
+                                        How to get my Facebook Pixel API Key
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-offset-6 col-lg-6 o_setting_box" id="google_analytics_setting">
+                            <div class="o_setting_left_pane">
+                                <field name="has_google_analytics"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="has_google_analytics"/>
+                                <span class="fa fa-lg fa-globe" title="Values set here are website-specific." groups="website.group_multi_website"/>
+                                <div class="text-muted">
+                                    Track visits in Google Analytics
+                                </div>
+                                <div class="content-group" attrs="{'invisible': [('has_google_analytics', '=', False)]}">
+                                    <div class="row mt16">
+                                        <label class="col-lg-3 o_light_label" string="Tracking ID" for="google_analytics_key"/>
+                                        <field name="google_analytics_key" placeholder="UA-XXXXXXXX-Y"
+                                               attrs="{'required': [('has_google_analytics', '=', True)]}"/>
+                                    </div>
+                                </div>
+                                <div attrs="{'invisible': [('has_google_analytics', '=', False)]}">
+                                    <a href="https://www.odoo.com/documentation/user/12.0/website/optimize/google_analytics.html"
+                                       class="oe_link fa fa-arrow-right" target="_blank">
+                                        How to get my Tracking ID
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-md-6 o_setting_box" id="google_tag_manager_setting">
+                            <div class="o_setting_right_pane">
+                                <label for="google_tag_manager_key" string="Google Tag Manager"/>
+                                <span class="fa fa-lg fa-globe" title="Values set here are website-specific." groups="website.group_multi_website"/>
+                                <div class="text-muted">
+                                    Manage all your tags without editing code.
+                                </div>
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label class="col-lg-4 o_light_label" for="google_tag_manager_key"/>
+                                        <field name="google_tag_manager_key" placeholder="GTM-XXXXX"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a href="https://support.google.com/tagmanager/answer/6103696#install?hl=en"
+                                       class="oe_link fa fa-arrow-right" target="_blank">
+                                        How to get my GTM container ID
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Robots</h2>
+
+                    <div class="row mt16 o_settings_container" id="seo_robots_settings">
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_robots_txt_content_settings" title="Set robots content">
+                            <div class="o_setting_right_pane">
+                                <label string="Robots Content" for="robots_txt_content"/>
+                                <div class="text-muted">
+                                    This field not support html tags. Just plain text.
+                                    <a href="https://support.google.com/webmasters/answer/6062596?hl=es" class="oe_link fa fa-arrow-right"
+                                       title="Open in new tab" target="_blank" id="robots_file" rel="noindex, nofollow">More info here</a>.
+                                </div>
+                                <div class="mt16 mb32">
+                                    <field name="robots_txt_content" placeholder="User-agent: *
+                                    Allow: /"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" id="seo_robots_open_settings" title="Open robots file">
+                            <div class="o_setting_right_pane">
+                                <label string="Open Robots File" for="robots_file"/>
+                                <div class="text-muted">
+                                    Open the robots.txt file of the current website in a new tab.
+                                </div>
+                                <div>
+                                    <a href="/robots.txt" class="oe_link fa fa-arrow-right" title="Open in new tab" target="_blank" id="robots_file">
+                                        Open robots.txt file
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="website_seo_settings_config_settings_action" model="ir.actions.act_window">
+        <field name="name">Seo Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'website_seo_settings'}</field>
+    </record>
+
+</odoo>

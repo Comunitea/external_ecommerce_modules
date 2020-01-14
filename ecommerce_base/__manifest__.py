@@ -15,6 +15,8 @@
     'depends': [
         'l10n_es',
         'base_search_fuzzy',
+        'portal',
+        'payment_redsys',
         'website',
         'website_mail',
         'website_logo',

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="robots_txt" name="Robots Seo">
+        <t t-raw="content"/>
+    </template>
+
+</odoo>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="portal_frontend_layout" inherit_id="portal.frontend_layout" name="Main Frontend Layout Seo">
+        <!-- Set javascript source after the footer -->
+        <xpath expr="//div[@id='wrapwrap']/footer" position="inside">
+            <t t-call-assets="web.assets_common" t-css="false"/>
+            <t t-call-assets="web.assets_frontend" t-css="false"/>
+            <t t-call-assets="web_editor.summernote" t-css="false" groups="website.group_website_publisher"/>
+            <t t-call-assets="web_editor.assets_editor" t-css="false" groups="website.group_website_publisher"/>
+            <t t-call-assets="website.assets_editor" t-css="false" groups="website.group_website_publisher"/>
+        </xpath>
+        <!-- PWA Add to Home Screen -->
+        <xpath expr="//a[@id='o_logout']" position="before">
+            <a href="#" role="menuitem" class="dropdown-item" id="add-home-button" rel="noindex, nofollow"
+               title="Get our free app (PWA). It won't take up space on your device">Install Our App</a>
+        </xpath>
+    </template>
+
+    <template id="website_layout" inherit_id="website.layout" name="Main Layout Seo">
+        <!-- Replace javascript source in the head -->
+        <xpath expr="//t[@t-call-assets='web.assets_common'][@t-css='false']" position="replace"/>
+        <xpath expr="//t[@t-call-assets='web.assets_frontend'][@t-css='false']" position="replace"/>
+        <xpath expr="//t[@t-call-assets='web_editor.summernote'][@t-css='false']" position="replace"/>
+        <xpath expr="//t[@t-call-assets='web_editor.assets_editor'][@t-css='false']" position="replace"/>
+        <xpath expr="//t[@t-call-assets='website.assets_editor'][@t-css='false']" position="replace"/>
+
+         <!-- Add service worker javascript -->
+        <xpath expr="//script[@id='tracking_code']" position="before">
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    // Register Service Worker for Progressive Web App
+                    if('serviceWorker' in navigator) {
+                        <t t-if="website.sw_offline and website.sw_offline == True">
+                            window.addEventListener('load', function() {
+                                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                                    <t t-if="website.console_mode and website.console_mode == 'dev'">
+                                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                                    </t>
+                                }, function(err) {
+                                    // registration failed
+                                    <t t-if="website.console_mode and website.console_mode == 'dev'">
+                                        console.log('ServiceWorker registration failed: ', err);
+                                    </t>
+                                });
+                            });
+                        </t>
+                        <t t-else="">
+                            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                                for(let registration of registrations) {
+                                    <t t-if="website.console_mode and website.console_mode == 'dev'">
+                                        console.log("Service Worker unregistered with scope: " + registration.scope);
+                                    </t>
+                                    registration.unregister()
+                                }
+                            });
+                        </t>
+                    } else {
+                        <t t-if="website.console_mode and website.console_mode == 'dev'">
+                            console.log('Browser does not support the Service-Worker!');
+                        </t>
+                    }
+
+                     /* Show the Add to Home Screen dialog */
+                    let deferredPrompt;
+                    const addBtn = document.querySelector('#add-home-button');
+                    if (addBtn !== null){
+                        addBtn.style.display = 'none';
+                    }
+                    window.addEventListener('beforeinstallprompt', (e) => {
+                        <t t-if="website.console_mode and website.console_mode == 'dev'">
+                            console.log('SW A2HS prompt is ready to install app');
+                        </t>
+                        // Prevent Chrome 76 and later from showing the mini-infobar
+                        e.preventDefault();
+                        // Stash the event so it can be triggered later.
+                        deferredPrompt = e;
+                        // Update UI notify the user they can add to home screen
+                        if (addBtn !== null){
+                            addBtn.style.display = 'block';
+
+                            addBtn.addEventListener('click', (e) => {
+                                // hide our user interface that shows our A2HS button
+                                addBtn.style.display = 'none';
+                                // Show the prompt
+                                deferredPrompt.prompt();
+                                // Wait for the user to respond to the prompt
+                                deferredPrompt.userChoice.then((choiceResult) => {
+                                    if (choiceResult.outcome === 'accepted') {
+                                        <t t-if="website.console_mode and website.console_mode == 'dev'">
+                                            console.log('User accepted the A2HS prompt');
+                                        </t>
+                                    } else {
+                                        <t t-if="website.console_mode and website.console_mode == 'dev'">
+                                            console.log('User dismissed the A2HS prompt');
+                                        </t>
+                                    }
+                                    deferredPrompt = null;
+                                });
+                            });
+                        }
+                    });
+
+                    /* Determine if the app was successfully installed */
+                    window.addEventListener('appinstalled', (evt) => {
+                        <t t-if="website.console_mode and website.console_mode == 'dev'">
+                            console.log('a2hs installed');
+                        </t>
+                    });
+                });
+            </script>
+        </xpath>
+
+        <!-- Favicon -->
+        <xpath expr="//t[@t-set='x_icon']" position="attributes">
+            <attribute name="t-value">'/favicon.ico'</attribute>
+        </xpath>
+
+
+        <!-- Metadata -->
+        <xpath expr="//meta[last()]" position="after">
+            <!-- Set wpa necessary links into the head -->
+            <meta name="theme-color" t-att-content="website.web_app_theme_color" t-if="website.web_app_theme_color"/>
+            <link href="/manifest.json" rel="manifest"/>
+            <link rel="apple-touch-icon" t-att-href="website.web_app_icon" t-if="website.web_app_icon"/>
+
+             <!-- Add analytics noscript links -->
+            <t t-if="website and website.facebook_pixel_key and not editable">
+                <!-- Facebook Pixel Code -->
+                <script>
+                    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
+                    n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                    n.queue=[];t=b.createElement(e);t.async=!0;
+                    t.src=v;s=b.getElementsByTagName(e)[0];
+                    s.parentNode.insertBefore(t,s)}(window,document,'script',
+                    'https://connect.facebook.net/en_US/fbevents.js');
+                    fbq('init', '<t t-esc="website.facebook_pixel_key"/>');
+                    fbq('track', 'PageView');
+                </script>
+                <!-- End Facebook Pixel Code -->
+            </t>
+        </xpath>
+        <xpath expr="//t[@t-set='head_website']" position="after">
+            <t t-if="website and website.facebook_pixel_key and not editable">
+                <!-- Facebook Pixel Code (noscript) -->
+                <noscript>
+                    <img height="1" width="1" t-attf-src="https://www.facebook.com/tr?id={{ website.facebook_pixel_key }}&amp;ev=PageView&amp;noscript=1" />
+                </noscript>
+                <!-- Facebook Pixel Code (noscript) -->
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

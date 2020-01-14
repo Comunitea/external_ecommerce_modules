@@ -6,7 +6,7 @@
 
 from odoo import http, api, models, fields, _
 from odoo.http import request
-from odoo.addons.seo_base.models.settings import _default_website
+from odoo.addons.website_seo_settings.models.settings import _default_website
 
 
 class Website(models.Model):

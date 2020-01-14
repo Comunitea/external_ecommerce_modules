@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="seo_public_category_form_view" model="ir.ui.view">
+        <field name="name">seo.public.category.form.view</field>
+        <field name="model">product.public.category</field>
+        <field name="inherit_id" ref="website_sale.product_public_category_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_left')]" position="attributes">
+                <attribute name="class" add="ml16" separator=" "/>
+            </xpath>
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="website_published"/>
+            </xpath>
+            <xpath expr="//field[@name='sequence']" position="after">
+                <field name="slug"/>
+                <field name="website_meta_title"/>
+                <field name="website_meta_keywords"/>
+                <field name="website_meta_description"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="seo_public_category_tree_view" model="ir.ui.view">
+        <field name="name">seo.public.category.tree.view</field>
+        <field name="model">product.public.category</field>
+        <field name="inherit_id" ref="website_sale.product_public_category_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='display_name']" position="after">
+                <field name="slug"/>
+                <field name="website_published"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
