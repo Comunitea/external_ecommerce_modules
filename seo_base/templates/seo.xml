@@ -16,7 +16,7 @@
         <!-- Meta Description -->
         <xpath expr="//t[@t-set='meta_description']" position="attributes">
             <attribute name="t-value">
-                product.product_meta_description if product and product.product_meta_description and product.product_meta_description != '' else main_object and 'website_meta_keywords' in main_object and main_object.website_meta_keywords or website_meta_keywords
+                product.product_meta_description if product and product.product_meta_description and product.product_meta_description != '' else main_object and 'website_meta_description' in main_object and main_object.website_meta_description or website_meta_description
             </attribute>
         </xpath>
 
