@@ -71,13 +71,13 @@ class ExportFeeds(http.Controller):
             return view.render_template('google_merchant_export.feed_wrap', {
                 'id': product.id,
                 'title': product.name,
-                'description': product.description_short,
+                'description': product.description_short or product.meta_description or product.name,
                 'link': '%sproduct/%s' % (root, product.slug) if product.slug else '%sshop/product/%s' % (root, slug(product)),
                 'image_link': '%sweb/image/product.template/%s/image/' % (root, product.id),
                 'condition': 'new',
-                'availability': 'preorder' if product.availability == 'warning' else 'in stock',
+                'availability': 'preorder' if product.sudo().qty_available == 0 else 'in stock',
                 'price': '%s EUR' % product.list_price,
-                # Auto calculate of shipping price for current product for Spain, Baleares and Canarias
+                # TODO: Auto calculate of shipping price for current product for Spain, Baleares and Canarias
                 # 'shipping': '',
                 'product_type': get_categories(product.public_categ_ids[0], '') if product.public_categ_ids else '',
                 'barcode': product.barcode,
@@ -87,7 +87,6 @@ class ExportFeeds(http.Controller):
         if feed.export_all:
             domain = [('website_published', '=', True),
                       ('list_price', '>', '0'),
-                      ('description_short', '!=', ''),
                       ('sale_ok', '=', True),
                       ('image', '!=', '')]
             products = request.env['product.template'].sudo().search(domain)
