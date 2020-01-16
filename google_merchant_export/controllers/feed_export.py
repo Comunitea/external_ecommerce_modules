@@ -79,7 +79,8 @@ class ExportFeeds(http.Controller):
                 'price': '%s EUR' % product.list_price,
                 # Auto calculate of shipping price for current product for Spain, Baleares and Canarias
                 # 'shipping': '',
-                'product_type': get_categories(product.public_categ_ids[0], '') if product.public_categ_ids else ''
+                'product_type': get_categories(product.public_categ_ids[0], '') if product.public_categ_ids else '',
+                'barcode': product.barcode,
             })
 
         # Add products to the XML file
