@@ -128,6 +128,7 @@ class SaleOrder(models.Model):
                 def _gen_product_data(product):
                     return {
                         'id_product': product.id,
+                        'ean': product.barcode,
                         'price': product.lst_price,
                         'sku': product.default_code or '',
                         'locale': [{
