@@ -71,7 +71,7 @@ class ExportFeeds(http.Controller):
             return view.render_template('google_merchant_export.feed_wrap', {
                 'id': product.id,
                 'title': product.name,
-                'description': product.description_short or product.meta_description or product.name,
+                'description': product.description_short or product.website_meta_description or product.name,
                 'link': '%sproduct/%s' % (root, product.slug) if product.slug else '%sshop/product/%s' % (root, slug(product)),
                 'image_link': '%sweb/image/product.template/%s/image/' % (root, product.id),
                 'condition': 'new',
