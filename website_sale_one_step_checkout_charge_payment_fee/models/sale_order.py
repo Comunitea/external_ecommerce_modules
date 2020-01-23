@@ -57,17 +57,18 @@ class SaleOrder(models.Model):
     @api.depends('website_order_line.product_uom_qty', 'website_order_line.product_id', 'website_order_line')
     def _compute_cart_info(self):
         """
-        For not compute payment fee as quantity in header icon because is not a real product
-        and do not want to sum payment fee as quantity.
+        For not compute payment fee as quantity in header icon because is not a real product.
+        For not compute products packs as quantity in header icon because only we want a pack quantity.
+        When there are only products as service it means there is not a physical delivery.
         :return: default values less payment fee as quantity.
         """
         for order in self:
-            order.cart_quantity = int(sum(order.website_order_line.filtered(lambda x: not x.payment_fee_line \
-                and x.product_id.type not in ('service', 'digital')).mapped('product_uom_qty')))
+            order.cart_quantity = int(sum(
+                order.website_order_line.filtered(
+                    lambda x: not x.payment_fee_line and not x.pack_parent_line_id).mapped('product_uom_qty')))
             order.only_services = all(l.product_id.type in ('service', 'digital') for l in order.website_order_line
                                       .filtered(lambda x: not x.payment_fee_line))
 
-        
     @api.depends('order_line.price_unit', 'order_line.tax_id', 'order_line.discount', 'order_line.product_uom_qty')
     def _compute_amount_delivery(self):
         """
