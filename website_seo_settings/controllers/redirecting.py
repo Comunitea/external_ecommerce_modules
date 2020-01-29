@@ -5,6 +5,9 @@ from odoo import http, SUPERUSER_ID
 from odoo.http import request
 
 from odoo.addons.website_sale.controllers.main import WebsiteSale
+from odoo.addons.website_seo_settings.models.product import ProductTemplate
+
+import werkzeug
 
 
 def shop_control_access(website):
@@ -61,6 +64,11 @@ class CategoryRedirect(WebsiteSale):
         order = post.get('order', False)
         if order and isinstance(category, str):
             category = request.env['product.public.category'].sudo().search([('id', '=', category)])
+        
+        if category:
+            redirect = self._check_category_redirect(category)
+            if redirect:
+                return redirect
 
         # If not search box
         if category and category.slug:
@@ -92,10 +100,25 @@ class CategoryRedirect(WebsiteSale):
         cat_list = request.env['product.public.category']
         category = cat_list.sudo().search([('slug', '=', path)], limit=1)
         if category:
+            redirect = self._check_category_redirect(category)
+            if redirect:
+                return redirect
             result = super(CategoryRedirect, self).shop(page=page, category=category, search=search, ppg=ppg, **post)
         else:
             result = request.env['ir.http'].reroute('/404')
         return result
+
+
+    def _check_category_redirect(self, category):
+        redirect_url = False
+        if category.category_redirect:
+            redirect_url = '/category/{}'.format(category.category_redirect.slug) if category.category_redirect.slug \
+                else '/shop/category/{}'.format(ProductTemplate._slug_validation(category.category_redirect, \
+                '%s-%s' % (category.category_redirect.name, category.category_redirect.id)))
+
+        if redirect_url:
+            return werkzeug.utils.redirect(redirect_url)
+        return False
 
 
 class ProductRedirect(WebsiteSale):
@@ -125,6 +148,10 @@ class ProductRedirect(WebsiteSale):
             result = shop_control_access(request.website)
             if result:
                 return result
+
+        redirect = self._check_product_redirect(product)
+        if redirect:
+            return redirect
 
         if product.slug:
             return http.local_redirect(
@@ -159,8 +186,27 @@ class ProductRedirect(WebsiteSale):
         # Search without user permissions
         product_sudo = prod_list.sudo().search([('slug', '=', path)], limit=1)
 
+        redirect = self._check_product_redirect(product)
+        if redirect:
+            return redirect
+
         if product_sudo:
             self._update_context()
             return super(ProductRedirect, self).product(product=product, category=category, search=search, **kwargs)
         else:
             return request.env['ir.http'].reroute('/404')
+
+    def _check_product_redirect(self, product):
+        redirect_url = False
+        if product.product_redirect:
+            redirect_url = '/product/{}'.format(product.product_redirect.slug) if product.product_redirect.slug \
+                else '/shop/product/%s' % slug(product)
+
+        if redirect_url:
+            context = dict(request.env.context)
+            context.update({
+                'product_redirect': True
+            })
+            request.env.context = context
+            return werkzeug.utils.redirect(redirect_url)
+        return False

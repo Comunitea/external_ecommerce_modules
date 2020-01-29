@@ -21,6 +21,7 @@ class ProductTemplate(models.Model):
                                    strip_style=True, translate=True)
     description_short = fields.Text(string=_("Short Description"), help=_("Short description in plain text"),
                                     strip_style=True, translate=True)
+    product_redirect = fields.Many2one('product.template', string="Redirect to another product")
 
     def _slug_validation(self, value):
         # Set current website

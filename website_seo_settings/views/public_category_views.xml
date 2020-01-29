@@ -17,6 +17,7 @@
                 <field name="website_meta_title"/>
                 <field name="website_meta_keywords"/>
                 <field name="website_meta_description"/>
+                <field name="category_redirect"/>
             </xpath>
         </field>
     </record>

@@ -14,6 +14,7 @@ class ProductPublicCategory(models.Model):
     slug = fields.Char(string=_("Friendly URL"), help=_("Friendly URL for SEO redirection"))
     website_published = fields.Boolean(string=_('Website Published'), default=True,
                                        help=_("Only published categories are visible on the website"))
+    category_redirect = fields.Many2one('product.public.category', string="Redirect to another public category")
 
     @api.multi
     def write(self, values):
