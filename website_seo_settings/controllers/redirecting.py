@@ -6,8 +6,8 @@ from odoo.http import request
 
 from odoo.addons.website_sale.controllers.main import WebsiteSale
 from odoo.addons.website_seo_settings.models.product import ProductTemplate
-
 import werkzeug
+from werkzeug.exceptions import Unauthorized, NotFound
 
 
 def shop_control_access(website):
@@ -57,8 +57,8 @@ class CategoryRedirect(WebsiteSale):
                 return result
 
         # Prevent search box inside category
-        if search and category:
-            return request.redirect("/shop?search=%s" % search)
+        #if search and category:
+            #return request.redirect("/shop?search=%s" % search)
 
         # If category is digit (in order_by parameter)
         order = post.get('order', False)
@@ -210,3 +210,32 @@ class ProductRedirect(WebsiteSale):
             request.env.context = context
             return werkzeug.utils.redirect(redirect_url)
         return False
+
+class WebsiteSaleTags(WebsiteSale):
+    
+    @http.route([
+        '/tag/<model("product.template.tag"):tag>',
+        '/tag/<path:path>'
+        ], type='http', auth="public", website=True)
+    def shop_tags(self, page=0, tag=None, path=None, category=None, search='', ppg=False, **post):
+        ctx = request.env.context.copy()
+        if path:
+            tag = request.env['product.template.tag'].search([('slug', '=', path)])
+        if tag:
+            ctx.update(tag_id=tag.id)
+            request.env.context = ctx
+        else:
+            raise NotFound()
+        res = super(WebsiteSaleTags, self).shop(page=page, category=category, search=search, ppg=ppg, **post)
+        res.qcontext.update({
+            'list_type': 'tags',
+            'current_tag': tag,
+        })
+        return res
+
+    def _get_search_domain(self, search, category, attrib_values):
+        domain = super(WebsiteSaleTags, self)._get_search_domain(search=search, category=category, attrib_values=attrib_values)
+        tag_id = request.env.context.get('tag_id', False)
+        if tag_id:
+            domain += [('tag_ids', 'in', (tag_id))]
+        return domain

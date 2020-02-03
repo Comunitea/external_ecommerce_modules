@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<data>
+
+    <record id="product_template_tag_rule_public" model="ir.model.access">
+        <field name="name">Published tags Public</field>
+        <field name="model_id" ref="model_product_template_tag"/>
+        <field name="group_id" ref="base.group_public"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <record id="product_template_tag_rule_portal" model="ir.model.access">
+        <field name="name">Published tags Portal</field>
+        <field name="model_id" ref="model_product_template_tag"/>
+        <field name="group_id" ref="base.group_portal"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+    
+</data>
+</odoo>

@@ -98,4 +98,63 @@
         </xpath>
      </template>
 
+     <template id="website_tag_template" name="Website tag template">
+        <a rel="noindex" t-att-href="'/tag/%s' % tag.slug"  t-att-class="'btn btn-secondary mb8 tag-%s' % tag.color">
+            <span t-field="tag.name"/>
+        </a>
+    </template>
+
+    <template id="website_sale_search_for_tags" name="Search Box Tags">
+        <form t-att-action="keep('/tag/' + current_tag.slug, search=0)" method="get" t-att-class="_classes">
+            <t t-if="attrib_values">
+                <t t-foreach="attrib_values" t-as="a">
+                    <input type="hidden" name="attrib" t-att-value="'%s-%s' % (a[0], a[1])" />
+                </t>
+            </t>
+            <t t-call="website.website_search_box" />
+        </form>
+    </template>
+
+     <template id="product_tags" inherit_id="website_sale.product" name="Product Tags" active="True" customize_show="True">
+        <xpath expr="//div[@id='product_details']" position="inside">
+            <t t-if="product.tag_ids">
+                <div class="oe_structure mt16">
+                    <t t-foreach="product.tag_ids" t-as="tag">
+                        <t t-call="website_seo_settings.website_tag_template">
+                            <t t-set="tag" t-value="tag"/>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="website_sale_products_tags" name="Product Dismac Tags" inherit_id="website_sale.products">
+        <xpath expr="//div[@id='products_grid_before']" position="inside">
+            <t t-set="tags" t-value="request.env['product.template.tag'].search([], limit=50)"/>
+            <t t-if="tags">
+                <div class="nav nav-pills flex-column menu-category mt16 pt8">
+                    <span>Tags</span>
+                    <div class="oe_structure mt16">
+                        <t t-foreach="tags" t-as="tag">
+                            <t t-call="website_seo_settings.website_tag_template">
+                                <t t-set="tag" t-value="tag"/>
+                            </t>  
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+        <xpath expr="//t[@t-call='website_sale.search']" position="attributes">
+            <attribute name="t-if">not list_type</attribute>
+        </xpath>
+        <xpath expr="//t[@t-call='website_sale.search']" position="after">
+            <t t-if="list_type and list_type == 'tags'">
+                <t t-call="website_seo_settings.website_sale_search_for_tags">
+                    <t t-set="_classes">o_website_sale_search</t>
+                </t>
+            </t> 
+        </xpath>
+    </template>
+
 </odoo>

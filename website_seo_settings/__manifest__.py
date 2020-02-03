@@ -18,6 +18,7 @@
         'website_sale',
         'website_canonical_url',
         'website_google_tag_manager',
+        'product_template_tags'
     ],
     'data': [
         'templates/access.xml',
@@ -30,6 +31,7 @@
         'views/product_views.xml',
         'views/public_category_views.xml',
         'views/settings_views.xml',
+        'security/tag_security.xml'
     ],
     'images': [
         '/static/description/icon.png',
