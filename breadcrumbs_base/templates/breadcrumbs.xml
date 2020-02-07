@@ -6,13 +6,13 @@
         <div class="wp_breadcrumbs_base">
             <div class="container">
                 <div class="breadcrumbs_base">
-                    <ol class="breadcrumb">
+                    <t t-set="breadcrumbs" t-value="website.generate_breadcrumbs(main_object, website)"/>
+                    <ol class="breadcrumb" t-if="breadcrumbs">
                         <li>
                             <a href="/"><i class="fa fa-home"/></a>
                             <span>/&amp;nbsp;</span>
                         </li>
-                        <t t-set="breadcrumbs" t-value="website.generate_breadcrumbs(main_object, website)"/>
-                        <t t-if="breadcrumbs">
+                        <t>
                             <t t-foreach="breadcrumbs" t-as="crumb">
                                 <li t-att-class="'active' if crumb.active else None">
                                     <span t-if="crumb.active" t-esc="crumb.name"/>

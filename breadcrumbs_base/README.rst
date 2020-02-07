@@ -22,24 +22,41 @@ Breadcrumbs Base
 .. contents::
    :local:
 
-Friendly breadcrumbs for eCommerce
-----------------------------------
-
+eCommerce Friendly Breadcrumbs
+------------------------------
 This module adds friendly multi-level breadcrumbs for your WEB.
 
+**Attention!**
+
+    This module don't have templates for front-end part of website.
+
+    For correct front-end functionality you need to install additional module **breadcrumbs_base_tmp**.
+
+How works
+~~~~~~~~~
 The Breadcrumbs generator is available to call in any template:
 
 ::
 
     <t t-call="breadcrumbs_base.breadcrumbs_bar"/>
 
-Moreover, this module adds parent_id field to website.page model. This allows to add parent page for static pages.
+What is included
+~~~~~~~~~~~~~~~~
+All models included for breadcrumbs are:
 
-    **Attention!**
-
-    This module don't have templates for front-end part of website.
-
-    For correct front-end functionality you need to install additional module **breadcrumbs_base_tmp**.
+#. Product Templates
+#. Product Tags
+#. Ecommerce Categories
+#. Website Pages
+    Moreover, this module adds parent_id field to website.page model. This allows to add parent page for static pages.
+#. Views
+#. Blogs
+#. Blog Post
+#. Main object
+    When there is nothing at all previous. Generate a breadcrumbs by main_object.
+    If main_object have _description filed then is used
+    like 'home / %s / %s' % (main_object._description, main_object.name).
+    Otherwise 'home / %s' % main_object.name.
 
 Author
 ------

@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-# © 2018 Comunitea - Pavel Smirnov <pavel@comunitea.com>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo import api, models, fields, _
 from odoo.http import request
@@ -49,7 +47,6 @@ class BreadCrumbs(models.Model):
             # Add parent categories crumb
             if product.public_categ_ids:
                 parent_cat = product.public_categ_ids[0]
-
                 if parent_cat:
                     parent_res = _get_parent(parent_cat, [])
                     parent_res.reverse()
@@ -57,16 +54,18 @@ class BreadCrumbs(models.Model):
                         cat = self.env['product.public.category'].sudo().search([('id', '=', res)])
                         cat_url = '/category/%s' % cat.slug if cat.slug else '/shop/category/%s' % slug(cat)
                         breadcrumbs += _generate_one(cat.name, cat_url, False)
-
             # Add current product crumb
             breadcrumbs += _generate_one(product.name, '', True)
+        elif main_object._name == 'product.template.tag':
+            tag = main_object
+            tag_url = '/tag/%s' % tag.slug if tag.slug else '/shop/tag/%s' % slug(tag)
+            breadcrumbs += _generate_one(_("Tag / ") + tag.name, tag_url, True)
         elif main_object._name == 'product.public.category':
             category = main_object
             # Add shop crumb
             breadcrumbs += _generate_one(_("Products"), '/shop', False)
             # Add parent categories crumb
             parent_cat = category.parent_id
-
             if parent_cat:
                 parent_res = _get_parent(parent_cat, [])
                 parent_res.reverse()
@@ -74,7 +73,6 @@ class BreadCrumbs(models.Model):
                     cat = self.env['product.public.category'].sudo().search([('id', '=', res)])
                     cat_url = '/category/%s' % cat.slug if cat.slug else '/shop/category/%s' % slug(cat)
                     breadcrumbs += _generate_one(cat.name, cat_url, False)
-
             # Add current category crumb
             breadcrumbs += _generate_one(category.name, '', True)
         elif main_object._name == 'website.page':
@@ -117,5 +115,11 @@ class BreadCrumbs(models.Model):
             breadcrumbs += _generate_one(blog.name, '/blog/%s' % slug(blog), False)
             # Add post crumb
             breadcrumbs += _generate_one(post.name, slug(post), True)
+        else:
+            if main_object._description:
+                name = _('%s / %s') % (main_object._description, main_object.name)
+            else:
+                name = main_object.name
+            breadcrumbs += _generate_one(name, slug(main_object), True)
 
         return breadcrumbs

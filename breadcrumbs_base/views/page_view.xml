@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- Insert parent_id filed to the website.page view -->
+    <!-- Insert parent_id filed into the view of website.page model -->
     <record id="website_pages_form_view" model="ir.ui.view">
-        <field name="name">Insert parent_id filed to the website.page view</field>
+        <field name="name">website.page.form</field>
         <field name="model">website.page</field>
         <field name="inherit_id" ref="website.website_pages_form_view"/>
         <field name="arch" type="xml">
