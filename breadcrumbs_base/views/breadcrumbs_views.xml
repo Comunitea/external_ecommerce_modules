@@ -56,7 +56,7 @@
     </record>
 
     <!-- Website configuration submenu -->
-    <menuitem id="menu_sale_quote"
+    <menuitem id="menu_website_global_configuration_crumb"
               action="website_breadcrumbs_action"
               parent="website.menu_website_global_configuration"/>
 
