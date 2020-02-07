@@ -129,31 +129,41 @@
         </xpath>
     </template>
 
-    <template id="website_sale_products_tags" name="Product Dismac Tags" inherit_id="website_sale.products">
+    <template id="website_sale_products" inherit_id="website_sale.products" name="Products Tags" active="True" customize_show="True">
+        <!-- Add Product Tags side menu -->
         <xpath expr="//div[@id='products_grid_before']" position="inside">
             <t t-set="tags" t-value="request.env['product.template.tag'].search([], limit=50)"/>
             <t t-if="tags">
-                <div class="nav nav-pills flex-column menu-category mt16 pt8">
-                    <span>Tags</span>
-                    <div class="oe_structure mt16">
+                <h5 class="text-uppercase grid-before-tag"><strong>Product Tags</strong></h5>
+                <div class="nav nav-pills flex-column menu-category pt8">
+                    <div class="oe_structure">
                         <t t-foreach="tags" t-as="tag">
                             <t t-call="website_seo_settings.website_tag_template">
                                 <t t-set="tag" t-value="tag"/>
-                            </t>  
+                            </t>
                         </t>
                     </div>
                 </div>
             </t>
         </xpath>
+        <!-- Default search -->
         <xpath expr="//t[@t-call='website_sale.search']" position="attributes">
             <attribute name="t-if">not list_type</attribute>
         </xpath>
+        <!-- Search products into tags context -->
         <xpath expr="//t[@t-call='website_sale.search']" position="after">
             <t t-if="list_type and list_type == 'tags'">
                 <t t-call="website_seo_settings.website_sale_search_for_tags">
                     <t t-set="_classes">o_website_sale_search</t>
                 </t>
-            </t> 
+            </t>
+        </xpath>
+    </template>
+
+    <template id="website_sale_products_categories" inherit_id="website_sale.products_categories" name="eCommerce Categories Seo">
+        <!-- Add Categories Title -->
+        <xpath expr="//div[@id='products_grid_before']//ul" position="before">
+            <h5 class="text-uppercase grid-before-categ"><strong>Categories</strong></h5>
         </xpath>
     </template>
 

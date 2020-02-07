@@ -16,6 +16,54 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.website_sale_products_categories
+msgid "<strong>Categories</strong>"
+msgstr "<strong>Categorías</strong>"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.website_sale_products
+msgid "<strong>Product Tags</strong>"
+msgstr "<strong>Etiquetas</strong>"
+
+#. module: website_seo_settings
+#: model:ir.ui.view,name:website_seo_settings.website_sale_products
+msgid "Products Tags"
+msgstr "Etiquetas"
+
+#. module: website_seo_settings
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_template_tag__tag_redirect
+msgid "Redirect to another Product Tag"
+msgstr "Redireccionar a otra Etiqueta"
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/product_template_tag.py:16
+#: model:ir.model.fields,help:website_seo_settings.field_product_template_tag__website_id
+#, python-format
+msgid "Empty it means is available for all websites, otherwise select desired websites"
+msgstr "Vacio implica que estará disponible para todos los Sitios Web, sino solo estará disponible para los Sitios Web especificados"
+
+#. module: product_template_tags
+#: model:ir.actions.act_window,name:product_template_tags.product_template_tag_act_window
+msgid "Product Template Tag"
+msgstr "Etiquetas"
+
+#. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__company_id
+#: model_terms:ir.ui.view,arch_db:product_template_tags.product_template_tag_search_view
+msgid "Company"
+msgstr "Empresa"
+
+#. module: product_template_tags
+#: model:ir.model.fields,field_description:product_template_tags.field_product_template_tag__products_count
+msgid "# of Products"
+msgstr "Num. Productos"
+
+#. module: website_seo_settings
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.web_app_manifest
 msgid "\",\n"
 "        \"background_color\": \""
@@ -614,6 +662,7 @@ msgstr "URL amigable"
 #. module: website_seo_settings
 #: code:addons/website_seo_settings/models/category.py:14
 #: code:addons/website_seo_settings/models/product.py:19
+#: code:addons/website_seo_settings/models/product_template_tag.py:12
 #: model:ir.model.fields,help:website_seo_settings.field_product_product__slug
 #: model:ir.model.fields,help:website_seo_settings.field_product_public_category__slug
 #: model:ir.model.fields,help:website_seo_settings.field_product_template__slug
@@ -633,7 +682,7 @@ msgstr "Longitud máxima de URL amigable"
 #: code:addons/website_seo_settings/models/settings.py:153
 #, python-format
 msgid "Friendly URL max length must be between 20 and 99"
-msgstr ""
+msgstr "El largo de la Url Amigable tiene que estar entre 20 y 99"
 
 #. module: website_seo_settings
 #: code:addons/website_seo_settings/models/product.py:20
@@ -686,7 +735,7 @@ msgstr "Como coseguir mi Facebook Pixel API Key"
 #. module: website_seo_settings
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
 msgid "How to get my GTM container ID"
-msgstr ""
+msgstr "Como conseguir mi GTM ID"
 
 #. module: website_seo_settings
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
@@ -709,7 +758,7 @@ msgstr "Nombre de la App en el escritorio del móvil"
 #. module: website_seo_settings
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.403_access
 msgid "If you have any problem, please"
-msgstr ""
+msgstr "Si tiene algún problema, por favor"
 
 #. module: website_seo_settings
 #: code:addons/website_seo_settings/models/settings.py:91
@@ -794,7 +843,7 @@ msgstr ""
 #. module: website_seo_settings
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
 msgid "Manage all your tags without editing code."
-msgstr ""
+msgstr "Gestione sus etiquetas sin editar código."
 
 #. module: website_seo_settings
 #: code:addons/website_seo_settings/models/settings.py:101
@@ -807,7 +856,7 @@ msgstr "Código adicional para el manifest"
 #. module: website_seo_settings
 #: code:addons/website_seo_settings/models/category.py:12
 #: code:addons/website_seo_settings/models/product.py:17
-#: code:addons/website_seo_settings/models/product_template_tag.py:16
+#: code:addons/website_seo_settings/models/product_template_tag.py:14
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_product__website_meta_description
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_public_category__website_meta_description
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_template__website_meta_description
@@ -819,7 +868,7 @@ msgstr "Descripción"
 #. module: website_seo_settings
 #: code:addons/website_seo_settings/models/category.py:13
 #: code:addons/website_seo_settings/models/product.py:18
-#: code:addons/website_seo_settings/models/product_template_tag.py:17
+#: code:addons/website_seo_settings/models/product_template_tag.py:15
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_product__website_meta_keywords
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_public_category__website_meta_keywords
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_template__website_meta_keywords
@@ -831,7 +880,7 @@ msgstr "Palabras Clave"
 #. module: website_seo_settings
 #: code:addons/website_seo_settings/models/category.py:11
 #: code:addons/website_seo_settings/models/product.py:16
-#: code:addons/website_seo_settings/models/product_template_tag.py:15
+#: code:addons/website_seo_settings/models/product_template_tag.py:13
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_product__website_meta_title
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_public_category__website_meta_title
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_template__website_meta_title
@@ -842,6 +891,7 @@ msgstr "Título"
 
 #. module: website_seo_settings
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.product_template_form_view
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.product_template_tag_form_view
 msgid "Metadata"
 msgstr "Metadatos"
 
@@ -920,7 +970,7 @@ msgstr "Solo usuarios B2C"
 #. module: website_seo_settings
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
 msgid "Open Manifest File"
-msgstr ""
+msgstr "Abrir Archivo Manifest"
 
 #. module: website_seo_settings
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
@@ -1015,17 +1065,19 @@ msgstr ""
 #. module: website_seo_settings
 #: model:ir.model,name:website_seo_settings.model_product_template_tag
 msgid "Product Tag"
-msgstr "Etiqueta de Producto"
+msgstr "Etiqueta"
 
 #. module: website_seo_settings
+#: model:ir.ui.menu,name:website_seo_settings.product_template_tag_catalog_menu
+#: model:ir.ui.menu,name:website_seo_settings.product_template_tag_product_settings_menu
 #: model:ir.ui.view,name:website_seo_settings.product_tags
 msgid "Product Tags"
-msgstr "Etiquetas de Producto"
+msgstr "Etiquetas"
 
 #. module: website_seo_settings
 #: model:ir.model,name:website_seo_settings.model_product_template
 msgid "Product Template"
-msgstr "Plantilla de producto"
+msgstr "Producto"
 
 #. module: website_seo_settings
 #: code:addons/website_seo_settings/models/settings.py:71
@@ -1154,11 +1206,6 @@ msgstr "Establecer Modo Caché"
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
 msgid "Set Console Mode"
 msgstr "Establecer Modo Consola"
-
-#. module: website_seo_settings
-#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
-msgid "Set Facebook Pixel API Key"
-msgstr ""
 
 #. module: website_seo_settings
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
@@ -1418,7 +1465,7 @@ msgstr "Prioridad de URL"
 #: code:addons/website_seo_settings/models/settings.py:169
 #, python-format
 msgid "URL priority must be between 0,1 and 1,0"
-msgstr ""
+msgstr "La prioridad de la URL tiene que estar entre 0.1 y 1.0"
 
 #. module: website_seo_settings
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
@@ -1460,6 +1507,7 @@ msgstr "Aplicación Web Progresiva"
 
 #. module: website_seo_settings
 #: model:ir.model,name:website_seo_settings.model_website
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.product_template_tag_form_view
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
 msgid "Website"
 msgstr "Sitio web"
@@ -1476,7 +1524,7 @@ msgstr "Categoría del Producto"
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_template_tag__website_published
 #, python-format
 msgid "Website Published"
-msgstr "Publicado en Sitio web"
+msgstr "Publicado"
 
 #. module: website_seo_settings
 #: model:ir.ui.view,name:website_seo_settings.website_tag_template
@@ -1586,9 +1634,10 @@ msgid "user"
 msgstr "usuario"
 
 #. module: website_seo_settings
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_template_tag__website_id
 #: model:ir.model.fields,field_description:website_seo_settings.field_res_config_settings__website_id
-msgid "website"
-msgstr "sitio web"
+msgid "Website"
+msgstr "Sitio Web"
 
 #. module: website_seo_settings
 #: model:ir.ui.view,name:website_seo_settings.website_base_website_assets_frontend_tags

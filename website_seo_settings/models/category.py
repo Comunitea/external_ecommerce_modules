@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import http, api, models, fields, _
+from odoo import api, fields, http, models, _
 
 from odoo.addons.website_seo_settings.models.product import ProductTemplate
 

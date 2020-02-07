@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
+    <!-- Product Template Form -->
     <record id="product_template_form_view" model="ir.ui.view">
         <field name="name">product.template.product.website.form</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
+            <!-- Product Template Tags -->
+            <xpath expr="//group[@name='shop']//field[@name='public_categ_ids']" position="after">
+                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+            </xpath>
             <!-- Products descriptions for product details -->
-            <xpath expr="//group[@name='shop']" position="inside">
+            <xpath expr="//group[@name='shop']" position="after">
                 <group string="Descriptions">
-                <field name="description_short"/>
-                <field name="description_full"/>
+                    <field name="description_short"/>
+                    <field name="description_full"/>
                 </group>
             </xpath>
-            <!-- SEO Metadata Page -->
+            <!-- SEO Metadata -->
             <xpath expr="//notebook[last()]" position="inside">
                 <page string="SEO">
                     <group string="Slug">
@@ -29,5 +34,74 @@
             </xpath>
         </field>
     </record>
+
+    <!-- Product Template Form -->
+    <record id="product_template_tag_form_view" model="ir.ui.view">
+        <field name="name">product.template.tag.form</field>
+        <field name="model">product.template.tag</field>
+        <field name="inherit_id" ref="product_template_tags.product_template_tag_form_view"/>
+        <field name="arch" type="xml">
+            <!-- SEO Metadata -->
+            <xpath expr="//sheet//group[last()]" position="after">
+                <group string="Website">
+                    <field name="website_id"/>
+                    <field name="website_published"/>
+                </group>
+                <group string="Slug">
+                    <field name="slug"/>
+                    <field name="tag_redirect"/>
+                </group>
+                <group string="Metadata">
+                    <field name="website_meta_title"/>
+                    <field name="website_meta_keywords"/>
+                    <field name="website_meta_description"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Product Template Tree -->
+    <record id="product_template_tag_tree_view" model="ir.ui.view">
+        <field name="name">product.template.tag.tree</field>
+        <field name="model">product.template.tag</field>
+        <field name="inherit_id" ref="product_template_tags.product_template_tag_tree_view"/>
+        <field name="arch" type="xml">
+            <!-- SEO Metadata -->
+            <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="website_id"/>
+                    <field name="website_published"/>
+                    <field name="slug"/>
+                    <field name="tag_redirect"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Hide Default Product Template Tag -->
+    <record id="product_template_form_tag_view" model="ir.ui.view">
+        <field name="name">product.template.tag.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product_template_tags.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_information']//field[@name='tag_ids']" position="attributes">
+                <attribute name="attrs">{'invisible': True}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Catalog Tag sub-menu -->
+    <menuitem id="product_template_tag_catalog_menu" name="Product Tags"
+              action="product_template_tags.product_template_tag_act_window"
+              parent="website_sale.menu_catalog"/>
+
+    <!-- Configuration Tag sub-menu -->
+    <menuitem id="product_template_tag_product_settings_menu" name="Product Tags"
+              action="product_template_tags.product_template_tag_act_window"
+              parent="website_sale.menu_product_settings"/>
+
+    <!-- Sales Tag Menu -->
+    <menuitem id="product_template_tag_catalog_menu" name="Product Tags"
+              action="product_template_tags.product_template_tag_act_window"
+              parent="sale.product_menu_catalog"
+              groups="sales_team.group_sale_salesman"/>
 
 </odoo>

@@ -57,8 +57,8 @@ class CategoryRedirect(WebsiteSale):
                 return result
 
         # Prevent search box inside category
-        #if search and category:
-            #return request.redirect("/shop?search=%s" % search)
+        # if search and category:
+            # return request.redirect("/shop?search=%s" % search)
 
         # If category is digit (in order_by parameter)
         order = post.get('order', False)
@@ -82,10 +82,8 @@ class CategoryRedirect(WebsiteSale):
         return super(CategoryRedirect, self).shop(page=page, category=category, brand=brand, search=search, ppg=ppg,
                                                   **post)
 
-    @http.route([
-        '/category/<path:path>',
-        '/category/<path:path>/page/<int:page>'
-    ], type='http', auth='public', website=True)
+    @http.route(['/category/<path:path>', '/category/<path:path>/page/<int:page>'],
+                type='http', auth='public', website=True)
     def _shop(self, path, page=0, category=None, search='', ppg=False, **post):
         """
         Search the eCommerce category en base of new SLUG URL.
@@ -97,8 +95,10 @@ class CategoryRedirect(WebsiteSale):
             if result:
                 return result
 
-        cat_list = request.env['product.public.category']
-        category = cat_list.sudo().search([('slug', '=', path)], limit=1)
+        if path:
+            cat_list = request.env['product.public.category']
+            category = cat_list.sudo().search([('slug', '=', path)], limit=1)
+
         if category:
             redirect = self._check_category_redirect(category)
             if redirect:
@@ -108,13 +108,13 @@ class CategoryRedirect(WebsiteSale):
             result = request.env['ir.http'].reroute('/404')
         return result
 
-
     def _check_category_redirect(self, category):
         redirect_url = False
         if category.category_redirect:
             redirect_url = '/category/{}'.format(category.category_redirect.slug) if category.category_redirect.slug \
-                else '/shop/category/{}'.format(ProductTemplate._slug_validation(category.category_redirect, \
-                '%s-%s' % (category.category_redirect.name, category.category_redirect.id)))
+                else '/shop/category/{}'.format(ProductTemplate._slug_validation(
+                    category.category_redirect, '%s-%s' % (category.category_redirect.name,
+                                                           category.category_redirect.id)))
 
         if redirect_url:
             return werkzeug.utils.redirect(redirect_url)
@@ -179,10 +179,8 @@ class ProductRedirect(WebsiteSale):
                 return result
 
         prod_list = request.env['product.template']
-
         # Search with user permissions
         product = prod_list.search([('slug', '=', path)], limit=1)
-
         # Search without user permissions
         product_sudo = prod_list.sudo().search([('slug', '=', path)], limit=1)
 
@@ -199,8 +197,9 @@ class ProductRedirect(WebsiteSale):
     def _check_product_redirect(self, product):
         redirect_url = False
         if product.product_redirect:
-            redirect_url = '/product/{}'.format(product.product_redirect.slug) if product.product_redirect.slug \
-                else '/shop/product/%s' % slug(product)
+            redirect_url = '/category/{}'.format(product.product_redirect.slug) if product.product_redirect.slug \
+                else '/shop/category/{}'.format(ProductTemplate._slug_validation(
+                    product.product_redirect, '%s-%s' % (product.product_redirect.name, product.product_redirect.id)))
 
         if redirect_url:
             context = dict(request.env.context)
@@ -211,17 +210,26 @@ class ProductRedirect(WebsiteSale):
             return werkzeug.utils.redirect(redirect_url)
         return False
 
+
 class WebsiteSaleTags(WebsiteSale):
     
-    @http.route([
-        '/tag/<model("product.template.tag"):tag>',
-        '/tag/<path:path>'
-        ], type='http', auth="public", website=True)
+    @http.route(['/tag/<model("product.template.tag"):tag>', '/tag/<path:path>'],
+                type='http', auth="public", website=True)
     def shop_tags(self, page=0, tag=None, path=None, category=None, search='', ppg=False, **post):
+
+        # Call to the user access control function
+        if request.website:
+            result = shop_control_access(request.website)
+            if result:
+                return result
+
         ctx = request.env.context.copy()
         if path:
-            tag = request.env['product.template.tag'].search([('slug', '=', path)])
+            tag = request.env['product.template.tag'].search([('slug', '=', path)], limit=1)
         if tag:
+            redirect = self._check_tag_redirect(tag)
+            if redirect:
+                return redirect
             ctx.update(tag_id=tag.id)
             request.env.context = ctx
         else:
@@ -230,12 +238,25 @@ class WebsiteSaleTags(WebsiteSale):
         res.qcontext.update({
             'list_type': 'tags',
             'current_tag': tag,
+            'main_object': tag
         })
         return res
 
     def _get_search_domain(self, search, category, attrib_values):
-        domain = super(WebsiteSaleTags, self)._get_search_domain(search=search, category=category, attrib_values=attrib_values)
+        domain = super(WebsiteSaleTags, self)._get_search_domain(
+            search=search, category=category, attrib_values=attrib_values)
         tag_id = request.env.context.get('tag_id', False)
         if tag_id:
-            domain += [('tag_ids', 'in', (tag_id))]
+            domain += [('website_published', '=', True), ('tag_ids', 'in', (tag_id))] + \
+                      request.env['website'].website_domain()
         return domain
+
+    def _check_tag_redirect(self, tag):
+        redirect_url = False
+        if tag.tag_redirect:
+            redirect_url = '/tag/{}'.format(tag.tag_redirect.slug) if tag.tag_redirect.slug \
+                else '/shop/tag/{}'.format(ProductTemplate._slug_validation(
+                    tag.tag_redirect, '%s-%s' % (tag.tag_redirect.name, tag.tag_redirect.id)))
+        if redirect_url:
+            return werkzeug.utils.redirect(redirect_url)
+        return False
