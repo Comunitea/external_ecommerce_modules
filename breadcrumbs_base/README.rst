@@ -45,7 +45,7 @@ Foreach template that contain it, then a breadcrumb will be created and activate
 Settings
 ~~~~~~~~
 
-You have a Breadcrumbs menu on Website Settings to manage your breadcrumbs.
+You have a Breadcrumbs menu into Website Settings to manage your breadcrumbs.
 
 Only activate breadcrumbs are shown. You can also change the name.
 
