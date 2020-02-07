@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, models, fields, _
+from odoo import api, fields, models, _
+
 from odoo.http import request
+from odoo.osv import expression
+
 from odoo.addons.http_routing.models.ir_http import slug
 
 
@@ -15,10 +18,15 @@ class Crumb(models.Model):
 
 def _generate_one(name, url, active):
     crumb = request.env['breadcrumbs_base.crumb'].sudo()
+    result = crumb
     # Find the current crumb element and create it if it doesn't exist
-    exist = crumb.search([('name', '=', name), ('url', '=', url), ('active', '=', active)])
+    domain_crumb = [('url', '=', url)]
+    domain_crumb = expression.AND([domain_crumb, ['|', ('active', '>=', True), ('active', '=', False)]])
+
+    exist = crumb.search(domain_crumb, limit=1)
     if exist:
-        result = exist
+        if exist.name and exist.active:
+            result = exist
     else:
         result = crumb.create({'name': name, 'url': url, 'active': active})
     return result

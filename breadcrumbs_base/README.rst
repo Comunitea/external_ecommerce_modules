@@ -32,16 +32,28 @@ This module adds friendly multi-level breadcrumbs for your WEB.
 
     For correct front-end functionality you need to install additional module **breadcrumbs_base_tmp**.
 
-How works
-~~~~~~~~~
+How it works
+~~~~~~~~~~~~
 The Breadcrumbs generator is available to call in any template:
 
 ::
 
     <t t-call="breadcrumbs_base.breadcrumbs_bar"/>
 
-What is included
-~~~~~~~~~~~~~~~~
+Foreach template that contain it, then a breadcrumb will be created and activate by default.
+
+Settings
+~~~~~~~~
+
+You have a Breadcrumbs menu on Website Settings to manage your breadcrumbs.
+
+Only activate breadcrumbs are shown. You can also change the name.
+
+You can set it in the Breadcrumbs menu.
+
+
+Generated breadcrumbs
+~~~~~~~~~~~~~~~~~~~~~
 All models included for breadcrumbs are:
 
 #. Product Templates

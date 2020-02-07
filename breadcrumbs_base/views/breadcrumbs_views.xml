@@ -10,6 +10,7 @@
             <tree string="Breadcrumbs">
                 <field name="name"/>
                 <field name="url"/>
+                <field name="active"/>
             </tree>
         </field>
     </record>
@@ -23,6 +24,7 @@
                     <group>
                         <field name="name"/>
                         <field name="url"/>
+                        <field name="active"/>
                     </group>
                 </sheet>
             </form>
