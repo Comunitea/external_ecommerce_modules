@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-# © 2018 Comunitea - Pavel Smirnov <pavel@comunitea.com>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import api, models, fields, _
+from odoo import api, fields, models, _
+
 from odoo.http import request
+from odoo.osv import expression
+
 from odoo.addons.http_routing.models.ir_http import slug
 
 
@@ -13,14 +14,26 @@ class Crumb(models.Model):
     name = fields.Text(translate=True)
     url = fields.Text()
     active = fields.Boolean()
+    website_published = fields.Boolean(string=_('Website Published'), default=True,
+                                       help=_("Only published crumbs are visible in the website"))
 
 
 def _generate_one(name, url, active):
+    """
+    Find the current crumb element and create it if it doesn't exist.
+    :return: Only published crumbs.
+    """
     crumb = request.env['breadcrumbs_base.crumb'].sudo()
-    # Find the current crumb element and create it if it doesn't exist
-    exist = crumb.search([('name', '=', name), ('url', '=', url), ('active', '=', active)])
+    result = crumb
+    if url:
+        domain_crumb = [('url', '=', url)]
+        domain_crumb = expression.AND([domain_crumb, ['|', ('active', '>=', True), ('active', '=', False)]])
+    else:
+        domain_crumb = [('name', '=', name), ('url', '=', url), ('active', '=', active)]
+    exist = crumb.search(domain_crumb, limit=1)
     if exist:
-        result = exist
+        if exist.website_published:
+            result = exist
     else:
         result = crumb.create({'name': name, 'url': url, 'active': active})
     return result
@@ -117,5 +130,11 @@ class BreadCrumbs(models.Model):
             breadcrumbs += _generate_one(blog.name, '/blog/%s' % slug(blog), False)
             # Add post crumb
             breadcrumbs += _generate_one(post.name, slug(post), True)
+        else:
+            if main_object._description:
+                name = _('%s / %s') % (main_object._description, main_object.name)
+            else:
+                name = main_object.name
+            breadcrumbs += _generate_one(name, slug(main_object), True)
 
         return breadcrumbs

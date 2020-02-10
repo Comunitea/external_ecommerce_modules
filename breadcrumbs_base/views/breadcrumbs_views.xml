@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Manage breadcrumbs -->
+    <record id="website_breadcrumbs_tree" model="ir.ui.view">
+        <field name="name">website.breadcrumbs.tree</field>
+        <field name="model">breadcrumbs_base.crumb</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Breadcrumbs">
+                <field name="name"/>
+                <field name="url"/>
+                <field name="website_published"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="website_breadcrumbs_form" model="ir.ui.view">
+        <field name="name">website.breadcrumbs.form</field>
+        <field name="model">breadcrumbs_base.crumb</field>
+        <field name="arch" type="xml">
+            <form string="Breadcrumbs" create="0">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="url" readonly="1"/>
+                        <field name="website_published"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="website_breadcrumbs_search_view" model="ir.ui.view">
+        <field name="name">website.breadcrumbs.search</field>
+        <field name="model">breadcrumbs_base.crumb</field>
+        <field name="arch" type="xml">
+            <search string="Breadcrumbs">
+                <field name="name" string="Name" filter_domain="[('name', 'ilike', self)]"/>
+                <field name="url" string="Url" filter_domain="[('url', 'ilike', raw_value)]"/>
+                <separator/>
+                <filter string="Active" name="active" domain="[('active', '=', 'True')]"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <filter string="Published" name="published" domain="[('website_published', '=', True)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="website_breadcrumbs_action" model="ir.actions.act_window">
+        <field name="name">Breadcrumbs</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">breadcrumbs_base.crumb</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="website_breadcrumbs_tree"/>
+        <field name="search_view_id" ref="website_breadcrumbs_search_view"/>
+    </record>
+
+    <!-- Website configuration submenu -->
+    <menuitem id="menu_website_global_configuration_crumb" name="Breadcrumbs"
+              action="website_breadcrumbs_action" sequence="31"
+              parent="website.menu_website_global_configuration"/>
+
+</odoo>
