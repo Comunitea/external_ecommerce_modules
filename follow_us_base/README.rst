@@ -1,10 +1,34 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-   :alt: License: AGPL-3
-   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+==============
+Follow Us Base
+==============
 
-===============
-FollowUs module
-===============
+.. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
+    :target: https://odoo-community.org/page/development-status
+    :alt: Production
+.. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
+    :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
+    :alt: License: LGPL-3
+.. |badge3| image:: https://img.shields.io/badge/github-Comunitea-gray.png?logo=github
+    :target: https://github.com/Comunitea/
+    :alt: Comunitea
+.. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FFOLLOWUS-lightgray.png?logo=github
+    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/11.0/follow_us_base
+    :alt: Comunitea / Follow Us
+.. |badge5| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
+    :target: https://github.com/Comunitea/external_ecommerce_modules/blob/11.0/seo_base/i18n/es.po
+    :alt: Spanish Translated
+
+
+|badge1| |badge2| |badge3| |badge4| |badge5|
+
+This module contains several modules for different optimizations on the website.
+
+It is compatible with the multi-website.
+
+**Table of contents**
+
+.. contents::
+   :local:
 
 Add front-end users to mass_mailing list
 ----------------------------------------
@@ -31,7 +55,6 @@ Developer: Comunitea, info@comunitea.com
 Contributors
 ~~~~~~~~~~~~
 
-* Comunitea
 * Pavel Smirnov, pavel@comunitea.com
 * Rubén Seijas, ruben@comunitea.com
 
