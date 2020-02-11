@@ -22,22 +22,29 @@ Breadcrumbs Base Templates
 .. contents::
    :local:
 
-Additional module for Breadcrumbs Base
---------------------------------------
+Additional templates for Breadcrumbs Base Module
+------------------------------------------------
 
 This module adds friendly multi-level breadcrumbs bar after "Main menu" block in all web pages.
 
     **Attention!**
 
-    This module removes all other breadcrumb bars from the website.
+    This module removes all other breadcrumb bars from the website and my account part.
 
-    For current use of this module **is necessary** to add these restrictions to the less of your theme:
 
-    * @color-bg (background of breadcrumbs bar)
-    * @color-href (color of links)
-    * @color-current (color of current element)
+For override default colors of this module **is necessary** to add these restrictions to the less of your theme:
 
-This module uses default Bootstrap elements.
+:root {
+
+--color-bg: you_color or #fff;
+
+--color-href: you_color or #337ab7;
+
+--color-current: you_color or #777;
+
+}
+
+This module uses default Bootstrap colors and elements.
 
 Author
 ------
