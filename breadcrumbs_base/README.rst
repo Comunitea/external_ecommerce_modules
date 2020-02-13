@@ -47,7 +47,7 @@ Settings
 
 You have a Breadcrumbs menu into Website Settings to manage your breadcrumbs.
 
-Only activate breadcrumbs are shown. You can also change the name.
+Only published crumbs are visible in the website. You can also change the name.
 
 You can set it in the Breadcrumbs menu.
 

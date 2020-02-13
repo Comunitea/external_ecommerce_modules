@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <!-- Add breadcrumb bar to the main frontend layout -->
-    <template id="portal_frontend_layout" name="Breadcrumbs Bar" inherit_id="portal.frontend_layout" active="True" customize_show="True">
-        <xpath expr="//main/t" position="before">
+    <!-- Add No Portal Breadcrumbs -->
+    <template id="layout_website" name="No Portal Breadcrumbs" inherit_id="website.layout" active="True" customize_show="True">
+        <xpath expr="//div[@id='wrapwrap']//nav[hasclass('navbar')]" position="after">
             <t t-call="breadcrumbs_base.breadcrumbs_bar" t-if="'home' not in xmlid and 'portal' not in xmlid"/>
         </xpath>
     </template>
 
-    <!-- Remove the product breadcrumb's bar -->
-    <template id="website_sale_product" name="Product Breadcrumbs Base Tmp" inherit_id="website_sale.product">
+    <!-- Add My Portal Breadcrumbs -->
+    <template id="portal_frontend_layout" name="My Portal Breadcrumbs" inherit_id="portal.frontend_layout" active="True" customize_show="True">
+        <xpath expr="//div[@id='wrapwrap']//nav[hasclass('navbar')]" position="after">
+            <t t-call="breadcrumbs_base.breadcrumbs_bar" t-if="'portal_my_home' in xmlid"/>
+        </xpath>
+    </template>
+
+    <!-- Disable Product Breadcrumbs -->
+    <template id="website_sale_product" name="Disable Product Breadcrumbs" inherit_id="website_sale.product" active="True" customize_show="True">
         <!-- Replace breadcrumbs, search, pricelist and pager -->
         <xpath expr="//div[hasclass('row')]" position="replace"/>
         <!-- Add search, pricelist and pager without breadcrumbs -->
@@ -27,12 +34,5 @@
             </div>
         </xpath>
     </template>
-
-    <!-- Remove the My Account breadcrumb's bar. No seems to be necessary at v.12 -->
-<!--    <template id="portal_portal_layout" name="Portal Layout Breadcrumbs Base Tmp" inherit_id="portal.portal_layout">-->
-<!--        <xpath expr="//div[hasclass('o_portal')]" position="attributes">-->
-<!--            <attribute name="t-if">True == False</attribute>-->
-<!--        </xpath>-->
-<!--    </template>-->
 
 </odoo>

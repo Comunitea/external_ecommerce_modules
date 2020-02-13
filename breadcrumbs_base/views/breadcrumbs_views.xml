@@ -10,7 +10,7 @@
             <tree string="Breadcrumbs">
                 <field name="name"/>
                 <field name="url"/>
-                <field name="active"/>
+                <field name="website_published"/>
             </tree>
         </field>
     </record>
@@ -19,12 +19,12 @@
         <field name="name">website.breadcrumbs.form</field>
         <field name="model">breadcrumbs_base.crumb</field>
         <field name="arch" type="xml">
-            <form string="Breadcrumbs">
+            <form string="Breadcrumbs" create="0">
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="url"/>
-                        <field name="active"/>
+                        <field name="url" readonly="1"/>
+                        <field name="website_published"/>
                     </group>
                 </sheet>
             </form>

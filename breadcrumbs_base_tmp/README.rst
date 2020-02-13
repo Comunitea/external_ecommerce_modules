@@ -22,22 +22,44 @@ Breadcrumbs Base Templates
 .. contents::
    :local:
 
-Additional module for Breadcrumbs Base
---------------------------------------
+Additional templates for Breadcrumbs Base Module
+------------------------------------------------
 
-This module adds friendly multi-level breadcrumbs bar after "Main menu" block in all web pages.
+This module adds friendly multi-level breadcrumbs bar in Header after "Main menu" and "Navbar Menu" block in all not Portal web pages, except "My portal Home".
 
     **Attention!**
 
-    This module removes all other breadcrumb bars from the website.
+    This module removes all other breadcrumb bars from the website but not my account part.
 
-    For current use of this module **is necessary** to add these restrictions to the less of your theme:
+Usage
+-----
 
-    * @color-bg (background of breadcrumbs bar)
-    * @color-href (color of links)
-    * @color-current (color of current element)
+Three customize views are provided with active by default.
 
-This module uses default Bootstrap elements.
+#. No Portal Breadcrumbs
+#. My Portal Breadcrumbs
+#. Disable Product Breadcrumbs
+
+    **Attention!**
+
+    "No Portal Breadcrumbs" go side by side with "Product Breadcrumbs". There is not possible to be activated at the same time. Be carefully.
+    "My Portal Breadcrumbs" view just only add breadcrumbs for my portal home page.
+
+
+Customization
+-------------
+If you want to use this module in a theme but you do not like where it is rendered, you can simply
+override default colors of this module adding these variables to the less of your theme:
+
+::
+
+        :root {
+            --color-bg: you_color; (#fff by default)
+            --color-href: you_color; (#337ab7 by default)
+            --color-current: you_color; (#777 by default)
+        }
+
+This module uses default Bootstrap colors and elements.
 
 Author
 ------

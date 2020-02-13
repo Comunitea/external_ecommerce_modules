@@ -1,20 +1,39 @@
-@bcb_bg_color: @color-bg;
-@bcb_href_color: @color-href;
-@bcb_current_color: @color-current;
+/* Define this variables in your archive css to override them */
+// :root {
+//     --color-bg: you_color or #fff;
+//     --color-href: you_color or #337ab7;
+//     --color-current: you_color or #777;
+// }
 
+/* No portal pages */
 .wp_breadcrumbs_base {
-    background-color: @bcb_bg_color;
+    background-color: var(--color-bg, #fff);
 }
-.breadcrumbs_base {
 
+.breadcrumbs_base {
     & ol.breadcrumb {
-        background-color: @bcb_bg_color;
+        background-color: var(--color-bg, #fff);
         margin-bottom: 0;
         & a {
-            color: @bcb_href_color;
+            color: var(--color-href, #337ab7);
         }
         & span {
-            color: @bcb_current_color;
+            color: var(--color-current, #777);
+        }
+    }
+}
+
+/* Portal pages */
+.wp_breadcrumbs_base_portal {
+    background-color: #ececec;
+    & ol.breadcrumb {
+        background-color: #ececec;
+        margin-bottom: 0;
+        & a {
+            color: var(--color-href, #337ab7);
+        }
+        & span {
+            color: var(--color-current, #777);
         }
     }
 }

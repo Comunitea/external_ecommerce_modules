@@ -14,18 +14,25 @@ class Crumb(models.Model):
     name = fields.Text(translate=True)
     url = fields.Text()
     active = fields.Boolean()
+    website_published = fields.Boolean(string=_('Website Published'), default=True,
+                                       help=_("Only published crumbs are visible in the website"))
 
 
 def _generate_one(name, url, active):
+    """
+    Find the current crumb element and create it if it doesn't exist.
+    :return: Only published crumbs.
+    """
     crumb = request.env['breadcrumbs_base.crumb'].sudo()
     result = crumb
-    # Find the current crumb element and create it if it doesn't exist
-    domain_crumb = [('url', '=', url)]
-    domain_crumb = expression.AND([domain_crumb, ['|', ('active', '>=', True), ('active', '=', False)]])
-
+    if url:
+        domain_crumb = [('url', '=', url)]
+        domain_crumb = expression.AND([domain_crumb, ['|', ('active', '>=', True), ('active', '=', False)]])
+    else:
+        domain_crumb = [('name', '=', name), ('url', '=', url), ('active', '=', active)]
     exist = crumb.search(domain_crumb, limit=1)
     if exist:
-        if exist.name and exist.active:
+        if exist.website_published:
             result = exist
     else:
         result = crumb.create({'name': name, 'url': url, 'active': active})

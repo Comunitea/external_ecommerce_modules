@@ -2,8 +2,8 @@
 <odoo>
 
     <!-- Breadcrumbs main wrap container -->
-    <template id="breadcrumbs_bar" name="Breadcrumbs Bar Breadcrumbs Base">
-        <div class="wp_breadcrumbs_base">
+    <template id="breadcrumbs_bar" name="Breadcrumbs Bar">
+        <div t-att-class="'wp_breadcrumbs_base' if 'portal_my_home' not in xmlid else 'wp_breadcrumbs_base_portal'">
             <div class="container">
                 <div class="breadcrumbs_base">
                     <t t-set="breadcrumbs" t-value="website.generate_breadcrumbs(main_object, website)"/>

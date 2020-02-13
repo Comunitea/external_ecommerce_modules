@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Breadcrumbs Base',
-    'version': '1.0',
+    'version': '12.0.2.0.0',
     'summary': 'Friendly breadcrumbs for eCommerce',
     'description': '',
     'category': 'eCommerce',

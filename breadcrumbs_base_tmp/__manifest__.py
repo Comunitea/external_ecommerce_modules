@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Breadcrumbs Base Templates',
-    'version': '1.0',
-    'summary': 'Additional module for Breadcrumbs Base',
+    'version': '12.0.2.0.0',
+    'summary': 'Add customize templates and styles for Breadcrumbs Base module',
     'description': '',
     'category': 'eCommerce',
     'author': 'Comunitea',
