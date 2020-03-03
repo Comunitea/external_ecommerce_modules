@@ -7,13 +7,53 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-20 09:54+0000\n"
-"PO-Revision-Date: 2019-05-20 09:54+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2020-03-02 09:54+0000\n"
+"Last-Translator: Rubén Seijas <ruben@comunitea.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: revi_reviews
+#: model:ir.model.fields,help:revi_reviews.field_revi_reviews_settings_revi_def_state
+#: model:ir.model.fields,help:revi_reviews.field_website_revi_def_state
+msgid "Establish when send data to Revi or no send data at all"
+msgstr "Establece cuando se envían los datos a Revi o si no se envían"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/website.py:12
+#: model:ir.model.fields,field_description:revi_reviews.field_revi_reviews_settings_revi_def_state
+#: model:ir.model.fields,field_description:revi_reviews.field_website_revi_def_state
+#, python-format
+msgid "When send data"
+msgstr "Cuando enviar datos"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/website.py:17
+#: selection:website,revi_url:0
+#, python-format
+msgid "Test"
+msgstr "Test"
+
+#. module: revi_reviews
+#: model:ir.model.fields,help:revi_reviews.field_revi_reviews_settings_revi_url
+#: model:ir.model.fields,help:revi_reviews.field_website_revi_url
+msgid "Establish the url for send data to Revi. Just use TEST for testing because this send data only to Revi Panel Test: https://test.revi.io"
+msgstr "Establece la URL para enviar los datos a Revi. Solo use TEST para testear ya que esto envía los datos solo al Panel de Test de Revi: https://test.revi.io"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/website.py:18
+#: selection:website,revi_url:0
+#, python-format
+msgid "Production"
+msgstr "Producción"
+
+#. module: revi_reviews
+#: code:addons/revi_reviews/models/website.py:18
+#, python-format
+msgid "Environment"
+msgstr "Entorno"
 
 #. module: revi_reviews
 #: model:ir.ui.menu,name:revi_reviews.revi_reviews_settings
@@ -170,9 +210,9 @@ msgstr "Estado para enviar correos de opinión"
 #: model:ir.ui.view,arch_db:revi_reviews.revi_reviews_settings_form
 msgid "The data is always sent to the Revi panel automatically.<br/>\n"
 "                                        You can also send the opinion mails automatically. <br/>\n"
-"                                        If this option is inactive, the mails will be send manually from the Revi panel."
+"                                        If this option is inactive, the client mails will have to be send manually from the Revi Panel."
 msgstr "Los datos siempre se envían al panel de Revi automáticamente.<br/>\n"
-"                                        Pero, si esta opción no está activa, deberá enviar los correos manualmente desde el panel de Revi."
+"                                        Pero, si esta opción no está activa, deberá enviar los correos a los clientes manualmente desde el panel de Revi."
 
 #. module: revi_reviews
 #: code:addons/revi_reviews/models/account_invoice.py:15

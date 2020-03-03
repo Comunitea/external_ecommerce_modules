@@ -13,3 +13,4 @@ class WebsiteConfigSettings(models.TransientModel):
     revi_def_state = fields.Selection(related='website_id.revi_def_state')
     # revi_send_back = fields.Boolean(related='website_id.revi_send_back')
     revi_auto_send = fields.Boolean(related='website_id.revi_auto_send')
+    revi_url = fields.Selection(related='website_id.revi_url')

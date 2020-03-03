@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
-# © 2019 Comunitea - Pavel Smirnov <pavel@comunitea.com> & Ruben Seijas <ruben@comunitea.com>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 import json
+import logging
 import requests
 import unicodedata
+
 from odoo import api, fields, models, _
+
 from odoo.http import request
-# import ipdb
+
+_logger = logging.getLogger(__name__)
 
 
 class SaleOrder(models.Model):
@@ -59,8 +61,8 @@ class SaleOrder(models.Model):
 
             website = request.env['website'].get_current_website()
             language = website.default_lang_id.iso_code
-            root = request.httprequest.url_root
-            # root = 'https://nostrumsport.com/'
+            # root = request.httprequest.url_root
+            root = request.env['ir.config_parameter'].sudo().get_param('web.base.url') + '/'
             partner = res.partner_id
 
             # Change partner in the order
@@ -109,6 +111,7 @@ class SaleOrder(models.Model):
             # Generate order & order_line data to send
             if next_step:
                 # Set order data
+                _logger.info('REVI - Preparing Sale Order %s', res.id)
                 order_data = {
                     'orders': [{
                         'id_order': '%s' % res.id,
@@ -133,10 +136,12 @@ class SaleOrder(models.Model):
                         'sku': product.default_code or '',
                         'locale': [{
                             'lang': language,
-                            'name': unicodedata.normalize('NFKD', product.name).encode('ascii', 'ignore').decode('ascii'),
+                            'name': unicodedata.normalize('NFKD', product.name).encode(
+                                'ascii', 'ignore').decode('ascii'),
                             'url': '%sshop/product/%d' % (root, product.id),
                             'photo_url': '%swebsite/image/product.template/%d/image/' % (root, product.id),
-                            'description': ''
+                            'description': unicodedata.normalize('NFKD', product.description_short).encode(
+                                'ascii', 'ignore').decode('ascii') if product.description_short else '',
                         }]
                     }
 
@@ -149,8 +154,17 @@ class SaleOrder(models.Model):
                 order_lines = res.order_line.filtered(lambda x: x.product_id.type == 'product')
                 for order in order_lines:
                     product = order.product_id.product_tmpl_id
-                    product_data['products'].append(_gen_product_data(product))
-                    products_to_link.append({'id_product': '%d' % product.id})
+                    # Only want refer for published products and products packs, never pack content
+                    if product.website_published and not order.pack_parent_line_id:
+                        product_data['products'].append(_gen_product_data(product))
+                        products_to_link.append({'id_product': '%d' % product.id})
+                    else:
+                        if order.pack_parent_line_id:
+                            _logger.warning('REVI - No send product because belong to a pack: %s - %s',
+                                            product.id, product.display_name)
+                        else:
+                            _logger.warning('REVI - No send product because is not published: %s - %s',
+                                            product.id, product.display_name)
 
                 # Set data for link products with order
                 link_data = {
@@ -167,10 +181,11 @@ class SaleOrder(models.Model):
                 }
 
                 # Set API URL's
-                revi_hello_url = 'https://test.revi.io/api/v1/hello_world'
-                revi_order_url = 'https://test.revi.io/api/v1/orders'
-                revi_product_url = 'https://test.revi.io/api/v1/products'
-                revi_link_url = 'https://test.revi.io/api/v1/orders_products'
+                revi_base_url = website.revi_url
+                revi_hello_url = '%s/api/v1/hello_world' % revi_base_url
+                revi_order_url = '%s/api/v1/orders' % revi_base_url
+                revi_product_url = '%s/api/v1/products' % revi_base_url
+                revi_link_url = '%s/api/v1/orders_products' % revi_base_url
 
                 hello_data = {
                     'test': 'Hello Revi!'
@@ -178,6 +193,9 @@ class SaleOrder(models.Model):
                 success = False
 
                 def post_send(url, data, headers):
+                    _logger.debug('REVI - Sending data to url: %s', url)
+                    _logger.debug('REVI - headers: %s', headers)
+                    _logger.debug('REVI - data: %s', data)
                     return requests.post(url, data=json.dumps(data), headers=headers)
 
                 def post_success(request):
@@ -188,30 +206,38 @@ class SaleOrder(models.Model):
                     # response = request.json().get('success')
                     # if code in [200, 201] and response is True:
                     if code in [200, 201]:
+                        _logger.info('REVI - Send result: SUCCESSFULLY')
                         return True
                     else:
+                        _logger.error('REVI - Send result: ERROR %s', code)
                         return False
 
                 # Test post call
+                _logger.info('REVI: Sending hello test data...')
                 hello_call = post_send(revi_hello_url, hello_data, headers)
 
                 # Send data
                 if post_success(hello_call):
                     # Send order
+                    _logger.info('REVI: Sending order data...')
                     create_order = post_send(revi_order_url, order_data, headers)
                     if post_success(create_order):
                         # Send products (order_line)
+                        _logger.info('REVI: Sending product data...')
                         create_products = post_send(revi_product_url, product_data, headers)
                         if post_success(create_products):
                             # Link products to orders
+                            _logger.info('REVI: Sending product order linked data...')
                             link_products = post_send(revi_link_url, link_data, headers)
                             if post_success(link_products):
                                 success = True
 
                 # Set new Revi state for changed order
                 if success:
+                    _logger.info('REVI - Changed Revi state to sent for Sale Order %s', res.id)
                     res.sudo().write({'revi_state': 'sent'})
                 else:
+                    _logger.error('REVI - Changed Revi state to error for Sale Order %s', res.id)
                     res.sudo().write({'revi_state': 'error'})
 
             return super(SaleOrder, res).write(values)

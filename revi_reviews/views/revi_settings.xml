@@ -37,6 +37,12 @@
                                         <field name="revi_def_state" widget="radio"/>
                                     </div>
                                 </div>
+                                <div class="row mb8">
+                                    <label class="col-md-4" for="revi_url"/>
+                                    <div class="col-md-7">
+                                        <field name="revi_url" widget="radio"/>
+                                    </div>
+                                </div>
                                 <div class="row mb16">
                                     <div class="col-md-12">
                                         <field name="revi_auto_send"/>
@@ -45,7 +51,7 @@
                                     <div class="col-md-12 text-muted ml4">
                                         The data is always sent to the Revi panel automatically.<br/>
                                         You can also send the opinion mails automatically. <br/>
-                                        If this option is inactive, the mails will be send manually from the Revi panel.
+                                        If this option is inactive, the client mails will have to be send manually from the Revi Panel.
                                     </div>
                                 </div>
                                 <!--
