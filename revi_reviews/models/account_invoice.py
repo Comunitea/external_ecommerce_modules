@@ -64,7 +64,7 @@ class AccountInvoice(models.Model):
                 if res.revi_use and ('waiting' in res.revi_state or 'error' in res.revi_state) \
                         and partner.revi_use and partner.email and website.revi_api_key:
                     # Set order data
-                    _logger.info('REVI - Preparing Invoice %s from Sale Order %s', res.id, res.origin)
+                    _logger.info('REVI - Preparing Invoice %s from %s', res.display_name, res.origin)
                     order_data = {
                         'orders': [{
                             'id_order': '%s' % res.id,
@@ -110,21 +110,22 @@ class AccountInvoice(models.Model):
                     for line in invoice_lines:
                         product = line.product_id.product_tmpl_id
                         # if there are more than one order line no matter because always be the same product
-                        if not line.sale_line_ids:
-                            continue
-
-                        order_line = line.sale_line_ids[0]
+                        # Tickets by POS has not order_line, then order_line must will be False
+                        order_line = line.sale_line_ids and line.sale_line_ids[0] or False
                         # Only want refer for published products and products packs, never pack content
-                        if product.website_published and not order_line.pack_parent_line_id:
+                        # If not order_line is a POS Ticket, then no problem because there are packs, never pack content
+                        if product.website_published and (not order_line or not order_line.pack_parent_line_id):
                             product_data['products'].append(_gen_product_data(product))
                             products_to_link.append({'id_product': '%d' % product.id})
                         else:
-                            if order_line.pack_parent_line_id:
+                            if order_line and order_line.pack_parent_line_id:
                                 _logger.warning('REVI - No send product because belong to a pack: %s - %s',
                                                 product.id, product.display_name)
-                            else:
+                            elif not product.website_published:
                                 _logger.warning('REVI - No send product because is not published: %s - %s',
                                                 product.id, product.display_name)
+                            else:
+                                _logger.warning('REVI - No send product: %s - %s', product.id, product.display_name)
 
                     # Set data for link products with order
                     link_data = {
@@ -189,12 +190,12 @@ class AccountInvoice(models.Model):
 
                     # Set new Revi state for changed account invoice
                     if success:
-                        _logger.info('REVI - Changed Revi state to sent for Invoice %s from Sale Order %s',
-                                     res.id, res.origin)
+                        _logger.info('REVI - Changed Revi state to sent for Invoice %s from %s',
+                                     res.display_name, res.origin)
                         res.sudo().write({'revi_state': 'sent'})
                     else:
-                        _logger.error('REVI - Changed Revi state to error for Invoice %s from Sale Order %s',
-                                      res.id, res.origin)
+                        _logger.error('REVI - Changed Revi state to error for Invoice %s from %s',
+                                      res.display_name, res.origin)
                         res.sudo().write({'revi_state': 'error'})
 
         return resp
