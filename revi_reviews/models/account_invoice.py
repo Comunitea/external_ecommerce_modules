@@ -110,6 +110,9 @@ class AccountInvoice(models.Model):
                     for line in invoice_lines:
                         product = line.product_id.product_tmpl_id
                         # if there are more than one order line no matter because always be the same product
+                        if not line.sale_line_ids:
+                            continue
+
                         order_line = line.sale_line_ids[0]
                         # Only want refer for published products and products packs, never pack content
                         if product.website_published and not order_line.pack_parent_line_id:
