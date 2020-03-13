@@ -1,0 +1,151 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* seo_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-13 13:15+0000\n"
+"PO-Revision-Date: 2020-03-13 13:15+0000\n"
+"Last-Translator: Rubén Seijas <ruben@comunitea.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.website_sale_product
+msgid "Especifications"
+msgstr "Especificaciones"
+
+#. module: seo_base
+#: code:addons/seo_base/models/product.py:17
+#: model:ir.model.fields,field_description:seo_base.field_delivery_carrier_slug
+#: model:ir.model.fields,field_description:seo_base.field_product_product_slug
+#: model:ir.model.fields,field_description:seo_base.field_product_public_category_slug
+#: model:ir.model.fields,field_description:seo_base.field_product_template_slug
+#, python-format
+msgid "Friendly URL"
+msgstr "URL Amigable"
+
+#. module: seo_base
+#: code:addons/seo_base/models/product.py:17
+#: model:ir.model.fields,help:seo_base.field_delivery_carrier_slug
+#: model:ir.model.fields,help:seo_base.field_product_product_slug
+#: model:ir.model.fields,help:seo_base.field_product_public_category_slug
+#: model:ir.model.fields,help:seo_base.field_product_template_slug
+#, python-format
+msgid "Friendly URL for SEO"
+msgstr "URL Amigable for SEO"
+
+#. module: seo_base
+#: code:addons/seo_base/models/product.py:15
+#, python-format
+msgid "Full HTML Description"
+msgstr "Descripción HTML"
+
+#. module: seo_base
+#: code:addons/seo_base/models/product.py:15
+#, python-format
+msgid "Full HTML description for product detail page"
+msgstr "Descripción HTML completa para la plantilla del detalle del producto"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.website_description_form_view
+msgid "Full description"
+msgstr "Descripción Completa"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.website_description_form_view
+msgid "Full product HTML description"
+msgstr "Descripción HTML Completa"
+
+#. module: seo_base
+#: code:addons/seo_base/models/product.py:18
+#: model:ir.model.fields,field_description:seo_base.field_delivery_carrier_hide_website_price
+#: model:ir.model.fields,field_description:seo_base.field_product_product_hide_website_price
+#: model:ir.model.fields,field_description:seo_base.field_product_template_hide_website_price
+#, python-format
+msgid "Hide Website Price"
+msgstr "Ocultar Precio en Sitio Web"
+
+#. module: seo_base
+#: code:addons/seo_base/models/product.py:18
+#: model:ir.model.fields,help:seo_base.field_delivery_carrier_hide_website_price
+#: model:ir.model.fields,help:seo_base.field_product_product_hide_website_price
+#: model:ir.model.fields,help:seo_base.field_product_template_hide_website_price
+#, python-format
+msgid "If selected, hide price and 'add to cart', 'add to wishlist' and 'add qty' buttons. 'N/D' is shown instead."
+msgstr "Si está seleccionado, esconde el precio y los botones de 'añadir al carrito', 'añadir a lista deseos' y el selector de cantidad. 'N/D' será mostrado en lugar del precio."
+
+#. module: seo_base
+#: model:ir.model.fields,field_description:seo_base.field_delivery_carrier_product_meta_description
+#: model:ir.model.fields,field_description:seo_base.field_product_product_product_meta_description
+#: model:ir.model.fields,field_description:seo_base.field_product_template_product_meta_description
+msgid "Meta Description"
+msgstr "Meta Description"
+
+#. module: seo_base
+#: model:ir.model.fields,field_description:seo_base.field_delivery_carrier_product_meta_keywords
+#: model:ir.model.fields,field_description:seo_base.field_product_product_product_meta_keywords
+#: model:ir.model.fields,field_description:seo_base.field_product_template_product_meta_keywords
+msgid "Meta Keywords"
+msgstr "Meta Keywords"
+
+#. module: seo_base
+#: model:ir.model.fields,field_description:seo_base.field_delivery_carrier_product_meta_title
+#: model:ir.model.fields,field_description:seo_base.field_product_product_product_meta_title
+#: model:ir.model.fields,field_description:seo_base.field_product_template_product_meta_title
+msgid "Meta Title"
+msgstr "Meta Title"
+
+#. module: seo_base
+#: model:ir.model,name:seo_base.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.website_description_form_view
+msgid "Seo Metadata"
+msgstr "Seo Metadata"
+
+#. module: seo_base
+#: code:addons/seo_base/models/product.py:13
+#: model:ir.model.fields,field_description:seo_base.field_delivery_carrier_description_short
+#: model:ir.model.fields,field_description:seo_base.field_product_product_description_short
+#: model:ir.model.fields,field_description:seo_base.field_product_template_description_short
+#, python-format
+msgid "Short Description"
+msgstr "Descripción Corta"
+
+#. module: seo_base
+#: code:addons/seo_base/models/product.py:13
+#: model:ir.model.fields,help:seo_base.field_delivery_carrier_description_short
+#: model:ir.model.fields,help:seo_base.field_product_product_description_short
+#: model:ir.model.fields,help:seo_base.field_product_template_description_short
+#, python-format
+msgid "Short description for product detail page"
+msgstr "Descripción corta para la plantilla del detalle del produto"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.website_description_form_view
+msgid "Short product description"
+msgstr "Descripción Corta del Producto"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.website_description_form_view
+msgid "Website"
+msgstr "Sitio web"
+
+#. module: seo_base
+#: model:ir.ui.view,arch_db:seo_base.website_description_form_view
+msgid "Website Category"
+msgstr "Categoría del Sitio Web"
+
+#. module: seo_base
+#: model:ir.model,name:seo_base.model_product_public_category
+msgid "Website Product Category"
+msgstr "Categoría del Sitio Web"
+
