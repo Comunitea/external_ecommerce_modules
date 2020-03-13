@@ -15,7 +15,7 @@
     ],
     'depends': [
         'website_sale',
-        # 'seo_base',
+        'seo_base',
     ],
     'data': [
         'security/ir.model.access.csv',
