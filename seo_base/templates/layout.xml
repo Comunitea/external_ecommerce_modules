@@ -2,29 +2,28 @@
 <odoo>
 
     <!--Set Product SEO Metadata or default website metadata-->
-    <!-- Prefer website metadata over product because then you can use promote editor -->
-    <!-- If you use promote editor will see website metadata over product metadata -->
-    <!-- If you delete website metadata will see product metadata -->
+    <!-- Website promote editor do not work because Nostrum project -->
+    <!-- Always show product metadata if exists not website metadata -->
     <template id="website_layout" inherit_id="website.layout">
         <!--Meta Title-->
         <xpath expr="//t[@t-if][3]" position="replace">
-            <t t-if="main_object and 'website_meta_title' in main_object and main_object.website_meta_title">
-                <t t-set="title" t-value="main_object.website_meta_title"/>
-            </t>
-            <t t-elif="product and product.product_meta_title and product.product_meta_title != ''">
+            <t t-if="product and product.product_meta_title and product.product_meta_title != ''">
                     <t t-set="title" t-value="product.product_meta_title"/>
+            </t>
+            <t t-elif="main_object and 'website_meta_title' in main_object and main_object.website_meta_title">
+                <t t-set="title" t-value="main_object.website_meta_title"/>
             </t>
         </xpath>
         <!--Meta Description-->
         <xpath expr="//t[@t-set='meta_description']" position="attributes">
             <attribute name="t-value">
-                main_object.website_meta_description or website_meta_description if main_object and 'website_meta_description' in main_object and main_object.website_meta_description or website_meta_description else product.product_meta_description if product and product.product_meta_description and product.product_meta_description != '' else ''
+                product.product_meta_description if product and product.product_meta_description and product.product_meta_description != '' else main_object and 'website_meta_description' in main_object and main_object.website_meta_description or website_meta_description
             </attribute>
         </xpath>
         <!--Mate Keywords-->
         <xpath expr="//t[@t-set='meta_keywords']" position="attributes">
             <attribute name="t-value">
-                main_object.website_meta_keywords or website_meta_keywords if main_object and 'website_meta_keywords' in main_object and main_object.website_meta_keywords or website_meta_keywords else product.product_meta_keywords if product and product.product_meta_keywords and product.product_meta_keywords != '' else ''
+                product.product_meta_keywords if product and product.product_meta_keywords and product.product_meta_keywords != '' else main_object and 'website_meta_keywords' in main_object and main_object.website_meta_keywords or website_meta_keywords
             </attribute>
         </xpath>
     </template>
