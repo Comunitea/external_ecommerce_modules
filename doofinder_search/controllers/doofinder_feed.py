@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
-# © 2019 Comunitea - Pavel Smirnov <pavel@comunitea.com> & Ruben Seijas <ruben@comunitea.com>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 import re
-from odoo import http, api, models, fields
+import unicodedata
+
+from odoo import api, fields, http, models
+
 from odoo.http import request
+
 from odoo.addons.website.controllers.main import Website
 from odoo.addons.website.models.website import slug
 
 
 class DoofinderFeed(Website):
+
     @http.route('/doofinder/feed', type='http', auth="public", website=True, multilang=False)
     def doofinder_feed_generator(self):
         current_website = request.website
@@ -75,9 +78,10 @@ class DoofinderFeed(Website):
 
             values = {
                 'id': prod.id,
-                'title': prod.name,
+                'title': unicodedata.normalize('NFKD', prod.name).encode('ascii', 'ignore').decode('ascii'),
                 'link': '%sproduct/%s' % (root, prod.slug) if prod.slug else '%sshop/product/%s' % (root, slug(prod)),
-                'description': prod.description_short or '',
+                'description': unicodedata.normalize('NFKD', prod.description_short or prod.product_meta_description
+                                                     or prod.description_sale or prod.name),
                 # 'alternate_description': '',  # X_x
                 # 'meta_keywords': prod.product_meta_keywords or '',
                 # 'meta_title': prod.product_meta_title or prod.name,

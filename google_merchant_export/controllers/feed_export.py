@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
-# © 2019 Comunitea - Pavel Smirnov <pavel@comunitea.com> & Ruben Seijas <ruben@comunitea.com>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 import datetime
-from odoo import http, api, models, fields, _
+import unicodedata
+
+from odoo import api, fields, http, models, _
+
 from odoo.http import request
+
 from odoo.addons.website.models.website import slug
 
 
@@ -43,7 +45,7 @@ class ExportFeeds(http.Controller):
         # Set export file data
         now = datetime.datetime.now()
         head = {
-            'title': feed.name,
+            'title': unicodedata.normalize('NFKD', feed.name).encode('ascii', 'ignore').decode('ascii'),
             'link': root,
             'author': feed.author,
             'updated': now.strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -70,13 +72,16 @@ class ExportFeeds(http.Controller):
         def new_feed(product):
             return view.render_template('google_merchant_export.feed_wrap', {
                 'id': product.id,
-                'title': product.name,
-                'description': product.description_short or product.website_meta_description or product.name,
-                'link': '%sproduct/%s' % (root, product.slug) if product.slug else '%sshop/product/%s' % (root, slug(product)),
+                'title': unicodedata.normalize('NFKD', product.name).encode('ascii', 'ignore').decode('ascii'),
+                'description': unicodedata.normalize('NFKD', product.description_short
+                                                     or product.product_meta_description
+                                                     or product.description_sale or product.name),
+                'link': '%sproduct/%s' % (root, product.slug) if product.slug else '%sshop/product/%s' % (
+                    root, slug(product)),
                 'image_link': '%sweb/image/product.template/%s/image/' % (root, product.id),
                 'condition': 'new',
                 'availability': 'preorder' if product.sudo().qty_available == 0 else 'in stock',
-                'price': '%s EUR' % product.list_price,
+                'price': '%s EUR' % product.list_price if not product.hide_website_price else 'N/D',
                 # TODO: Auto calculate of shipping price for current product for Spain, Baleares and Canarias
                 # 'shipping': '',
                 'product_type': get_categories(product.public_categ_ids[0], '') if product.public_categ_ids else '',

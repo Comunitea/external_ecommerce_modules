@@ -86,7 +86,7 @@ class AccountInvoice(models.Model):
                         return {
                             'id_product': product.id,
                             'ean': product.barcode or '',
-                            'price': product.lst_price,
+                            'price': product.lst_price if not product.hide_website_price else 'N/D',
                             'sku': product.default_code or '',
                             'locale': [{
                                 'lang': language,
@@ -94,8 +94,10 @@ class AccountInvoice(models.Model):
                                     'ascii', 'ignore').decode('ascii'),
                                 'url': '%sshop/product/%d' % (root, product.id),
                                 'photo_url': '%swebsite/image/product.template/%d/image/' % (root, product.id),
-                                'description': unicodedata.normalize('NFKD', product.description_short).encode(
-                                    'ascii', 'ignore').decode('ascii') if product.description_short else '',
+                                'description': unicodedata.normalize('NFKD', product.description_short
+                                                                     or product.product_meta_description
+                                                                     or product.description_sale or product.name)
+                                .encode('ascii', 'ignore').decode('ascii'),
                             }]
                         }
 
@@ -114,11 +116,12 @@ class AccountInvoice(models.Model):
                         order_line = line.sale_line_ids and line.sale_line_ids[0] or False
                         # Only want refer for published products and products packs, never pack content
                         # If not order_line is a POS Ticket, then no problem because there are packs, never pack content
-                        if product.website_published and (not order_line or not order_line.pack_parent_line_id):
+                        if product.website_published and (
+                                not order_line or (order_line and 'pack_parent_line_id' not in dir(order_line))):
                             product_data['products'].append(_gen_product_data(product))
                             products_to_link.append({'id_product': '%d' % product.id})
                         else:
-                            if order_line and order_line.pack_parent_line_id:
+                            if order_line and 'pack_parent_line_id' in dir(order_line):
                                 _logger.warning('REVI - No send product because belong to a pack: %s - %s',
                                                 product.id, product.display_name)
                             elif not product.website_published:
@@ -180,6 +183,7 @@ class AccountInvoice(models.Model):
                         if post_success(create_order):
                             # Send products (order_line)
                             _logger.info('REVI: Sending product data...')
+                            _logger.info(product_data['products'])
                             create_products = post_send(revi_product_url, product_data, headers)
                             if post_success(create_products):
                                 # Link products to orders

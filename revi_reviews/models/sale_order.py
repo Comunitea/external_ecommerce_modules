@@ -132,7 +132,9 @@ class SaleOrder(models.Model):
                     return {
                         'id_product': product.id,
                         'ean': product.barcode or '',
-                        'price': product.lst_price,
+                        'price': product.lst_price if 'hide_website_price' not in dir(product)
+                                                      or ('hide_website_price' in dir(product)
+                                                          and not product.hide_website_price) else 'N/D',
                         'sku': product.default_code or '',
                         'locale': [{
                             'lang': language,
@@ -140,8 +142,10 @@ class SaleOrder(models.Model):
                                 'ascii', 'ignore').decode('ascii'),
                             'url': '%sshop/product/%d' % (root, product.id),
                             'photo_url': '%swebsite/image/product.template/%d/image/' % (root, product.id),
-                            'description': unicodedata.normalize('NFKD', product.description_short).encode(
-                                'ascii', 'ignore').decode('ascii') if product.description_short else '',
+                            'description': unicodedata.normalize('NFKD', product.description_short
+                                                                 or product.product_meta_description
+                                                                 or product.description_sale or product.name)
+                            .encode('ascii', 'ignore').decode('ascii'),
                         }]
                     }
 
@@ -154,17 +158,24 @@ class SaleOrder(models.Model):
                 order_lines = res.order_line.filtered(lambda x: x.product_id.type == 'product')
                 for order in order_lines:
                     product = order.product_id.product_tmpl_id
+                    # if there are more than one order line no matter because always be the same product
+                    # Tickets by POS has not order_line, then order_line must will be False
+                    order_line = order.sale_line_ids and order.sale_line_ids[0] or False
                     # Only want refer for published products and products packs, never pack content
-                    if product.website_published and not order.pack_parent_line_id:
+                    # If not order_line is a POS Ticket, then no problem because there are packs, never pack content
+                    if product.website_published and (
+                            not order_line or (order_line and 'pack_parent_line_id' not in dir(order_line))):
                         product_data['products'].append(_gen_product_data(product))
                         products_to_link.append({'id_product': '%d' % product.id})
                     else:
-                        if order.pack_parent_line_id:
+                        if order_line and 'pack_parent_line_id' in dir(order_line):
                             _logger.warning('REVI - No send product because belong to a pack: %s - %s',
                                             product.id, product.display_name)
-                        else:
+                        elif not product.website_published:
                             _logger.warning('REVI - No send product because is not published: %s - %s',
                                             product.id, product.display_name)
+                        else:
+                            _logger.warning('REVI - No send product: %s - %s', product.id, product.display_name)
 
                 # Set data for link products with order
                 link_data = {

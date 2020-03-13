@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="website_sale_wishlist_product_toggle" inherit_id="website_sale_wishlist.product_toggle" name="Add to Wishlist Widget SEO Base">
+        <!-- Hide Add to (un)Wishlist Button by hide_website_price -->
+        <xpath expr="//button" position="attributes">
+            <attribute name="t-if">not product.hide_website_price</attribute>
+        </xpath>
+    </template>
+
+</odoo>

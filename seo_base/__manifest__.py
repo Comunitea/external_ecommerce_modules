@@ -1,28 +1,28 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Revi Reviews',
-    'version': '10.1.1.0.0',
-    'summary': 'Integration with Revi Reviews Service',
+    'name': 'SEO Base',
+    'version': '10.0.0.0.0',
+    'summary': 'Module for Website SEO Optimization',
     'description': '',
     'category': 'Website',
     'author': 'Comunitea',
     'website': 'http://www.comunitea.com',
     'license': 'AGPL-3',
     'contributors': [
-        'Pavel Smirnov <pavel@comunitea.com>',
         'Rubén Seijas <ruben@comunitea.com>',
     ],
     'depends': [
+        'product',
+        'website',
         'website_sale',
-        'seo_base',
+        'website_sale_wishlist',
     ],
     'data': [
-        'views/revi_settings.xml',
-        'views/revi_menu.xml',
-        'views/account_invoice.xml',
-        # 'views/sale_order.xml',
-        'views/res_partner.xml'
+        'templates/layout.xml',
+        'templates/product.xml',
+        'templates/shop.xml',
+        'views/product_view.xml',
     ],
     'images': [
         '/static/description/icon.png',

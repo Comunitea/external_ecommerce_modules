@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Replace Website group in Sales Page in Product Form -->
+    <record id="website_product" model="ir.ui.view">
+        <field name="name">website.product</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="website_sale.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='website']" position="replace"/>
+        </field>
+    </record>
+
+    <!-- Add all Website features in New Website Page in Product Form -->
+    <record id="website_description_form_view" model="ir.ui.view">
+        <field name="name">website.description.form.view</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook[1]" position="inside">
+                <page string="Website" name="website_page">
+                    <group string="Website">
+                        <field name="website_url" invisible="1"/>
+                        <field name="public_categ_ids" widget="many2many_tags" string="Website Category"/>
+                        <field name="alternative_product_ids" widget="many2many_tags"/>
+                        <field name="accessory_product_ids" widget="many2many_tags"/>
+                        <field name="availability" widget="selection"/>
+                        <field name="availability_warning" attrs="{'invisible': [('availability', '!=', 'warning')]}"/>
+                        <!-- Not used because Clarico Theme -->
+<!--                        <field name="website_style_ids" widget="many2many_tags" groups="base.group_no_one"/>-->
+                        <field name="website_sequence"/>
+                        <field name="hide_website_price"/>
+                    </group>
+
+                    <group string="Seo Metadata">
+                        <field name="product_meta_title"/>
+                        <field name="product_meta_keywords"/>
+                        <field name="product_meta_description"/>
+                        <field name="slug"/>
+                    </group>
+
+                    <group>
+                        <separator string="Short product description" colspan="4"/>
+                        <field name="description_short" colspan="4" nolabel="1" placeholder="Short product description"/>
+                        <separator string="Full product HTML description" colspan="4"/>
+                        <field name="description" colspan="4" nolabel="1" placeholder="Full description" modifiers="{}"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add Slug field to Category Form -->
+    <record id="product_public_category_add_slug" model="ir.ui.view">
+        <field name="name">product.public.category.add.slug</field>
+        <field name="model">product.public.category</field>
+        <field name="inherit_id" ref="website_sale.product_public_category_form_view"/>
+        <field name="arch" type="xml">
+            <field name="sequence" position="after">
+                <field name="slug"/>
+            </field>
+        </field>
+    </record>
+    <!-- Add Slug field to Category Tree View and handle sequence -->
+    <record id="product_public_category_tree_view_sequence" model="ir.ui.view">
+        <field name="name">Product public category add sequence</field>
+        <field name="model">product.public.category</field>
+        <field name="inherit_id" ref="website_sale.product_public_category_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='sequence']" position="attributes">
+                <attribute name="invisible">0</attribute>
+                <attribute name="widget">handle</attribute>
+            </xpath>
+            <xpath expr="//field[@name='display_name']" position="after">
+                <field name="slug"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
