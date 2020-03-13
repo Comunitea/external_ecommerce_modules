@@ -10,7 +10,7 @@
         'payment_acquirer_by_amount',
         'website_sale_one_step_checkout',
         'website_sale_charge_payment_fee'
-        'seo_base'
+        # 'seo_base'
     ],
     'data': [
         'views/templates.xml'

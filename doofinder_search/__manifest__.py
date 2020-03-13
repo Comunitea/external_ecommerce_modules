@@ -15,7 +15,7 @@
     ],
     'depends': [
         'website',
-        'seo_base',
+        # 'seo_base',
     ],
     'data': [
         'templates/feed.xml'
