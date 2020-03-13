@@ -2,30 +2,32 @@
 <odoo>
 
     <template id="website_sale_product" inherit_id="website_sale.product" name="Product SEO Base">
+        <!-- ======================== Not work because Nostrum and Clarico Theme ================================ -->
         <!-- Add Short Description -->
-         <xpath expr="//form" position="after">
-            <div t-if="product.description_short">
-                <hr />
-                <p t-field="product.description_short" class="text-muted" />
-                <hr t-if="not product.description_sale"/>
-            </div>
-        </xpath>
+<!--         <xpath expr="//form" position="after">-->
+<!--            <div t-if="product.description_short">-->
+<!--                <hr />-->
+<!--                <p t-field="product.description_short" class="text-muted" />-->
+<!--                <hr t-if="not product.description_sale"/>-->
+<!--            </div>-->
+<!--        </xpath>-->
         <!-- Hide guarantee text -->
-        <xpath expr="//div[@id='product_details']//hr[last()]" position="attributes">
-            <attribute name="t-if">True == False</attribute>
-        </xpath>
-        <xpath expr="//div[@id='product_details']/p[last()]" position="attributes">
-            <attribute name="t-if">True == False</attribute>
-        </xpath>
+<!--        <xpath expr="//div[@id='product_details']//hr[last()]" position="attributes">-->
+<!--            <attribute name="t-if">True == False</attribute>-->
+<!--        </xpath>-->
+<!--        <xpath expr="//div[@id='product_details']/p[last()]" position="attributes">-->
+<!--            <attribute name="t-if">True == False</attribute>-->
+<!--        </xpath>-->
         <!-- Add HTML Description -->
-        <xpath expr="//div[@id='product_full_description']" position="replace">
-            <div class="container mt32">
-                    <h3 t-if="product.description">Especifications</h3>
-                <div class="row mt16">
-                    <div itemprop="description" t-field="product.description" class="oe_structure" id="product_full_description" />
-                </div>
-            </div>
-        </xpath>
+<!--        <xpath expr="//div[@id='product_full_description']" position="replace">-->
+<!--            <div class="container mt32">-->
+<!--                    <h3 t-if="product.description">Especifications</h3>-->
+<!--                <div class="row mt16">-->
+<!--                    <div itemprop="description" t-field="product.description" class="oe_structure" id="product_full_description" />-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </xpath>-->
+        <!-- ======================== Not work because Nostrum and Clarico Theme ================================ -->
         <!-- Hide Add To Cart Button by hide_website_price -->
         <xpath expr="//a[@id='add_to_cart']" position="attributes">
             <attribute name="t-if">not product.hide_website_price</attribute>
