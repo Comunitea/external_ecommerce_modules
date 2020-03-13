@@ -9,7 +9,7 @@
     'depends': [
         'payment_acquirer_by_amount',
         'website_sale_one_step_checkout',
-        'website_sale_charge_payment_fee'
+        'website_sale_charge_payment_fee',
         'seo_base'
     ],
     'data': [
