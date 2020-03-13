@@ -65,7 +65,7 @@ class SaleOrder(models.Model):
         for order in self:
             order.cart_quantity = int(sum(
                 order.website_order_line.filtered(
-                    lambda x: not x.payment_fee_line and 'pack_parent_line_id' not in dir(x))
+                    lambda x: not x.payment_fee_line and 'pack_parent_line_id' in dir(x) and not x.pack_parent_line_id)
                 .mapped('product_uom_qty')))
             order.only_services = all(line.product_id.type in ('service', 'digital')
                                       for line in order.website_order_line.filtered(lambda x: not x.payment_fee_line))

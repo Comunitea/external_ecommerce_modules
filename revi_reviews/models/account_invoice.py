@@ -116,12 +116,14 @@ class AccountInvoice(models.Model):
                         order_line = line.sale_line_ids and line.sale_line_ids[0] or False
                         # Only want refer for published products and products packs, never pack content
                         # If not order_line is a POS Ticket, then no problem because there are packs, never pack content
-                        if product.website_published and (
-                                not order_line or (order_line and 'pack_parent_line_id' not in dir(order_line))):
+                        if product.website_published and (not order_line or (
+                                order_line and 'pack_parent_line_id' in dir(order_line)
+                                and not order_line.pack_parent_line_id)):
                             product_data['products'].append(_gen_product_data(product))
                             products_to_link.append({'id_product': '%d' % product.id})
                         else:
-                            if order_line and 'pack_parent_line_id' in dir(order_line):
+                            if order_line and 'pack_parent_line_id' in dir(order_line) \
+                                    and order_line.pack_parent_line_id:
                                 _logger.warning('REVI - No send product because belong to a pack: %s - %s',
                                                 product.id, product.display_name)
                             elif not product.website_published:
