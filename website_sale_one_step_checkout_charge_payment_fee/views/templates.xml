@@ -31,14 +31,14 @@
     <!-- Hide cash on delivery and products packs from checkout review order table -->
     <template id="cart_lines_cash_on_delivery" name="Cart lines without cash on Delivery Costs" inherit_id="website_sale.cart_lines">
         <xpath expr="//table[@id='cart_products']//t[@t-foreach]" position="attributes">
-            <attribute name="t-foreach">website_sale_order.website_order_line.filtered(lambda x : not x.payment_fee_line and 'pack_parent_line_id' in dir(x) and not x.pack_parent_line_id)</attribute>
+            <attribute name="t-foreach">website_sale_order.website_order_line.filtered(lambda x : not x.payment_fee_line and 'pack_parent_line_id' in x and not x.pack_parent_line_id)</attribute>
         </xpath>
     </template>
 
     <!--Hide cash on delivery order line in cart popover, total items control and products packs-->
     <template id="cart_popover_lines_cash_on_delivery" name="Cart popover lines without cash on Delivery Costs" inherit_id="website_sale.cart_popover">
         <xpath expr="//t[@t-foreach]" position="attributes">
-            <attribute name="t-foreach">website_sale_order.website_order_line.filtered(lambda x : not x.payment_fee_line and 'pack_parent_line_id' in dir(x) and not x.pack_parent_line_id)</attribute>
+            <attribute name="t-foreach">website_sale_order.website_order_line.filtered(lambda x : not x.payment_fee_line and 'pack_parent_line_id' in x and not x.pack_parent_line_id)</attribute>
         </xpath>
     </template>
 
@@ -68,7 +68,7 @@
 
         <!--Hide cash on delivery order line and products packs in review order-->
         <xpath expr="//tbody/tr" position="attributes">
-            <attribute name="t-foreach">website_sale_order.website_order_line.filtered(lambda x : not x.payment_fee_line and 'pack_parent_line_id' in dir(x) and not x.pack_parent_line_id)</attribute>
+            <attribute name="t-foreach">website_sale_order.website_order_line.filtered(lambda x : not x.payment_fee_line and 'pack_parent_line_id' in x and not x.pack_parent_line_id)</attribute>
         </xpath>
 
     </template>
