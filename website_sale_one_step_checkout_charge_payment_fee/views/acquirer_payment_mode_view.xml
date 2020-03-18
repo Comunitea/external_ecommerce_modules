@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Add default payment mode form payment method -->
+    <record id="acquirer_form_add_payment_mode" model="ir.ui.view">
+        <field name="name">payment.acquirer.add.payment.mode</field>
+        <field name="model">payment.acquirer</field>
+        <field name="inherit_id" ref="payment.acquirer_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="payment_mode" required="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

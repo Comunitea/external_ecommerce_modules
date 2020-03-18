@@ -2,12 +2,18 @@
 * CSS necessary for load spinner gif image when is changed a payment method who reload is required
 */
 
+/* Define this variables in your archive css to override them */
+// :root {
+//     --color-bg: your_bg_color or rgba(255,255,255,0.2);
+//     --url-bg: your_bg_url or url('/website_sale_one_step_checkout_charge_payment_fee/static/src/img/load-spinner.gif');
+// }
+
 .wp-load-spinner {
     position: absolute;
     height: 100%;
     width: 100%;
-    background: rgba(255,255,255,0.8)
-        url('/website_sale_one_step_checkout_charge_payment_fee/static/src/img/load-spinner.gif') no-repeat center center;
+    background: var(--color-bg, rgba(255,255,255,0.2))
+        var(--url-bg, url('/website_sale_one_step_checkout_charge_payment_fee/static/src/img/load-spinner.gif')) no-repeat center center;
     top: 0;
     left: 0;
     z-index: 99;

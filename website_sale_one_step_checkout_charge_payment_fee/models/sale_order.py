@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-#
-# © 2018 Comunitea - Ruben Seijas <ruben@comunitea.com>
-#
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).ls.
 
 from odoo import api, fields, models
 
@@ -22,6 +18,22 @@ class SaleOrder(models.Model):
         help="Has an order line set for cash on delivery", store=True)
     total_weight = fields.Float('Peso', digits=0, compute='_compute_amount_cash_on_delivery',
                                 store=True, track_visibility='always')
+
+    @api.multi
+    def write(self, vals):
+        """
+        Associate mode payment with payment method to link website orders if exist a relation ship
+        """
+        payment = vals.get('payment_acquirer_id', False)
+        print('PAYMENT', payment)
+        if payment:
+            mode = self.env['payment.acquirer'].sudo().search(
+                [('id', '=', vals['payment_acquirer_id'])])
+            if mode:
+                vals.update({
+                    'payment_mode_id': mode.payment_mode.id
+                })
+        return super(SaleOrder, self).write(vals)
 
     @api.depends('order_line.price_unit', 'order_line.tax_id', 'order_line.discount', 'order_line.product_uom_qty')
     def _compute_amount_cash_on_delivery(self):
@@ -65,7 +77,9 @@ class SaleOrder(models.Model):
         for order in self:
             order.cart_quantity = int(sum(
                 order.website_order_line.filtered(
-                    lambda x: not x.payment_fee_line and 'pack_parent_line_id' in dir(x) and not x.pack_parent_line_id)
+                    lambda x: not x.payment_fee_line and ('pack_parent_line_id' not in dir(x)
+                                                          or 'pack_parent_line_id' in dir(x)
+                                                          and not x.pack_parent_line_id))
                 .mapped('product_uom_qty')))
             order.only_services = all(line.product_id.type in ('service', 'digital')
                                       for line in order.website_order_line.filtered(lambda x: not x.payment_fee_line))
