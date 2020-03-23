@@ -13,18 +13,18 @@ from odoo.addons.payment_paga_mas_tarde.controllers.main import PmtController
 class AcquirerPagaMasTarde(models.Model):
     _inherit = 'payment.acquirer'
 
-    provider = fields.Selection(selection_add=[('pmt', 'Paga+Tarde')], default='pmt')
+    provider = fields.Selection(selection_add=[('pmt', 'Pagantis')], default='pmt')
     pmt_public_key = fields.Char('Access Public Token', groups='base.group_user',
                                  help='Se encuentra en los datos de la tienda de su cuenta \
-                                 de Paga+Tarde. Es imprescindible para autenticarse')
+                                 de Pagantis. Es imprescindible para autenticarse')
     pmt_private_key = fields.Char('Access Private Token', groups='base.group_user',
                                   help='Se encuentra en los datos de la tienda de su cuenta \
-                                  de Paga+Tarde. Es imprescindible para autenticarse')
+                                  de Pagantis. Es imprescindible para autenticarse')
 
     @api.multi
     def pmt_get_form_action_url(self):
         """
-        Devuelve la url del controller que se necesita para crear primero la orden en Paga+Tarde.
+        Devuelve la url del controller que se necesita para crear primero la orden en Pagantis.
         No se puede acceder mediante el formulario directamente.
         :return:
         """
@@ -33,7 +33,7 @@ class AcquirerPagaMasTarde(models.Model):
     @api.multi
     def pmt_form_generate_values(self, values):
         """
-        Genera el diccionario con los datos que se necesitan para crear la orden en Paga+Tarde.
+        Genera el diccionario con los datos que se necesitan para crear la orden en Pagantis.
         :param values: los campos del formulario del boton de pago.
         :return: diccionario con los datos correctamente asociados.
         """
@@ -115,18 +115,18 @@ class AcquirerPagaMasTarde(models.Model):
 
 class SaleOrder(models.Model):
     """
-    Asocia el id de la orden de Paga+Tarde con el pedido de venta.
+    Asocia el id de la orden de Pagantis con el pedido de venta.
     """
     _inherit = 'sale.order'
 
-    pmt_order_id = fields.Char(string='Paga+Tarde Order Id to confirm payment')
+    pmt_order_id = fields.Char(string='Pagantis Order Id to confirm payment')
 
 
 class TxPagaMasTarde(models.Model):
     """
-    Asocia el id de la orden de Paga+Tarde con la transaccion generada.
+    Asocia el id de la orden de Pagantis con la transaccion generada.
     """
     _inherit = 'payment.transaction'
 
     pmt_tx_id = fields.Char('Transaction ID', help='ID operacion que permite identificar el pago en la cuenta \
-                            de Paga+Tarde')
+                            de Pagantis')

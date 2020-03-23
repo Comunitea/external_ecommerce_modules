@@ -15,7 +15,7 @@ from requests.auth import HTTPBasicAuth
 
 class PmtController(http.Controller):
     """
-    Controller del metodo de pago: Paga+Tarde
+    Controller del metodo de pago: Pagantis
     """
     _ok_url = '/payment/pmt/result/order-approved'
     _ko_url = '/payment/pmt/result/order-rejected'
@@ -25,10 +25,10 @@ class PmtController(http.Controller):
     @http.route(['/payment/pmt/order'], type='http', auth="public", methods=['POST', 'GET', 'PUT'], csrf=False)
     def validate_order(self, **post):
         """
-        Recoge los datos del formulario del boton de pago, crea un pedido de tipo paga+tarde con su formulario,
-        guarda el id creado en nuestro pedido de venta y redirige al usuario a la web de de paga+tarde.
+        Recoge los datos del formulario del boton de pago, crea un pedido de tipo pagantis con su formulario,
+        guarda el id creado en nuestro pedido de venta y redirige al usuario a la web de de pagantis.
         :param post: los campos del formulario del boton de pago
-        :return: redirige al usuario a la web de de paga+tarde
+        :return: redirige al usuario a la web de de pagantis
         """
 
         data = request.env.ref('payment_paga_mas_tarde.payment_acquirer_pmt').pmt_form_generate_values(post)
@@ -45,7 +45,7 @@ class PmtController(http.Controller):
         create_order = requests.post('https://api.pagamastarde.com/v2/orders', data=json.dumps(data),
                                      headers=headers, auth=HTTPBasicAuth(pmt_public_key, pmt_private_key))
 
-        # Enviamos al usuario al formulario de paga+tarde y asociamos su order a sale_order
+        # Enviamos al usuario al formulario de pagantis y asociamos su order a sale_order
         if create_order.status_code == 201 and create_order.json().get('status', 'REJECTED') == 'CREATED':
             sale_order_id = request.session.get('sale_last_order_id')
             if sale_order_id:
@@ -63,9 +63,9 @@ class PmtController(http.Controller):
     @http.route(['/payment/pmt/result/<page>'], type='http', auth="public", methods=['POST', 'GET', 'PUT'], csrf=False)
     def render(self, page):
         """
-        Recoge las respuestas que envia el formulario de la web de de paga+tarde.
+        Recoge las respuestas que envia el formulario de la web de de pagantis.
         En caso ok confirma el pedido de venta y la transaccion.
-        :param page: nombre de la url que devuelve la web de de paga+tarde. Indica la accion a realizar
+        :param page: nombre de la url que devuelve la web de de pagantis. Indica la accion a realizar
         :return: Si ok redirige a la confirmacion del pedido de venta en cualquier otro caso redirige al checkout
         """
 

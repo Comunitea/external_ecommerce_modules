@@ -17,7 +17,7 @@ msgstr ""
 
 #. module: payment_paga_mas_tarde
 #: model:ir.ui.view,arch_db:payment_paga_mas_tarde.acquirer_form_pmt
-msgid "Accede a tu cuenta de Paga+Tarde desde aquí"
+msgid "Accede a tu cuenta de Pagantis desde aquí"
 msgstr ""
 
 #. module: payment_paga_mas_tarde
@@ -32,13 +32,13 @@ msgstr "Clave de Acceso Pública"
 
 #. module: payment_paga_mas_tarde
 #: model:ir.model.fields,field_description:payment_paga_mas_tarde.field_sale_order_pmt_order_id
-msgid "Paga+Tarde Order Id to confirm payment"
-msgstr "Id del pedido de Paga+Tarde  para confirmar el pedido"
+msgid "Pagantis Order Id to confirm payment"
+msgstr "Id del pedido de Pagantis  para confirmar el pedido"
 
 #. module: payment_paga_mas_tarde
 #: model:ir.ui.view,arch_db:payment_paga_mas_tarde.transaction_form_pmt
-msgid "Paga+Tarde TX Details"
-msgstr "Detalles de Transmisión Paga+Tarde"
+msgid "Pagantis TX Details"
+msgstr "Detalles de Transmisión Pagantis"
 
 #. module: payment_paga_mas_tarde
 #: model:ir.model,name:payment_paga_mas_tarde.model_payment_acquirer
