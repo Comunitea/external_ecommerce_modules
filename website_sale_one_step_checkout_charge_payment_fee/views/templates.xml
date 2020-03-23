@@ -112,6 +112,31 @@
                                 </t>
                             </p>
                         </t>
+                        <!-- Pagantis -->
+                        <t t-if="request.env['payment.acquirer'].search([('website_published', '=', True), ('company_id', '=', order.company_id.id), ('provider', '=', 'pmt')])">
+                            <p>
+                                <!-- Retrive Javascript SDK from CDN -->
+                                <script type="text/javascript" src="https://cdn.pagamastarde.com/pmt-js-client-sdk/3/js/client-sdk.min.js"/>
+                                <!-- Create simulator container -->
+                                <div class="PmtSimulator"
+                                     data-pmt-style="Blue"
+                                     data-pmt-type="6"
+                                     data-pmt-num-quota="12"
+                                     t-att-data-pmt-amount="website_sale_order.amount_total"
+                                     t-att-data-pmt-promoted-amount="0">
+                                </div>
+                                <!-- Set Public Key and reload simulator -->
+                                <t t-set="pmt" t-value="request.env['payment.acquirer'].search([('website_published', '=', True), ('company_id', '=', order.company_id.id), ('provider', '=', 'pmt')])"/>
+                                <script>
+                                    pmtClient.simulator.setPublicKey('<t t-esc="pmt.pmt_public_key"/>');
+                                    pmtClient.simulator.init();
+                                    pmtClient.simulator.reload();
+                                </script>
+                            </p>
+                            <button class="btn btn-block btn-primary"
+                                    onclick="pmtClient.modal.open('https://developer.pagamastarde.com/marketing-landing/es/',
+                                        {'closeConfirmationMessage': null, 'largeSize': true});">Ver Instrucciones Pagantis</button>
+                        </t>
                     </div>
                     <!-- Dynamic url payment info. Use /page/payment-info as standard -->
                     <t t-set="payment_page" t-value="request.env['website.menu'].search(['|', ('url', '=', '/page/pago-seguro'), ('url', '=', '/page/payment-info')], limit=1)"/>

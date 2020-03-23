@@ -14,7 +14,7 @@ Charge Payment Fee in One Step Checkout (OSC)
     :target: https://github.com/Comunitea/external_ecommerce_modules/tree/10.0/website_sale_one_step_checkout_charge_payment_fee
     :alt: Comunitea / Dismac
 .. |badge5| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
-    :target: https://github.com/Comunitea/CMNT_00152_2018_DIS/tree/master/project-addons/theme_dismac/i18n/es.po
+    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/10.0/website_sale_one_step_checkout_charge_payment_fee/i18n/es.po
     :alt: Spanish Translated
 
 
@@ -81,10 +81,10 @@ Payment Mode
 Associate mode payment with payment method to link website orders if exist a relation ship if it is needed.
 
 Credits
-=======
+-------
 
 Author
-------
+~~~~~~
 
 Developer: Comunitea, info@comunitea.com
 

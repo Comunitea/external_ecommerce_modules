@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <data>
 
         <template id="pmt_acquirer_button">
             <form t-if="acquirer" t-att-action="tx_url" method="post" target="_self" type='application/json'>
@@ -32,7 +32,7 @@
 
                 <!-- submit -->
                 <button type="submit" width="100px" t-att-class="submit_class">
-                    <img t-if="not submit_txt" src="/payment_paga_mas_tarde/static/img/paga_mas_tarde_icon.png"/>
+                    <img t-if="not submit_txt" src="/payment_paga_mas_tarde/static/img/logo.png"/>
                     <span t-if="submit_txt"><t t-esc="submit_txt"/> <span class="fa fa-long-arrow-right"/></span>
                 </button>
             </form>
@@ -44,7 +44,7 @@
             <field name="inherit_id" ref="payment.transaction_form"/>
             <field name="arch" type="xml">
                 <xpath expr='//notebook' position='inside'>
-                    <page string="Paga+Tarde TX Details">
+                    <page string="Pagantis TX Details">
                         <group>
                             <field name="pmt_tx_id"/>
                         </group>
@@ -57,21 +57,21 @@
         <template id="pmt_tx_ko" inherit_id="website_sale.payment">
             <xpath expr="//div[@class='container oe_website_sale']/h1" position="before">
                 <div t-if="request.session.get('pmt_tx_error')" class="row">
-                    <div class="col-md-4"></div>
+                    <div class="col-md-4"/>
                     <div class="col-md-4">
                         <div class="alert alert-danger alert-dismissible" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true"><![CDATA[&times;]]></span>
                             </button>
-                            <strong>PAGA+TARDE: </strong><span t-esc="request.session.get('pmt_tx_error')"></span>
+                            <strong>PAGANTIS: </strong><span t-esc="request.session.get('pmt_tx_error')"/>
                         </div>
                     </div>
-                    <div class="col-md-4"></div>
+                    <div class="col-md-4"/>
                 </div>
             </xpath>
         </template>
 
-        <!--Para adaptar paga+tarde a osc-->
+        <!--Para adaptar Pagantis a osc-->
         <!--<template id="pmt_tx_ko" inherit_id="website_sale_one_step_checkout.osc_onestepcheckout">-->
             <!--<xpath expr="//div[@class='container oe_website_sale oe_website_sale_osc']/div" position="before">-->
                 <!--<div t-if="request.session.get('pmt_tx_error')" class="row">-->
@@ -81,7 +81,7 @@
                             <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
                                 <!--<span aria-hidden="true"><![CDATA[&times;]]></span>-->
                             <!--</button>-->
-                            <!--<strong>PAGA+TARDE: </strong><span t-esc="request.session.get('pmt_tx_error')"></span>-->
+                            <!--<strong>PAGANTIS: </strong><span t-esc="request.session.get('pmt_tx_error')"></span>-->
                         <!--</div>-->
                     <!--</div>-->
                     <!--<div class="col-md-4"></div>-->
