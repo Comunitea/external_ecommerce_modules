@@ -39,16 +39,25 @@
     </template>
 
     <!--OSC-->
-    <template id="add_fiction_breadcrumbs_bar_checkout" inherit_id="website_sale_one_step_checkout.osc_onestepcheckout" name="Payment Fee Advice">
+    <template id="website_sale_one_step_checkout_osc_onestepcheckout" inherit_id="website_sale_one_step_checkout.osc_onestepcheckout" name="OSC Payment Fee Charge">
 
         <!-- Show error when just one acquirer is published and amounts conditions do not let select it -->
         <xpath expr="//div[@id='payment_method']//h3" position="after">
-            <div class="row mt16"
-                 t-if="(len(acquirers) == 1 and any(website_sale_order.payment_acquirer_id.id != x.id and ((x.min_amount_required !=0 and x.min_amount_required &lt; website_sale_order.amount_total)
-                            or (x.max_amount_required !=0 and x.max_amount_required &gt; website_sale_order.amount_total)) for x in acquirers or list()))
-                        or (len(acquirers) &gt; 1 and any(website_sale_order.payment_acquirer_id.id == x.id and ((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
-                            or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)) for x in acquirers or list()))">
-                <div class="col-sm-12">
+            <p>acquirers: <span t-esc="acquirers"/></p>
+            <p>all: <span t-esc="list(
+                                (x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
+                                or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
+                                for x in acquirers or list())"/></p>
+            <div class="row mt16" id="errors"
+                 t-if="(len(acquirers) == 1 and all(
+                            (x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
+                            or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
+                            for x in acquirers or list()))
+                        or (len(acquirers) &gt; 1 and all(
+                            (x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
+                            or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
+                        for x in acquirers or list()))">
+                <div class="col-sm-12" id="errors_content">
                     <div class="alert alert-danger">
                         <h4>
                             There are not Payment Method selected
@@ -62,11 +71,11 @@
         <!--Adapt payment_acquirer_by_amount to OSC-->
         <xpath expr="//t[@t-foreach]/li" position="replace">
             <t t-if="(not acquirer.min_amount_required and not acquirer.max_amount_required)
-                     or (
-                        (acquirer.min_amount_required &lt; website_sale_order.amount_total and acquirer.max_amount_required &gt; website_sale_order.amount_total)
-                        or (not acquirer.max_amount_required and acquirer.min_amount_required &lt; website_sale_order.amount_total)
-                        or (not acquirer.min_amount_required and acquirer.max_amount_required &gt; website_sale_order.amount_total)
-                        )">
+                         or (
+                            (acquirer.min_amount_required !=0 and acquirer.min_amount_required &lt; website_sale_order.amount_total and acquirer.max_amount_required &gt; website_sale_order.amount_total)
+                            or (not acquirer.max_amount_required and acquirer.min_amount_required !=0 and acquirer.min_amount_required &lt; website_sale_order.amount_total)
+                            or (not acquirer.min_amount_required and acquirer.max_amount_required !=0 and acquirer.max_amount_required &gt; website_sale_order.amount_total)
+                            )">
                 <label t-if="acquirer.button">
                     <input t-att-value="acquirer.id"
                            type="radio"
@@ -85,10 +94,12 @@
         <!--Warning for choose a payment method if none is checked-->
         <xpath expr="//div[@id='payment_method']" position="after">
             <!-- Just if amounts are established for any acquirer -->
-            <div id="payment_method_info" t-if="(len(acquirers) == 1 and any(website_sale_order.payment_acquirer_id.id != x.id and ((x.min_amount_required !=0 and x.min_amount_required &lt; website_sale_order.amount_total)
-                                                    or (x.max_amount_required !=0 and x.max_amount_required &gt; website_sale_order.amount_total)) for x in acquirers or list()))
-                                                or (len(acquirers) &gt; 1 and any(website_sale_order.payment_acquirer_id.id != x.id and ((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
-                                                    or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)) for x in acquirers or list()))">
+            <div id="payment_method_info" t-if="(len(acquirers) == 1 and any(((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
+                                                    or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
+                                                ) for x in acquirers or list()))
+                                                or (len(acquirers) &gt; 1 and any(((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
+                                                    or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
+                                                ) for x in acquirers or list()))">
                 <h3 class="page-header mt8">Payment Method Info</h3>
                 <div class="panel panel-default border_primary">
                     <div class="panel-body" id="payment_body_info">
@@ -96,10 +107,14 @@
                         <!-- Show info just for acquirer which amounts are established-->
                         <t t-foreach="acquirers or list()" t-as="acquirer" t-if="len(acquirers) == 1 or website_sale_order.payment_acquirer_id.id or website_sale_order.payment_acquirer_id.id != acquirer.id">
                             <p t-if="(acquirer.min_amount_required !=0 and acquirer.min_amount_required &gt; website_sale_order.amount_total)
-                            or (acquirer.max_amount_required !=0 and acquirer.max_amount_required &lt; website_sale_order.amount_total)">
-                                For select a <strong>"<u><span t-esc="acquirer.name"/></u>"</strong> payment,
-                                the total amount must be between <span t-esc="acquirer.min_amount_required"/> € and
-                                <span t-esc="acquirer.max_amount_required if acquirer.max_amount_required &gt; 0 else 'unlimited'"/> €.
+                                        or (acquirer.max_amount_required !=0 and acquirer.max_amount_required &lt; website_sale_order.amount_total)">
+                                For select a <strong>"<u><span t-esc="acquirer.name"/></u>"</strong> payment method, the total amount must be
+                                <span t-if="acquirer.max_amount_required and acquirer.max_amount_required &gt; 0">between</span>
+                                <span t-else="">over</span>
+                                <span t-esc="'%s %s' % (acquirer.min_amount_required, '€')"/>
+                                <t t-if="acquirer.max_amount_required and acquirer.max_amount_required &gt; 0">
+                                    and <span t-esc="'%s %s' % (acquirer.max_amount_required, '€')"/>
+                                </t>
                             </p>
                         </t>
                     </div>
