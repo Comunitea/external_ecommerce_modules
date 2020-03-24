@@ -1,5 +1,5 @@
-Discount Coupons for OneStepCheckout
-====================================
+Payment Acquirer By Amount
+==========================
 
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
     :target: https://odoo-community.org/page/development-status
@@ -11,10 +11,10 @@ Discount Coupons for OneStepCheckout
     :target: https://github.com/Comunitea/
     :alt: Comunitea
 .. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FExternal%20Ecommerce-lightgray.png?logo=github
-    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/10.0/checkout_coupon
+    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/10.0/payment_acquirer_by_amount
     :alt: Comunitea / Dismac
 .. |badge5| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
-    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/10.0/checkout_coupon/i18n/es.po
+    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/10.0/payment_acquirer_by_amount/i18n/es.po
     :alt: Spanish Translated
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -24,15 +24,19 @@ Discount Coupons for OneStepCheckout
 .. contents::
    :local:
 
-Allows to use Discount Coupons in OSC
--------------------------------------
+How it works
+------------
+Set amounts to show payment acquirer in your website by these amounts.
 
-This is a module that allow to use Discount Coupons for OneStepCheckout (OSC).
+You can establish a minimun amount, a maximun amount or both to show payment acquirer in your website by these ones amounts.
+
+Checkout
+~~~~~~~~
+Use default checkout but you can use a provided example template in your theme to use OneStepCheckout (OSC).
 
 Settings
---------
-
-You can find it on Sales Menu. Just activate and configure it!
+~~~~~~~~
+You can find it on every Payment Acquirer. Just go to conditions page and fill the amounts as you wish!
 
 Author
 ------
@@ -55,8 +59,8 @@ For support and more information, please visit https://comunitea.com.
 Icon
 ----
 
-* `Icon <https://www.flaticon.com/free-icon/discount_621535>`__
-* Subicon made by `Freepik <https://www.flaticon.com/authors/freepik>`__ from `Flaticon <https://www.flaticon.com>`__
+* `Icon <https://www.flaticon.com/free-icon/receive-amount_2534217>`__
+* Subicon made by `Flat Icons <https://www.flaticon.com/authors/flat-icons>`__ from `Flaticon <https://www.flaticon.com>`__
 
 Disclaimer of Warranties
 ------------------------
