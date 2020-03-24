@@ -51,7 +51,8 @@
                         or (len(acquirers) &gt; 1 and all(
                             (x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
                             or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
-                        for x in acquirers or list()))">
+                        for x in acquirers or list()))
+                        or not website_sale_order.payment_mode_id">
                 <div class="col-sm-12" id="errors_content">
                     <div class="alert alert-danger">
                         <h4>
@@ -64,7 +65,7 @@
         </xpath>
 
         <!--Adapt payment_acquirer_by_amount to OSC-->
-        <xpath expr="//t[@t-foreach]/li" position="replace">
+        <xpath expr="//div[@id='payment_method']//t[@t-foreach]/li" position="replace">
             <t t-if="(not acquirer.min_amount_required and not acquirer.max_amount_required)
                          or (
                             (acquirer.min_amount_required !=0 and acquirer.min_amount_required &lt; website_sale_order.amount_total and acquirer.max_amount_required &gt; website_sale_order.amount_total)
