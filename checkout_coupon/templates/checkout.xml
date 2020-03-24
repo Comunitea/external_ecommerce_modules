@@ -40,7 +40,7 @@
 
         <!-- Hide unsellable products (coupons) on delivery order line in review order-->
         <xpath expr="//table[@id='cart_products']//tbody/tr" position="attributes">
-            <attribute name="t-foreach">website_sale_order.website_order_line.filtered(lambda x : x.product_id.sale_ok and not x.payment_fee_line and 'pack_parent_line_id' in x and not x.pack_parent_line_id)</attribute>
+            <attribute name="t-foreach">website_sale_order.website_order_line.filtered(lambda x : x.product_id.sale_ok and not x.payment_fee_line and ('pack_parent_line_id' not in x or ('pack_parent_line_id' in x and not x.pack_parent_line_id)))</attribute>
         </xpath>
 
     </template>
@@ -48,14 +48,14 @@
     <!--Hide unsellable products (coupons) on delivery order line in cart-->
     <template id="website_sale_one_step_checkout_charge_payment_fee.cart_lines_cash_on_delivery" inherit_id="website_sale.cart_lines">
         <xpath expr="//tbody/t" position="attributes">
-            <attribute name="t-foreach">website_sale_order.website_order_line.filtered(lambda x : x.product_id.sale_ok and not x.payment_fee_line and 'pack_parent_line_id' in x and not x.pack_parent_line_id)</attribute>
+            <attribute name="t-foreach">website_sale_order.website_order_line.filtered(lambda x : x.product_id.sale_ok and not x.payment_fee_line and ('pack_parent_line_id' not in x or ('pack_parent_line_id' in x and not x.pack_parent_line_id)))</attribute>
         </xpath>
     </template>
 
     <!--Hide unsellable products (coupons) on delivery order line in cart popover and total items control-->
     <template id="website_sale_one_step_checkout_charge_payment_fee.cart_popover_lines_cash_on_delivery" inherit_id="website_sale.cart_popover">
         <xpath expr="//t[@t-foreach]" position="attributes">
-            <attribute name="t-foreach">website_sale_order.website_order_line.filtered(lambda x : x.product_id.sale_ok and not x.payment_fee_line and 'pack_parent_line_id' in x and not x.pack_parent_line_id)</attribute>
+            <attribute name="t-foreach">website_sale_order.website_order_line.filtered(lambda x : x.product_id.sale_ok and not x.payment_fee_line and ('pack_parent_line_id' not in x or ('pack_parent_line_id' in x and not x.pack_parent_line_id)))</attribute>
         </xpath>
     </template>
 

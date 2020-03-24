@@ -32,6 +32,8 @@ class SaleOrder(models.Model):
         """
         for order in self:
             order.cart_quantity = int(sum(
-                order.website_order_line.filtered(lambda x: x.product_id.sale_ok and not x.payment_fee_line
-                                                  and 'pack_parent_line_id' in dir(x) and not x.pack_parent_line_id)
-                .mapped('product_uom_qty')))
+                order.website_order_line.filtered(lambda x: x.product_id.sale_ok and not x.payment_fee_line and (
+                        'pack_parent_line_id' not in dir(x) or (
+                            'pack_parent_line_id' in dir(x) and not x.pack_parent_line_id)
+                )).mapped('product_uom_qty')
+            ))
