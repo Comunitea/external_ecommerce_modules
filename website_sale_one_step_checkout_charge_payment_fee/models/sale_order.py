@@ -25,7 +25,6 @@ class SaleOrder(models.Model):
         Associate mode payment with payment method to link website orders if exist a relation ship
         """
         payment = vals.get('payment_acquirer_id', False)
-        print('PAYMENT', payment)
         if payment:
             mode = self.env['payment.acquirer'].sudo().search(
                 [('id', '=', vals['payment_acquirer_id'])])
