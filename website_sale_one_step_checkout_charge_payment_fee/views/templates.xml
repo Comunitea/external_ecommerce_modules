@@ -43,11 +43,6 @@
 
         <!-- Show error when just one acquirer is published and amounts conditions do not let select it -->
         <xpath expr="//div[@id='payment_method']//h3" position="after">
-            <p>acquirers: <span t-esc="acquirers"/></p>
-            <p>all: <span t-esc="list(
-                                (x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
-                                or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
-                                for x in acquirers or list())"/></p>
             <div class="row mt16" id="errors"
                  t-if="(len(acquirers) == 1 and all(
                             (x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
