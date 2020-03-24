@@ -167,8 +167,8 @@ msgstr "<span class=\"col-xs-6 text-right\">Cupones:</span>"
 
 #. module: checkout_coupon
 #: model:ir.ui.view,arch_db:checkout_coupon.coupon_code_form
-msgid "<strong>It is eliminated with some change in cart</strong>"
-msgstr "<strong>Se elimina con algún cambio en el carrito</strong>"
+msgid "<strong>It will be eliminated if modify the cart</strong>"
+msgstr "<strong>Será eliminado si modifica el carrito</strong>"
 
 #. module: checkout_coupon
 #: model:ir.ui.view,arch_db:checkout_coupon.checkout_coupon_settings_form
@@ -314,8 +314,8 @@ msgstr "Descripción"
 
 #. module: checkout_coupon
 #: model:ir.ui.menu,name:checkout_coupon.checkout_coupon_menu
-msgid "Discount Coupons"
-msgstr "Cupones de descuento"
+msgid "Coupons"
+msgstr "Cupones"
 
 #. module: checkout_coupon
 #: model:ir.actions.act_window,name:checkout_coupon.checkout_coupon_action
@@ -362,7 +362,7 @@ msgstr "Sólo para un producto"
 #. module: checkout_coupon
 #: model:ir.ui.view,arch_db:checkout_coupon.checkout_coupon_settings_form
 msgid "General discount coupon settings"
-msgstr "Ajustes generales de cupones"
+msgstr "Ajustes Generales Cupones"
 
 #. module: checkout_coupon
 #: model:ir.ui.view,arch_db:checkout_coupon.coupon_code_form
@@ -371,8 +371,8 @@ msgstr "Tiene un cupón de descuento?"
 
 #. module: checkout_coupon
 #: model:ir.ui.menu,name:checkout_coupon.checkout_coupon_history
-msgid "History"
-msgstr "Historia"
+msgid "Historical"
+msgstr "Histórico"
 
 #. module: checkout_coupon
 #: model:ir.model.fields,field_description:checkout_coupon.field_checkout_coupon_coupons_id
@@ -451,8 +451,8 @@ msgstr "Número de cupones debe ser positivo"
 
 #. module: checkout_coupon
 #: model:ir.ui.menu,name:checkout_coupon.checkout_coupon_menu_parent
-msgid "OSC Coupons"
-msgstr "OSC Coupons"
+msgid "Discount Coupons"
+msgstr "Cupones Descuento"
 
 #. module: checkout_coupon
 #: model:ir.model.fields,field_description:checkout_coupon.field_checkout_coupon_history_order

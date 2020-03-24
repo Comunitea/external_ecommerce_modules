@@ -1,6 +1,15 @@
-@red-color: #d9534f;
-@green-color: #005e43;
-@yellow-color: #D5B91D;
+/* Define this variables in your archive css to override them */
+// :root {
+//     --red-color: your_red_color or #d9534f;
+//     --green-color: your_green_color or #d9534f;
+//     --yellow-color: your_yellow_color or #d9534f;
+//     --info-color: your_yellow_color or #d1ecf1;
+//     --text-color: your_yellow_color or #fff;
+//     --color-bg: your_bg_color or rgba(255,255,255,0.65);
+//     --url-bg: your_bg_url or url('/website_sale_one_step_checkout_charge_payment_fee/static/src/img/load-spinner.gif');
+//     --border-radius: your_border_radius or 4px;
+//     --content-padding: your_content_padding or 6px;
+// }
 
 .wp-checkout-coupon {
     width: 100%;
@@ -9,25 +18,30 @@
 .coupon-message {
     margin: 10px 0;
     & div {
-        padding: 1px 4px 3px 4px;
+        border-radius: var(--border-radius, 4px);
+        padding: var(--content-padding, 6px);
         margin: 3px 0;
         font-weight: 600;
         &.red {
-            background-color: @red-color;
-            color: #fff;
+            background-color: var(--red-color, #d9534f);
+            color: var(--text-color, #fff);
         }
         &.green {
-            background-color: @green-color;
-            color: #fff;
+            background-color: var(--green-color, #005e43);
+            color: var(--text-color, #fff);
         }
         &.yellow {
-            background-color: @yellow-color;
-            color: #fff;
+            background-color: var(--yellow-color, #D5B91D);
+            color: var(--text-color, #fff);
+        }
+        &.info {
+            background-color: var(--info-color, #2a9fd6);
+            color: var(--text-color, #fff);
         }
     }
 }
 a.btn.btn-remove {
-    background-color: @red-color;
+    background-color: var(--red-color, #d9534f);
 }
 .wp-checkout-loader {
     display: none;
@@ -37,7 +51,7 @@ a.btn.btn-remove {
     top: 0;
     left: 0;
     z-index: 9999;
-    background: rgba(255, 255, 255, 0.65);
+    background: var(--color-bg, rgba(255,255,255,0.65));
 }
 .checkout-loader {
 
@@ -46,9 +60,14 @@ a.btn.btn-remove {
     width: 100%;
     height: 100%;
     position: absolute;
-    background: url('/checkout_coupon/static/img/load-spinner.gif') no-repeat center center;
+    background: var(--url-bg, url('/checkout_coupon/static/img/load-spinner.gif')) no-repeat center center;
 }
 .discount-line {
-    color: @red-color;
     font-size: 15px;
+    & span {
+        color: var(--red-color, #d9534f);
+    }
+    & span.total-coupon-discount {
+        padding-left: 10px;
+    }
 }

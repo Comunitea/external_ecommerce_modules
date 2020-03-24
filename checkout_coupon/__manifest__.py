@@ -1,42 +1,21 @@
 # -*- coding: utf-8 -*-
-#
-# © 2018 Comunitea
-# Pavel Smirnov <pavel@comunitea.com>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-#
-##############################################################################
-#
-#    Copyright (C) {year} {company} All Rights Reserved
-#    ${developer} <{mail}>$
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published
-#    by the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-
 {
     'name': 'OSC: Discount Coupons',
-    'version': '1.0',
+    'version': '10.0.1.0.0',
     'summary': 'Discount Coupons for OneStepCheckout',
     'description': '',
-    'category': 'Website',
+    'category': 'Ecommerce',
     'author': 'Comunitea',
     'website': 'http://www.comunitea.com',
     'license': 'AGPL-3',
     'contributors': [
         'Pavel Smirnov <pavel@comunitea.com>',
+        "Ruben Seijas <ruben@comunitea.com>",
     ],
     'depends': [
+        'website',
+        'website_sale',
+        'website_sale_one_step_checkout',
         'website_sale_one_step_checkout_delivery',
         'website_sale_one_step_checkout_charge_payment_fee',
     ],
@@ -48,6 +27,7 @@
         'views/menu.xml',
         'views/links.xml',
         'templates/checkout.xml',
+        'security/ir.model.access.csv',
     ],
     'images': [
         '/static/description/icon.png',
