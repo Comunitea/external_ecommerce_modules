@@ -162,8 +162,8 @@ msgstr "; el balance del cupón actual es: %s"
 
 #. module: checkout_coupon
 #: model:ir.ui.view,arch_db:checkout_coupon.discount_cart_total
-msgid "<span class=\"col-xs-6 text-right\">Coupons:</span>"
-msgstr "<span class=\"col-xs-6 text-right\">Cupones:</span>"
+msgid "<span class=\"col-xs-6 text-right\">Coupon:</span>"
+msgstr "<span class=\"col-xs-6 text-right\">Cupón:</span>"
 
 #. module: checkout_coupon
 #: model:ir.ui.view,arch_db:checkout_coupon.coupon_code_form

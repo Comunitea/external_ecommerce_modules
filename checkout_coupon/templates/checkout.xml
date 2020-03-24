@@ -77,10 +77,12 @@
         <xpath expr="//div[@id='order_total_untaxed']" position="before">
             <div class="row discount-line" id="order_total_discount"
                  t-if="website_sale_order.total_coupon_discount and website_sale_order.applied_coupon and website_sale_order.applied_coupon.is_active">
-                <span class="col-xs-6 text-right text-muted">Coupons:</span>
+                <span class="col-xs-6 text-right text-muted"><strong>Coupon:</strong></span>
                 <span class="col-xs-6 text-right text-muted total-coupon-discount">
-                    <span t-field="website_sale_order.total_coupon_discount" style="white-space: nowrap;"
+                    <strong>
+                        <span t-field="website_sale_order.total_coupon_discount" style="white-space: nowrap;"
                           t-options='{"widget": "monetary","display_currency": website_sale_order.currency_id,}'/>
+                    </strong>
                 </span>
             </div>
         </xpath>
