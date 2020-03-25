@@ -133,7 +133,7 @@
                                      t-att-data-pmt-promoted-amount="0">
                                 </div>
                                 <!-- Set Public Key and reload simulator -->
-                                <t t-set="pmt" t-value="request.env['payment.acquirer'].search([('website_published', '=', True), ('company_id', '=', order.company_id.id), ('provider', '=', 'pmt')])"/>
+                                <t t-set="pmt" t-value="request.env['payment.acquirer'].sudo().search([('website_published', '=', True), ('company_id', '=', order.company_id.id), ('provider', '=', 'pmt')])"/>
                                 <script>
                                     pmtClient.simulator.setPublicKey('<t t-esc="pmt.pmt_public_key"/>');
                                     pmtClient.simulator.init();
