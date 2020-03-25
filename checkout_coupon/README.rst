@@ -1,5 +1,5 @@
-Discount Coupons for OneStepCheckout
-====================================
+Discount Coupons for Checkout
+=============================
 
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
     :target: https://odoo-community.org/page/development-status
@@ -24,10 +24,16 @@ Discount Coupons for OneStepCheckout
 .. contents::
    :local:
 
-Allows to use Discount Coupons in OSC
--------------------------------------
+Allows to use Discount Coupons in Checkout
+------------------------------------------
 
-This is a module that allow to use Discount Coupons for OneStepCheckout (OSC).
+This is a module that allow to use Discount Coupons for Checkout.
+
+Also available on OneStepCheckout (OSC) if is installed
+
+    **Warnig!**
+
+    Note that if website_sale_one_step_checkout_charge_payment_fee module is installed then automatically works with OSC.
 
 Settings
 --------

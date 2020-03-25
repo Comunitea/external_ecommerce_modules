@@ -2,7 +2,7 @@
 {
     'name': 'OSC: Discount Coupons',
     'version': '10.0.1.0.0',
-    'summary': 'Discount Coupons for OneStepCheckout',
+    'summary': 'Discount Coupons for Checkout',
     'description': '',
     'category': 'Ecommerce',
     'author': 'Comunitea',
