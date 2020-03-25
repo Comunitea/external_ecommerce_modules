@@ -13,7 +13,8 @@
     'license': 'AGPL-3',
     'category': 'eCommerce',
     'depends': [
-        'payment_acquirer_by_amount',
+        'website',
+        'website_sale',
         'website_sale_one_step_checkout',
         'website_sale_charge_payment_fee',
         'seo_base',

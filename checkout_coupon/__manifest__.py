@@ -15,9 +15,6 @@
     'depends': [
         'website',
         'website_sale',
-        'website_sale_one_step_checkout',
-        'website_sale_one_step_checkout_delivery',
-        'website_sale_one_step_checkout_charge_payment_fee',
     ],
     'data': [
         'views/coupons.xml',

@@ -5,7 +5,7 @@
 
         <!-- Add discount coupon input in OSC page -->
         <xpath expr="//table[@id='cart_products']" position="after">
-            <t t-if="request.website.use_osc_coupon">
+            <t t-if="request.website.use_osc_coupon and not request.env['ir.ui.view'].search([('key', '=', 'website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_osc_onestepcheckout')]).active">
                 <div t-if="not order.applied_coupon" class="wp-checkout-coupon">
                     <h4>Have a discount coupon?</h4>
                     <p>Put it in this field and apply</p>
@@ -40,20 +40,22 @@
 
         <!-- Hide unsellable products (coupons) on delivery order line in review order-->
         <xpath expr="//table[@id='cart_products']//tbody/tr" position="attributes">
-            <attribute name="t-foreach">website_sale_order.website_order_line.filtered(lambda x : x.product_id.sale_ok and not x.payment_fee_line and ('pack_parent_line_id' not in x or ('pack_parent_line_id' in x and not x.pack_parent_line_id)))</attribute>
+            <attribute name="t-foreach" t-if="not request.env['ir.ui.view'].search([('key', '=', 'website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_osc_onestepcheckout')]).active">
+                website_sale_order.website_order_line.filtered(lambda x : x.product_id.sale_ok and not x.payment_fee_line and ('pack_parent_line_id' not in x or ('pack_parent_line_id' in x and not x.pack_parent_line_id)))
+            </attribute>
         </xpath>
 
     </template>
 
-    <!--Hide unsellable products (coupons) on delivery order line in cart-->
-    <template id="website_sale_one_step_checkout_charge_payment_fee.cart_lines_cash_on_delivery" inherit_id="website_sale.cart_lines">
+    <!--Hide unsellable products (coupons), cash on delivery order line and products packs on delivery order line in cart-->
+    <template id="website_sale_cart_lines" name="Shopping Cart Lines Checkout Coupon" inherit_id="website_sale.cart_lines">
         <xpath expr="//tbody/t" position="attributes">
             <attribute name="t-foreach">website_sale_order.website_order_line.filtered(lambda x : x.product_id.sale_ok and not x.payment_fee_line and ('pack_parent_line_id' not in x or ('pack_parent_line_id' in x and not x.pack_parent_line_id)))</attribute>
         </xpath>
     </template>
 
-    <!--Hide unsellable products (coupons) on delivery order line in cart popover and total items control-->
-    <template id="website_sale_one_step_checkout_charge_payment_fee.cart_popover_lines_cash_on_delivery" inherit_id="website_sale.cart_popover">
+    <!--Hide unsellable products (coupons), cash on delivery order line and products packs on delivery order line in cart popover and total items control-->
+    <template id="website_sale_cart_popover" name="Cart Popover Checkout Coupon" inherit_id="website_sale.cart_popover">
         <xpath expr="//t[@t-foreach]" position="attributes">
             <attribute name="t-foreach">website_sale_order.website_order_line.filtered(lambda x : x.product_id.sale_ok and not x.payment_fee_line and ('pack_parent_line_id' not in x or ('pack_parent_line_id' in x and not x.pack_parent_line_id)))</attribute>
         </xpath>
