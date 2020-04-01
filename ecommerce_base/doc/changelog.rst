@@ -1,3 +1,7 @@
+`11.0.1.1.0`
+------------
+**[ADD]** Spanish translation
+
 `11.0.1.0.0`
 ------------
 - **[UDP]** Modify module structure follow OCA Guidelines

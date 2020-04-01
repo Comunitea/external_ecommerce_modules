@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Ecommerce Basic Modules',
-    'version': '11.0.1.0.0',
+    'version': '11.0.1.1.0',
     'summary': 'This module contains modules dependencies for a basic installation of an e-commerce website.',
     'description': '',
     'category': 'Ecommerce',

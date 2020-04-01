@@ -14,8 +14,11 @@ Ecommerce Basic Modules
 .. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FEcommerce-lightgray.png?logo=github
     :target: https://github.com/Comunitea/external_ecommerce_modules/tree/11.0/ecommerce_base
     :alt: Comunitea / Ecommerce
+.. |badge5| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
+    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/11.0/ecommerce_base/i18n
+    :alt: Spanish Translated
 
-|badge1| |badge2| |badge3| |badge4|
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module contains modules dependencies for a basic installation of an e-commerce website.
 
