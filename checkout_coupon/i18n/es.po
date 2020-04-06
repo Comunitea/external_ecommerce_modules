@@ -365,7 +365,7 @@ msgid "General discount coupon settings"
 msgstr "Ajustes Generales Cupones"
 
 #. module: checkout_coupon
-#: model:ir.ui.view,arch_db:checkout_coupon.coupon_code_form
+#: model:ir.ui.view,arch_db:checkout_coupon.website_sale_payment
 msgid "Have a discount coupon?"
 msgstr "Tiene un cupón de descuento?"
 
@@ -490,12 +490,12 @@ msgid "Percentage discount"
 msgstr "Porcentaje del descuento"
 
 #. module: checkout_coupon
-#: model:ir.ui.view,arch_db:checkout_coupon.coupon_code_form
+#: model:ir.ui.view,arch_db:checkout_coupon.website_sale_payment
 msgid "Put it in this field and apply"
 msgstr "Ponlo en este campo y aplica."
 
 #. module: checkout_coupon
-#: model:ir.ui.view,arch_db:checkout_coupon.coupon_code_form
+#: model:ir.ui.view,arch_db:checkout_coupon.website_sale_payment
 msgid "Remove"
 msgstr "Quitar"
 
@@ -541,6 +541,6 @@ msgid "Website"
 msgstr "Sitio web"
 
 #. module: checkout_coupon
-#: model:ir.ui.view,arch_db:checkout_coupon.coupon_code_form
+#: model:ir.ui.view,arch_db:checkout_coupon.website_sale_payment
 msgid "You have a coupon applied"
 msgstr "Tiene un cúpon aplicado"
