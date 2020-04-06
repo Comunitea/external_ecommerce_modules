@@ -31,9 +31,12 @@ This is a module that allow to use Discount Coupons for Checkout.
 
 Also available on OneStepCheckout (OSC) if is installed
 
-    **Warnig!**
+    **Warning!**
 
-    Note that if website_sale_one_step_checkout_charge_payment_fee module is installed then automatically works with OSC.
+Note that:
+
+* If website_sale_one_step_checkout_charge_payment_fee module is installed then automatically works with OSC.
+* If OSC Module is installed but website_sale_one_step_checkout_charge_payment_fee module is not installed then you must enable the template comment in this module otherwise put it in your theme.
 
 Settings
 --------

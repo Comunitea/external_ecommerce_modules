@@ -53,8 +53,9 @@
             </field>
         </record>
 
-        <!--Funciona con checkout por defecto-->
+        <!--Default Checkout-->
         <template id="pmt_tx_ko" inherit_id="website_sale.payment">
+            <!--Pagantis Errors-->
             <xpath expr="//div[@class='container oe_website_sale']/h1" position="before">
                 <div t-if="request.session.get('pmt_tx_error')" class="row">
                     <div class="col-md-4"/>
@@ -67,6 +68,107 @@
                         </div>
                     </div>
                     <div class="col-md-4"/>
+                </div>
+            </xpath>
+
+            <!--Payment Method Info. Two options: With or Without payment_acquirer_by_amount module installed-->
+            <xpath expr="//div[@id='payment_method']" position="attributes">
+                <attribute name="class">js_payment mb8 row</attribute>
+            </xpath>
+            <xpath expr="//div[@id='payment_method']" position="after">
+                <t t-set="pmt" t-value="request.env['payment.acquirer'].sudo().search([('website_published', '=', True), ('company_id', '=', order.company_id.id), ('provider', '=', 'pmt')])"/>
+                <div class="row mb64" t-if="pmt">
+                    <!-- Without payment_acquirer_by_amount module installed -->
+                    <t t-if="all('min_amount_required' not in x and 'max_amount_required' not in x for x in acquirers or list())">
+                        <div class="col-lg-5 col-sm-6">
+                            <h4>Payment Method Info:</h4>
+                            <p>
+                                <!-- Retrive Javascript SDK from CDN -->
+                                <script type="text/javascript" src="https://cdn.pagamastarde.com/pmt-js-client-sdk/3/js/client-sdk.min.js"/>
+                                <!-- Create simulator container -->
+                                <div class="PmtSimulator"
+                                     data-pmt-style="Blue"
+                                     data-pmt-type="6"
+                                     data-pmt-num-quota="12"
+                                     t-att-data-pmt-amount="website_sale_order.amount_total"
+                                     t-att-data-pmt-promoted-amount="0">
+                                </div>
+                                <!-- Set Public Key and reload simulator -->
+                                <script>
+                                    pmtClient.simulator.setPublicKey('<t t-esc="pmt.pmt_public_key"/>');
+                                    pmtClient.simulator.init();
+                                    pmtClient.simulator.reload();
+                                </script>
+                            </p>
+                            <button class="btn btn-block btn-primary"
+                                    onclick="pmtClient.modal.open('https://developer.pagamastarde.com/marketing-landing/es/',
+                                            {'closeConfirmationMessage': null, 'largeSize': true});">Ver Instrucciones Pagantis</button>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <!-- With payment_acquirer_by_amount module installed -->
+                        <div class="col-lg-5 col-sm-6" id="payment_method_info" t-if="(len(acquirers) == 1 and any(((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
+                                                    or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
+                                                ) for x in acquirers or list()))
+                                                or (len(acquirers) &gt; 1 and any(((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
+                                                    or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
+                                                ) for x in acquirers or list()))">
+                            <h4 class="mt8">Payment Method Info:</h4>
+                            <div class="panel panel-default">
+                                <div class="panel-body" id="payment_body_info">
+                                    <p t-if="not website_sale_order.payment_acquirer_id">You must select a payment method to continue process checkout</p>
+                                    <!-- Show info just for acquirer which amounts are established-->
+                                    <t t-foreach="acquirers or list()" t-as="acquirer" t-if="len(acquirers) == 1 or website_sale_order.payment_acquirer_id.id or website_sale_order.payment_acquirer_id.id != acquirer.id">
+                                        <p t-if="(acquirer.min_amount_required !=0 and acquirer.min_amount_required &gt; website_sale_order.amount_total)
+                                        or (acquirer.max_amount_required !=0 and acquirer.max_amount_required &lt; website_sale_order.amount_total)">
+                                            For select a <strong>"<u><span t-esc="acquirer.name"/></u>"</strong> payment method, the total amount must be
+                                            <span t-if="acquirer.max_amount_required and acquirer.max_amount_required &gt; 0">between</span>
+                                            <span t-else="">over</span>
+                                            <span t-esc="'%s %s' % (acquirer.min_amount_required, '€')"/>
+                                            <t t-if="acquirer.max_amount_required and acquirer.max_amount_required &gt; 0">
+                                                and <span t-esc="'%s %s' % (acquirer.max_amount_required, '€')"/>
+                                            </t>
+                                        </p>
+                                    </t>
+                                    <!-- Pagantis -->
+                                    <t t-if="pmt">
+                                        <p>
+                                            <!-- Retrive Javascript SDK from CDN -->
+                                            <script type="text/javascript" src="https://cdn.pagamastarde.com/pmt-js-client-sdk/3/js/client-sdk.min.js"/>
+                                            <!-- Create simulator container -->
+                                            <div class="PmtSimulator"
+                                                 data-pmt-style="Blue"
+                                                 data-pmt-type="6"
+                                                 data-pmt-num-quota="12"
+                                                 t-att-data-pmt-amount="website_sale_order.amount_total"
+                                                 t-att-data-pmt-promoted-amount="0">
+                                            </div>
+                                            <!-- Set Public Key and reload simulator -->
+                                            <script>
+                                                pmtClient.simulator.setPublicKey('<t t-esc="pmt.pmt_public_key"/>');
+                                                pmtClient.simulator.init();
+                                                pmtClient.simulator.reload();
+                                            </script>
+                                        </p>
+                                        <button class="btn btn-block btn-primary"
+                                                onclick="pmtClient.modal.open('https://developer.pagamastarde.com/marketing-landing/es/',
+                                        {'closeConfirmationMessage': null, 'largeSize': true});">Ver Instrucciones Pagantis</button>
+                                    </t>
+                                </div>
+                                <!-- Dynamic url payment info. Use /page/payment-info as standard -->
+                                <t t-set="payment_page" t-value="request.env['website.menu'].search(['|', ('url', '=', '/page/pago-seguro'), ('url', '=', '/page/payment-info')], limit=1)"/>
+                                <div class="panel-footer" t-if="payment_page">
+                                    <span>You can see all payment conditions clicking <a t-att-href="payment_page.url" target="_blank" rel="nofollow,noindex"
+                                                                                         title="Open Payment conditions into a new tab"
+                                                                                         style="text-decoration: underline;">here</a>.
+                                    </span>
+                                </div>
+                                <div class="panel-footer" t-else="">
+                                    <span>Please, contact us if you wish more info about payment conditions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
                 </div>
             </xpath>
         </template>

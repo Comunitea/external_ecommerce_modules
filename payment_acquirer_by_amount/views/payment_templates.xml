@@ -3,6 +3,7 @@
 
     <!--Default Checkout-->
     <template id="custom_checkout" inherit_id="website_sale.payment">
+        <!-- Show aquirers by their amounts conditions -->
         <xpath expr="//div[@id='payment_method']//t[@t-foreach]/li" position="replace">
             <t t-if="(not acquirer.min_amount_required and not acquirer.max_amount_required)
                          or (
@@ -24,30 +25,79 @@
                 </label>
             </t>
         </xpath>
+
+        <!--Payment Method Info. Two options: With or Without payment_paga_mas_tarde module installed-->
+        <!--If payment_paga_mas_tarde module is installed then panel is shown by that module template otherwise this is shown-->
+        <xpath expr="//div[@id='payment_method']" position="attributes">
+            <attribute name="class">js_payment mb8 row</attribute>
+        </xpath>
+        <xpath expr="//div[@id='payment_method']" position="after">
+            <t t-set="pmt" t-value="request.env['payment.acquirer'].sudo().search([('website_published', '=', True), ('company_id', '=', order.company_id.id), ('provider', '=', 'pmt')])"/>
+            <div class="row mb64" t-if="not pmt">
+                <!-- With payment_acquirer_by_amount module installed -->
+                <div class="col-lg-5 col-sm-6" id="payment_method_info" t-if="(len(acquirers) == 1 and any(((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
+                                                    or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
+                                                ) for x in acquirers or list()))
+                                                or (len(acquirers) &gt; 1 and any(((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
+                                                    or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
+                                                ) for x in acquirers or list()))">
+                    <h4 class="mt8">Payment Method Info:</h4>
+                    <div class="panel panel-default">
+                        <div class="panel-body" id="payment_body_info">
+                            <p t-if="not website_sale_order.payment_acquirer_id">You must select a payment method to continue process checkout</p>
+                            <!-- Show info just for acquirer which amounts are established-->
+                            <t t-foreach="acquirers or list()" t-as="acquirer" t-if="len(acquirers) == 1 or website_sale_order.payment_acquirer_id.id or website_sale_order.payment_acquirer_id.id != acquirer.id">
+                                <p t-if="(acquirer.min_amount_required !=0 and acquirer.min_amount_required &gt; website_sale_order.amount_total)
+                                        or (acquirer.max_amount_required !=0 and acquirer.max_amount_required &lt; website_sale_order.amount_total)">
+                                    For select a <strong>"<u><span t-esc="acquirer.name"/></u>"</strong> payment method, the total amount must be
+                                    <span t-if="acquirer.max_amount_required and acquirer.max_amount_required &gt; 0">between</span>
+                                    <span t-else="">over</span>
+                                    <span t-esc="'%s %s' % (acquirer.min_amount_required, '€')"/>
+                                    <t t-if="acquirer.max_amount_required and acquirer.max_amount_required &gt; 0">
+                                        and <span t-esc="'%s %s' % (acquirer.max_amount_required, '€')"/>
+                                    </t>
+                                </p>
+                            </t>
+                        </div>
+                        <!-- Dynamic url payment info. Use /page/payment-info as standard -->
+                        <t t-set="payment_page" t-value="request.env['website.menu'].search(['|', ('url', '=', '/page/pago-seguro'), ('url', '=', '/page/payment-info')], limit=1)"/>
+                        <div class="panel-footer" t-if="payment_page">
+                            <span>You can see all payment conditions clicking <a t-att-href="payment_page.url" target="_blank" rel="nofollow,noindex"
+                                                                                 title="Open Payment conditions into a new tab"
+                                                                                 style="text-decoration: underline;">here</a>.
+                            </span>
+                        </div>
+                        <div class="panel-footer" t-else="">
+                            <span>Please, contact us if you wish more info about payment conditions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
     </template>
 
     <!--OSC Checkout without website_sale_one_step_checkout_charge_payment_fee module. If was installed then it is not necessary this template -->
     <!--<template id="custom_onestepcheckout" inherit_id="website_sale_one_step_checkout.osc_onestepcheckout">-->
-        <!--<xpath expr="//t[@t-foreach]/li" position="replace">-->
-<!--            <t t-if="(not acquirer.min_amount_required and not acquirer.max_amount_required)-->
-<!--                         or (-->
-<!--                            (acquirer.min_amount_required !=0 and acquirer.min_amount_required &lt; website_sale_order.amount_total and acquirer.max_amount_required &gt; website_sale_order.amount_total)-->
-<!--                            or (not acquirer.max_amount_required and acquirer.min_amount_required !=0 and acquirer.min_amount_required &lt; website_sale_order.amount_total)-->
-<!--                            or (not acquirer.min_amount_required and acquirer.max_amount_required !=0 and acquirer.max_amount_required &gt; website_sale_order.amount_total)-->
-<!--                            )">-->
-<!--                <label t-if="acquirer.button">-->
-<!--                    <input t-att-value="acquirer.id"-->
-<!--                           type="radio"-->
-<!--                           name="acquirer"-->
-<!--                           t-att-checked="website_sale_order.payment_acquirer_id == acquirer"/>-->
-<!--                    <span t-field="acquirer.image_small"-->
-<!--                          t-att-title="acquirer.name"-->
-<!--                          t-field-options='{"widget": "image", "style":"max-width: 60px; display: inline-block"}'/>-->
-<!--                    <span t-field="acquirer.name"/>-->
-<!--                    <span t-if="acquirer.fees_active">(processing fees apply)-->
-<!--                    </span>-->
-<!--                </label>-->
-<!--            </t>-->
-        <!--</xpath>-->
+    <!--<xpath expr="//t[@t-foreach]/li" position="replace">-->
+    <!--            <t t-if="(not acquirer.min_amount_required and not acquirer.max_amount_required)-->
+    <!--                         or (-->
+    <!--                            (acquirer.min_amount_required !=0 and acquirer.min_amount_required &lt; website_sale_order.amount_total and acquirer.max_amount_required &gt; website_sale_order.amount_total)-->
+    <!--                            or (not acquirer.max_amount_required and acquirer.min_amount_required !=0 and acquirer.min_amount_required &lt; website_sale_order.amount_total)-->
+    <!--                            or (not acquirer.min_amount_required and acquirer.max_amount_required !=0 and acquirer.max_amount_required &gt; website_sale_order.amount_total)-->
+    <!--                            )">-->
+    <!--                <label t-if="acquirer.button">-->
+    <!--                    <input t-att-value="acquirer.id"-->
+    <!--                           type="radio"-->
+    <!--                           name="acquirer"-->
+    <!--                           t-att-checked="website_sale_order.payment_acquirer_id == acquirer"/>-->
+    <!--                    <span t-field="acquirer.image_small"-->
+    <!--                          t-att-title="acquirer.name"-->
+    <!--                          t-field-options='{"widget": "image", "style":"max-width: 60px; display: inline-block"}'/>-->
+    <!--                    <span t-field="acquirer.name"/>-->
+    <!--                    <span t-if="acquirer.fees_active">(processing fees apply)-->
+    <!--                    </span>-->
+    <!--                </label>-->
+    <!--            </t>-->
+    <!--</xpath>-->
     <!--</template>-->
 </odoo>

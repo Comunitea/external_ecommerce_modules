@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'OSC: Discount Coupons',
+    'name': 'Discount Coupons',
     'version': '10.0.1.0.0',
     'summary': 'Discount Coupons for Checkout',
     'description': '',
@@ -15,6 +15,7 @@
     'depends': [
         'website',
         'website_sale',
+        'website_sale_charge_payment_fee',
     ],
     'data': [
         'views/coupons.xml',
