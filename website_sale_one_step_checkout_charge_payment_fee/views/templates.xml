@@ -44,6 +44,42 @@
         </xpath>
     </template>
 
+    <template id="website_sale_one_step_checkout_delivery_payment_delivery" name="Delivery Costs Payment Fee Charge" inherit_id="website_sale_one_step_checkout_delivery.payment_delivery">
+        <xpath expr="//div[@id='delivery_carrier_osc']" position="after">
+            <t t-if="not deliveries">
+                <!-- Something was wrong. -->
+                <div class="panel panel-danger border_primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Some Send Condition <strong>is not correct!</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>Please, check all <strong>Send Conditions</strong> for order can be available to send.</p>
+                        <p>Please, check if you have your <strong>Billing Information</strong> and <strong>Shipping Address</strong> filled correctly too.</p>
+                        <t t-foreach="errors" t-as="error" t-if="errors">
+                            <div class="alert alert-danger" t-if="error">
+                                <h4>
+                                    <t t-esc="error[0]" />
+                                </h4>
+                                <t t-esc="error[1]" />
+                            </div>
+                        </t>
+                    </div>
+                    <!-- Dynamic url payment info. Use /page/payment-info as standard -->
+                    <t t-set="payment_page" t-value="request.env['website.menu'].search(['|', ('url', '=', '/page/pago-seguro'), ('url', '=', '/page/payment-info')], limit=1)"/>
+                    <div class="panel-footer" t-if="payment_page">
+                        <span>You can see all Send Conditions clicking <a t-att-href="payment_page.url" target="_blank" rel="nofollow,noindex"
+                                                                             title="Open Payment conditions into a new tab"
+                                                                             style="text-decoration: underline;">here</a>.
+                        </span>
+                    </div>
+                    <div class="panel-footer" t-else="">
+                        <span>Please, contact us if you wish more info about payment conditions</span>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
     <!--OSC-->
     <template id="website_sale_one_step_checkout_osc_onestepcheckout" inherit_id="website_sale_one_step_checkout.osc_onestepcheckout" name="OSC Payment Fee Charge">
 

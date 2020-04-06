@@ -46,6 +46,7 @@ msgid "Has cash on delivery"
 msgstr "Tiene Reembolso"
 
 #. module: website_sale_one_step_checkout_charge_payment_fee
+#: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_delivery_payment_delivery
 #: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_osc_onestepcheckout
 msgid "Open Payment conditions into a new tab"
 msgstr "Abre las condiciones de pago en una nueva pestaña"
@@ -96,9 +97,30 @@ msgid "You can see all payment conditions clicking"
 msgstr "Puedes ver todas las condiciones de los métodos de pago haciendo click "
 
 #. module: website_sale_one_step_checkout_charge_payment_fee
+#: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_delivery_payment_delivery
 #: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_osc_onestepcheckout
 msgid "<span>Please, contact us if you wish more info about payment conditions</span>"
 msgstr "<span>Por favor, contacte con nosotros si desea obtener información sobre las condiciones de pago</span>"
+
+#. module: website_sale_one_step_checkout_charge_payment_fee
+#: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_delivery_payment_delivery
+msgid "Some Send Condition <strong>is not correct!</strong>"
+msgstr "Alguna Condición de Envío <strong>no es correcta!</strong>"
+
+#. module: website_sale_one_step_checkout_charge_payment_fee
+#: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_delivery_payment_delivery
+msgid "Please, check all <strong>Send Conditions</strong> for order can be available to send."
+msgstr "Por favor, revise que se cumplan todas las <strong>Condicies de Envío</strong> para que se pueda enviar el pedido."
+
+#. module: website_sale_one_step_checkout_charge_payment_fee
+#: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_delivery_payment_delivery
+msgid "Please, check if you have your <strong>Billing Information</strong> and <strong>Shipping Address</strong> filled correctly too."
+msgstr "Por favor, revise también si tiene su <strong>Información de Facturación</strong> y su <strong>Dirección de Envío</strong> correctamente rellenadas."
+
+#. module: website_sale_one_step_checkout_charge_payment_fee
+#: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_delivery_payment_delivery
+msgid "You can see all Send Conditions clicking"
+msgstr "Puede ver las Condicies de Envío pulsando"
 
 #. module: website_sale_one_step_checkout_charge_payment_fee
 #: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_osc_onestepcheckout
@@ -111,6 +133,7 @@ msgid "You must select a payment method to continue process checkout. Select one
 msgstr "Debe seleccionar un método de pago para continuar el proceso de pago. Seleccione uno o vea el Método de Pago Info panel."
 
 #. module: website_sale_one_step_checkout_charge_payment_fee
+#: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_delivery_payment_delivery
 #: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_osc_onestepcheckout
 msgid "here"
 msgstr "aquí"
