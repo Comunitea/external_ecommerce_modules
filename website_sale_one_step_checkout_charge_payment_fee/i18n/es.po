@@ -94,7 +94,7 @@ msgstr "No hay un Método de Pago seleccionado"
 #. module: website_sale_one_step_checkout_charge_payment_fee
 #: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_osc_onestepcheckout
 msgid "You can see all payment conditions clicking"
-msgstr "Puedes ver todas las condiciones de los métodos de pago haciendo click "
+msgstr "Puede ver todas las condiciones de los métodos de pago haciendo click "
 
 #. module: website_sale_one_step_checkout_charge_payment_fee
 #: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_delivery_payment_delivery
@@ -124,8 +124,8 @@ msgstr "Puede ver las Condicies de Envío pulsando"
 
 #. module: website_sale_one_step_checkout_charge_payment_fee
 #: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_osc_onestepcheckout
-msgid "You must select a payment method to continue process checkout"
-msgstr "Debe seleccionar un método de pago para continuar el proceso de pago"
+msgid "<strong>You must select a payment method to continue process checkout</strong>"
+msgstr "<strong>Debe seleccionar un método de pago para continuar el proceso de pago</strong>"
 
 #. module: website_sale_one_step_checkout_charge_payment_fee
 #: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_osc_onestepcheckout

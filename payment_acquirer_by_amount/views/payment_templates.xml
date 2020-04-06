@@ -3,7 +3,7 @@
 
     <!--Default Checkout-->
     <template id="custom_checkout" inherit_id="website_sale.payment">
-        <!-- Show aquirers by their amounts conditions -->
+        <!-- Show acquirers by their amounts conditions -->
         <xpath expr="//div[@id='payment_method']//t[@t-foreach]/li" position="replace">
             <t t-if="(not acquirer.min_amount_required and not acquirer.max_amount_required)
                          or (
@@ -35,10 +35,10 @@
             <t t-set="pmt" t-value="request.env['payment.acquirer'].sudo().search([('website_published', '=', True), ('company_id', '=', order.company_id.id), ('provider', '=', 'pmt')])"/>
             <div class="row mb64" t-if="not pmt">
                 <!-- With payment_acquirer_by_amount module installed -->
-                <div class="col-lg-5 col-sm-6" id="payment_method_info" t-if="(len(acquirers) == 1 and any(((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
+                <div class="col-lg-5 col-sm-6" id="payment_method_info" t-if="(acquirers and len(acquirers) == 1 and any(((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
                                                     or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
                                                 ) for x in acquirers or list()))
-                                                or (len(acquirers) &gt; 1 and any(((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
+                                                or (acquirers and len(acquirers) &gt; 1 and any(((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
                                                     or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
                                                 ) for x in acquirers or list()))">
                     <h4 class="mt8">Payment Method Info:</h4>
@@ -46,7 +46,7 @@
                         <div class="panel-body" id="payment_body_info">
                             <p t-if="not website_sale_order.payment_acquirer_id">You must select a payment method to continue process checkout</p>
                             <!-- Show info just for acquirer which amounts are established-->
-                            <t t-foreach="acquirers or list()" t-as="acquirer" t-if="len(acquirers) == 1 or website_sale_order.payment_acquirer_id.id or website_sale_order.payment_acquirer_id.id != acquirer.id">
+                            <t t-foreach="acquirers or list()" t-as="acquirer" t-if="acquirers and len(acquirers) == 1 or website_sale_order.payment_acquirer_id.id or website_sale_order.payment_acquirer_id.id != acquirer.id">
                                 <p t-if="(acquirer.min_amount_required !=0 and acquirer.min_amount_required &gt; website_sale_order.amount_total)
                                         or (acquirer.max_amount_required !=0 and acquirer.max_amount_required &lt; website_sale_order.amount_total)">
                                     For select a <strong>"<u><span t-esc="acquirer.name"/></u>"</strong> payment method, the total amount must be
