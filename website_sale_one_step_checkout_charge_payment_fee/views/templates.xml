@@ -141,7 +141,7 @@
                 <h3 class="page-header mt8">Payment Method Info</h3>
                 <div class="panel panel-default border_primary">
                     <div class="panel-body" id="payment_body_info">
-                        <p class="text-danger" t-if="not website_sale_order.payment_acquirer_id">You must select a payment method to continue process checkout</p>
+                        <p class="text-danger" t-if="not website_sale_order.payment_acquirer_id"><strong>You must select a payment method to continue process checkout</strong></p>
                         <!-- Show info just for acquirer which amounts are established-->
                         <t t-foreach="acquirers or list()" t-as="acquirer" t-if="acquirers and len(acquirers) == 1 or website_sale_order.payment_acquirer_id.id or website_sale_order.payment_acquirer_id.id != acquirer.id">
                             <p t-if="(acquirer.min_amount_required !=0 and acquirer.min_amount_required &gt; website_sale_order.amount_total)
