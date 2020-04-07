@@ -1,3 +1,7 @@
+`11.0.1.1.1`
+------------
+**[DEL]** Delete no real dependencies
+
 `11.0.1.1.0`
 ------------
 **[ADD]** Spanish translation
