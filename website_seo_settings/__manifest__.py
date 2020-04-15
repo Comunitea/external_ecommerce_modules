@@ -2,7 +2,7 @@
 
 {
     'name': 'Website SEO Settings',
-    'version': '1.0',
+    'version': '12.0.0.1.0',
     'summary': 'Website settings improvements for SEO optimization',
     'description': '',
     'category': 'Website',
@@ -10,7 +10,6 @@
     'website': 'http://www.comunitea.com',
     'license': 'AGPL-3',
     'contributors': [
-        'Pavel Smirnov <pavel@comunitea.com>',
         'Rubén Seijas <ruben@comunitea.com>',
     ],
     'depends': [

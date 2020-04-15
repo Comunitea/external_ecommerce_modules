@@ -160,20 +160,38 @@ Set this in Website > Configuration > SEO > Web Progressive App
     Also you can activate or deactivate cache and console messages to debugger it.
 
 Author
-~~~~~~
+------
+.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
+   :alt: Comunitea
+   :target: https://comunitea.com
 
-Developer: Comunitea, info@comunitea.com
+Comunitea Servicios Tecnológicos S.L.
+
+For support and more information, please visit `<https://comunitea.com>`_.
 
 Contributors
 ------------
 
-* Pavel Smirnov, pavel@comunitea.com
 * Rubén Seijas, ruben@comunitea.com
 
 Maintainer
 ~~~~~~~~~~
+.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
+   :alt: Comunitea
+   :target: https://comunitea.com
 
-This module is maintained by the Comunitea http://www.comunitea.com.
+Comunitea Servicios Tecnológicos S.L.
+
+For support and more information, please visit `<https://comunitea.com>`_.
+
+Bug Tracker
+-----------
+Bugs are tracked on `Comunitea Issues <https://github.com/Comunitea/external_ecommerce_modules/issues>`_.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us smashing it by providing a detailed and welcomed
+`Feedback <https://github.com/Comunitea/external_ecommerce_modules/issues/new>`_.
+
+Please, do not contact contributors directly about support or help with technical issues.
 
 Disclaimer of Warranties
 ------------------------
