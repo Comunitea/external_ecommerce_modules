@@ -18,7 +18,42 @@ msgstr ""
 #. module: breadcrumbs_base
 #: model:ir.ui.view,arch_db:breadcrumbs_base.bcb_main_wrap
 msgid "My Portal"
-msgstr "Mi Portal"
+msgstr "Mi Cuenta"
+
+#. module: sale
+#: model:ir.ui.view,name:sale.portal_my_orders
+msgid "My Sales Orders"
+msgstr "Mis Pedidos de Venta"
+
+#. module: sale
+#: model:ir.ui.view,name:sale.portal_my_quotations
+msgid "My Quotations"
+msgstr "Mis Presupuestos"
+
+#. module: sale
+#: model:ir.ui.view,name:purchase.portal_my_purchase_orders
+msgid "Portal: My Purchase Orders"
+msgstr "Mis Pedidos de compra"
+
+#. module: account
+#: model:ir.ui.view,name:account.portal_my_invoices
+msgid "My Invoices and Payments"
+msgstr "Mis Facturas"
+
+#. module: portal
+#: model:ir.ui.view,name:portal.portal_my_home
+msgid "My Portal"
+msgstr "Mi Cuenta"
+
+#. module: portal
+#: model:ir.ui.view,name:portal.portal_my_details
+msgid "portal_my_details"
+msgstr "Mis Datos"
+
+#. module: website_sale
+#: model:ir.ui.view,name:website_sale.products
+msgid "Products"
+msgstr "Productos"
 
 #. module: portal
 #: model:ir.ui.view,arch_db:portal.portal_my_details
@@ -133,4 +168,9 @@ msgstr "Sitio web"
 #: model:ir.model,name:breadcrumbs_base.model_breadcrumbs_base_crumb
 msgid "breadcrumbs_base.crumb"
 msgstr "breadcrumbs_base.crumb"
+
+#. module: website_slides
+#: model:ir.ui.view,name:website_slides.channels
+msgid "Channels"
+msgstr "Canales"
 

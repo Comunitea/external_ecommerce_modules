@@ -14,8 +14,11 @@ Breadcrumbs Base
 .. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FeCommerce-lightgray.png?logo=github
     :target: https://github.com/Comunitea/external_ecommerce_modules/tree/11.0/breadcrumbs_base
     :alt: Comunitea / eCommerce
+.. |badge5| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
+    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/11.0/breadcrumbs_base/i18n
+    :alt: Spanish Translated
 
-|badge1| |badge2| |badge3| |badge4|
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 **Table of contents**
 

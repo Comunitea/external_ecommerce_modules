@@ -55,6 +55,9 @@ class BreadCrumbs(models.Model):
                 result.append(object.id)
             return result
 
+        import ipdb;
+        ipdb.set_trace()
+
         if main_object._name == 'product.template':
             product = main_object
             # Add shop crumb
@@ -130,6 +133,16 @@ class BreadCrumbs(models.Model):
             breadcrumbs += _generate_one(blog.name, '/blog/%s' % slug(blog), False)
             # Add post crumb
             breadcrumbs += _generate_one(post.name, slug(post), True)
+        elif main_object._name == 'slide.channel':
+            channel = main_object
+            breadcrumbs += _generate_one(channel.name, slug(channel), True)
+        elif main_object._name == 'slide.slide':
+            slide = main_object
+            channel = slide.channel_id
+            # Add parent slide crumb
+            breadcrumbs += _generate_one(channel.name, '/slides/%s' % slug(channel), False)
+            # Add slide crumb
+            breadcrumbs += _generate_one(slide.name, slug(slide), True)
         else:
             if main_object._description:
                 name = _('%s / %s') % (main_object._description, main_object.name)

@@ -2,7 +2,7 @@
 
 {
     'name': 'Breadcrumbs Base Templates',
-    'version': '11.0.2.1.0',
+    'version': '11.0.2.2.0',
     'summary': 'Add customize templates and styles for Breadcrumbs Base module',
     'description': '',
     'category': 'Ecommerce',

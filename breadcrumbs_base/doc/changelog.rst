@@ -1,3 +1,8 @@
+`11.0.2.3.0`
+------------
+- **[UDP]** Breadcrumbs spanish translations
+- **[ADD]** Support for slide models
+
 `11.0.2.2.0`
 ------------
 - **[UDP]** Breadcrumbs spanish translations

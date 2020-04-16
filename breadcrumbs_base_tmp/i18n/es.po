@@ -1,0 +1,37 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* breadcrumbs_base_tmp
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-16 09:44+0000\n"
+"PO-Revision-Date: 2020-04-16 09:44+0000\n"
+"Last-Translator: Rubén Seijas <ruben@comunitea.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: breadcrumbs_base_tmp
+#: model:ir.ui.view,name:breadcrumbs_base_tmp.bcb_website_assets_frontend
+msgid "Assets Breadcrumbs Bar"
+msgstr "Assets Breadcrumbs Bar"
+
+#. module: breadcrumbs_base_tmp
+#: model:ir.ui.view,name:breadcrumbs_base_tmp.layout_website
+msgid "Breadcrumbs Bar"
+msgstr "Migas de Pan"
+
+#. module: breadcrumbs_base_tmp
+#: model:ir.ui.view,name:breadcrumbs_base_tmp.bcb_portal_portal_layout
+msgid "Disable My Portal Breadcrumbs Bar"
+msgstr "Migas por defecto en Mi Portal"
+
+#. module: breadcrumbs_base_tmp
+#: model:ir.ui.view,name:breadcrumbs_base_tmp.bcb_website_sale_product
+msgid "Disable Shop Breadcrumbs Bar"
+msgstr "Migas por defecto en Tienda"
+
