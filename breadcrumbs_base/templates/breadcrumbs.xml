@@ -10,14 +10,18 @@
                         <t t-set="breadcrumbs" t-value="website.generate_breadcrumbs(main_object, website)"/>
                         <ol class="breadcrumb" t-if="breadcrumbs">
                             <li>
-                                <a href="/"><i class="fa fa-home"/></a>
+                                <a t-if="'portal_my_home' in xmlid or 'portal' not in xmlid" href="/"><i class="fa fa-home" alt="Home" rel="noindex,nofollow"/></a>
+                                <t t-else="">
+                                    <a href="/"><i class="fa fa-home" alt="Home" rel="noindex,nofollow"/></a>
+                                    <span>&amp;nbsp;/&amp;nbsp;</span>
+                                    <a href="/my/home" alt="My Portal" rel="noindex,nofollow">My Portal</a>
+                                </t>
                             </li>
                             <t t-foreach="breadcrumbs" t-as="crumb">
                                 <li t-att-class="'active' if crumb.active else None">
                                     <span t-if="crumb.active" t-esc="crumb.name"/>
-                                    <a t-else="" t-att-href="crumb.url" t-esc="crumb.name"/>
+                                    <a t-else="" t-att-href="crumb.url" t-esc="crumb.name" t-att-alt="crumb.name" rel="noindex,nofollow"/>
                                 </li>
-<!--                                <span t-if="not crumb.active">&amp;nbsp;/&amp;nbsp;</span>-->
                             </t>
                         </ol>
                     </div>

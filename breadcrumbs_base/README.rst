@@ -24,13 +24,15 @@ Breadcrumbs Base
 
 eCommerce Friendly Breadcrumbs
 ------------------------------
-This module adds friendly multi-level breadcrumbs for your WEB.
+This module adds friendly multi-level breadcrumbs for your WEB but just providing a template to be called from any template.
 
-**Attention!**
+If you wish have a complete experience you must install additional module **b'readcrumbs_base_tmp'** provided as well.
+
+    **Warning!**
 
     This module don't have templates for front-end part of website.
 
-    For correct front-end functionality you need to install additional module **breadcrumbs_base_tmp**.
+    For correct front-end functionality you need to install additional module **'breadcrumbs_base_tmp'**.
 
 How it works
 ~~~~~~~~~~~~
@@ -41,6 +43,18 @@ The Breadcrumbs generator is available to call in any template:
     <t t-call="breadcrumbs_base.breadcrumbs_bar"/>
 
 Foreach template that contain it, then a breadcrumb will be created and activate by default.
+
+    **Warning!**
+
+    If you call it from any portal templates you have to install **'breadcrumbs_base_tmp'** module and
+    disable **'Disable My Account Breadcrumbs Bar'** view on web editor.
+    Otherwise you will have two breadcrumbs at the same time, this and portal default breadcrumbs.
+
+Portal
+~~~~~~
+Include always a reference for My portal Home and not to loose that reference when you navigate into your documents.
+
+Also include a Home link integrated with My Portal Home link.
 
 Settings
 ~~~~~~~~
@@ -63,7 +77,7 @@ All models included for breadcrumbs are:
     Moreover, this module adds parent_id field to website.page model. This allows to add parent page for static pages.
 #. Views
 #. Blogs
-#. Blog Post
+#. Blog Posts
 #. Main object
     When there is nothing at all previous. Generate a breadcrumbs by main_object.
     If main_object have _description filed then is used
@@ -72,8 +86,13 @@ All models included for breadcrumbs are:
 
 Author
 ------
+.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
+   :alt: Comunitea
+   :target: https://comunitea.com
 
-Developer: Comunitea, info@comunitea.com
+Comunitea Servicios Tecnológicos S.L.
+
+For support and more information, please visit `<https://comunitea.com>`_.
 
 Contributors
 ~~~~~~~~~~~~
@@ -83,13 +102,27 @@ Contributors
 
 Maintainer
 ~~~~~~~~~~
+.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
+   :alt: Comunitea
+   :target: https://comunitea.com
 
-This module is maintained by the Comunitea http://www.comunitea.com.
+Comunitea Servicios Tecnológicos S.L.
+
+For support and more information, please visit `<https://comunitea.com>`_.
+
+Bug Tracker
+-----------
+Bugs are tracked on `Comunitea Issues <https://github.com/Comunitea/external_ecommerce_modules/issues>`_.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us smashing it by providing a detailed and welcomed
+`Feedback <https://github.com/Comunitea/external_ecommerce_modules/issues/new>`_.
+
+Please, do not contact contributors directly about support or help with technical issues.
 
 Disclaimer of Warranties
 ------------------------
 
-    **Attention!**
+    **Warning!**
 
     We provide this module as is, and we make no promises or guarantees about this correct working.
 

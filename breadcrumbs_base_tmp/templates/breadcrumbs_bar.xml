@@ -9,14 +9,14 @@
     </template>
 
     <!-- Remove the product breadcrumb's bar -->
-    <template id="bcb_website_sale_product" inherit_id="website_sale.product" name="Disable Product Breadcrumbs Bar" active="True" customize_show="True">
+    <template id="bcb_website_sale_product" inherit_id="website_sale.product" name="Disable Shop Breadcrumbs Bar" active="True" customize_show="True">
         <xpath expr="//ol[hasclass('breadcrumb')]" position="attributes">
             <attribute name="t-if">True == False</attribute>
         </xpath>
     </template>
 
     <!-- Remove the My Account breadcrumb's bar -->
-    <template id="bcb_portal_portal_layout" inherit_id="portal.portal_layout" name="Disable My Account Breadcrumbs Bar" active="True" customize_show="True">
+    <template id="bcb_portal_portal_layout" inherit_id="portal.portal_layout" name="Disable My Portal Breadcrumbs Bar" active="True" customize_show="True">
         <xpath expr="//div[hasclass('o_portal')]" position="attributes">
             <attribute name="t-if">True == False</attribute>
         </xpath>

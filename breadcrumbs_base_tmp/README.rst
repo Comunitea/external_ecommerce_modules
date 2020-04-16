@@ -17,39 +17,66 @@ Breadcrumbs Base Templates
 
 |badge1| |badge2| |badge3| |badge4|
 
+This module adds friendly multi-level breadcrumbs bar after "Main menu" block in all web pages.
+
 **Table of contents**
 
 .. contents::
    :local:
 
-Additional templates for Breadcrumbs Base Module
-------------------------------------------------
+How it works
+------------
 
 This module adds friendly multi-level breadcrumbs bar after "Main menu" block in all web pages.
 
     **Attention!**
 
-    This module removes all other breadcrumb bars from the website and my account part.
+    This module removes all other breadcrumb bars from the website and my account part by default.
 
+    Otherwise you have to disabled them in the web editor
+
+Customize views
+~~~~~~~~~~~~~~~
+This are the three views you can activate or deactivate from web editor to performance your experience.
+
+These views are enabled by default. Just change that on web editor whatever you want.
+
+#. Breadcrumbs Bar
+    - This view enabled Breadcrumbs Bar in all templates and pages.
+#. Disable Shop Breadcrumbs Bar
+    - This view removes default shop Breadcrumbs Bar.
+    - Avoid duplicate breadcrumbs
+    - Provide you a better experience working with SEO improvements.
+#. Disable My Portal Breadcrumbs Bar
+    - This view removes default portal Breadcrumbs Bar.
+    - Avoid duplicate breadcrumbs
+    - Provide you a better experience working with SEO improvements.
+    - Include always a reference for My portal Home and not to loose that reference when you navigate into your documents.
+    - Include a Home link integrated with My Portal Home link
+
+Styles
+~~~~~~
+This module uses default Bootstrap colors and elements.
 
 For override default colors of this module **is necessary** to add these restrictions to the less of your theme:
 
-:root {
+::
 
---color-bg: you_color or #fff;
-
---color-href: you_color or #337ab7;
-
---color-current: you_color or #777;
-
-}
-
-This module uses default Bootstrap colors and elements.
+    :root {
+        --color-bg: you_color or #fff;
+        --color-href: you_color or #337ab7;
+        --color-current: you_color or #777;
+    }
 
 Author
 ------
+.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
+   :alt: Comunitea
+   :target: https://comunitea.com
 
-Developer: Comunitea, info@comunitea.com
+Comunitea Servicios Tecnológicos S.L.
+
+For support and more information, please visit `<https://comunitea.com>`_.
 
 Contributors
 ~~~~~~~~~~~~
@@ -59,8 +86,22 @@ Contributors
 
 Maintainer
 ~~~~~~~~~~
+.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
+   :alt: Comunitea
+   :target: https://comunitea.com
 
-This module is maintained by the Comunitea http://www.comunitea.com.
+Comunitea Servicios Tecnológicos S.L.
+
+For support and more information, please visit `<https://comunitea.com>`_.
+
+Bug Tracker
+-----------
+Bugs are tracked on `Comunitea Issues <https://github.com/Comunitea/external_ecommerce_modules/issues>`_.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us smashing it by providing a detailed and welcomed
+`Feedback <https://github.com/Comunitea/external_ecommerce_modules/issues/new>`_.
+
+Please, do not contact contributors directly about support or help with technical issues.
 
 Disclaimer of Warranties
 ------------------------
