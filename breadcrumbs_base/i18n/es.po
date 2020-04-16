@@ -16,6 +16,40 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: breadcrumbs_base
+#: model:ir.ui.view,arch_db:breadcrumbs_base.bcb_main_wrap
+msgid "My Portal"
+msgstr "Mi Portal"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Your Contact Details"
+msgstr "Sus Detalles de Contacto"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_layout
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Your Details"
+msgstr "Sus detalles"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_home
+msgid "Your Documents"
+msgstr "Sus Documentos"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_signature.xml:6
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+#, python-format
+msgid "Your Name"
+msgstr "Su nombre"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.my_account_link
+msgid "My Account"
+msgstr "Mi cuenta"
+
+#. module: breadcrumbs_base
 #: model:ir.model.fields,field_description:breadcrumbs_base.field_breadcrumbs_base_crumb_active
 msgid "Active"
 msgstr "Activo"
