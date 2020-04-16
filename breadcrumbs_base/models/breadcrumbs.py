@@ -55,9 +55,6 @@ class BreadCrumbs(models.Model):
                 result.append(object.id)
             return result
 
-        import ipdb;
-        ipdb.set_trace()
-
         if main_object._name == 'product.template':
             product = main_object
             # Add shop crumb
