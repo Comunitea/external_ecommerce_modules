@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="portal_portal_my_details" name="My Portal Details" inherit_id="portal.portal_my_details">
+        <!-- Remove style display none for that the states will be available in select for user can change his state on his portal -->
+        <xpath expr="//t[@t-foreach='states or []']//option" position="attributes">
+            <attribute name="style"/>
+        </xpath>
+    </template>
+
+</odoo>

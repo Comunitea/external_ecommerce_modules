@@ -60,6 +60,8 @@ Templates
         * [ADD] Error message with fill info
     * [ADD] Phone field set as required in customize view with activated to False by default
     * [UPD] Improve legal advice label style
+* Portal My Details
+    * Remove style display none for that the states will be available in select for user can change his state on his portal
 
 Styles
 ~~~~~~

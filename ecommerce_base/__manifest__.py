@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Ecommerce Basic Modules',
-    'version': '11.0.1.1.1',
+    'version': '11.0.1.2.1',
     'summary': 'This module contains modules dependencies for a basic installation of an e-commerce website.',
     'description': '',
     'category': 'Ecommerce',
@@ -24,6 +24,7 @@
     'application': False,
     'data': [
         'templates/head.xml',
+        'templates/portal.xml',
         'templates/footer.xml',
         'templates/contactus.xml',
         'views/website.xml',
@@ -42,6 +43,7 @@
     "demo_images": [],
     "external_dependencies": {"python": [], "bin": []},
     'depends': [
+        'portal',
         'website',
         'website_crm',
         'website_crm_privacy_policy',

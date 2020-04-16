@@ -1,3 +1,7 @@
+`11.0.1.2.1`
+------------
+**[ADD]** Available states in Portal My Details select
+
 `11.0.1.1.1`
 ------------
 **[DEL]** Delete no real dependencies
