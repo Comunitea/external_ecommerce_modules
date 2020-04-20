@@ -14,8 +14,13 @@ Breadcrumbs Base Templates
 .. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FeCommerce-lightgray.png?logo=github
     :target: https://github.com/Comunitea/external_ecommerce_modules/tree/12.0/breadcrumbs_base_tmp
     :alt: Comunitea / eCommerce
+.. |badge5| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
+    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/12.0/breadcrumbs_base_tmp/i18n
+    :alt: Spanish Translated
 
-|badge1| |badge2| |badge3| |badge4|
+|badge1| |badge2| |badge3| |badge4| |badge5|
+
+This module adds friendly multi-level breadcrumbs bar after "Main menu" block in all web pages.
 
 **Table of contents**
 
@@ -48,9 +53,30 @@ Three customize views are provided with active by default.
 
 Customization
 -------------
+Listed below.
+
+Views
+~~~~~
+This are the three views you can activate or deactivate from web editor to performance your experience.
+
+These views are enabled by default. Just change that on web editor whatever you want.
+
+#. No Portal Breadcrumbs
+    - This view enabled Breadcrumbs Bar in all templates and pages except My Portal Home.
+#. My Portal Breadcrumbs
+    - This view enabled Breadcrumbs Bar in just for My Portal Home
+#. Disable Product Breadcrumbs
+    - Avoid duplicate breadcrumbs
+    - Provide you a better experience working with SEO improvements.
+
+Styles
+~~~~~~
+This module uses default Bootstrap colors and elements.
+
 If you want to use this module in a theme but you do not like where it is rendered, you can simply
 override default colors of this module adding these variables to the less of your theme:
 
+For override default colors of this module **is necessary** to add these restrictions to the less of your theme:
 ::
 
         :root {
@@ -63,8 +89,13 @@ This module uses default Bootstrap colors and elements.
 
 Author
 ------
+.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
+   :alt: Comunitea
+   :target: https://comunitea.com
 
-Developer: Comunitea, info@comunitea.com
+Comunitea Servicios Tecnológicos S.L.
+
+For support and more information, please visit `<https://comunitea.com>`_.
 
 Contributors
 ~~~~~~~~~~~~
@@ -74,8 +105,22 @@ Contributors
 
 Maintainer
 ~~~~~~~~~~
+.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
+   :alt: Comunitea
+   :target: https://comunitea.com
 
-This module is maintained by the Comunitea http://www.comunitea.com.
+Comunitea Servicios Tecnológicos S.L.
+
+For support and more information, please visit `<https://comunitea.com>`_.
+
+Bug Tracker
+-----------
+Bugs are tracked on `Comunitea Issues <https://github.com/Comunitea/external_ecommerce_modules/issues>`_.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us smashing it by providing a detailed and welcomed
+`Feedback <https://github.com/Comunitea/external_ecommerce_modules/issues/new>`_.
+
+Please, do not contact contributors directly about support or help with technical issues.
 
 Disclaimer of Warranties
 ------------------------
