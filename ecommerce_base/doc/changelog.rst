@@ -1,14 +1,19 @@
+`11.0.1.3.0`
+------------
+- **[FIX]** Delayed charge of own js at the end of pages
+- **[UDP]** Manifest and readme info
+
 `11.0.1.2.1`
 ------------
-**[ADD]** Available states in Portal My Details select
+- **[ADD]** Available states in Portal My Details select
 
 `11.0.1.1.1`
 ------------
-**[DEL]** Delete no real dependencies
+- **[DEL]** Delete no real dependencies
 
 `11.0.1.1.0`
 ------------
-**[ADD]** Spanish translation
+- **[ADD]** Spanish translation
 
 `11.0.1.0.0`
 ------------

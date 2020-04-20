@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Ecommerce Basic Modules',
-    'version': '11.0.1.2.1',
-    'summary': 'This module contains modules dependencies for a basic installation of an e-commerce website.',
+    'version': '11.0.1.3.0',
+    'summary': 'Some custom features for a basic installation of an e-commerce website.',
     'description': '',
     'category': 'Ecommerce',
     'author': 'Comunitea',
@@ -22,6 +22,17 @@
     "auto_install": False,
     'installable': True,
     'application': False,
+    "live_test_url": "",
+    "demo": [],
+    "demo_title": "",
+    "demo_addons": [],
+    "demo_addons_hidden": [],
+    "demo_url": "",
+    "demo_summary": "",
+    "demo_images": [],
+    "external_dependencies": {
+        "python": [], "bin": []
+    },
     'data': [
         'templates/head.xml',
         'templates/portal.xml',
@@ -33,15 +44,6 @@
         '/static/description/icon.png',
     ],
     'qweb': [],
-    "live_test_url": "",
-    "demo": [],
-    "demo_title": "",
-    "demo_addons": [],
-    "demo_addons_hidden": [],
-    "demo_url": "",
-    "demo_summary": "",
-    "demo_images": [],
-    "external_dependencies": {"python": [], "bin": []},
     'depends': [
         'portal',
         'website',

@@ -20,9 +20,7 @@ Ecommerce Basic Modules
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module contains modules dependencies for a basic installation of an e-commerce website.
-
-Also include some custom features than can see below.
+This module contains some custom features for a basic installation of an e-commerce website.
 
 **Table of contents**
 
@@ -31,13 +29,11 @@ Also include some custom features than can see below.
 
 Content
 -------
-This module contains modules dependencies for a basic installation of an e-commerce website.
-
-Also include some custom features and modules made by: Third parts, Odoo, OCA and Comunitea.
+Some custom features for a basic installation of an e-commerce website.
 
 Features
 --------
-All features that this module include are listed below
+All features that this module include are listed below.
 
 Website Menus
 ~~~~~~~~~~~~~
@@ -69,144 +65,11 @@ For Full Legal Acceptance on contact form to get a correct alignment.
 
 Javascript
 ~~~~~~~~~~
-Add delayed own js charge at the end of pages.
-Add script to contact form e-mail validation.
+- Add delayed own js charge at the end of pages.
+- Add script to contact form e-mail validation.
 
-* `jQuery Validation Plugin <http://jqueryvalidation.org/>`_ - v1.16.0 - 12/2/2016
-* Copyright (c) 2016 Jörn Zaefferer; Licensed MIT
-
-Third parts modules
--------------------
-
-Infinite Scroll
-~~~~~~~~~~~~~~~
-Add the SGEEDE Infinite Scroll module.
-
-License
-=======
-LGPL-3
-
-How it works
-============
-SGEEDE Infinite Scroll. Allow infinite scroll in Products without using pagination anymore.
-
-Usage
-=====
-Allow infinite scroll in Products without using pagination anymore.
-
-Configuration
-=============
-You can activate or deactivate this function in the front-end web editor views.
-
-    **Warning!!**
-
-    Note that it is used then indeed pagination views must will be deactivated.
-
-Author & Maintainer
-===================
-This module is maintained by the `SGEEDE <http://www.sgeede.com>`_.
-
-If you want to get in touch please contact us via mail (sale@mukit.at) or visit our website (https://mukit.at).
-
-Contributors
-============
-Mathias Markl <mathias.markl@mukit.at>
-
-Website Scroll Up
-~~~~~~~~~~~~~~~~~
-Add the MuK Scroll Up Button
-
-License
-=======
-GNU AFFERO GENERAL PUBLIC LICENSE
-
-Version 3, 19 November 2007
-
-How it works
-============
-Adds a button to the bottom of the page to jump back up to the top of the page.
-The button can be customized using the following attributes.
-
-Usage
-=====
-Switch to your website and the scroll up button will appear on the bottom of your page.
-
-Configuration
-=============
-No additional configuration is needed to use this module.
-
-Author & Maintainer
-===================
-This module is maintained by the `MuK IT GmbH <https://www.mukit.at/>`_.
-
-If you want to get in touch please contact us via mail (sale@mukit.at) or visit our website (https://mukit.at).
-
-Contributors
-============
-Mathias Markl <mathias.markl@mukit.at>
-
-Odoo and OCA Modules
---------------------
-
-Real Dependencies
-~~~~~~~~~~~~~~~~~
-#. website
-#. website_crm
-#. website_crm_privacy_policy
-
-Others that should be installed
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. web
-#. web_decimal_numpad_dot
-#. web_diagram
-#. web_dialog_size
-#. web_editor
-#. web_export_view
-#. web_kanban_gauge
-#. web_no_bubble
-#. web_planner
-#. web_refresher
-#. web_responsive
-#. web_sheet_full_width
-#. website_canonical_url
-#. website_crm
-#. website_crm_recaptcha
-#. website_crm_phone_validation
-#. website_cookie_notice
-#. website_form
-#. website_form_builder
-#. website_form_recaptcha
-#. website_legal_page
-#. website_mail
-#. website_mass_mailing
-#. website_menu_by_user_status
-#. website_odoo_debranding
-#. website_partner
-#. website_payment
-#. payment_redsys
-#. payment_paypal
-#. website_rating
-#. website_theme_install
-#. website_sale
-#. website_sale_delivery
-#. website_sale_management
-#. website_sale_options
-#. website_sale_require_legal
-#. website_sale_require_login
-#. website_sale_stock_available_display
-#. website_sale_stock
-#. website_sale_stock_options
-#. website_sale_suggest_create_account
-#. website_sale_wishlist
-
-Comunitea Modules
------------------
-#. seo_base
-#. breadcrumbs_base_tmp
-
-Others interesting modules that could be installed
---------------------------------------------------
-Working on it. Coming soon!
+    * `jQuery Validation Plugin <http://jqueryvalidation.org/>`_ - v1.16.0 - 12/2/2016
+    * Copyright (c) 2016 Jörn Zaefferer; Licensed MIT
 
 Author
 ------
@@ -254,4 +117,3 @@ Comunitea provides this application without warranty of any kind.
 
 Comunitea does not warrant that the module will meet your requirements;
 that the current application will be uninterrupted, timely, secure, or error-free or that any defects or errors will be corrected.
-
