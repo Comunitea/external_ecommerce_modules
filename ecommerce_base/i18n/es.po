@@ -4,32 +4,70 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-15 09:06+0000\n"
-"PO-Revision-Date: 2019-11-15 09:06+0000\n"
-"Last-Translator: Rubén <ruben@comunitea.com>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2020-03-31 21:00+0000\n"
+"PO-Revision-Date: 2020-03-31 21:00+0000\n"
+"Last-Translator: Rubén Seijas <ruben@comunitea.com>\n"
+"Language-Team: ES_es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
 #. module: ecommerce_base
+#: model:ir.ui.view,name:ecommerce_base.website_crm_privacy_policy_contactus_form
+msgid "Add privacy policy checkbox Ecommerce Base"
+msgstr "Add privacy policy checkbox Ecommerce Base"
+
+#. module: ecommerce_base
+#: model:ir.ui.view,name:ecommerce_base.website_crm_contactus_form
+msgid "Contact Form Ecommerce Base"
+msgstr "Contact Form Ecommerce Base"
+
+#. module: ecommerce_base
 #: model:ir.ui.view,name:ecommerce_base.website_layout
-msgid "Main layout eCommerce Base"
-msgstr ""
+msgid "Main layout Ecommerce Base"
+msgstr "Main layout Ecommerce Base"
+
+#. module: ecommerce_base
+#: model:ir.ui.menu,name:ecommerce_base.menus_list
+msgid "Menus"
+msgstr "Menus"
+
+#. module: ecommerce_base
+#: model:ir.ui.view,name:ecommerce_base.website_crm_contactus_form_phone_required
+msgid "Phone Required"
+msgstr "Requerir Teléfono"
+
+#. module: ecommerce_base
+#: model:ir.ui.menu,name:ecommerce_base.default_website_list
+msgid "Website"
+msgstr "Sitio web"
 
 #. module: ecommerce_base
 #: model:ir.ui.view,name:ecommerce_base.website_assets_frontend
-msgid "Website Assets eCommerce Base"
-msgstr ""
+msgid "Website Assets Ecommerce Base"
+msgstr "Website Assets Ecommerce Base"
 
 #. module: ecommerce_base
-#. openerp-web
-#: code:odoo-repos/external_ecommerce/ecommerce_base/static/js/main.js:4
+#: model:ir.actions.act_window,name:ecommerce_base.action_website_list
+msgid "Websites"
+msgstr "Sitios Web"
+
+#. module: ecommerce_base
+#: model:ir.ui.view,arch_db:ecommerce_base.website_crm_contactus_form
+msgid "your_name@provider.domain"
+msgstr "nombre@proveedor.dominio"
+
+#. module: ecommerce_base
+#: code:addons/ecommerce_base/static/js/main.js:8
 #, python-format
-msgid "Please, enter a valid email address"
-msgstr "Por favor, introduce una dirección de correo electrónico válida"
+msgid "Please, write your email with a right format such: your_name@provider.domain"
+msgstr "Por favor, introduce una dirección de correo electrónico con el formato correcto: nombre@proveedor.dominio"
 
-
+#. module: ecommerce_base
+#: code:addons/ecommerce_base/static/js/jquery.validate.min.js:4
+#, python-format
+msgid "Please, write your email with a right format such: your_name@provider.domain"
+msgstr "Por favor, introduce una dirección de correo electrónico con el formato correcto: nombre@proveedor.dominio"
