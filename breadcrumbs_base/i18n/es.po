@@ -15,6 +15,37 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+#. module: website_slides
+#: model:ir.ui.view,name:website_slides.channels
+msgid "Channels"
+msgstr "Canales"
+
+#. module: website_sale
+#: model:ir.ui.view,name:website_sale.products
+msgid "Products"
+msgstr "Productos"
+
+#. module: portal
+#: model:ir.ui.view,name:portal.portal_my_home
+msgid "My Portal"
+msgstr "Mi Cuenta"
+
+#. module: website_sale_wishlist
+#: model:ir.ui.view,name:website_sale_wishlist.product_wishlist
+msgid "Wishlist Page"
+msgstr "Lista de Deseos"
+
+#. module: website_sale
+#: model_terms:ir.ui.view,name:website_sale.cart
+#: model_terms:ir.ui.view,arch_db:website_sale.cart
+msgid "Shopping cart"
+msgstr "Carro de compras"
+
+#. module: website_slides
+#: model:ir.ui.view,name:website_slides.channels
+msgid "Channels"
+msgstr "Canales"
+
 #. module: breadcrumbs_base
 #: code:addons/breadcrumbs_base/models/breadcrumbs.py:120
 #, python-format
