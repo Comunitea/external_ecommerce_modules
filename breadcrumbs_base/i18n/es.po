@@ -36,10 +36,14 @@ msgid "Wishlist Page"
 msgstr "Lista de Deseos"
 
 #. module: website_sale
-#: model_terms:ir.ui.view,name:website_sale.cart
-#: model_terms:ir.ui.view,arch_db:website_sale.cart
+#: model:ir.ui.view,name:website_sale.cart
 msgid "Shopping cart"
-msgstr "Carro de compras"
+msgstr "Mi Carrito"
+
+#. module: website_sale
+#: model:ir.ui.view,name:website_sale.extra_info
+msgid "Checkout Extra Info"
+msgstr "Información adicional"
 
 #. module: website_slides
 #: model:ir.ui.view,name:website_slides.channels
