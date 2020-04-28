@@ -16,11 +16,4 @@
         </xpath>
     </template>
 
-    <!-- Add for tag for HTML validation on crm privacy policy -->
-    <template id="website_crm_privacy_policy_contactus_form" name="Add privacy policy checkbox Ecommerce Base" inherit_id="website_crm_privacy_policy.contactus_form">
-        <xpath expr="//div[hasclass('checkbox')]/label" position="attributes">
-            <attribute name="for">privacy_policy</attribute>
-        </xpath>
-    </template>
-
 </odoo>
