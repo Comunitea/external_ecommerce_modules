@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Change logo for an image responsive without tittle and include alt tag -->
+    <template id="website_logo_add_logo_to_website" inherit_id="website_logo.add_logo_to_website" name="Show website Logo Ecommerce Base">
+        <xpath expr="//header//a[hasclass('navbar-brand', 'logo')][2]" position="after">
+            <a href="/" class="navbar-brand logo">
+                <img class="img img-responsive" t-attf-src="/web/image/website/{{website.id}}/logo" alt="website.name"/>
+            </a>
+        </xpath>
+        <xpath expr="//header//a[hasclass('navbar-brand', 'logo')][2]" position="attributes">
+            <attribute name="class" add="d-none" separator=" "/>
+        </xpath>
+    </template>
+
+</odoo>

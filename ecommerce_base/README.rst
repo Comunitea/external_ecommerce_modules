@@ -35,6 +35,23 @@ Features
 --------
 All features that this module include are listed below.
 
+Website Logo
+~~~~~~~~~~~~
+Change website logo for an image responsive without tittle and include alt tag.
+
+Logo Styles
+___________
+No logo styles are included but you can use this css example in your theme:
+
+::
+
+    header {
+        & .navbar-brand.logo img {
+            height: 5.5rem;
+        }
+    }
+
+
 Website Menus
 ~~~~~~~~~~~~~
 Add backend menus for best configuration and usage.

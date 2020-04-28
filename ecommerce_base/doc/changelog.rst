@@ -1,3 +1,7 @@
+`12.0.1.1.0`
+------------
+- **[ADD]** Change website logo for an image responsive without tittle and include alt tag
+
 `12.0.1.0.0`
 ------------
 - **[ADD]** Doc folder including Changelog info

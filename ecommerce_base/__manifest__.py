@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Ecommerce Basic Modules',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.1.0',
     'summary': 'Some custom features for a basic installation of an e-commerce website.',
     'description': '',
     'category': 'eCommerce',
@@ -42,6 +42,7 @@
         'templates/assets.xml',
         'templates/contactus.xml',
         'templates/footer.xml',
+        'templates/header.xml',
     ],
     'images': [
         '/static/description/icon.png',
