@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-20 14:53+0000\n"
-"PO-Revision-Date: 2020-02-07 08:17+0000\n"
+"PO-Revision-Date: 2020-04-20 16:45+0000\n"
 "Last-Translator: Rubén Seijas <ruben@comunitea.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -58,6 +58,11 @@ msgstr ""
 
 #. module: breadcrumbs_base
 #: model_terms:ir.ui.view,arch_db:breadcrumbs_base.breadcrumbs_bar
+msgid "<i class=\"fa fa-home\" alt=\"Home\" rel=\"noindex,nofollow\"/>"
+msgstr "<i class=\"fa fa-home\" alt=\"Inicio\" rel=\"noindex,nofollow\"/>"
+
+#. module: breadcrumbs_base
+#: model_terms:ir.ui.view,arch_db:breadcrumbs_base.breadcrumbs_bar
 msgid "&amp;nbsp;/&amp;nbsp;"
 msgstr ""
 
@@ -88,8 +93,8 @@ msgstr "Migas de Pan"
 
 #. module: breadcrumbs_base
 #: model:ir.ui.view,name:breadcrumbs_base.breadcrumbs_bar
-msgid "Breadcrumbs Bar Breadcrumbs Base"
-msgstr ""
+msgid "Breadcrumbs Bar"
+msgstr "Migas de Pan"
 
 #. module: breadcrumbs_base
 #: model:ir.model.fields,field_description:breadcrumbs_base.field_breadcrumbs_base_crumb__create_uid
@@ -138,33 +143,40 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: breadcrumbs_base
+#: code:addons/breadcrumbs_base/models/breadcrumbs.py:18
+#: model:ir.model.fields,help:breadcrumbs_base.field_breadcrumbs_base_crumb__website_published
+#, python-format
+msgid "Only published crumbs are visible in the website"
+msgstr "Solo las migas de pan publicadas son visibles en el Sitio Web"
+
+#. module: breadcrumbs_base
 #: model:ir.model,name:breadcrumbs_base.model_website_page
 msgid "Page"
 msgstr "Página"
 
 #. module: breadcrumbs_base
-#: code:addons/breadcrumbs_base/models/page.py:11
+#: code:addons/breadcrumbs_base/models/page.py:9
 #: model:ir.model.fields,field_description:breadcrumbs_base.field_website_page__name
 #, python-format
 msgid "Page name"
 msgstr "Nombre Página"
 
 #. module: breadcrumbs_base
-#: code:addons/breadcrumbs_base/models/page.py:12
+#: code:addons/breadcrumbs_base/models/page.py:10
 #: model:ir.model.fields,field_description:breadcrumbs_base.field_website_page__parent_id
 #, python-format
 msgid "Parent page"
 msgstr "Página Padre"
 
 #. module: breadcrumbs_base
-#: code:addons/breadcrumbs_base/models/breadcrumbs.py:46
-#: code:addons/breadcrumbs_base/models/breadcrumbs.py:66
+#: code:addons/breadcrumbs_base/models/breadcrumbs.py:61
+#: code:addons/breadcrumbs_base/models/breadcrumbs.py:81
 #, python-format
 msgid "Products"
 msgstr "Productos"
 
 #. module: breadcrumbs_base
-#: code:addons/breadcrumbs_base/models/breadcrumbs.py:62
+#: code:addons/breadcrumbs_base/models/breadcrumbs.py:77
 #, python-format
 msgid "Tag / "
 msgstr "Etiqueta / "
@@ -189,6 +201,13 @@ msgstr "Nombre de la vista"
 #: model:ir.model,name:breadcrumbs_base.model_website
 msgid "Website"
 msgstr "Sitio web"
+
+#. module: breadcrumbs_base
+#: code:addons/breadcrumbs_base/models/breadcrumbs.py:17
+#: model:ir.model.fields,field_description:breadcrumbs_base.field_breadcrumbs_base_crumb__website_published
+#, python-format
+msgid "Publicado en Sitio Web"
+msgstr ""
 
 #. module: breadcrumbs_base
 #: model:ir.model,name:breadcrumbs_base.model_breadcrumbs_base_crumb

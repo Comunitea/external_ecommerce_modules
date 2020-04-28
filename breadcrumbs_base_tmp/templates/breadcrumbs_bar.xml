@@ -16,7 +16,7 @@
     </template>
 
     <!-- Disable Product Breadcrumbs -->
-    <template id="website_sale_product" name="Disable Product Breadcrumbs" inherit_id="website_sale.product" active="True" customize_show="True">
+    <template id="website_sale_product" name="Disable Shop Breadcrumbs" inherit_id="website_sale.product" active="True" customize_show="True">
         <!-- Replace breadcrumbs, search, pricelist and pager -->
         <xpath expr="//div[hasclass('row')]" position="replace"/>
         <!-- Add search, pricelist and pager without breadcrumbs -->

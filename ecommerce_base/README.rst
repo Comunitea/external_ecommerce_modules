@@ -1,5 +1,6 @@
-eCommerce base modules
-======================
+=======================
+Ecommerce Basic Modules
+=======================
 
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
     :target: https://odoo-community.org/page/development-status
@@ -19,45 +20,91 @@ eCommerce base modules
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
+This module contains some custom features for a basic installation of an e-commerce website.
+
 **Table of contents**
 
 .. contents::
    :local:
 
-Provides all Website eCommerce modules for a basic installation.
-----------------------------------------------------------------
+Content
+-------
+Some custom features for a basic installation of an e-commerce website.
 
-This module contains dependencies with the necessary modules to create base eCommerce page.
+Features
+--------
+All features that this module include are listed below.
 
-It also contains styles and layout elements, bug fixes and module translations.
+Website Menus
+~~~~~~~~~~~~~
+Add backend menus for best configuration and usage.
 
-Module features
----------------
+These menus are included into Website > Configuration > Products:
 
+#. Websites
+#. Menus
+
+Templates
+~~~~~~~~~
+* Head
+    * [ADD] Custom assets
 * Footer
-    * [ADD] Odoo copyright replace
-
+    * [ADD] Delayed charge of custom js at the end of pages
 * Contact us
     * [ADD] Contact form e-mail JS validation
-    * [FIX] Legal advice label position
+        * [ADD] Placeholder with fill info
+        * [ADD] Error message with fill info
+    * [ADD] Phone field set as required in customize view with activated to False by default
+    * [UPD] Improve legal advice label style
+* Portal My Details
+    * Remove style display none for that the states will be available in select for user can change his state on his portal
+
+Styles
+~~~~~~
+For Full Legal Acceptance on contact form to get a correct alignment.
+
+Javascript
+~~~~~~~~~~
+- Add delayed own js charge at the end of pages.
+- Add script to contact form e-mail validation.
+
+    * `jQuery Validation Plugin <http://jqueryvalidation.org/>`_ - v1.16.0 - 12/2/2016
+    * Copyright (c) 2016 Jörn Zaefferer; Licensed MIT
 
 Author
 ------
+.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
+   :alt: Comunitea
+   :target: https://comunitea.com
 
-Developer: Comunitea, info@comunitea.com
+Comunitea Servicios Tecnológicos S.L.
+
+For support and more information, please visit `<https://comunitea.com>`_.
 
 Contributors
 ~~~~~~~~~~~~
+Pavel Smirnov, pavel@comunitea.com
 
-* Pavel Smirnov, pavel@comunitea.com
-* Rubén Seijas, ruben@comunitea.com
+Rubén Seijas, ruben@comunitea.com
 
 Maintainer
 ~~~~~~~~~~
+.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
+   :alt: Comunitea
+   :target: https://comunitea.com
 
-This module is maintained by Comunitea.
+Comunitea Servicios Tecnológicos S.L.
 
-For support and more information, please visit https://comunitea.com.
+For support and more information, please visit `<https://comunitea.com>`_.
+
+Bug Tracker
+-----------
+Bugs are tracked on `Comunitea Issues <https://github.com/Comunitea/external_ecommerce_modules/issues>`_.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us smashing it by providing a detailed and welcomed
+`Feedback <https://github.com/Comunitea/external_ecommerce_modules/issues/new>`_.
+
+Please, do not contact contributors directly about support or help with technical issues.
 
 Disclaimer of Warranties
 ------------------------
@@ -70,4 +117,3 @@ Comunitea provides this application without warranty of any kind.
 
 Comunitea does not warrant that the module will meet your requirements;
 that the current application will be uninterrupted, timely, secure, or error-free or that any defects or errors will be corrected.
-
