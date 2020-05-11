@@ -35,6 +35,14 @@ Features
 --------
 All features that this module include are listed below.
 
+Website Logo
+~~~~~~~~~~~~
+Change website logo for an image responsive without tittle and include alt tag.
+
+    **Warning!**
+
+    If not **``website_logo´´** module is installed then use default **``website.layout_logo_show´´** view
+
 Website Menus
 ~~~~~~~~~~~~~
 Add backend menus for best configuration and usage.
@@ -109,7 +117,7 @@ Please, do not contact contributors directly about support or help with technica
 Disclaimer of Warranties
 ------------------------
 
-    **Attention!**
+    **Warning!**
 
     We provide this module as is, and we make no promises or guarantees about this correct working.
 

@@ -1,3 +1,7 @@
+`11.0.1.4.0`
+------------
+- **[ADD]** Change website logo for an image responsive without tittle and include alt tag
+
 `11.0.1.3.0`
 ------------
 - **[FIX]** Delayed charge of own js at the end of pages
