@@ -28,6 +28,7 @@
         'website_sale'
     ],
     'data': [
+        'views/assets.xml',
         'views/page_view.xml',
         'views/breadcrumbs_views.xml',
         'templates/breadcrumbs.xml',

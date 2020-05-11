@@ -27,9 +27,9 @@ Breadcrumbs Base
 
 eCommerce Friendly Breadcrumbs
 ------------------------------
-This module adds friendly multi-level breadcrumbs for your WEB but just providing a template to be called from any template.
+This module adds friendly multi-level breadcrumbs for your website but just providing a template to be called from any template.
 
-If you wish have a complete experience you must install additional module **b'readcrumbs_base_tmp'** provided as well.
+If you wish have a complete experience you must install additional module **'breadcrumbs_base_tmp'** provided as well.
 
     **Warning!**
 
@@ -53,6 +53,10 @@ Foreach template that contain it, then a breadcrumb will be created and activate
     disable **'Disable My Account Breadcrumbs Bar'** view on web editor.
     Otherwise you will have two breadcrumbs at the same time, this and portal default breadcrumbs.
 
+Style
+_____
+Add a shadow when scrolling to differentiate the body content of the breadcrumbs bar
+
 Portal
 ~~~~~~
 Include always a reference for My portal Home and not to loose that reference when you navigate into your documents.
@@ -68,7 +72,6 @@ Only published crumbs are visible in the website. You can also change the name.
 
 You can set it in the Breadcrumbs menu.
 
-
 Generated breadcrumbs
 ~~~~~~~~~~~~~~~~~~~~~
 All models included for breadcrumbs are:
@@ -81,6 +84,8 @@ All models included for breadcrumbs are:
 #. Views
 #. Blogs
 #. Blog Posts
+#. Slides Channels
+#. Slides
 #. Main object
     When there is nothing at all previous. Generate a breadcrumbs by main_object.
     If main_object have _description filed then is used
