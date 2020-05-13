@@ -55,7 +55,7 @@ Foreach template that contain it, then a breadcrumb will be created and activate
 
 Style
 _____
-Add a shadow when scrolling to differentiate the body content of the breadcrumbs bar
+Add a shadow with a border bottom when scrolling to differentiate the body content of the breadcrumbs bar
 
 Portal
 ~~~~~~

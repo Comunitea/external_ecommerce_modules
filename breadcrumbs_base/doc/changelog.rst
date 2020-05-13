@@ -1,3 +1,7 @@
+`11.0.2.5.0`
+------------
+- **[ADD]** Add a border bottom when scrolling to differentiate the body content of the breadcrumbs bar
+
 `11.0.2.4.0`
 ------------
 - **[ADD]** Add a shadow when scrolling to differentiate the body content of the breadcrumbs bar
