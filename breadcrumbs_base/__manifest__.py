@@ -2,7 +2,7 @@
 
 {
     'name': 'Breadcrumbs Base',
-    'version': '11.0.2.4.0',
+    'version': '11.0.2.5.0',
     'summary': 'Friendly breadcrumbs for eCommerce',
     'description': '',
     'category': 'Ecommerce',
