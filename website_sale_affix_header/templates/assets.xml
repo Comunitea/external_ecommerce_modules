@@ -11,7 +11,7 @@
     <!-- Add scripts on footer by lazy load -->
     <template id="website_layout" inherit_id="website.layout" name="Main layout Affix Header">
         <xpath expr="//footer" position="after">
-            <script src="/theme_handygym/static/js/scroll.js" type="text/javascript"/>
+            <script src="/website_sale_affix_header/static/js/scroll.js" type="text/javascript"/>
         </xpath>
     </template>
 
