@@ -68,7 +68,7 @@ Comunitea Servicios Tecnológicos S.L.
 For support and more information, please visit `<https://comunitea.com>`_.
 
 Known issues / Roadmap
-======================
+----------------------
 
 This module has the following limitations:
 
