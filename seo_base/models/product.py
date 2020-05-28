@@ -7,6 +7,21 @@ import unicodedata
 from odoo import api, models, fields, _
 
 
+def slug_validation(object, value):
+    # Unicode validation
+    uni = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
+    value = re.sub('[\W_]', ' ', uni).strip().lower()
+    value = re.sub('[-\s]+', '-', value)
+    value = value[:60]
+
+    # Check if this SLUG value already exists in any product or category
+    it_exists = object.sudo().search([('slug', '=', value)], limit=1).id
+    if it_exists and not it_exists == object.id:
+        # Add random URL part
+        value = '%s-%d' % (value, random.randint(0, 999))
+    return value
+
+
 class ProductCustom(models.Model):
     _inherit = 'product.template'
 
@@ -21,20 +36,6 @@ class ProductCustom(models.Model):
     product_meta_description = fields.Text("Meta Description", translate=True)
     product_meta_keywords = fields.Char("Meta Keywords", translate=True)
 
-    def slug_validation(self, value):
-        # Unicode validation
-        uni = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
-        value = re.sub('[\W_]', ' ', uni).strip().lower()
-        value = re.sub('[-\s]+', '-', value)
-        value = value[:60]
-
-        # Check if this SLUG value already exists in any product or category
-        it_exists = self.sudo().search([('slug', '=', value)], limit=1).id
-        if it_exists and not it_exists == self.id:
-            # Add random URL part
-            value = '%s-%d' % (value, random.randint(0, 999))
-        return value
-
     @api.multi
     def write(self, values):
         base_url = self.env['ir.config_parameter'].get_param('web.base.url')
@@ -44,12 +45,12 @@ class ProductCustom(models.Model):
                 # If slug not exists or is empty -> create from product name & id and validate
                 if not product.slug:
                     new_slug = '%s-%s' % (product.name, product.id)
-                    slug = product.slug_validation(new_slug)
+                    slug = slug_validation(product, new_slug)
                 else:
-                    slug = product.slug_validation(product.slug)
+                    slug = slug_validation(product, product.slug)
             else:
                 # If slug exists -> validate
-                slug = product.slug_validation(has_slug)
+                slug = slug_validation(product, has_slug)
             # Write
             values.update({
                 'slug': slug,
@@ -67,10 +68,10 @@ class ProductCustom(models.Model):
         if not has_slug or has_slug == '':
             # If slug isn't established -> create from product name
             new_slug = values['name']
-            slug = self.slug_validation(new_slug)
+            slug = slug_validation(self, new_slug)
         else:
             # If slug is established -> validate
-            slug = self.slug_validation(has_slug)
+            slug = slug_validation(self, has_slug)
         # Create
         values.update({
             'slug': slug,
@@ -95,12 +96,12 @@ class ProductPublicCategory(models.Model):
                 else:
                     new_slug = record.slug
                 values.update({
-                    'slug': ProductCustom._slug_validation(self, new_slug)
+                    'slug': slug_validation(record, new_slug)
                 })
             else:
                 # If slug exists -> validate
                 values.update({
-                    'slug': ProductCustom._slug_validation(self, has_slug)
+                    'slug': slug_validation(record, has_slug)
                 })
             # Write
             super(ProductPublicCategory, record).write(values)
@@ -114,12 +115,12 @@ class ProductPublicCategory(models.Model):
             # If slug isn't established -> create from category name
             new_slug = values['name']
             values.update({
-                'slug': ProductCustom._slug_validation(self, new_slug)
+                'slug': slug_validation(self, new_slug)
             })
         else:
             # If slug is established -> validate
             values.update({
-                'slug': ProductCustom._slug_validation(self, has_slug)
+                'slug': slug_validation(self, has_slug)
             })
         # Write
         return super(ProductPublicCategory, self).create(values)
