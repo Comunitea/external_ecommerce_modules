@@ -11,6 +11,25 @@
         </field>
     </record>
 
+    <!-- Add field to change website sequence for products in treeView  -->
+    <record id="website_sequence_product" model="ir.ui.view">
+        <field name="name">website.sequence.product</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <!-- Hide internal sequence -->
+            <field name="sequence" position="replace"/>
+            <!-- Add website sequence -->
+            <field name="default_code" position="before">
+                <field name="website_sequence" widget="handle"/>
+            </field>
+            <!-- Add website category -->
+            <field name="name" position="after">
+                <field name="public_categ_ids"/>
+            </field>
+        </field>
+    </record>
+
     <!-- Add all Website features in New Website Page in Product Form -->
     <record id="website_description_form_view" model="ir.ui.view">
         <field name="name">website.description.form.view</field>
@@ -51,16 +70,29 @@
     </record>
 
     <!-- Add Slug field to Category Form -->
-    <record id="product_public_category_add_slug" model="ir.ui.view">
-        <field name="name">product.public.category.add.slug</field>
+    <record id="product_public_category_form_view" model="ir.ui.view">
+        <field name="name">product.public.category.form</field>
         <field name="model">product.public.category</field>
         <field name="inherit_id" ref="website_sale.product_public_category_form_view"/>
         <field name="arch" type="xml">
-            <field name="sequence" position="after">
-                <field name="slug"/>
-            </field>
+            <xpath expr="//form" position="replace">
+                <form string="Website Public Categories">
+                    <sheet>
+                        <field name="image" widget="image" class="oe_avatar" options="{'preview_image': 'image_medium', 'size': [90, 90]}"/>
+                        <div class="oe_title">
+                            <h1><field name="name" placeholder="Name"/></h1>
+                        </div>
+                        <group>
+                            <field name="sequence"/>
+                            <field name="slug"/>
+                            <field name="parent_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </xpath>
         </field>
     </record>
+
     <!-- Add Slug field to Category Tree View and handle sequence -->
     <record id="product_public_category_tree_view_sequence" model="ir.ui.view">
         <field name="name">Product public category add sequence</field>
@@ -73,6 +105,18 @@
             </xpath>
             <xpath expr="//field[@name='display_name']" position="after">
                 <field name="slug"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!--Add categories to product search view-->
+    <record id="product_template_search_view_website_category" model="ir.ui.view">
+        <field name="name">product.template.search.category</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="website_sale.product_template_search_view_website"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='consumable']" position="after">
+                <field name="public_categ_ids" filter_domain="[('public_categ_ids','child_of',self)]"/>
             </xpath>
         </field>
     </record>
