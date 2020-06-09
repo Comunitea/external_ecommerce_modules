@@ -190,7 +190,7 @@ class ProductRedirect(WebsiteSale):
 
         if product_sudo:
             self._update_context()
-            return super(ProductRedirect, self).product(product=product, category=category, search=search, **kwargs)
+            return super(ProductRedirect, self).product(product=product_sudo, category=category, search=search, **kwargs)
         else:
             return request.env['ir.http'].reroute('/404')
 
