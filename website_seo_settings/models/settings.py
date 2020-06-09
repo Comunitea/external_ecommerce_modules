@@ -40,7 +40,7 @@ def _default_website(self):
                 lambda website: country_id in website.country_group_ids.mapped('country_ids').ids)
             return country_specific_websites[0] if country_specific_websites else websites[0]
 
-    return websites[0]
+    return websites and websites[0] or False
 
 class Website(models.Model):
     _inherit = 'website'
