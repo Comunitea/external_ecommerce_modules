@@ -57,9 +57,9 @@ class PmtController(http.Controller):
                 return werkzeug.utils.redirect(action_url['form'])
 
         # Algo ha salido mal por lo que volvemos a empezar
-        request.session['pmt_tx_error'] = u'Algo ha fallado en Pagantis.' \
-                                          u'Se ha recibido el código de error:' \
-                                          u'%s' % create_order.json().get('status', 'No definido')
+        request.session['pmt_tx_error'] = u'Algo ha fallado en Pagantis. ' \
+                                          u'Se ha recibido el código de error: ' \
+                                          u'%s' % create_order.json().get('status', create_order.status_code)
         return werkzeug.utils.redirect('/shop/checkout')
 
     @http.route(['/payment/pmt/result/<page>'], type='http', auth="public", methods=['POST', 'GET', 'PUT'], csrf=False)
@@ -98,15 +98,15 @@ class PmtController(http.Controller):
                     request.env['website'].sale_reset()
                     return werkzeug.utils.redirect('/shop/confirmation')
                 # Algo ha salido mal por lo que volvemos a empezar
-                request.session['pmt_tx_error'] = u'Algo ha fallado en Pagantis.\n' \
-                                                  u'Se ha recibido el código de error:\n' \
-                                                  u'%s' % confirm_order.json().get('status', 'No definido')
+                request.session['pmt_tx_error'] = u'Algo ha fallado en Pagantis. ' \
+                                                  u'Se ha recibido el código de error: ' \
+                                                  u'%s' % confirm_order.json().get('status', confirm_order.status_code)
         elif 'cancelled' in str(page):
-            request.session['pmt_tx_error'] = u'No se ha realizado la compra.\n' \
+            request.session['pmt_tx_error'] = u'No se ha realizado la compra. ' \
                                               u'Usted ha cancelado el pago en Pagantis.'
         else:
-            request.session['pmt_tx_error'] = u'No se ha realizado la compra.\n' \
-                                              u'Se ha recibido el código de error:\n' \
+            request.session['pmt_tx_error'] = u'No se ha realizado la compra. ' \
+                                              u'Se ha recibido el código de error: ' \
                                               u'%s' % str(page)
 
         # Algo ha salido mal por lo que volvemos a empezar
