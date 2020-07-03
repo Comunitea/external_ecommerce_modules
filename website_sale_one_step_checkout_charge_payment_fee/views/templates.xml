@@ -129,15 +129,18 @@
             </t>
         </xpath>
 
-        <!--Warning for choose a payment method if none is checked-->
+        <!-- Panel Payment Method Info -->
         <xpath expr="//div[@id='payment_method']" position="after">
-            <!-- Just if amounts are established for any acquirer -->
-            <div id="payment_method_info" t-if="(acquirers and len(acquirers) == 1 and any(((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
+            <!-- Variables to show panel always if pmt otherwise by acquirer amounts -->
+            <t t-set="pmt" t-value="request.env['payment.acquirer'].search([('website_published', '=', True), ('company_id', '=', order.company_id.id), ('provider', '=', 'pmt')])"/>
+            <t t-set="show_panel_info" t-value="(acquirers and len(acquirers) == 1 and any(((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
                                                     or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
                                                 ) for x in acquirers or list()))
                                                 or (acquirers and len(acquirers) &gt; 1 and any(((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
                                                     or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
-                                                ) for x in acquirers or list()))">
+                                                ) for x in acquirers or list()))"/>
+            <!-- Just if amounts are established for any acquirer -->
+            <div id="payment_method_info" t-if="pmt or show_panel_info">
                 <h3 class="page-header mt8">Payment Method Info</h3>
                 <div class="panel panel-default border_primary">
                     <div class="panel-body" id="payment_body_info">
@@ -156,7 +159,7 @@
                             </p>
                         </t>
                         <!-- Pagantis -->
-                        <t t-if="request.env['payment.acquirer'].search([('website_published', '=', True), ('company_id', '=', order.company_id.id), ('provider', '=', 'pmt')])">
+                        <t t-if="pmt">
                             <p>
                                 <!-- Retrive Javascript SDK from CDN -->
                                 <script type="text/javascript" src="https://cdn.pagamastarde.com/pmt-js-client-sdk/3/js/client-sdk.min.js"/>
