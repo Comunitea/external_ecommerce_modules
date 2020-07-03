@@ -174,22 +174,22 @@
         </template>
 
         <!--Para adaptar Pagantis a osc-->
-        <!--<template id="pmt_tx_ko" inherit_id="website_sale_one_step_checkout.osc_onestepcheckout">-->
-            <!--<xpath expr="//div[@class='container oe_website_sale oe_website_sale_osc']/div" position="before">-->
-                <!--<div t-if="request.session.get('pmt_tx_error')" class="row">-->
-                    <!--<div class="col-md-4"></div>-->
-                    <!--<div class="col-md-4">-->
-                        <!--<div class="alert alert-danger alert-dismissible" role="alert">-->
-                            <!--<button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
-                                <!--<span aria-hidden="true"><![CDATA[&times;]]></span>-->
-                            <!--</button>-->
-                            <!--<strong>PAGANTIS: </strong><span t-esc="request.session.get('pmt_tx_error')"></span>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="col-md-4"></div>-->
-                <!--</div>-->
-            <!--</xpath>-->
-        <!--</template>-->
+        <template id="pmt_tx_ko" inherit_id="website_sale_one_step_checkout.osc_onestepcheckout">
+            <xpath expr="//div[@class='container oe_website_sale oe_website_sale_osc']/div" position="before">
+                <div t-if="request.session.get('pmt_tx_error')" class="row">
+                    <div class="col-md-4"/>
+                    <div class="col-md-4">
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true"><![CDATA[&times;]]></span>
+                            </button>
+                            <strong>PAGANTIS: </strong><span t-esc="request.session.get('pmt_tx_error')"/>
+                        </div>
+                    </div>
+                    <div class="col-md-4"/>
+                </div>
+            </xpath>
+        </template>
 
     </data>
 </odoo>
