@@ -50,5 +50,6 @@
         'website',
         'website_crm',
         'website_crm_privacy_policy',
+        'website_logo',
     ],
 }
