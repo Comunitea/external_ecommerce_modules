@@ -61,6 +61,7 @@ msgid "your_name@provider.domain"
 msgstr "nombre@proveedor.dominio"
 
 #. module: ecommerce_base
+#. openerp-web
 #: code:addons/ecommerce_base/static/js/main.js:8
 #, python-format
 msgid "Please, write your email with a right format such: your_name@provider.domain"
