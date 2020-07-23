@@ -56,7 +56,7 @@
         <!--Default Checkout-->
         <template id="pmt_tx_ko" inherit_id="website_sale.payment">
             <!--Pagantis Errors-->
-            <xpath expr="//div[@class='container oe_website_sale']/h1" position="before">
+            <xpath expr="//div[hasclass('oe_website_sale')]//div[hasclass('row')]" position="before">
                 <div t-if="request.session.get('pmt_tx_error')" class="row">
                     <div class="col-md-4"/>
                     <div class="col-md-4">
