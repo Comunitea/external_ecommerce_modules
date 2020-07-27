@@ -49,8 +49,12 @@
         </xpath>
 
         <!-- Hide guarantee -->
-        <xpath expr="//div[@id='product_details']//hr[last()]" position="replace"/>
-        <xpath expr="//div[@id='product_details']/p[last()]" position="replace"/>
+        <xpath expr="//div[@id='product_details']//hr[last()]" position="attributes">
+            <attribute name="class" add="hide" separator=" "/>
+        </xpath>
+        <xpath expr="//div[@id='product_details']/p[last()]" position="attributes">
+            <attribute name="class" add="hide" separator=" "/>
+        </xpath>
     </template>
 
     <!-- Product item used by /shop and /shop/cart -->
