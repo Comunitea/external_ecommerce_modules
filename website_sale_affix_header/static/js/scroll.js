@@ -19,12 +19,14 @@ odoo.define('website_sale_affix_header.scroll', function (require) {
     };
 
     // Reads out the scroll position and stores it in the data attribute so we can use it in our stylesheets
-    const storeScroll = () => {
+    var storeScroll = () => {
         document.documentElement.dataset.scroll = window.scrollY;
     }
 
     // Listen for new scroll events, here we debounce our `storeScroll` function
-    document.addEventListener('scroll', debounce(storeScroll), { passive: true });
+    if (document.documentElement.dataset.scroll === undefined) {
+        document.addEventListener('scroll', debounce(storeScroll), { passive: true });
+    }
 
     // Update scroll position for first time
     storeScroll();
