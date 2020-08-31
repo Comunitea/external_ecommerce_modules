@@ -54,12 +54,14 @@ class PmtController(http.Controller):
                 sale_order.pmt_order_id = order_id
 
                 action_url = create_order.json().get('action_urls')
+                request.session['pmt_tx_error'] = ''
                 return werkzeug.utils.redirect(action_url['form'])
 
         # Algo ha salido mal por lo que volvemos a empezar
-        request.session['pmt_tx_error'] = u'Algo ha fallado en Pagantis. ' \
+        request.session['pmt_tx_error'] = u'No se ha podido conectar con Pagantis. ' \
                                           u'Se ha recibido el código de error: ' \
-                                          u'%s' % create_order.json().get('status', create_order.status_code)
+                                          u'%s - %s' % (create_order.json().get('status', create_order.status_code),
+                                                        create_order.json().get('message', 'Unknown'))
         return werkzeug.utils.redirect('/shop/checkout')
 
     @http.route(['/payment/pmt/result/<page>'], type='http', auth="public", methods=['POST', 'GET', 'PUT'], csrf=False)
@@ -96,11 +98,14 @@ class PmtController(http.Controller):
                     )
                     sale_order.with_context(send_email=True).action_confirm()
                     request.env['website'].sale_reset()
+                    request.session['pmt_tx_error'] = ''
                     return werkzeug.utils.redirect('/shop/confirmation')
                 # Algo ha salido mal por lo que volvemos a empezar
                 request.session['pmt_tx_error'] = u'Algo ha fallado en Pagantis. ' \
                                                   u'Se ha recibido el código de error: ' \
-                                                  u'%s' % confirm_order.json().get('status', confirm_order.status_code)
+                                                  u'%s - %s' % (
+                    confirm_order.json().get('status', confirm_order.status_code),
+                    confirm_order.json().get('message', 'Unknown'))
         elif 'cancelled' in str(page):
             request.session['pmt_tx_error'] = u'No se ha realizado la compra. ' \
                                               u'Usted ha cancelado el pago en Pagantis.'

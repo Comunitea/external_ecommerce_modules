@@ -14,12 +14,12 @@
                 <input type="hidden" name="amount" t-att-value="int(float(amount) * 100)"/>
 
                 <!--Parthner-->
-                <input type="hidden" name="partner_id" t-att-value="billing_partner_id"/>
-                <input type="hidden" name="partner_name" t-att-value="billing_partner_name"/>
-                <input type="hidden" name="partner_email" t-att-value="billing_partner_email"/>
-                <input type="hidden" name="partner_phone" t-att-value="billing_partner_phone"/>
-                <input type="hidden" name="partner_lang" t-att-value="billing_partner_lang"/>
-                <input type="hidden" name="partner_address" t-att-value="billing_partner_address"/>
+                <input type="hidden" name="partner_id" t-att-value="partner_id"/>
+                <input type="hidden" name="partner_name" t-att-value="partner_name"/>
+                <input type="hidden" name="partner_email" t-att-value="partner_email or billing_partner_email or 'partner_email@provider.domain'"/>
+                <input type="hidden" name="partner_phone" t-att-value="partner_phone"/>
+                <input type="hidden" name="partner_lang" t-att-value="partner_lang"/>
+                <input type="hidden" name="partner_address" t-att-value="partner_address"/>
 
                 <!--Billing-->
                 <input type="hidden" name="billing_partner_name" t-att-value="billing_partner_name"/>
@@ -57,10 +57,10 @@
         <template id="pmt_tx_ko" inherit_id="website_sale.payment">
             <!--Pagantis Errors-->
             <xpath expr="//div[hasclass('oe_website_sale')]//div[hasclass('row')]" position="before">
-                <div t-if="request.session.get('pmt_tx_error')" class="row">
+                <div t-if="request.session.get('pmt_tx_error')" class="row mt16 mb4">
                     <div class="col-md-4"/>
                     <div class="col-md-4">
-                        <div class="alert alert-danger alert-dismissible" role="alert">
+                        <div class="alert alert-danger alert-dismissible mb0" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true"><![CDATA[&times;]]></span>
                             </button>
@@ -174,12 +174,12 @@
         </template>
 
         <!--Para adaptar Pagantis a osc-->
-        <template id="pmt_tx_ko" inherit_id="website_sale_one_step_checkout.osc_onestepcheckout">
+        <template id="pmt_osc_tx_ko" inherit_id="website_sale_one_step_checkout.osc_onestepcheckout">
             <xpath expr="//div[@class='container oe_website_sale oe_website_sale_osc']/div" position="before">
-                <div t-if="request.session.get('pmt_tx_error')" class="row">
+                <div t-if="request.session.get('pmt_tx_error')" class="row mt16 mb4">
                     <div class="col-md-4"/>
                     <div class="col-md-4">
-                        <div class="alert alert-danger alert-dismissible" role="alert">
+                        <div class="alert alert-danger alert-dismissible mb0" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true"><![CDATA[&times;]]></span>
                             </button>

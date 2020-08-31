@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+    <data noupdate="1">
 
         <record id="payment_acquirer_pmt" model="payment.acquirer">
             <field name="name">Pagantis</field>
@@ -12,6 +12,9 @@
             <field name="pre_msg">
                 <![CDATA[<p>Al hacer click en el botón de pago será redireccionado a la página web de Pagantis.
                 El cargo de gastos adicionales debe consultarse en las condiciones de Pagantis.</p>]]>
+            </field>
+            <field name="post_msg">
+                <![CDATA[<p>Su pago ha sido recibido correctamente. Gracias por confiar en nosotros.</p>]]>
             </field>
             <field name="pmt_public_key">dummy</field>
             <field name="pmt_private_key">dummy</field>
