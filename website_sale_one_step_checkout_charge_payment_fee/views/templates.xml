@@ -46,7 +46,7 @@
 
     <template id="website_sale_one_step_checkout_delivery_payment_delivery" name="Delivery Costs Payment Fee Charge" inherit_id="website_sale_one_step_checkout_delivery.payment_delivery">
         <xpath expr="//div[@id='delivery_carrier_osc']" position="after">
-            <t t-if="not deliveries">
+            <t t-if="not deliveries and not only_services">
                 <!-- Something was wrong. -->
                 <h3 class="page-header mt16">Payment Method</h3>
                 <div class="panel panel-danger border_primary">
