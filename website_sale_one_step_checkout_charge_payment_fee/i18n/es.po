@@ -98,6 +98,11 @@ msgid "Payment Method Info"
 msgstr "Método de Pago Info"
 
 #. module: website_sale_one_step_checkout_charge_payment_fee
+#: model:ir.ui.view,arch_db:website_sale_one_step_checkout_charge_payment_fee.website_sale_one_step_checkout_delivery_payment_delivery
+msgid "Payment Method"
+msgstr "Método de Pago"
+
+#. module: website_sale_one_step_checkout_charge_payment_fee
 #: model:ir.model.fields,field_description:website_sale_one_step_checkout_charge_payment_fee.field_payment_acquirer_payment_mode
 msgid "Payment Mode"
 msgstr "Modo de pago"
