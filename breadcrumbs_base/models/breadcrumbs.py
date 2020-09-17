@@ -137,9 +137,9 @@ class BreadCrumbs(models.Model):
             slide = main_object
             channel = slide.channel_id
             # Add parent slide crumb
-            breadcrumbs += _generate_one(channel.name, '/%s' % slug(channel), False)
+            breadcrumbs += _generate_one(channel.name, '/slides/%s' % slug(channel), False)
             # Add slide crumb
-            breadcrumbs += _generate_one(slide.name, slug(slide), True)
+            breadcrumbs += _generate_one(slide.name, '/slides/slide/%s' % slide.name, True)
         elif main_object._name == 'hr.job':
             job = main_object
             breadcrumbs += _generate_one('Jobs', '/jobs', False)
