@@ -1,28 +1,35 @@
-/* Define this variables in your archive css to override them */
+// == Define this variables in your archive css to override them or keep default bootstrap body colors
+//
+//##
+
 // :root {
-//     --color-bg: you_color or #fff;
-//     --color-href: you_color or #337ab7;
-//     --color-current: you_color or #777;
+//     --color-bg: you_color or @body-bg;  // Default bootstrap body color
+//     --color-href: you_color or #337ab7;  // Default bootstrap primary color
+//     --color-current: you_color or @gray-light;  // Default bootstrap color
 // }
 
+// All screen width
 .wp_breadcrumbs_base {
-    background-color: var(--color-bg, #fff);
+    background-color: var(--color-bg, @body-bg);
 }
-.breadcrumbs_base {
 
+// Just container width
+.breadcrumbs_base {
     & ol.breadcrumb {
-        background-color: var(--color-bg, #fff);
+        background-color: var(--color-bg, @body-bg);
         margin-bottom: 0;
+        // Links
         & a {
             color: var(--color-href, #337ab7);
         }
+        // Current
         & span {
-            color: var(--color-current, #777);
+            color: var(--color-current, @gray-light);
         }
     }
 }
 
 // Fix default padding for same space between crumbs
 .breadcrumb > li + li:before {
-  padding: 0px 0px 0px 5px;
+    padding: 0px 0px 0px 5px;
 }

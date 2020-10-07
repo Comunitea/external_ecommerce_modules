@@ -1,28 +1,41 @@
-/* Define this variables in your archive css to override them as you need */
+// == Define this variables in your archive css to override them or keep default bootstrap body colors
+//
+//##
+
 // :root {
-//     --affix-header-bg-color: you_color or #f8f8f8; // navbar default color
+//     --affix-header-bg-color: you_color or @navbar-default-bg;
 //     --affix-header-z-index: you_index or 999;
-//     --affix-header-animation-name: your_animation_name or opacity_frame;
+// }
+
+
+// == Define your keyframe or keep this to do nothing
+//
+//##
+
+// :root {
+//     --affix-header-animation-name: your_animation_name or no_frame;
 //     --affix-header-animation-duration: your_animation_duration or 0.3s;
 //     --affix-header-animation-delay: your_animation_delay or 0s;
 // }
 
-@keyframes opacity_frame {
+@keyframes no_frame {
     from {opacity: 1;}
-    to {opacity: 0;}
+    to {opacity: 1;}
 }
 
 // Affix Header when scroll
 html:not([data-scroll='0']) {
     header.o_affix_header {
-        background-color: var(--affix-header-bg-color, #f8f8f8);
+        & .navbar-default {
+            background-color: var(--affix-header-bg-color, @navbar-default-bg);
+        }
         position: fixed;
         z-index: var(--affix-header-z-index, 999);
         left: 0;
         right: 0;
         bottom: auto;
-        animation-name: var(--affix-header-animation-name, opacity_frame);
-        animation-duration: var(--affix-header-animation-duration, 0.5s);
-        animation-delay: var(--affix-header-animation-delay, 0.5s);
+        animation-name: var(--affix-header-animation-name, no_frame);
+        animation-duration: var(--affix-header-animation-duration, 0s);
+        animation-delay: var(--affix-header-animation-delay, 0s);
     }
 }

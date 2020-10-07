@@ -287,12 +287,12 @@
 
     <!-- Option:Right Column for extra info for post complete: follow us -->
     <template id="wbb_website_blog_opt_blog_rc_follow_us" name="Subscription Post" priority="1" inherit_id="website_blog_base.wbb_website_blog_index_right" active="True" customize_show="True">
-        <xpath expr="//div[@id='main_column']" position="attributes">
-            <attribute name="class">col-sm-8</attribute>
-        </xpath>
-        <xpath expr="//div[@id='blog_right_column']" position="inside">
+<!--        <xpath expr="//div[@id='main_column']" position="attributes">-->
+<!--            <attribute name="class">col-sm-8</attribute>-->
+<!--        </xpath>-->
+        <xpath expr="//div[@id='blog_right_column']" position="replace">
             <section class="mt32">
-                <h4>Stay updated :</h4>
+                <h4>Stay updated:</h4>
                 <t t-if="blog">
                     <t t-call="website_mail.follow">
                         <t t-set="email" t-value="user_id.email"/>
@@ -302,14 +302,14 @@
                 <p class="text-muted mb0 mt16">
                     Participate on our social stream.
                 </p>
-                <h2 class="mt4">
-                    <a t-att-href="website.social_facebook" t-if="website.social_facebook"><i class="fa fa-facebook-square"/></a>
-                    <a t-att-href="website.social_twitter" t-if="website.social_twitter"><i class="fa fa-twitter"/></a>
-                    <a t-att-href="website.social_linkedin" t-if="website.social_linkedin"><i class="fa fa-linkedin"/></a>
-                    <a t-att-href="website.social_youtube" t-if="website.social_youtube"><i class="fa fa-youtube-play"/></a>
-                    <a t-att-href="website.social_googleplus" t-if="website.social_googleplus"><i class="fa fa-google-plus-square"/></a>
-                    <a t-att-href="website.social_github" t-if="website.social_github"><i class="fa fa-github"/></a>
-                    <a t-att-href="'/blog/%s/feed' % (blog.id)"><i class="fa fa-rss-square"/></a>
+                <h2 class="mt4 o_sharing_links">
+                    <a t-att-href="website.social_facebook" class="fa fa-facebook-square" t-if="website.social_facebook"/>
+                    <a t-att-href="website.social_twitter" class="fa fa-twitter" t-if="website.social_twitter"/>
+                    <a t-att-href="website.social_linkedin" class="fa fa-linkedin" t-if="website.social_linkedin"/>
+                    <a t-att-href="website.social_youtube" class="fa fa-youtube-play" t-if="website.social_youtube"/>
+                    <a t-att-href="website.social_googleplus" class="fa fa-google-plus-square" t-if="website.social_googleplus"/>
+                    <a t-att-href="website.social_github" class="fa fa-github" t-if="website.social_github"/>
+                    <a t-att-href="'/blog/%s/feed' % (blog.id)" class="fa fa-rss-square"/>
                 </h2>
             </section>
         </xpath>
@@ -416,12 +416,18 @@
                         <t t-foreach="nav_list[year]" t-as="months">
                             <t t-if="months['date_begin'] == date">
                                 <li class="active">
-                                    <a t-ignore="True" t-attf-href="#{blog_url(date_begin=False, date_end=False)}"><t t-esc="months['month']"/><span class="pull-right badge" t-esc="months['post_date_count']"/></a>
+                                    <a t-ignore="True" t-attf-href="#{blog_url(date_begin=False, date_end=False)}">
+                                        <t t-esc="months['month']"/>
+                                        <span class="pull-right badge" t-esc="months['post_date_count']"/>
+                                    </a>
                                 </li>
                             </t>
                             <t t-else="1">
                                 <li>
-                                    <a t-ignore="True" t-attf-href="#{blog_url(date_begin=months['date_begin'], date_end=months['date_end'])}"><t t-esc="months['month']"/><span class="pull-right badge" t-esc="months['post_date_count']"/></a>
+                                    <a t-ignore="True" t-attf-href="#{blog_url(date_begin=months['date_begin'], date_end=months['date_end'])}">
+                                        <t t-esc="months['month']"/>
+                                        <span class="pull-right badge" t-esc="months['post_date_count']"/>
+                                    </a>
                                 </li>
                             </t>
                         </t>
