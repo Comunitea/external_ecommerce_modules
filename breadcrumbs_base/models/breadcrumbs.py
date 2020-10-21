@@ -14,11 +14,12 @@ class Crumb(models.Model):
     name = fields.Text(translate=True)
     url = fields.Text()
     active = fields.Boolean()
+    is_parent = fields.Boolean()
     website_published = fields.Boolean(string=_('Website Published'), default=True,
                                        help=_("Only published crumbs are visible in the website"))
 
 
-def _generate_one(name, url, active):
+def _generate_one(name, url, active, is_parent=False):
     """
     Find the current crumb element and create it if it doesn't exist.
     :return: Only published crumbs.
@@ -26,8 +27,8 @@ def _generate_one(name, url, active):
     crumb = request.env['breadcrumbs_base.crumb'].sudo()
     result = crumb
     if url:
-        domain_crumb = [('url', '=', url)]
-        domain_crumb = expression.AND([domain_crumb, ['|', ('active', '>=', True), ('active', '=', False)]])
+        domain_crumb = [('url', '=', url), ('is_parent', '=', is_parent)]
+        domain_crumb = expression.AND([domain_crumb, ['|', ('active', '=', True), ('active', '=', False), ]])
     else:
         domain_crumb = [('name', '=', name), ('url', '=', url), ('active', '=', active)]
     exist = crumb.search(domain_crumb, limit=1)
@@ -35,7 +36,7 @@ def _generate_one(name, url, active):
         if exist.website_published:
             result = exist
     else:
-        result = crumb.create({'name': name, 'url': url, 'active': active})
+        result = crumb.create({'name': name, 'url': url, 'active': active, 'is_parent': is_parent})
     return result
 
 
@@ -97,7 +98,7 @@ class BreadCrumbs(models.Model):
                 parent_res.reverse()
                 for res in parent_res:
                     parent = self.env['website.page'].sudo().search([('id', '=', res)])
-                    breadcrumbs += _generate_one(parent.name, parent.url, False)
+                    breadcrumbs += _generate_one(parent.name, parent.url, False, is_parent=True)
             breadcrumbs += _generate_one(page.name, page.url, True)
         elif main_object._name == 'ir.ui.view':
             view = main_object
@@ -116,7 +117,7 @@ class BreadCrumbs(models.Model):
                     parent_res.reverse()
                     for res in parent_res:
                         parent = self.env['website.page'].sudo().search([('id', '=', res)])
-                        breadcrumbs += _generate_one(parent.name, parent.url, False)
+                        breadcrumbs += _generate_one(parent.name, parent.url, False, is_parent=True)
                 breadcrumbs += _generate_one(page.name, page.url, True)
             else:
                 breadcrumbs += _generate_one(view.name, slug(view), True)

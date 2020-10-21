@@ -1,3 +1,7 @@
+`11.0.3.0.0`
+------------
+- **[ADD]** is_parent field for pages and views. Now is possible have the same crumb active or not in combination with parent page
+
 `11.0.2.5.0`
 ------------
 - **[ADD]** Support for hr jobs models
