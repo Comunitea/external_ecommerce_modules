@@ -47,13 +47,15 @@
                             <field name="total" attrs="{'invisible': [('is_counted', '=', False)]}"/>
                             <field name="discount_type"/>
                             <field name="value"/>
+                            <field name="discount_amount_currency_id"/>
+<!--                            <field name="tax_id"/>-->
                         </group>
                         <group colspan="2" col="2">
                             <separator string="Application settings" colspan="2"/>
                             <field name="coupon_type"/>
-                            <field name="product_id" attrs="{'invisible': [('coupon_type', 'in', ('category', 'all'))],
+                            <field name="discount_product_id" attrs="{'invisible': [('coupon_type', 'in', ('category', 'all'))],
                                                             'required':[('coupon_type', '=', 'product')]}"/>
-                            <field name="category_id" attrs="{'invisible': [('coupon_type', 'in', ('product', 'all'))],
+                            <field name="discount_category_id" attrs="{'invisible': [('coupon_type', 'in', ('product', 'all'))],
                                                             'required':[('coupon_type', '=', 'category')]}"/>
                             <field name="min_cart_value"/>
                             <field name="max_cart_value"/>

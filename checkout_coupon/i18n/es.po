@@ -16,97 +16,97 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:127
+#: code:addons/checkout_coupon/controllers/main.py:120
 #, python-format
 msgid " and coupon product (id: %s) existed"
 msgstr " y producto del cupón (id: %s) ya existía"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:138
+#: code:addons/checkout_coupon/controllers/main.py:131
 #, python-format
 msgid " and coupon product (id: %s) was created"
 msgstr " y producto del cupón (id: %s) había creado"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:62
+#: code:addons/checkout_coupon/controllers/main.py:65
 #, python-format
 msgid " and is available for current user"
 msgstr " y está disponible para el usuario"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:52
+#: code:addons/checkout_coupon/controllers/main.py:55
 #, python-format
 msgid " and is available for use"
 msgstr " y está disponible para su uso"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:150
+#: code:addons/checkout_coupon/controllers/main.py:149
 #, python-format
 msgid " and was added a history element with id %s"
 msgstr " y fue añadido a la historia con id %s"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:89
+#: code:addons/checkout_coupon/controllers/main.py:113
 #, python-format
-msgid " and was applicked for product %s"
+msgid " and was applied for product %s"
 msgstr " y fue aplicado al producto %s"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:92
+#: code:addons/checkout_coupon/controllers/main.py:96
 #, python-format
-msgid " and was applicked for products: "
+msgid " and was applied for products: "
 msgstr " y fue aplicado a los productos: "
 
 #. module: checkout_coupon
 #: code:addons/checkout_coupon/controllers/main.py:107
 #, python-format
-msgid " and was applicked for products: %s"
-msgstr " y fue aplicado a los productos: %s"
+msgid " and was applied for category %s with products: "
+msgstr " y fue aplicado para la categoría %s con los productos: "
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:154
+#: code:addons/checkout_coupon/controllers/main.py:153
 #, python-format
 msgid " and your discount is %s €"
 msgstr " y su descuento es %s €"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:46
+#: code:addons/checkout_coupon/controllers/main.py:49
 #, python-format
 msgid " but is expired"
 msgstr " pero está caducado"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:43
+#: code:addons/checkout_coupon/controllers/main.py:46
 #, python-format
 msgid " but is still not available"
 msgstr " pero no está disponible"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:64
+#: code:addons/checkout_coupon/controllers/main.py:67
 #, python-format
 msgid " but is unavailable for current user"
 msgstr " pero no es válido para el usuario"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:49
+#: code:addons/checkout_coupon/controllers/main.py:52
 #, python-format
 msgid " but there is no more in the stock"
 msgstr " pero ya no está en el stock"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:110
+#: code:addons/checkout_coupon/controllers/main.py:134
 #, python-format
 msgid " but your order does not have products to apply"
 msgstr " pero su pedido no tiene productos para aplicarlo"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:77
+#: code:addons/checkout_coupon/controllers/main.py:80
 #, python-format
 msgid " but your order total is too high"
 msgstr " pero el total de su pedido es demasiado alto"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:72
+#: code:addons/checkout_coupon/controllers/main.py:75
 #, python-format
 msgid " but your order total is too low"
 msgstr " pero el total de su pedido es demasiado bajo"
@@ -181,12 +181,12 @@ msgid "All Products"
 msgstr "Todos los Productos"
 
 #. module: checkout_coupon
-#: model:ir.model.fields,field_description:checkout_coupon.field_checkout_coupon_coupons_category_id
+#: model:ir.model.fields,field_description:checkout_coupon.field_checkout_coupon_coupons_discount_category_id
 msgid "Applicable category"
 msgstr "Categoría para aplicar"
 
 #. module: checkout_coupon
-#: model:ir.model.fields,field_description:checkout_coupon.field_checkout_coupon_coupons_product_id
+#: model:ir.model.fields,field_description:checkout_coupon.field_checkout_coupon_coupons_discount_product_id
 msgid "Applicable product"
 msgstr "Producto para aplicar"
 
@@ -328,14 +328,14 @@ msgid "Discount coupons"
 msgstr "Cupones de descuento"
 
 #. module: checkout_coupon
-#: model:ir.model.fields,field_description:checkout_coupon.field_checkout_coupon_coupons_discount_type
-msgid "Discount type"
-msgstr "Tipo de descuento"
-
-#. module: checkout_coupon
 #: model:ir.model.fields,field_description:checkout_coupon.field_checkout_coupon_coupons_value
 msgid "Discount value"
-msgstr "Valor de descuento"
+msgstr "Importe descuento"
+
+#. module: checkout_coupon
+#: model:ir.model.fields,field_description:checkout_coupon.field_checkout_coupon_coupons_discount_amount_currency_id
+msgid "Discount Amount Currency"
+msgstr "Moneda importe descuento"
 
 #. module: checkout_coupon
 #: model:ir.model.fields,field_description:checkout_coupon.field_checkout_coupon_coupons_display_name
@@ -350,9 +350,24 @@ msgid "End Date"
 msgstr "Fecha finalización"
 
 #. module: checkout_coupon
+#: model:ir.model.fields,field_description:checkout_coupon.field_checkout_coupon_coupons_discount_type
+msgid "Discount type"
+msgstr "Tipo de descuento"
+
+#. module: checkout_coupon
 #: selection:checkout_coupon.coupons,discount_type:0
-msgid "Fixed discount"
-msgstr "Descuento fijo"
+msgid "Fixed Amount (VAT included)"
+msgstr "Importe fijo (IVA incluido)"
+
+#. module: checkout_coupon
+#: selection:checkout_coupon.coupons,discount_type:0
+msgid "Fixed Amount (VAT excluded)"
+msgstr "Importe fijo (IVA no incluido)"
+
+#. module: checkout_coupon
+#: selection:checkout_coupon.coupons,discount_type:0
+msgid "Percentage discount"
+msgstr "Porcentaje"
 
 #. module: checkout_coupon
 #: selection:checkout_coupon.coupons,coupon_type:0
@@ -387,7 +402,7 @@ msgid "ID"
 msgstr "ID"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:54
+#: code:addons/checkout_coupon/controllers/main.py:57
 #, python-format
 msgid "Invalid coupon!"
 msgstr "Cúpon no válido!"
@@ -485,11 +500,6 @@ msgid "Partner"
 msgstr "Empresa"
 
 #. module: checkout_coupon
-#: selection:checkout_coupon.coupons,discount_type:0
-msgid "Percentage discount"
-msgstr "Porcentaje del descuento"
-
-#. module: checkout_coupon
 #: model:ir.ui.view,arch_db:checkout_coupon.website_sale_payment
 msgid "Put it in this field and apply"
 msgstr "Ponlo en este campo y aplica."
@@ -520,7 +530,7 @@ msgid "The coupon code must be unique!"
 msgstr "El código del cupón debe ser único!"
 
 #. module: checkout_coupon
-#: code:addons/checkout_coupon/controllers/main.py:39
+#: code:addons/checkout_coupon/controllers/main.py:42
 #, python-format
 msgid "The coupon exists"
 msgstr "El cúpon existe"
