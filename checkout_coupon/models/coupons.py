@@ -61,7 +61,7 @@ class Coupons(models.Model):
     ], string="Discount type", default='amount_tax_included', required=True)
     value = fields.Float(string="Discount value", default=1, required=True,
                          digits=dp.get_precision('Product Price'))
-    # tax_id = fields.Many2one('account.tax', string='Coupon VAT', required=True, default=_default_tax_id)
+    tax_id = fields.Many2one('account.tax', string='Coupon VAT', required=True, default=_default_tax_id)
     discount_amount_currency_id = fields.Many2one(
         "res.currency",
         string="Discount Amount Currency",
@@ -115,11 +115,14 @@ class Coupons(models.Model):
     @api.multi
     def _prepare_order_line_discount(self, order):
         self.ensure_one()
-        # takes all applied taxes. For categories or all products we take user tax
-        taxes = self.discount_product_id.taxes_id
-        if not taxes:
-            for tax in order.order_line.mapped('tax_id'):
-                taxes += tax
+        # take coupon tax
+        taxes = self.tax_id
+        # takes all applied taxes.
+        # if not taxes:
+        #     taxes = self.discount_product_id.taxes_id
+        #     if not taxes:
+        #         for tax in order.order_line.mapped('tax_id'):
+        #             taxes += tax
         if order.fiscal_position_id:
             taxes = order.fiscal_position_id.map_tax(taxes)
         price = self.discount_amount_currency_id.compute(

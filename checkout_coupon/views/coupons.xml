@@ -46,9 +46,9 @@
                             <field name="is_counted"/>
                             <field name="total" attrs="{'invisible': [('is_counted', '=', False)]}"/>
                             <field name="discount_type"/>
+                            <field name="tax_id"/>
                             <field name="value"/>
                             <field name="discount_amount_currency_id"/>
-<!--                            <field name="tax_id"/>-->
                         </group>
                         <group colspan="2" col="2">
                             <separator string="Application settings" colspan="2"/>
