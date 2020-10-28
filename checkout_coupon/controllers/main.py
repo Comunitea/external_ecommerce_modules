@@ -90,26 +90,33 @@ class CheckoutCoupon(http.Controller):
             discount_apply_sum = 0
             _logger.info("Prepared Order Line for Coupon Discount %s", line)
 
-            # import ipdb;ipdb.set_trace()
-
             if coupon.coupon_type == 'all':
                 msg += _(' and was applied for products: ')
                 for res in product_ids:
                     if res.product_id.type == 'product':
-                        discount_apply_sum += line['list_price'] * res.product_uom_qty
+                        if coupon.discount_type == 'percentage':
+                            discount_apply_sum += (res.product_id.list_price * res.product_uom_qty) * (coupon.value / 100)
+                        else:
+                            discount_apply_sum += line['list_price'] * res.product_uom_qty
                         msg += _(' %s,' % res.product_id.id)
 
             elif coupon.coupon_type == 'category':
                 msg += _(' and was applied for category %s with products: ' % coupon.discount_category_id.name)
                 for res in product_ids:
                     if res.product_id.public_categ_ids.id == coupon.discount_category_id.id and res.product_id.type == 'product':
-                        discount_apply_sum += line['list_price'] * res.product_uom_qty
+                        if coupon.discount_type == 'percentage':
+                            discount_apply_sum += (res.product_id.list_price * res.product_uom_qty) * (coupon.value / 100)
+                        else:
+                            discount_apply_sum += line['list_price'] * res.product_uom_qty
                         msg += _(' %s,' % res.product_id.name)
 
             elif coupon.coupon_type == 'product':
                 for res in product_ids:
                     if res.product_id.id == coupon.discount_product_id.id:
-                        discount_apply_sum = line['list_price'] * res.product_uom_qty
+                        if coupon.discount_type == 'percentage':
+                            discount_apply_sum += (res.product_id.list_price * res.product_uom_qty) * (coupon.value / 100)
+                        else:
+                            discount_apply_sum = line['list_price'] * res.product_uom_qty
                         msg += _(' and was applied for product %s' % res.product_id.id)
 
             if coupon_as_product:
