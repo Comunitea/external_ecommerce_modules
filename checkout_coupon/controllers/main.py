@@ -121,7 +121,7 @@ class CheckoutCoupon(http.Controller):
 
             if coupon_as_product:
                 coupon_as_product.product_tmpl_id.write({
-                    'list_price': discount_apply_sum,
+                    'list_price': -discount_apply_sum,
                     'taxes_id': [tax for tax in line['tax_id']]
                 })
                 msg += _(' and coupon product (id: %s) existed' % coupon_as_product.id)
@@ -133,7 +133,7 @@ class CheckoutCoupon(http.Controller):
                     'type': 'service',
                     'taxes_id': [(4, coupon._default_tax_id().id, False)],
                     'supplier_taxes_id': '',
-                    'list_price': discount_apply_sum,
+                    'list_price': -discount_apply_sum,
                 })
                 msg += _(' and coupon product (id: %s) was created' % coupon_as_product.id)
 
