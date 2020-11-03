@@ -290,7 +290,7 @@
 <!--        <xpath expr="//div[@id='main_column']" position="attributes">-->
 <!--            <attribute name="class">col-sm-8</attribute>-->
 <!--        </xpath>-->
-        <xpath expr="//div[@id='blog_right_column']" position="replace">
+        <xpath expr="//div[@id='blog_right_column']" position="inside">
             <section class="mt32">
                 <h4>Stay updated:</h4>
                 <t t-if="blog">
