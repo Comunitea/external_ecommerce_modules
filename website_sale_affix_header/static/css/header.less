@@ -23,6 +23,15 @@
     to {opacity: 1;}
 }
 
+// Pushed cookies notice message to bottom for let fix header on scroll and not hide cookies notice message
+div#website_cookie_notice {
+    position: fixed;
+    z-index: var(--affix-header-z-index, 999);
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
 // Affix Header
 html:not([data-scroll='0']) {
     // Add shadow when scrolling and not breadcrumbs bar
