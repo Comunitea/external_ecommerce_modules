@@ -2,7 +2,7 @@
 
 {
     'name': 'Website Affix Header',
-    'version': '11.0.0.0.0',
+    'version': '11.0.0.0.1',
     'summary': 'Module to affix header on the website',
     'description': '',
     'category': 'eCommerce',
