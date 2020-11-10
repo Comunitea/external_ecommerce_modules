@@ -132,7 +132,7 @@
     </template>
 
     <!--  Render posts list traditional  -->
-    <template id="wbb_post_short_list" name="Post Short List">
+    <template id="wbb_post_short_list" name="Post Short List (Standard)">
         <t t-foreach="blog_posts" t-as="blog_post" class="mb32" name="blog_post">
             <div class="col-md-6">
                 <a t-attf-href="/blog/#{ slug(blog_post.blog_id) }/post/#{ slug(blog_post) }">
@@ -176,7 +176,7 @@
     </template>
 
     <!--  Render posts list like as latest posts  -->
-    <template id="wbb_s_post_short_list" name="Post Short List">
+    <template id="wbb_s_post_short_list" name="Post Short List (Like Latest Post)">
         <section class="s_three_columns">
             <div class="container">
                 <div class="row">
