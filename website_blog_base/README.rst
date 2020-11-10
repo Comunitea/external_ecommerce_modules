@@ -1,6 +1,6 @@
-=================
-Website blog base
-=================
+===================
+Website Blog Extend
+===================
 
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
     :target: https://odoo-community.org/page/development-status
@@ -13,7 +13,7 @@ Website blog base
     :alt: Comunitea
 .. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FBLOG-lightgray.png?logo=github
     :target: https://github.com/Comunitea/external_ecommerce_modules/tree/11.0/website_blog_base
-    :alt: Comunitea / SEO
+    :alt: Comunitea / BLOG
 .. |badge5| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
     :target: https://github.com/Comunitea/external_ecommerce_modules/blob/11.0/website_blog_base/i18n/es.po
     :alt: Spanish Translated
@@ -46,19 +46,21 @@ This module include different features to blog:
 * Change blog_post_complete to include right column
 * Change blog_post_short view in two columns and change teaser by subtitle
 * Render posts short list like as latest posts (Traditional view can be used too)
+* Add right column on blog posts at the same as blog by customizable views
+* Add legal acceptance on Follow right column (Blog and Blog Post)
 
 Set this in Website > Blog
-
-Known issues
-------------
-
-if the snippet is used via web editor the user control access take no effect but can be called by t-call too if you wish and then works fine.
-
 
 Author
 ------
 
-Developer: Comunitea, info@comunitea.com
+.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
+   :alt: Comunitea
+   :target: https://comunitea.com
+
+Comunitea Servicios Tecnológicos S.L.
+
+For support and more information, please visit `<https://comunitea.com>`_.
 
 Contributors
 ~~~~~~~~~~~~
@@ -69,16 +71,36 @@ Contributors
 Maintainer
 ~~~~~~~~~~
 
-This module is maintained by the Comunitea http://www.comunitea.com.
+.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
+   :alt: Comunitea
+   :target: https://comunitea.com
+
+Comunitea Servicios Tecnológicos S.L.
+
+For support and more information, please visit `<https://comunitea.com>`_.
+
+Known issues / Roadmap
+----------------------
+
+If the snippet is used via web editor the user control access take no effect but can be called by t-call too if you wish and then works fine.
+
+Bug Tracker
+-----------
+Bugs are tracked on `Comunitea Issues <https://github.com/Comunitea/external_ecommerce_modules/issues>`_.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us smashing it by providing a detailed and welcomed
+`Feedback <https://github.com/Comunitea/external_ecommerce_modules/issues/new>`_.
+
+Please, do not contact contributors directly about support or help with technical issues.
 
 Disclaimer of Warranties
 ------------------------
 
-    **Attention!**
+    **Warning!**
 
     We provide this module as is, and we make no promises or guarantees about this correct working.
 
-Comunitea provides this application without warranty of any kind.
+    `Comunitea <https://comunitea.com>`_ provides this application without warranty of any kind.
 
-Comunitea does not warrant that the module will meet your requirements;
-that the current application will be uninterrupted, timely, secure, or error-free or that any defects or errors will be corrected.
+    `Comunitea <https://comunitea.com>`_ does not warrant that the module will meet your requirements;
+    that the current application will be uninterrupted, timely, secure, or error-free or that any defects or errors will be corrected.

@@ -285,8 +285,27 @@
         </xpath>
     </template>
 
-    <!-- Option:Right Column for extra info for post complete: follow us -->
-    <template id="wbb_website_blog_opt_blog_rc_follow_us" name="Subscription Post" priority="1" inherit_id="website_blog_base.wbb_website_blog_index_right" active="True" customize_show="True">
+    <!-- Callable template for legal acceptance on Follow right column-->
+    <template id="follow_blog_legal_acceptance" name="Follow Blog Legal Acceptance">
+        <div class="checkbox js_checkbox_legal js_legal small">
+            <input type="checkbox" class="js_input_legal ml4 mt8" required="required" t-att-checked="None"/>
+            <label for="privacy_policy" class="ml8">
+                <t t-call="website_legal_page.acceptance_full"/>
+            </label>
+        </div>
+    </template>
+
+    <!-- Option:Right Column for default follow us on blog -->
+    <template id="website_blog_opt_blog_rc_follow_us" name="Subscription" priority="4" inherit_id="website_blog.opt_blog_rc_follow_us">
+        <xpath expr="//t[@t-call='website_mail.follow']" position="after">
+            <t t-call="website_blog_base.follow_blog_legal_acceptance">
+                <t t-set="object" t-value="blog"/>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Option:Right Column for extra info for blog post complete: follow us -->
+    <template id="website_blog_base_wbb_website_blog_index_right" name="Subscription Post" priority="1" inherit_id="website_blog_base.wbb_website_blog_index_right" active="True" customize_show="True">
 <!--        <xpath expr="//div[@id='main_column']" position="attributes">-->
 <!--            <attribute name="class">col-sm-8</attribute>-->
 <!--        </xpath>-->
@@ -296,6 +315,9 @@
                 <t t-if="blog">
                     <t t-call="website_mail.follow">
                         <t t-set="email" t-value="user_id.email"/>
+                        <t t-set="object" t-value="blog"/>
+                    </t>
+                    <t t-call="website_blog_base.follow_blog_legal_acceptance">
                         <t t-set="object" t-value="blog"/>
                     </t>
                 </t>

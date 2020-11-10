@@ -1,59 +1,52 @@
 # -*- coding: utf-8 -*-
-#
-# © 2018 Comunitea
-# Pavel Smirnov <pavel@comunitea.com>
-# Rubén Seijas <ruben@comunitea.com>
-# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-#
-##############################################################################
-#
-#    Copyright (C) {year} {company} All Rights Reserved
-#    ${developer} <{mail}>$
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published
-#    by the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
 
 {
-    'name': 'Website blog base',
-    'version': '1.0',
+    'name': 'Website Blog Extend',
+    'version': '11.0.1.0.0',
     'summary': 'Friendly blog extension for eCommerce',
     'description': '',
-    'category': 'Website',
+    'category': 'eCommerce',
     'author': 'Comunitea',
-    'website': 'http://www.comunitea.com',
-    'license': 'AGPL-3',
     'contributors': [
         'Pavel Smirnov <pavel@comunitea.com>',
         'Rubén Seijas <ruben@comunitea.com>',
     ],
+    'website': 'http://www.comunitea.com',
+    "support": "info@comunitea.com",
+    'license': 'AGPL-3',
+    "price": 0,
+    "currency": "EUR",
+    "post_load": None,
+    "pre_init_hook": None,
+    "post_init_hook": None,
+    "uninstall_hook": None,
+    "auto_install": False,
+    'installable': True,
+    'application': False,
+    'qweb': [],
+    "live_test_url": "",
+    "demo": [],
+    "demo_title": "",
+    "demo_addons": [],
+    "demo_addons_hidden": [],
+    "demo_url": "",
+    "demo_summary": "",
+    "demo_images": [],
     'depends': [
-        'website_blog'
+        'website_blog',
+        'website_legal_page',
+        'website_mail',
     ],
     'data': [
         'views/blog_blog.xml',
         'views/blog_post_view.xml',
         'views/snippets.xml',
         'templates/access.xml',
+        'templates/assets.xml',
         'templates/blog.xml',
         'templates/latest_posts.xml'
     ],
     'images': [
         '/static/description/icon.png',
     ],
-    'qweb': [
-    ],
-    'installable': True,
-    'application': False,
 }
