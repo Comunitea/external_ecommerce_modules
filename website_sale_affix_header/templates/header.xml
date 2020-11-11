@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-    <template id="website_layout_affix_header" inherit_id="website.layout" active="False" customize_show="True" name="Affix Header">
+    <template id="website_layout_affix_header" inherit_id="website.layout" active="False" customize_show="True" name="Affix Top Menu">
         <!-- Make it real customize but taking care about cookies message-->
         <xpath expr="//div[@id='wrapwrap']/header" position="attributes">
             <attribute name="t-att-class">'o_affix_header ' + pageName if pageName else 'o_affix_header'</attribute>

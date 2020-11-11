@@ -1,6 +1,6 @@
-====================
-Website Affix Header
-====================
+======================
+Website Affix Top Menu
+======================
 
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
     :target: https://odoo-community.org/page/development-status
@@ -8,16 +8,19 @@ Website Affix Header
 .. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
     :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-Comunitea-gray.png?logo=github
+.. |badge3| image:: https://img.shields.io/badge/github-Comunitea-lightgray.png?logo=github
     :target: https://github.com/Comunitea/
     :alt: Comunitea
 .. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FeCommerce-lightgray.png?logo=github
-    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/10.0/website_sale_affix_header
-    :alt: Comunitea / eCommerce
+    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/11.0/website_sale_affix_header
+    :alt: Comunitea / Affix Header
+.. |badge5| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
+    :target: https://github.com/Comunitea/external_ecommerce_modules/blob/11.0/website_blog_base/i18n/es.po
+    :alt: Spanish Translated
 
-|badge1| |badge2| |badge3| |badge4|
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module let you affix header on the website when scrolling it by customize view on web editor.
+This module let you affix the top menu in header to top on the website when scrolling by customize view on web editor.
 
 **Table of contents**
 
@@ -26,7 +29,7 @@ This module let you affix header on the website when scrolling it by customize v
 
 What it does
 ------------
-This module let you affix header on the website when scrolling it by customize view on web editor.
+This module let you affix the top menu in header to top on the website when scrolling by customize view on web editor.
 
     **Warning**
 
@@ -43,10 +46,26 @@ Log into your website as an web editor user.
 
 When the view is active then the header will be affix on the top of the page and always will be visible.
 
+Animations
+----------
+When scrolling and the menu is fixed then add an animated shadow on the bottom.
+
+Integrations
+------------
+It works with Breadcrumbs Extend module ('breadcrumbs_base') created by 'Comunitea Servicios Tecnológicos S.L.'
+
+Shadow Animation
+~~~~~~~~~~~~~~~~
+When Breadcrumbs Extend module ('breadcrumbs_base') is installed then shadow animation is used by this module
+otherwise is provided by this module.
+
+Even if  Breadcrumbs Extend module ('breadcrumbs_base') is installed but is no present in any page then
+shadow animation will works anyway.
+
 How to customize it
 -------------------
 
-    **Warning**
+    **Warning!**
 
     By defauft include an animation to became transparent when scrolling
 
@@ -111,14 +130,14 @@ Bug Tracker
 Bugs are tracked on `Comunitea Issues <https://github.com/Comunitea/external_ecommerce_modules/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`Feedback <https://github.com/Comunitea/PXGO_00028_2014_SyD/issues/new>`_.
+`Feedback <https://github.com/Comunitea/external_ecommerce_modules/issues/new>`_.
 
 Please, do not contact contributors directly about support or help with technical issues.
 
 Disclaimer of Warranties
 ------------------------
 
-    **Attention!**
+    **Warning!**
 
     We provide this module as is, and we make no promises or guarantees about this correct working.
 

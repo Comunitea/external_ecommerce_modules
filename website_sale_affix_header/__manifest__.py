@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Website Affix Header',
-    'version': '11.0.0.0.2',
-    'summary': 'Module to affix header on the website',
+    'name': 'Website Affix Top Menu',
+    'version': '11.0.0.0.3',
+    'summary': 'Module to affix top menu in header to top on the website when scrolling '
+               'by customize view via web editor',
     'description': '',
     'category': 'eCommerce',
     'author': 'Comunitea',
@@ -20,8 +21,9 @@
     "post_init_hook": None,
     "uninstall_hook": None,
     "auto_install": False,
+    'active': True,
     'installable': True,
-    'application': False,
+    'application': True,
     'qweb': [],
     "live_test_url": "",
     "demo": [],
