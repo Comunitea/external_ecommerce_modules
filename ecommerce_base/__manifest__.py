@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Ecommerce Basic Modules',
-    'version': '11.0.1.4.0',
+    'name': 'Ecommerce Extend Features',
+    'version': '11.0.1.5.0',
     'summary': 'Some custom features for a basic installation of an e-commerce website.',
     'description': '',
-    'category': 'Ecommerce',
+    'category': 'eCommerce',
     'author': 'Comunitea',
     'contributors': [
         'Pavel Smirnov <pavel@comunitea.com>',
@@ -19,7 +19,7 @@
     "pre_init_hook": None,
     "post_init_hook": None,
     "uninstall_hook": None,
-    "auto_install": False,
+    "auto_install": True,
     'installable': True,
     'application': False,
     "live_test_url": "",
@@ -34,7 +34,7 @@
         "python": [], "bin": []
     },
     'data': [
-        'templates/head.xml',
+        'templates/assets.xml',
         'templates/portal.xml',
         'templates/footer.xml',
         'templates/contactus.xml',

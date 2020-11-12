@@ -1,0 +1,8 @@
+// Contextual backgrounds
+// For now we'll leave these alongside the text classes until v4 when we can safely shift things around (per SemVer rules).
+
+.bg-warning {
+    .bg-variant(var(--state-warning-text, @state-warning-text),
+        var(--state-warning-bg, @state-warning-bg),
+        var(--state-warning-border, @state-warning-border));
+}

@@ -1,6 +1,6 @@
-=======================
-Ecommerce Basic Modules
-=======================
+=========================
+Ecommerce Extend Features
+=========================
 
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
     :target: https://odoo-community.org/page/development-status
@@ -69,7 +69,33 @@ Templates
 
 Styles
 ~~~~~~
-For Full Legal Acceptance on contact form to get a correct alignment.
+* For Full Legal Acceptance on contact form to get a correct alignment.
+
+* Cookies Message Notice
+    * Use Bootstrap default variables but you can override them ans also:
+        * Add a new margin for content into panel
+        * Always used border color same as btn color even in hover but with inverted colors
+    * Just inside your custom styles, override this global variables as you wish:
+
+    ::
+
+        ::root {
+            // Warning Panel
+            --state-warning-text: your_value or #8a6d3b;
+            --state-warning-bg: your_value or #fcf8e3;
+            --state-warning-border: your_value or #fcf8e3;
+            --state-warning-margin: your_value or 1.8rem 1.25rem;
+            // Links
+            --state-warning-link-color: your_value or darken(#428bca, 6.5%); // #337ab7;
+            --state-warning-link-decoration: your_value or none;
+            --state-warning-link-hover-color: your_value or darken(@state-warning-link-color, 15%);
+            --state-warning-link-hover-decoration: your_value or underline;
+            // Ok Button
+            --state-warning-btn-color: your_value or @btn-primary-color;
+            --state-warning-btn-bg: your_value or @btn-primary-bg;
+            --state-warning-btn-hover-color: your_value or @btn-primary-bg;
+            --state-warning-btn-hover-bg: your_value or @btn-primary-color;
+        }
 
 Javascript
 ~~~~~~~~~~

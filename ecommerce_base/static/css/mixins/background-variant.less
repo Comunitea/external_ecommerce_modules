@@ -1,0 +1,30 @@
+// Contextual backgrounds
+
+.bg-variant(@color, @color-bg, @color-border) {
+    // Panel
+    color: @color;
+    background-color: @color-bg;
+    border: 1px solid @color-border;
+    // Links
+    a {
+        color: var(--state-warning-link-color, @state-warning-link-color);
+        text-decoration: var(--state-warning-link-decoration, @state-warning-link-decoration);
+        &:hover, &:focus {
+            color: var(--state-warning-link-hover-color, @state-warning-link-hover-color);
+            text-decoration: var(--state-warning-link-hover-decoration, @state-warning-link-hover-decoration);
+        }
+    }
+    // Ok Button
+    a.btn-primary {
+        color: var(--state-warning-btn-color, @state-warning-btn-color);
+        background-color: var(--state-warning-btn-bg, @state-warning-btn-bg);
+        border: 1px solid var(--state-warning-btn-color, @state-warning-btn-color);
+        text-decoration: none;
+        &:hover, &:focus {
+            color: var(--state-warning-btn-hover-color, @state-warning-btn-hover-color);
+            background-color: var(--state-warning-btn-hover-bg, @state-warning-btn-hover-bg);
+            border: 1px solid var(--state-warning-btn-hover-color, @state-warning-btn-hover-color);
+            text-decoration: none;
+        }
+    }
+}

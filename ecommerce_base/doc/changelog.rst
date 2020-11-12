@@ -1,3 +1,10 @@
+`11.0.1.5.0`
+------------
+- **[ADD]** Cookies Message Notice Styles by root variables without dependencies
+- **[UDP]** Module name and documentation
+- **[UDP]** auto_install flag changed to true.
+- **[UDP]** Renamed assets template
+
 `11.0.1.4.0`
 ------------
 - **[ADD]** Change website logo for an image responsive without tittle and include alt tag
