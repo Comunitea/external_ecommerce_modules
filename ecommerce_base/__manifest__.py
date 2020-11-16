@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Ecommerce Extend Features',
-    'version': '11.0.1.5.0',
+    'version': '11.0.2.0.0',
     'summary': 'Some custom features for a basic installation of an e-commerce website.',
     'description': '',
     'category': 'eCommerce',
@@ -36,7 +36,6 @@
     'data': [
         'templates/assets.xml',
         'templates/portal.xml',
-        'templates/footer.xml',
         'templates/contactus.xml',
         'templates/header.xml',
         'views/website.xml',
@@ -51,5 +50,6 @@
         'website_crm',
         'website_crm_privacy_policy',
         'website_logo',
+        'website_js_below_the_fold',
     ],
 }

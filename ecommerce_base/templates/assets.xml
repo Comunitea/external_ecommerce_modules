@@ -3,6 +3,7 @@
 
     <!-- Custom Assets -->
     <template id="website_assets_frontend" name="Website Assets Ecommerce Base" inherit_id="website.assets_frontend">
+        <!-- CSS -->
         <xpath expr="link[last()]" position="after">
             <!-- Mixins -->
             <link href="/ecommerce_base/static/css/mixins/background-variant.less" rel="stylesheet" type="text/less"/>
@@ -11,6 +12,18 @@
             <link href="/ecommerce_base/static/css/contactus.less" rel="stylesheet" type="text/less"/>
             <link href="/ecommerce_base/static/css/cookies.less" rel="stylesheet" type="text/less"/>
             <link href="/ecommerce_base/static/css/type.less" rel="stylesheet" type="text/less"/>
+        </xpath>
+        <!-- Scripts -->
+        <xpath expr="//script[last()]" position="after">
+            <script src="/ecommerce_base/static/js/jquery.validate.min.js" type="text/javascript"/>
+            <script src="/ecommerce_base/static/js/main.js" type="text/javascript"/>
+        </xpath>
+    </template>
+
+    <template id="website_js_below_the_fold_layout" name="Main Layout (Bellow the Fold) Ecommerce Base" inherit_id="website_js_below_the_fold.layout">
+         <!-- Add to bottom of page or when the is user a publisher add js to top of the page (below the fold is not relevant here) -->
+        <xpath expr="//t[@t-call-assets='web.assets_frontend']" position="after">
+            <t t-call-assets="website.assets_frontend" t-css="false"/>
         </xpath>
     </template>
 

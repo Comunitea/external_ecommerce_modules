@@ -100,6 +100,10 @@ Styles
 Javascript
 ~~~~~~~~~~
 - Add delayed own js charge at the end of pages.
+
+    * Integrated with **website_js_below_the_fold** module
+    * Include Website Assets Frontend into website_js_below_the_fold
+
 - Add script to contact form e-mail validation.
 
     * `jQuery Validation Plugin <http://jqueryvalidation.org/>`_ - v1.16.0 - 12/2/2016

@@ -1,3 +1,9 @@
+`11.0.2.0.0`
+------------
+- **[ADD]** Include Website Assets Frontend into website_js_below_the_fold
+- **[UDP]** Website Assets Ecommerce Base to work with website_js_below_the_fold
+- **[DEL]** Unnecessary footer.xml view to delay load assets
+
 `11.0.1.5.0`
 ------------
 - **[ADD]** Cookies Message Notice Styles by root variables without dependencies
