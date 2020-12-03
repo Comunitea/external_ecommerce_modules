@@ -114,15 +114,21 @@ class AccountInvoice(models.Model):
                         # if there are more than one order line no matter because always be the same product
                         # Tickets by POS has not order_line, then order_line must will be False
                         order_line = line.sale_line_ids and line.sale_line_ids[0] or False
+                        # Packs cases only can be checked if the module is installed
+                        exist_packs = self.env['ir.module.module'].search([
+                            ('name', '=', 'product_pack'),
+                            ('state', '=', 'installed'),
+                        ])
                         # Only want refer for published products and products packs, never pack content
-                        # If not order_line is a POS Ticket, then no problem because there are packs, never pack content
-                        if product.website_published and (not order_line or (
-                                order_line and 'pack_parent_line_id' in dir(order_line)
-                                and not order_line.pack_parent_line_id)):
-                            product_data['products'].append(_gen_product_data(product))
+                        # If not order_line is a POS Ticket, then no problem with packs because not pack content exists
+                        if product.website_published and (not order_line or (order_line and not exist_packs) or (
+                                order_line and exist_packs and 'pack_parent_line_id' in dir(order_line) and not order_line.pack_parent_line_id)):
+                            gen_prod_data = _gen_product_data(product)
+                            _logger.info('REVI - Add product data: %s', gen_prod_data)
+                            product_data['products'].append(gen_prod_data)
                             products_to_link.append({'id_product': '%d' % product.id})
                         else:
-                            if order_line and 'pack_parent_line_id' in dir(order_line) \
+                            if order_line and exist_packs and 'pack_parent_line_id' in dir(order_line) \
                                     and order_line.pack_parent_line_id:
                                 _logger.warning('REVI - No send product because belong to a pack: %s - %s',
                                                 product.id, product.display_name)
@@ -158,9 +164,9 @@ class AccountInvoice(models.Model):
                     }
 
                     def post_send(url, data, headers):
-                        _logger.debug('REVI - Sending data to url: %s', url)
-                        _logger.debug('REVI - headers: %s', headers)
-                        _logger.debug('REVI - data: %s', data)
+                        _logger.info('REVI - Sending data to url: %s', url)
+                        _logger.info('REVI - headers: %s', headers)
+                        _logger.info('REVI - data: %s', data)
                         return requests.post(url, data=json.dumps(data), headers=headers)
 
                     def post_success(request):
