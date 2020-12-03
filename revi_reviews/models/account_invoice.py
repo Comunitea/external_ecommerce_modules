@@ -115,7 +115,7 @@ class AccountInvoice(models.Model):
                         # Tickets by POS has not order_line, then order_line must will be False
                         order_line = line.sale_line_ids and line.sale_line_ids[0] or False
                         # Packs cases only can be checked if the module is installed
-                        exist_packs = self.env['ir.module.module'].search([
+                        exist_packs = self.env['ir.module.module'].sudo().search([
                             ('name', '=', 'product_pack'),
                             ('state', '=', 'installed'),
                         ])
