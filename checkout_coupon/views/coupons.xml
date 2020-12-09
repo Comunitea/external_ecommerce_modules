@@ -53,9 +53,9 @@
                         <group colspan="2" col="2">
                             <separator string="Application settings" colspan="2"/>
                             <field name="coupon_type"/>
-                            <field name="discount_product_id" attrs="{'invisible': [('coupon_type', 'in', ('category', 'all'))],
+                            <field name="discount_product_id" attrs="{'invisible': [('coupon_type', 'in', ('category', 'all', 'sale_order'))],
                                                             'required':[('coupon_type', '=', 'product')]}"/>
-                            <field name="discount_category_id" attrs="{'invisible': [('coupon_type', 'in', ('product', 'all'))],
+                            <field name="discount_category_id" attrs="{'invisible': [('coupon_type', 'in', ('product', 'all', 'sale_order'))],
                                                             'required':[('coupon_type', '=', 'category')]}"/>
                             <field name="min_cart_value"/>
                             <field name="max_cart_value"/>

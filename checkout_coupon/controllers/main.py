@@ -32,6 +32,9 @@ class CheckoutCoupon(http.Controller):
         coupon = request.env['checkout_coupon.coupons'].sudo().search(domain)
         today = datetime.today()
         success = False
+        order = request.website.sale_get_order()
+        product_ids = order.order_line
+        have_one = False
 
         if coupon.start_date:
             start_date = datetime.strptime(coupon.start_date, '%Y-%m-%d')
@@ -68,9 +71,6 @@ class CheckoutCoupon(http.Controller):
                 flags = 'red'
                 success = False
 
-        order = request.website.sale_get_order()
-        product_ids = order.order_line
-
         if coupon.min_cart_value and coupon.min_cart_value > order.amount_untaxed and success:
             msg += _(' but your order total is too low')
             flags = 'yellow'
@@ -90,7 +90,14 @@ class CheckoutCoupon(http.Controller):
             discount_apply_sum = 0
             _logger.info("Prepared Order Line for Coupon Discount %s", line)
 
-            if coupon.coupon_type == 'all':
+            if coupon.coupon_type == 'sale_order':
+                msg += _(' and was applied for order:  %s' % order.name)
+                if coupon.discount_type == 'percentage':
+                    discount_apply_sum += order.amount_untaxed * (coupon.value / 100)
+                else:
+                    discount_apply_sum = line['list_price']
+                have_one = True
+            elif coupon.coupon_type == 'all':
                 msg += _(' and was applied for products: ')
                 for res in product_ids:
                     if res.product_id.type == 'product':
@@ -98,7 +105,8 @@ class CheckoutCoupon(http.Controller):
                             discount_apply_sum += (res.product_id.list_price * res.product_uom_qty) * (coupon.value / 100)
                         else:
                             discount_apply_sum += line['list_price'] * res.product_uom_qty
-                        msg += _(' %s,' % res.product_id.id)
+                        msg += _(' %s,' % res.product_id.name)
+                        have_one = True
 
             elif coupon.coupon_type == 'category':
                 msg += _(' and was applied for category %s with products: ' % coupon.discount_category_id.name)
@@ -109,6 +117,7 @@ class CheckoutCoupon(http.Controller):
                         else:
                             discount_apply_sum += line['list_price'] * res.product_uom_qty
                         msg += _(' %s,' % res.product_id.name)
+                        have_one = True
 
             elif coupon.coupon_type == 'product':
                 for res in product_ids:
@@ -117,51 +126,60 @@ class CheckoutCoupon(http.Controller):
                             discount_apply_sum += (res.product_id.list_price * res.product_uom_qty) * (coupon.value / 100)
                         else:
                             discount_apply_sum = line['list_price'] * res.product_uom_qty
-                        msg += _(' and was applied for product %s' % res.product_id.id)
+                        msg += _(' and was applied for product %s' % res.product_id.name)
+                        have_one = True
 
-            if coupon_as_product:
-                coupon_as_product.product_tmpl_id.write({
-                    'list_price': -discount_apply_sum,
-                    'taxes_id': [tax for tax in line['tax_id']]
-                })
-                msg += _(' and coupon product (id: %s) existed' % coupon_as_product.id)
-            else:
-                coupon_as_product = request.env['product.product'].sudo().create({
-                    'name': 'Discount coupon %s' % coupon.code,
-                    'default_code': coupon.code,
-                    'sale_ok': False,
-                    'type': 'service',
-                    'taxes_id': [(4, coupon._default_tax_id().id, False)],
-                    'supplier_taxes_id': '',
-                    'list_price': -discount_apply_sum,
-                })
-                msg += _(' and coupon product (id: %s) was created' % coupon_as_product.id)
+            if not coupon.max_cart_value and -discount_apply_sum > order.amount_untaxed:
+                flags = 'yellow'
+                msg = _('The coupon exists and is available for use but discount is higher than the order amount')
+                success = False
 
-            if not coupon_as_product:
+            if not have_one and success:
                 msg += _(' but your order does not have products to apply')
                 flags = 'yellow'
                 success = False
                 _logger.warning(msg)
 
-            coupon_history = request.env['checkout_coupon.history'].sudo().search(
-                [('order', '=', order.id)],
-                limit=1
-            )
+            if success:
+                if coupon_as_product:
+                    coupon_as_product.product_tmpl_id.write({
+                        'list_price': -discount_apply_sum if coupon.discount_type == 'percentage' else discount_apply_sum,
+                        'taxes_id': [tax for tax in line['tax_id']]
+                    })
+                    msg += _(' and coupon product (%s) existed' % coupon_as_product.name)
+                    msg += _(' and applied with discount (%s)' % discount_apply_sum)
+                else:
+                    coupon_as_product = request.env['product.product'].sudo().create({
+                        'name': 'Discount coupon %s' % coupon.code,
+                        'default_code': coupon.code,
+                        'sale_ok': False,
+                        'type': 'service',
+                        'taxes_id': [(4, coupon._default_tax_id().id, False)],
+                        'supplier_taxes_id': '',
+                        'list_price': discount_apply_sum,
+                    })
+                    msg += _(' and coupon product (%s) was created' % coupon_as_product.name)
+                    msg += _(' and applied with discount (%s)' % -discount_apply_sum)
 
-            if not coupon_history:
-                coupon_history = request.env['checkout_coupon.history'].sudo().create({
-                    'name': coupon.id,
-                    'order': order.id
-                })
-                msg += _(' and was added a history element with id %s' % coupon_history.id)
+                coupon_history = request.env['checkout_coupon.history'].sudo().search(
+                    [('order', '=', order.id)],
+                    limit=1
+                )
 
-            order._cart_update(product_id=coupon_as_product.id, set_qty=1)
-            order.write({'applied_coupon': coupon.id})
-            msg += _(' and your discount is %s €' % line['list_price'])
+                if not coupon_history:
+                    coupon_history = request.env['checkout_coupon.history'].sudo().create({
+                        'name': coupon.id,
+                        'order': order.id
+                    })
+                    msg += _(' and was added a history element with id %s' % coupon_history.id)
 
-            if coupon.is_counted:
-                coupon.write({'total': coupon.total - 1})
-                msg += _('; rest of current coupons: %s' % coupon.total)
+                order._cart_update(product_id=coupon_as_product.id, set_qty=1)
+                order.write({'applied_coupon': coupon.id})
+                msg += _(' and your discount is %s €' % discount_apply_sum)
+
+                if coupon.is_counted:
+                    coupon.write({'total': coupon.total - 1})
+                    msg += _('; rest of current coupons: %s' % coupon.total)
 
         values = {
             "message": msg,

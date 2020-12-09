@@ -43,10 +43,11 @@ class Coupons(models.Model):
     total = fields.Integer(string="Balance of coupons")
     coupon_type = fields.Selection(
         selection=[
+            ("sale_order", "For Sale Order"),
             ("all", "All Products"),
             ("product", "For a single product"),
             ("category", "For a single category"),
-        ], string="Is applicable: ", default="all"
+        ], string="Is applicable: ", default="sale_order"
     )
     discount_product_id = fields.Many2one("product.product", string="Applicable product",
                                           domain=[("active", "=", True)], oldname='product_id')
