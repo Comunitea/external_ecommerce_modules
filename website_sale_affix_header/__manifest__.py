@@ -2,9 +2,9 @@
 
 {
     'name': 'Website Affix Top Menu',
-    'version': '11.0.0.0.3',
-    'summary': 'Module to affix top menu in header to top on the website when scrolling '
-               'by customize view via web editor',
+    'version': '11.0.0.0.4',
+    'summary': 'Module to affix top menu in header to top on the website '
+               'when scrolling by customize view via web editor',
     'description': '',
     'category': 'eCommerce',
     'author': 'Comunitea',
@@ -21,7 +21,6 @@
     "post_init_hook": None,
     "uninstall_hook": None,
     "auto_install": False,
-    'active': True,
     'installable': True,
     'application': True,
     'qweb': [],

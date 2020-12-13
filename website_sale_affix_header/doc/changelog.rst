@@ -1,3 +1,7 @@
+`11.0.0.0.4`
+------------
+- **[DEL]** Manifest flag 'active'
+
 `11.0.0.0.3`
 ------------
 - **[UDP]** Readme and doc
