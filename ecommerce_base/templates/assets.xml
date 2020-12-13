@@ -20,11 +20,11 @@
         </xpath>
     </template>
 
-    <template id="website_js_below_the_fold_layout" name="Main Layout (Bellow the Fold) Ecommerce Base" inherit_id="website_js_below_the_fold.layout">
+<!--    <template id="website_js_below_the_fold_layout" name="Main Layout (Bellow the Fold) Ecommerce Base" inherit_id="website_js_below_the_fold.layout">-->
          <!-- Add to bottom of page or when the is user a publisher add js to top of the page (below the fold is not relevant here) -->
-        <xpath expr="//t[@t-call-assets='web.assets_frontend']" position="after">
-            <t t-call-assets="website.assets_frontend" t-css="false"/>
-        </xpath>
-    </template>
+<!--        <xpath expr="//t[@t-call-assets='web.assets_frontend']" position="after">-->
+<!--            <t t-call-assets="website.assets_frontend" t-css="false"/>-->
+<!--        </xpath>-->
+<!--    </template>-->
 
 </odoo>

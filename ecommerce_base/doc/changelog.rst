@@ -1,3 +1,7 @@
+`11.0.3.0.0`
+------------
+- **[DEL]** website_js_below_the_fold integration. Avoid js errors.
+
 `11.0.2.0.0`
 ------------
 - **[ADD]** Include Website Assets Frontend into website_js_below_the_fold
