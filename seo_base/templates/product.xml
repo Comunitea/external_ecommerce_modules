@@ -12,10 +12,27 @@
             <attribute name="t-field">product.description_short</attribute>
         </xpath>
         <xpath expr="//div[@id='product_full_description']" position="replace">
-            <div class="oe_structure mt16 mb16" id="product_full_description" t-if="product.description">
-                <div class="container" t-if="len(product.description) > 15" itemprop="description">
+            <div class="oe_structure mt32 mb32" id="product_full_description" t-if="product.website_description or product.website_specifications">
+                <div class="container" t-if="len(product.website_description) > 15" itemprop="description">
                     <div class="row">
-                        <div class="col-md-12" t-field="product.description"/>
+                        <div class="col-md-12">
+                            <ul class="nav nav-pills" role="tablist">
+                                <li role="presentation" t-att-class="'nav-pills-no-button' + ' active' if product.website_description else ''" t-if="product.website_description and len(product.website_description) > 15">
+                                    <h2><a class="nav-pills-link-no-button" href="#description" aria-controls="description" role="tab" data-toggle="pill">Description</a></h2>
+                                </li>
+                                <li role="presentation" t-att-class="'nav-pills-no-button' + ' active' if not product.website_description else ''" t-if="product.website_specifications and len(product.website_specifications) > 15">
+                                    <h2><a class="nav-pills-link-no-button" href="#specifications" aria-controls="specifications" role="tab" data-toggle="pill">Specifications</a></h2>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content mt16">
+                            <div role="tabpanel" class="tab-pane fade in active" id="description" t-if="product.website_description and len(product.website_description) > 15">
+                                <div class="col-md-12 mt16" t-field="product.website_description"/>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="specifications" t-if="product.website_specifications and len(product.website_specifications) > 15">
+                                <div class="col-md-12 mt16" t-field="product.website_specifications"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

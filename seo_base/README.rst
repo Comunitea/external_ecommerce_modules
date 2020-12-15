@@ -1,6 +1,6 @@
-========================================
-Website base module for SEO optimization
-========================================
+====================
+Website SEO Settings
+====================
 
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
     :target: https://odoo-community.org/page/development-status
@@ -21,7 +21,7 @@ Website base module for SEO optimization
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module contains several modules for different optimizations on the website.
+Website settings improvements for SEO optimization.
 
 It is compatible with the multi-website.
 
@@ -111,7 +111,8 @@ This module creates a product SEO fields:
 #. Keywords
 #. Friendly URL (slug)
 #. Product short description
-#. Product full description (with WYSIWYG / HTML editor)
+#. Product website description (with WYSIWYG / HTML editor)
+#. Product website specifications (with WYSIWYG / HTML editor)
 
 Image meta-data
 ~~~~~~~~~~~~~~~

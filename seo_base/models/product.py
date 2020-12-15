@@ -16,9 +16,16 @@ class ProductMeta(models.Model):
     product_meta_description = fields.Text(_("SEO Meta Description"), translate=True)
     product_meta_keywords = fields.Char(_("SEO Meta Keywords"), translate=True)
     slug = fields.Char(_("Friendly URL"), help=_("Friendly URL for redirection"))
-    description = fields.Html(_("Full product description"), strip_style=True, translate=True)
-    description_short = fields.Text(_("Short product description"), help=_("Short description for product page"),
-                                    strip_style=True, translate=True)
+    website_specifications = fields.Html(
+        _("Specifications for the website"), strip_style=True, translate=True,
+        help=_("If exists will be show under Website Product Detail with "
+               "Tab Pills Style beside Website Product Description")
+    )
+    description_short = fields.Text(
+        _("Website short product description"),
+        strip_style=True, translate=True,
+        help=_("If exists will be show at the bottom of website product detail")
+    )
 
     def _slug_validation(self, value):
         # Set current website
