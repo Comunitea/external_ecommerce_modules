@@ -423,12 +423,12 @@ msgid "Service worker cache list"
 msgstr "Lista de recursos en caché para service worker"
 
 #. module: seo_base
-#: code:addons/seo_base/models/product.py:25
+#: code:addons/seo_base/models/product.py:20
 #: model:ir.model.fields,help:seo_base.field_product_product_description_short
 #: model:ir.model.fields,help:seo_base.field_product_template_description_short
 #, python-format
-msgid "Website short product description"
-msgstr "Descripción corta para el sitio web"
+msgid "Short description for product page"
+msgstr "Descripción corta del producto para la WEB"
 
 #. module: seo_base
 #: code:addons/seo_base/models/product.py:20
