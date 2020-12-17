@@ -20,11 +20,11 @@
                     </group>
                     <group colspan="4" col="2" string="Website description">
                         <field name="description_short"/>
-                        <field name="website_description"/>
-                        <field name="website_specifications"/>
+                        <field name="description"/>
                     </group>
                 </page>
             </xpath>
+            <xpath expr="//group[@name='description_internal']" position="replace"/>
         </field>
     </record>
 

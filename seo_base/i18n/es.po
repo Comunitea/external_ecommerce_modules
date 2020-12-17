@@ -16,22 +16,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: seo_base
-#: code:addons/seo_base/models/product.py:20
-#: model:ir.model.fields,field_description:seo_base.field_product_product_website_specifications
-#: model:ir.model.fields,field_description:seo_base.field_product_template_website_specifications
-#, python-format
-msgid "Specifications for the website"
-msgstr "Especificaciones para el sitio web"
-
-#. module: seo_base
-#: code:addons/seo_base/models/product.py:21
-#: model:ir.model.fields,help:seo_base.field_product_product_website_specifications
-#: model:ir.model.fields,help:seo_base.field_product_template_website_specifications
-#, python-format
-msgid "If exists will be show under Website Product Detail with Tab Pills Style beside Website Product Description"
-msgstr "Si existe serán mostradas en la página del producto, debajo del detalle y en conjunto con la descripción si también existe mediante pestañas dinámicas"
-
-#. module: seo_base
 #: model:ir.ui.view,arch_db:seo_base.web_app_settings_form
 msgid "<span>Open manifest.json file</span>\n"
 "                                        <i class=\"fa fa-fw o_button_icon fa-arrow-right\"/>"
@@ -447,12 +431,12 @@ msgid "Website short product description"
 msgstr "Descripción corta para el sitio web"
 
 #. module: seo_base
-#: code:addons/seo_base/models/product.py:27
+#: code:addons/seo_base/models/product.py:20
 #: model:ir.model.fields,field_description:seo_base.field_product_product_description_short
 #: model:ir.model.fields,field_description:seo_base.field_product_template_description_short
 #, python-format
-msgid "If exists will be show at the bottom of website product detail"
-msgstr "Si existe se mostrará al final del detalle de la página del producto"
+msgid "Short product description"
+msgstr "Descripción corta del producto"
 
 #. module: seo_base
 #: model:ir.ui.view,arch_db:seo_base.sitemap_base_settings_form
