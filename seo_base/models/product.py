@@ -84,3 +84,21 @@ class ProductMeta(models.Model):
             })
         # Create
         return super(ProductMeta, self).create(values)
+
+    @api.model
+    def description_plaintext2html(self):
+        import logging
+        import pprint
+        _logger = logging.getLogger(__name__)
+        _logger.info('RUN Convert HTML description to Plain Text')
+        template_ids = self.env['product.template'].search(
+            [('description', '!=', ''), ('website_published', '=', True)])
+        _logger.info('Convert HTML description to Plain Text for products %s',
+                     pprint.pformat(template_ids))
+        for template_id in template_ids:
+            _logger.info('TRY Convert HTML description  %s',
+                         pprint.pformat(template_id.description))
+            if '\n' in template_id.description or '\r' in template_id.description:
+                template_id.description = template_id.description.replace('\n', '<br/>')
+            _logger.info('RESULT Convert HTML description %s',
+                         pprint.pformat(template_id.description))

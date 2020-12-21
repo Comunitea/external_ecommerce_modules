@@ -1,6 +1,6 @@
-========================================
-Website base module for SEO optimization
-========================================
+========================
+Website SEO Optimization
+========================
 
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
     :target: https://odoo-community.org/page/development-status
@@ -21,7 +21,7 @@ Website base module for SEO optimization
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module contains several modules for different optimizations on the website.
+This module contains several improves for different optimizations on the website.
 
 It is compatible with the multi-website.
 
@@ -87,10 +87,8 @@ Because of this is includes website_canonical_url module dependency.
 
 ECommerce category & product
 ----------------------------
-
 #. Product and ECommerce public category redirecting from custom Odoo URL to new friendly URL by SLUG field.
 #. This part works with shop access rules prevent redirection by user
-
     * For products: **from** *EXAMPLE.COM/shop/product/sku-product-name-id* **to** *EXAMPLE.COM/product/product-name*
     * For public categories: **from** *EXAMPLE.COM/shop/category/category-name-id* **to** *EXAMPLE.COM/category/category-name*
 
@@ -115,20 +113,17 @@ This module creates a product SEO fields:
 
 Image meta-data
 ~~~~~~~~~~~~~~~
-
 #. This module adds meta-attributes **alt** and **title** to the product images.
 #. Also, change the URL structure and remove the *'unique'* part of the image URL.
 
 Favicon
 ~~~~~~~
-
 * Show the favicon in the route *EXAMPLE.COM/favicon.ico* in case of *EXAMPLE.COM/web/image/website/WEBSITE_ID/favicon/*
 
 Set current favicon link to the head.
 
 Progressive web app
 ~~~~~~~~~~~~~~~~~~~
-
 #. Add Manifest.json;
 #. Add a **Service Worker** (with offline cache) to the Web App.
 
@@ -141,24 +136,53 @@ Set this in Website > SEO Configuration > Web App
 
 Author
 ~~~~~~
-
 Developer: Comunitea, info@comunitea.com
 
 Contributors
 ------------
-
 * Pavel Smirnov, pavel@comunitea.com
 * Rubén Seijas, ruben@comunitea.com
 
 Maintainer
 ~~~~~~~~~~
+.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
+   :alt: Comunitea
+   :target: https://comunitea.com
 
-This module is maintained by the Comunitea http://www.comunitea.com.
+Comunitea Servicios Tecnológicos S.L.
+
+For support and more information, please visit `<https://comunitea.com>`_.
+
+Known Issues
+------------
+By default uses Product Internal Description as Website Product Description instead 'website_description'.
+Nothing happen if Internal Description is not used for internal purposes but if it is needed, then you have to:
+
+* Override product views to change 'description' for 'website_description' in:
+    * website_sale_product_add (Product Seo Base)
+    * seo_base_product_meta (Seo base product meta fields)
+* Delete or comment internal Description replacement in:
+    * seo_base_product_meta (Seo base product meta fields)
+        * <xpath expr="//group[@name='description_internal']" position="replace"/>
+* Create an Scheduled Action like this to convert existing internal descriptions to HTML
+    * model.description_plaintext2html()
+
+.. image:: /seo_base/static/img/scheduled_actions.png
+   :alt: Convert Product Internal Descriptions from PlainText to HTML
+
+Bug Tracker
+-----------
+Bugs are tracked on `Comunitea Issues <https://github.com/Comunitea/external_ecommerce_modules/issues>`_.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us smashing it by providing a detailed and welcomed
+`Feedback <https://github.com/Comunitea/external_ecommerce_modules/issues/new>`_.
+
+Please, do not contact contributors directly about support or help with technical issues.
 
 Disclaimer of Warranties
 ------------------------
 
-    **Attention!**
+    **Warning!**
 
     We provide this module as is, and we make no promises or guarantees about this correct working.
 
