@@ -92,7 +92,7 @@ class ProductMeta(models.Model):
         _logger = logging.getLogger(__name__)
         _logger.info('RUN Convert HTML description to Plain Text')
         template_ids = self.env['product.template'].search(
-            [('description', '!=', ''), ('website_published', '=', True)])
+            [('description', '!=', '')])
         _logger.info('Convert HTML description to Plain Text for products %s',
                      pprint.pformat(template_ids))
         for template_id in template_ids:
