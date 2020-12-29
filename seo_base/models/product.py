@@ -90,16 +90,13 @@ class ProductMeta(models.Model):
         import logging
         import pprint
         _logger = logging.getLogger(__name__)
-        _logger.debug('RUN Convert HTML description to Plain Text')
+        _logger.info('RUN Convert HTML description to Plain Text')
         template_ids = self.env['product.template'].search(
             [('sale_ok', '=', True), ('description', '!=', '')])
         final_template_ids = template_ids.filtered(lambda x: len(x.description) > 15)
-        _logger.debug('Convert HTML description to Plain Text for %s products: %s',
-                     len(final_template_ids), pprint.pformat(final_template_ids))
         for template_id in final_template_ids:
-            if '\n' in template_id.description or '\r' in template_id.description:
-                _logger.debug('TRY Convert HTML description  %s',
-                              pprint.pformat(template_id.description))
-                template_id.description = template_id.description.replace('\n', '<br/>').replace('\r', '<br/>')
-                _logger.debug('RESULT Convert HTML description %s',
-                             pprint.pformat(template_id.description))
+            unicode_description = unicodedata.normalize('NFKD', template_id.description).encode('ascii', 'ignore').decode('ascii')
+            if '\n' in unicode_description or '\r' in unicode_description:
+                _logger.info('TRY Convert PLAINTEXT description  %s', pprint.pformat(unicode_description))
+                template_id.description = unicode_description.replace('\n', '<br/>').replace('\r', '<br/>')
+                _logger.info('RESULT Convert HTML description %s', pprint.pformat(template_id.description))

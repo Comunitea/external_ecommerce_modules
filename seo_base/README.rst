@@ -167,6 +167,12 @@ Nothing happen if Internal Description is not used for internal purposes but if 
 * Create an Scheduled Action like this to convert existing internal descriptions to HTML
     * model.description_plaintext2html()
 
+        **Warning!**
+
+        Descriptions are normalized to prevent different codifications.
+
+        Depending of number of products to convert maybe you need run manually with flag --workers=0
+
 .. image:: /seo_base/static/img/scheduled_actions.png
    :alt: Convert Product Internal Descriptions from PlainText to HTML
 
@@ -186,7 +192,7 @@ Disclaimer of Warranties
 
     We provide this module as is, and we make no promises or guarantees about this correct working.
 
-Comunitea provides this application without warranty of any kind.
+    Comunitea provides this application without warranty of any kind.
 
-Comunitea does not warrant that the module will meet your requirements;
-that the current application will be uninterrupted, timely, secure, or error-free or that any defects or errors will be corrected.
+    Comunitea does not warrant that the module will meet your requirements;
+    that the current application will be uninterrupted, timely, secure, or error-free or that any defects or errors will be corrected.
