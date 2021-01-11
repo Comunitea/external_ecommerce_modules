@@ -37,11 +37,10 @@
 // Purchase table list
 div[class*="o_portal container"] {
     & ol.breadcrumb {
-            color: var(--color-href, $secondary);
-        }
-        & li.active {
-            color: var(--color-current, $body-color);
-        }
+        color: var(--color-href, $secondary);
+    }
+    & li.active {
+        color: var(--color-current, $body-color);
     }
 }
 
