@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Breadcrumbs Base',
-    'version': '12.0.0.1.0',
+    'version': '12.0.1.0.0',
     'summary': 'Friendly breadcrumbs for eCommerce',
     'description': '',
     'category': 'eCommerce',
@@ -37,6 +37,7 @@
         'website_sale'
     ],
     'data': [
+        'views/assets.xml',
         'views/page_view.xml',
         'views/breadcrumbs_views.xml',
         'templates/breadcrumbs.xml',

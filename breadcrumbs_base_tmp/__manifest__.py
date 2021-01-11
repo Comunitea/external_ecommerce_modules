@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Breadcrumbs Base Templates',
-    'version': '12.0.0.1.0',
+    'version': '12.0.1.0.0',
     'summary': 'Add customize templates and styles for Breadcrumbs Base module',
     'description': '',
     'category': 'eCommerce',
@@ -37,7 +37,7 @@
     ],
     'data': [
         'templates/breadcrumbs_bar.xml',
-        'templates/head.xml',
+        'views/assets.xml',
     ],
     'images': [
         '/static/description/icon.png',

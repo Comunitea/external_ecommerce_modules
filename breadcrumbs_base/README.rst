@@ -87,17 +87,10 @@ All models included for breadcrumbs are:
 
 Author
 ------
-.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
-   :alt: Comunitea
-   :target: https://comunitea.com
-
 Comunitea Servicios Tecnológicos S.L.
-
-For support and more information, please visit `<https://comunitea.com>`_.
 
 Contributors
 ~~~~~~~~~~~~
-
 * Pavel Smirnov, pavel@comunitea.com
 * Rubén Seijas, ruben@comunitea.com
 

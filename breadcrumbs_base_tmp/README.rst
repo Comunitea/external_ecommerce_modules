@@ -8,7 +8,7 @@ Breadcrumbs Base Templates
 .. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
     :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-Comunitea-gray.png?logo=github
+.. |badge3| image:: https://img.shields.io/badge/github-Comunitea-lightgray.png?logo=github
     :target: https://github.com/Comunitea/
     :alt: Comunitea
 .. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FeCommerce-lightgray.png?logo=github
@@ -27,18 +27,17 @@ This module adds friendly multi-level breadcrumbs bar after "Main menu" block in
 .. contents::
    :local:
 
-Additional templates for Breadcrumbs Base Module
-------------------------------------------------
+Templates
+---------
 
 This module adds friendly multi-level breadcrumbs bar in Header after "Main menu" and "Navbar Menu" block in all not Portal web pages, except "My portal Home".
 
-    **Attention!**
+    **Warning!**
 
     This module removes all other breadcrumb bars from the website but not my account part.
 
 Usage
 -----
-
 Three customize views are provided with active by default.
 
 #. No Portal Breadcrumbs
@@ -77,29 +76,25 @@ If you want to use this module in a theme but you do not like where it is render
 override default colors of this module adding these variables to the less of your theme:
 
 For override default colors of this module **is necessary** to add these restrictions to the less of your theme:
+
 ::
 
         :root {
-            --color-bg: you_color; (#fff by default)
-            --color-href: you_color; (#337ab7 by default)
-            --color-current: you_color; (#777 by default)
+            --color-bg: you_color or $body-bg;
+            --color-href: you_color or $secondary;
+            --color-current: you_color or $body-color;
+            --crumb-padding: your_padding or 0.75rem 1rem;
+            --bar-border: your border or unset;
         }
 
 This module uses default Bootstrap colors and elements.
 
 Author
 ------
-.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
-   :alt: Comunitea
-   :target: https://comunitea.com
-
 Comunitea Servicios Tecnológicos S.L.
-
-For support and more information, please visit `<https://comunitea.com>`_.
 
 Contributors
 ~~~~~~~~~~~~
-
 * Pavel Smirnov, pavel@comunitea.com
 * Rubén Seijas, ruben@comunitea.com
 
@@ -125,7 +120,7 @@ Please, do not contact contributors directly about support or help with technica
 Disclaimer of Warranties
 ------------------------
 
-    **Attention!**
+    **Warning!**
 
     We provide this module as is, and we make no promises or guarantees about this correct working.
 
