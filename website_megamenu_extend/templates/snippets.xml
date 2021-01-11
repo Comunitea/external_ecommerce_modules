@@ -3,7 +3,7 @@
 
     <!-- Mega menu snippets -->
     <template id="mega_menu_category_products" name="Multi-Menus Custom">
-        <div id="mega_menu_sets" class="d-none">
+        <div class="mega_menu_sets d-none">
             <t t-set="menu_website" t-value="menu.website_id"/>
             <t t-set="hierarchy" t-value="menu.mega_menu_hierarchy"/>
             <t t-set="product_categories" t-value="menu.mega_menu_product_categories"/>
