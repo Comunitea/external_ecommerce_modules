@@ -1,0 +1,67 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* website_megamenu_extend
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-11 09:06+0000\n"
+"PO-Revision-Date: 2021-01-11 09:06+0000\n"
+"Last-Translator: Rubén Seijas <ruben@comunitea.com>\n"
+"Language-Team: ES_es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_megamenu_extend
+#: model:ir.model.fields,field_description:website_megamenu_extend.field_website_menu__mega_menu_category_domain
+msgid "Category domain"
+msgstr "Dominio Categoría"
+
+#. module: website_megamenu_extend
+#: model:ir.model.fields,field_description:website_megamenu_extend.field_website_menu__is_mega_menu
+msgid "Is Mega Menu"
+msgstr "Es Mega Menú"
+
+#. module: website_megamenu_extend
+#: model:ir.model.fields,field_description:website_megamenu_extend.field_website_menu__mega_menu_module_name
+msgid "Module Name"
+msgstr "Nombre de módulo"
+
+#. module: website_megamenu_extend
+#: model:ir.ui.view,name:website_megamenu_extend.mega_menu_category_products
+msgid "Multi-Menus Custom"
+msgstr ""
+
+#. module: website_megamenu_extend
+#: model:ir.model.fields,field_description:website_megamenu_extend.field_website_menu__mega_menu_hierarchy
+msgid "Only categories with child"
+msgstr "Solo categorías con hijos"
+
+#. module: website_megamenu_extend
+#: model:ir.model.fields,field_description:website_megamenu_extend.field_website_menu__mega_menu_category_domain_only_child
+msgid "Only domain parent categories"
+msgstr "Solo categorías padre en dominio"
+
+#. module: website_megamenu_extend
+#: model:ir.model.fields,field_description:website_megamenu_extend.field_website_menu__mega_menu_product_categories
+msgid "Show product categories"
+msgstr "Mostrar productos de las categorías"
+
+#. module: website_megamenu_extend
+#: model:ir.model.fields,field_description:website_megamenu_extend.field_website_menu__mega_menu_template_name
+msgid "Template Name"
+msgstr "Nombre de plantilla"
+
+#. module: website_megamenu_extend
+#: model:ir.model,name:website_megamenu_extend.model_website
+msgid "Website"
+msgstr "Sitio web"
+
+#. module: website_megamenu_extend
+#: model:ir.model,name:website_megamenu_extend.model_website_menu
+msgid "Website Menu"
+msgstr "Menú del sitio web"
+

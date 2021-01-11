@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Mega menu snippets -->
+    <template id="mega_menu_category_products" name="Multi-Menus Custom">
+        <div id="mega_menu_sets" class="d-none">
+            <t t-set="menu_website" t-value="menu.website_id"/>
+            <t t-set="hierarchy" t-value="menu.mega_menu_hierarchy"/>
+            <t t-set="product_categories" t-value="menu.mega_menu_product_categories"/>
+            <t t-set="domain" t-value="menu.mega_menu_category_domain"/>
+            <t t-set="only_child" t-value="menu.mega_menu_category_domain_only_child"/>
+            <t t-set="context" t-value="website._get_product_public_categories(website=menu_website, parent_hierarchy=hierarchy, product_hierarchy=product_categories, category_domain=menu.mega_menu_category_domain, category_domain_only_child=only_child)"/>
+            <t t-set="parent_categories" t-value="context[0]"/>
+            <t t-set="products" t-value="context[1]"/>
+        </div>
+        <section class="s_mega_menu_multi_menus py-4" t-if="parent_categories">
+            <div class="container">
+                <div class="row">
+                    <t t-if="len(parent_categories) == 3">
+                        <t t-set="col_classes" t-value="4"/>
+                    </t>
+                    <t t-else="else">
+                        <t t-set="col_classes" t-value="3"/>
+                    </t>
+                    <div t-attf-class="col-lg-{{col_classes}}" t-if="len(parent_categories) &lt;= 2"/>
+                    <t t-foreach="parent_categories" t-as="menu_title">
+                        <div t-attf-class="col-lg-{{col_classes}} py-2 text-center text-truncate">
+                            <h4>
+                                <strong>
+                                    <a class="nav-link" t-att-data-name="menu_title.name" t-esc="menu_title.name"
+                                       t-att-href="'/category/%s' % menu_title.slug if menu_title.slug else '/shop/category/%s' % slug(menu_title)"/>
+                                </strong>
+                            </h4>
+                            <nav class="nav flex-column" t-if="hierarchy and menu_title.child_id">
+                                <t t-foreach="menu_title.child_id" t-as="menu_child">
+                                    <a class="nav-link" t-att-data-name="menu_child.name" t-esc="menu_child.name"
+                                       t-att-href="'/category/%s' % menu_child.slug if menu_child.slug else '/shop/category/%s' % slug(menu_child)" />
+                                </t>
+                            </nav>
+                            <nav class="nav flex-column" t-if="products">
+                                <t t-foreach="products.filtered(lambda x: menu_title in x.public_categ_ids)" t-as="menus_child">
+                                    <t t-foreach="menus_child" t-as="menu_child">
+                                        <a class="nav-link" t-att-data-name="menu_child.name" t-esc="menu_child.name"
+                                           t-att-href="'/product/%s' % menu_child.slug if menu_child.slug else '/shop/product/%s' % slug(menu_child)" />
+                                    </t>
+                                </t>
+                            </nav>
+                        </div>
+                    </t>
+                    <div t-attf-class="col-lg-{{col_classes}}" t-if="len(parent_categories) &lt;= 2"/>
+                </div>
+            </div>
+        </section>
+        <t t-call="website_megamenu.s_mega_menu_multi_menus" t-if="not parent_categories"/>
+    </template>
+
+</odoo>
