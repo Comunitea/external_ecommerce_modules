@@ -42,6 +42,7 @@ def _default_website(self):
 
     return websites and websites[0] or False
 
+
 class Website(models.Model):
     _inherit = 'website'
 
@@ -73,9 +74,9 @@ class Website(models.Model):
     map_add_blog = fields.Boolean(_("Blog pages"), default=False)
     map_freq_def = fields.Selection(
         selection=[
-            (_("daily"), _("Daily")),
-            (_("weekly"), _("Weekly")),
-            (_("monthly"), _("Monthly"))
+            ("daily", _("Daily")),
+            ("weekly", _("Weekly")),
+            ("monthly", _("Monthly"))
         ], string=_("Frequency update"), default="weekly"
     )
     map_prio_def = fields.Float(_("URL priority"), default=0.5, help=_("Between 0,1 and 1,0"))
