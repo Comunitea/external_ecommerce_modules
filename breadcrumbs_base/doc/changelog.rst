@@ -1,3 +1,9 @@
+`12.0.1.1.0`
+------------
+- **[ADD]** Get crumb name for pages from view_id.name when no page.name or put 'Unnamed Page'
+- **[FIX]** Add scroll shadow only when Affix Top menu is enabled at the same time
+- **[FIX]** Breadcrumb bar margin bottom for page content (Only when not scroll)
+
 `12.0.1.0.0`
 ------------
 - **[ADD]** Script for scroll

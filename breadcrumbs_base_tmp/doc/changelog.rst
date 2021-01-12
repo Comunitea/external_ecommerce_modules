@@ -1,3 +1,8 @@
+`12.0.1.1.0`
+------------
+- **[FIX]** Crumb styles
+- **[ADD]** Crumb styles mb root variable
+
 `12.0.1.0.0`
 ------------
 - **[UDP]** Styles

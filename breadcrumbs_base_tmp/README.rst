@@ -85,6 +85,7 @@ For override default colors of this module **is necessary** to add these restric
             --color-current: you_color or $body-color;
             --crumb-padding: your_padding or 0.75rem 1rem;
             --bar-border: your border or unset;
+            --bar-mb: your_mb or 1rem;
         }
 
 This module uses default Bootstrap colors and elements.

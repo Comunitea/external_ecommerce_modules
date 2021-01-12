@@ -5,7 +5,7 @@
     <template id="breadcrumbs_bar" name="Breadcrumbs Bar">
         <div t-att-class="'wp_breadcrumbs_base' if 'portal_my_home' not in xmlid else 'wp_breadcrumbs_base_portal'">
             <div class="container">
-                <div class="breadcrumbs_base mb16">
+                <div class="breadcrumbs_base">
                     <t t-set="breadcrumbs" t-value="website.generate_breadcrumbs(main_object, website)"/>
                     <ol class="breadcrumb" t-if="breadcrumbs">
                         <li>
@@ -14,8 +14,9 @@
                         </li>
                         <t t-foreach="breadcrumbs" t-as="crumb">
                             <li t-att-class="'active' if crumb.active else None">
-                                <span t-if="crumb.active" t-esc="crumb.name.capitalize()"/>
-                                <a t-else="" t-att-href="crumb.url" t-esc="crumb.name.capitalize()" t-att-alt="crumb.name" rel="noindex,nofollow"/>
+                                <span t-if="crumb.active" t-esc="crumb.name and crumb.name.capitalize() or 'Unnamed Page'"/>
+                                <a t-else="" t-att-href="crumb.url" t-esc="crumb.name and crumb.name.capitalize() or 'Unnamed Page'"
+                                   t-att-alt="crumb.name and crumb.name.capitalize() or 'Unnamed Page'" rel="noindex,nofollow"/>
                             </li>
                             <span class="breadcrumb-separator" t-if="not crumb.active">&amp;nbsp;/&amp;nbsp;</span>
                         </t>

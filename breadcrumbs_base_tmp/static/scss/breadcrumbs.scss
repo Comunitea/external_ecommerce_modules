@@ -4,12 +4,21 @@
 //     --color-href: you_color or $secondary;
 //     --color-current: you_color or $body-color;
 //     --crumb-padding: your_padding or 0.75rem 1rem;
-//     --bar-border: your border or unset;
+//     --bar-border: your_border or unset;
+//     --bar-mb: your_mb or 1rem;
 // }
 
 /* No portal pages */
-.wp_breadcrumbs_base, .wp_breadcrumbs_base_portal {
-    background-color: var(--color-bg, #fff);
+header:not(.o_header_affix) {
+    .wp_breadcrumbs_base, .wp_breadcrumbs_base_portal {
+        background-color: var(--color-bg, #fff);
+    }
+    & ol.breadcrumb {
+        margin-bottom: var(--bar-mb, 1rem);
+    }
+}
+header.o_header_affix {
+    margin-bottom: 0;
 }
 
 .breadcrumbs_base {

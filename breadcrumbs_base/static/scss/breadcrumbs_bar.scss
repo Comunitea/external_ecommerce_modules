@@ -1,5 +1,6 @@
 // Add a shadow when scrolling to differentiate the body content of the breadcrumbs bar
-html:not([data-scroll='0']) {
+// 'Affix top menu' customize view must be active
+header[class*='affixed'] {
     .wp_breadcrumbs_base {
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
         border-bottom: 1px solid rgba(0, 0, 0, 0.15);

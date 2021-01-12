@@ -97,8 +97,8 @@ class BreadCrumbs(models.Model):
                 parent_res.reverse()
                 for res in parent_res:
                     parent = self.env['website.page'].sudo().search([('id', '=', res)])
-                    breadcrumbs += _generate_one(parent.name, parent.url, False)
-            breadcrumbs += _generate_one(page.name, page.url, True)
+                    breadcrumbs += _generate_one(parent.name or parent.view_id.name, parent.url, False)
+            breadcrumbs += _generate_one(page.name or page.view_id.name, page.url, True)
         elif main_object._name == 'ir.ui.view':
             view = main_object
             # Find the current website page that uses this view
@@ -116,8 +116,8 @@ class BreadCrumbs(models.Model):
                     parent_res.reverse()
                     for res in parent_res:
                         parent = self.env['website.page'].sudo().search([('id', '=', res)])
-                        breadcrumbs += _generate_one(parent.name, parent.url, False)
-                breadcrumbs += _generate_one(page.name, page.url, True)
+                        breadcrumbs += _generate_one(parent.name or parent.view_id.name, parent.url, False)
+                breadcrumbs += _generate_one(page.name or page.view_id.name, page.url, True)
             else:
                 breadcrumbs += _generate_one(view.name, slug(view), True)
         elif main_object._name == 'blog.blog':
