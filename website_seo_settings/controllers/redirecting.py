@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
+import werkzeug
+
+from werkzeug.exceptions import Unauthorized, NotFound
 
 from odoo import http, SUPERUSER_ID
-
 from odoo.http import request
+from odoo.osv import expression
 
 from odoo.addons.website_sale.controllers.main import WebsiteSale
 from odoo.addons.website_seo_settings.models.product import ProductTemplate
-import werkzeug
-from werkzeug.exceptions import Unauthorized, NotFound
 
 
 def shop_control_access(website):
@@ -18,7 +19,8 @@ def shop_control_access(website):
         is_b2b = user.has_group('sale.group_show_price_subtotal')
         is_b2c = user.has_group('sale.group_show_price_total')
         is_portal = user.has_group('base.group_portal')
-        is_admin = user.has_group('website.group_website_publisher') or user.has_group('base.group_user')
+        is_admin = user.has_group('website.group_website_publisher') \
+                   or user.has_group('base.group_user')
 
         if not is_admin:
             # If the user is not logged in --> to login
@@ -31,14 +33,16 @@ def shop_control_access(website):
                     path += '?%s' % query
                 return request.redirect('/web/login?redirect=%s' % path)
             # If the user hasn't permission --> return error 403
-            elif (rules == 'b2b' and not is_b2b) or (rules == 'b2c' and not is_b2c):
+            elif (rules == 'b2b' and not is_b2b) \
+                    or (rules == 'b2c' and not is_b2c):
                 return request.render("website_seo_settings.403_access")
     return False
 
 
 class CategoryRedirect(WebsiteSale):
     """
-    ECommerce category redirecting from custom Odoo URL to new friendly URL en base of SLUG field.
+        ECommerce category redirecting from custom Odoo URL to new friendly URL
+        in base of SLUG field.
     """
 
     @http.route([
@@ -63,8 +67,10 @@ class CategoryRedirect(WebsiteSale):
         # If category is digit (in order_by parameter)
         order = post.get('order', False)
         if order and isinstance(category, str):
-            category = request.env['product.public.category'].sudo().search([('id', '=', category)])
-        
+            category = request.env['product.public.category'].sudo().search(
+                [('id', '=', category)]
+            )
+
         if category:
             redirect = self._check_category_redirect(category)
             if redirect:
@@ -72,21 +78,25 @@ class CategoryRedirect(WebsiteSale):
 
         # If not search box
         if category and category.slug:
-            route = '/category/%s/page/%d' % (category.slug, page) if page else '/category/%s' % category.slug
+            route = '/category/%s/page/%d' % (category.slug, page) if page \
+                else '/category/%s' % category.slug
             return http.local_redirect(
                 route,
                 http.request.httprequest.args,
                 True,
                 code='301'
             )
-        return super(CategoryRedirect, self).shop(page=page, category=category, brand=brand, search=search, ppg=ppg,
-                                                  **post)
+        return super(CategoryRedirect, self).shop(
+            page=page, category=category, brand=brand, search=search,
+            ppg=ppg, **post
+        )
 
-    @http.route(['/category/<path:path>', '/category/<path:path>/page/<int:page>'],
+    @http.route(['/category/<path:path>',
+                 '/category/<path:path>/page/<int:page>'],
                 type='http', auth='public', website=True)
     def _shop(self, path, page=0, category=None, search='', ppg=False, **post):
         """
-        Search the eCommerce category en base of new SLUG URL.
+            Search the eCommerce category in base of new SLUG URL.
         """
 
         # Call to the user access control function
@@ -103,7 +113,9 @@ class CategoryRedirect(WebsiteSale):
             redirect = self._check_category_redirect(category)
             if redirect:
                 return redirect
-            result = super(CategoryRedirect, self).shop(page=page, category=category, search=search, ppg=ppg, **post)
+            result = super(CategoryRedirect, self).shop(
+                page=page, category=category, search=search, ppg=ppg, **post
+            )
         else:
             result = request.env['ir.http'].reroute('/404')
         return result
@@ -111,10 +123,16 @@ class CategoryRedirect(WebsiteSale):
     def _check_category_redirect(self, category):
         redirect_url = False
         if category.category_redirect:
-            redirect_url = '/category/{}'.format(category.category_redirect.slug) if category.category_redirect.slug \
-                else '/shop/category/{}'.format(ProductTemplate._slug_validation(
-                    category.category_redirect, '%s-%s' % (category.category_redirect.name,
-                                                           category.category_redirect.id)))
+            redirect_url = '/category/{}'.format(
+                category.category_redirect.slug
+            ) if category.category_redirect.slug \
+                else '/shop/category/{}'.format(
+                ProductTemplate._slug_validation(
+                    category.category_redirect, '%s-%s' % (
+                        category.category_redirect.name,
+                        category.category_redirect.id)
+                )
+            )
 
         if redirect_url:
             return werkzeug.utils.redirect(redirect_url)
@@ -123,7 +141,8 @@ class CategoryRedirect(WebsiteSale):
 
 class ProductRedirect(WebsiteSale):
     """
-    Product redirecting from custom Odoo URL to new friendly URL en base of SLUG field.
+        Product redirecting from custom Odoo URL to new friendly URL
+        in base of SLUG field.
     """
 
     def _update_context(self):
@@ -137,10 +156,12 @@ class ProductRedirect(WebsiteSale):
         request.env.context = context
         return
 
-    @http.route(['/shop/product/<model("product.template"):product>'], type='http', auth="public", website=True)
+    @http.route(['/shop/product/<model("product.template"):product>'],
+                type='http', auth="public", website=True)
     def product(self, product, category='', search='', **kwargs):
         """
-        Template render on whether or not there is slug url and context updated by inheritance
+            Template render on whether or not there is slug url
+            and context updated by inheritance
         """
 
         # Call to the user access control function
@@ -162,14 +183,18 @@ class ProductRedirect(WebsiteSale):
             )
 
         self._update_context()
-        return super(ProductRedirect, self).product(product=product, category=category, search=search, **kwargs)
+        return super(ProductRedirect, self).product(
+            product=product, category=category, search=search, **kwargs
+        )
 
-    @http.route('/product/<path:path>', type='http', auth="public", website=True)
+    @http.route('/product/<path:path>',
+                type='http', auth="public", website=True)
     def slug_product(self, path, category='', search='', **kwargs):
         """
-        Template render by SLUG URL and context updated by inheritance
+            Template render by SLUG URL and context updated by inheritance
 
-        :return: the standard template with normal user permissions if the product exists else 404
+            :return: the standard template with normal user permissions
+            if the product exists else 404
         """
 
         # Call to the user access control function
@@ -190,16 +215,26 @@ class ProductRedirect(WebsiteSale):
 
         if product_sudo:
             self._update_context()
-            return super(ProductRedirect, self).product(product=product_sudo, category=category, search=search, **kwargs)
+            return super(ProductRedirect, self).product(
+                product=product_sudo, category=category, search=search, **kwargs
+            )
         else:
             return request.env['ir.http'].reroute('/404')
 
     def _check_product_redirect(self, product):
         redirect_url = False
         if product.product_redirect:
-            redirect_url = '/category/{}'.format(product.product_redirect.slug) if product.product_redirect.slug \
-                else '/shop/category/{}'.format(ProductTemplate._slug_validation(
-                    product.product_redirect, '%s-%s' % (product.product_redirect.name, product.product_redirect.id)))
+            redirect_url = '/category/{}'.format(
+                product.product_redirect.slug) \
+                if product.product_redirect.slug \
+                else '/shop/category/{}'.format(
+                ProductTemplate._slug_validation(
+                    product.product_redirect, '%s-%s' % (
+                        product.product_redirect.name,
+                        product.product_redirect.id
+                    )
+                )
+            )
 
         if redirect_url:
             context = dict(request.env.context)
@@ -212,10 +247,12 @@ class ProductRedirect(WebsiteSale):
 
 
 class WebsiteSaleTags(WebsiteSale):
-    
-    @http.route(['/tag/<model("product.template.tag"):tag>', '/tag/<path:path>'],
+
+    @http.route(['/tag/<model("product.template.tag"):tag>',
+                 '/tag/<path:path>'],
                 type='http', auth="public", website=True)
-    def shop_tags(self, page=0, tag=None, path=None, category=None, search='', ppg=False, **post):
+    def shop_tags(self, page=0, tag=None, path=None, category=None, search='',
+                  ppg=False, **post):
 
         # Call to the user access control function
         if request.website:
@@ -225,7 +262,9 @@ class WebsiteSaleTags(WebsiteSale):
 
         ctx = request.env.context.copy()
         if path:
-            tag = request.env['product.template.tag'].search([('slug', '=', path)], limit=1)
+            tag = request.env['product.template.tag'].search(
+                [('slug', '=', path)], limit=1
+            )
         if tag:
             redirect = self._check_tag_redirect(tag)
             if redirect:
@@ -234,7 +273,8 @@ class WebsiteSaleTags(WebsiteSale):
             request.env.context = ctx
         else:
             raise NotFound()
-        res = super(WebsiteSaleTags, self).shop(page=page, category=category, search=search, ppg=ppg, **post)
+        res = super(WebsiteSaleTags, self).shop(page=page, category=category,
+                                                search=search, ppg=ppg, **post)
         res.qcontext.update({
             'list_type': 'tags',
             'current_tag': tag,
@@ -245,18 +285,36 @@ class WebsiteSaleTags(WebsiteSale):
     def _get_search_domain(self, search, category, attrib_values):
         domain = super(WebsiteSaleTags, self)._get_search_domain(
             search=search, category=category, attrib_values=attrib_values)
+        domain += [('website_published', '=', True)]
+        website_id = request.env["website"].get_current_website()
         tag_id = request.env.context.get('tag_id', False)
+
+        # Get just products with tag_id if not search inside tags
         if tag_id:
-            domain += [('website_published', '=', True), ('tag_ids', 'in', (tag_id))] + \
-                      request.env['website'].website_domain()
+            domain += [('tag_ids', 'in', (tag_id))]
+        # Include products with tag name like search
+        elif not tag_id and not category and not search:
+            tag_ids = request.env['product.template.tag'].search([
+                ('website_id', '=', website_id.id),
+                ('website_published', '=', True),
+                ('name', 'ilike', search)
+            ]).mapped('id')
+            if tag_ids:
+                domain_tag = [('tag_ids', 'in', tag_ids)]
+                domain = expression.OR([domain, domain_tag])
         return domain
 
     def _check_tag_redirect(self, tag):
         redirect_url = False
         if tag.tag_redirect:
-            redirect_url = '/tag/{}'.format(tag.tag_redirect.slug) if tag.tag_redirect.slug \
+            redirect_url = '/tag/{}'.format(tag.tag_redirect.slug) \
+                if tag.tag_redirect.slug \
                 else '/shop/tag/{}'.format(ProductTemplate._slug_validation(
-                    tag.tag_redirect, '%s-%s' % (tag.tag_redirect.name, tag.tag_redirect.id)))
+                    tag.tag_redirect, '%s-%s' % (
+                        tag.tag_redirect.name, tag.tag_redirect.id
+                    )
+                )
+            )
         if redirect_url:
             return werkzeug.utils.redirect(redirect_url)
         return False

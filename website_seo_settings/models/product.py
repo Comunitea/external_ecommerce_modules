@@ -1,27 +1,46 @@
 # -*- coding: utf-8 -*-
-
-import random
 import re
 import unicodedata
 
 from odoo import http, api, models, fields, _
-
 from odoo.http import request
-from odoo.exceptions import ValidationError
+from odoo.tools.translate import html_translate
 
 
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    website_meta_title = fields.Char(string=_("Meta Title"), translate=True)
-    website_meta_description = fields.Text(string=_("Meta Description"), translate=True)
-    website_meta_keywords = fields.Char(string=_("Meta Keywords"), translate=True)
-    slug = fields.Char(string=_("Friendly URL"), help=_("Friendly URL for SEO redirection"), copy=False)
-    description_full = fields.Html(string=_("Full Description"), help=_("Full product description in HTML format"),
-                                   strip_style=True, translate=True)
-    description_short = fields.Text(string=_("Short Description"), help=_("Short description in plain text"),
-                                    strip_style=True, translate=True)
-    product_redirect = fields.Many2one('product.template', string="Redirect to another product")
+    website_meta_title = fields.Char(
+        string=_("Meta Title"),
+        translate=True
+    )
+    website_meta_description = fields.Text(
+        string=_("Meta Description"),
+        translate=True
+    )
+    website_meta_keywords = fields.Char(
+        string=_("Meta Keywords"),
+        translate=True
+    )
+    slug = fields.Char(
+        string=_("Friendly URL"),
+        help=_("Friendly URL for SEO redirection"),
+        copy=False
+    )
+    website_description_short = fields.Text(
+        string=_("Short Description"),
+        help=_("Short description in plain text"),
+        strip_style=True, translate=True
+    )
+    product_redirect = fields.Many2one(
+        'product.template',
+        string="Redirect to another product"
+    )
+    website_specifications = fields.Html(
+        string=_('Specifications'),
+        strip_style=True,
+        translate=html_translate
+    )
 
     def _slug_validation(self, value, count=0):
         # Set current website
@@ -32,21 +51,23 @@ class ProductTemplate(models.Model):
         website = self.env['website'].search(domain, limit=1)
 
         # Unicode validation
-        uni = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
+        uni = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore')\
+            .decode('ascii')
         value = re.sub('[\W_]', ' ', uni).strip().lower()
         value = re.sub('[-\s]+', '-', value)
 
         # Return with max length
-        max_length = website.slug_length if (19 < website.slug_length < 100) else 40
+        max_length = website.slug_length if (
+            19 < website.slug_length < 100) else 40
         value = value[:max_length]
 
         # Check if this SLUG value already exists in any product or category
         it_exists = self.sudo().search([('slug', '=', value)], limit=1)
         if it_exists and not it_exists.id == self.id:
             count = count + 1
-            value = str(count) + "-" + value 
+            value = str(count) + "-" + value
             value = value[:max_length]
-            self._slug_validation( value, count)
+            self._slug_validation(value, count)
         # Return
         return value
 
@@ -55,7 +76,8 @@ class ProductTemplate(models.Model):
         for record in self:
             has_slug = values.get('slug', False)
             if not has_slug or has_slug == '':
-                # If slug not exists or is empty -> create from product name & id and validate
+                # If slug not exists or is empty -> create from
+                # product name & id and validate
                 if not record.slug or values.get('name', False):
                     if values.get('name', False):
                         new_slug = '%s-%s' % ( values.get('name'), record.id)

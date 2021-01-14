@@ -2,7 +2,7 @@
 
 {
     'name': 'Website SEO Settings',
-    'version': '12.0.0.1.0',
+    'version': '12.0.1.0.0',
     'summary': 'Website settings improvements for SEO optimization',
     'description': '',
     'category': 'Website',
@@ -21,7 +21,7 @@
     ],
     'data': [
         'templates/access.xml',
-        'templates/head.xml',
+        'templates/assets.xml',
         'templates/product.xml',
         'templates/robots.xml',
         'templates/shop.xml',

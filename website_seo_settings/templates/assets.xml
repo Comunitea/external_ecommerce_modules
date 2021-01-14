@@ -152,10 +152,10 @@
         </xpath>
     </template>
 
-    <template id="website_base_website_assets_frontend_tags" inherit_id="website.assets_frontend">
+    <template id="website_base_website_assets_frontend_tags" inherit_id="website.assets_frontend" name="Website Assets Product Tags">
         <xpath expr="link[last()]" position="after">
             <!-- Tag styles -->
-            <link href="/website_seo_settings/static/css/tags.less" rel="stylesheet" type="text/less"/>
+            <link href="/website_seo_settings/static/css/tags.scss" rel="stylesheet" type="text/scss"/>
         </xpath>
     </template>
 

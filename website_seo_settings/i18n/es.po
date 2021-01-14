@@ -650,7 +650,7 @@ msgstr "Frecuencia actualización"
 
 #. module: website_seo_settings
 #: code:addons/website_seo_settings/models/category.py:14
-#: code:addons/website_seo_settings/models/product.py:19
+#: code:addons/website_seo_settings/models/product.py:26
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_product__slug
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_public_category__slug
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_template__slug
@@ -661,7 +661,7 @@ msgstr "URL amigable"
 
 #. module: website_seo_settings
 #: code:addons/website_seo_settings/models/category.py:14
-#: code:addons/website_seo_settings/models/product.py:19
+#: code:addons/website_seo_settings/models/product.py:27
 #: code:addons/website_seo_settings/models/product_template_tag.py:12
 #: model:ir.model.fields,help:website_seo_settings.field_product_product__slug
 #: model:ir.model.fields,help:website_seo_settings.field_product_public_category__slug
@@ -683,22 +683,6 @@ msgstr "Longitud máxima de URL amigable"
 #, python-format
 msgid "Friendly URL max length must be between 20 and 99"
 msgstr "El largo de la Url Amigable tiene que estar entre 20 y 99"
-
-#. module: website_seo_settings
-#: code:addons/website_seo_settings/models/product.py:20
-#: model:ir.model.fields,field_description:website_seo_settings.field_product_product__description_full
-#: model:ir.model.fields,field_description:website_seo_settings.field_product_template__description_full
-#, python-format
-msgid "Full Description"
-msgstr "Descripción Completa"
-
-#. module: website_seo_settings
-#: code:addons/website_seo_settings/models/product.py:20
-#: model:ir.model.fields,help:website_seo_settings.field_product_product__description_full
-#: model:ir.model.fields,help:website_seo_settings.field_product_template__description_full
-#, python-format
-msgid "Full product description in HTML format"
-msgstr "Descripción completa en formato HTML"
 
 #. module: website_seo_settings
 #: code:addons/website_seo_settings/models/settings.py:94
@@ -855,7 +839,7 @@ msgstr "Código adicional para el manifest"
 
 #. module: website_seo_settings
 #: code:addons/website_seo_settings/models/category.py:12
-#: code:addons/website_seo_settings/models/product.py:17
+#: code:addons/website_seo_settings/models/product.py:18
 #: code:addons/website_seo_settings/models/product_template_tag.py:14
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_product__website_meta_description
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_public_category__website_meta_description
@@ -867,7 +851,7 @@ msgstr "Descripción"
 
 #. module: website_seo_settings
 #: code:addons/website_seo_settings/models/category.py:13
-#: code:addons/website_seo_settings/models/product.py:18
+#: code:addons/website_seo_settings/models/product.py:22
 #: code:addons/website_seo_settings/models/product_template_tag.py:15
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_product__website_meta_keywords
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_public_category__website_meta_keywords
@@ -879,7 +863,7 @@ msgstr "Palabras Clave"
 
 #. module: website_seo_settings
 #: code:addons/website_seo_settings/models/category.py:11
-#: code:addons/website_seo_settings/models/product.py:16
+#: code:addons/website_seo_settings/models/product.py:14
 #: code:addons/website_seo_settings/models/product_template_tag.py:13
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_product__website_meta_title
 #: model:ir.model.fields,field_description:website_seo_settings.field_product_public_category__website_meta_title
@@ -1342,9 +1326,9 @@ msgid "Shop open for public users by default. Otherwise, the access rules must b
 msgstr "Tienda abierta para el usuario público por defecto. De otro modo, se deberán establecer las reglas de acceso."
 
 #. module: website_seo_settings
-#: code:addons/website_seo_settings/models/product.py:22
-#: model:ir.model.fields,field_description:website_seo_settings.field_product_product__description_short
-#: model:ir.model.fields,field_description:website_seo_settings.field_product_template__description_short
+#: code:addons/website_seo_settings/models/product.py:31
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_product__website_description_short
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_template__website_description_short
 #, python-format
 msgid "Short Description"
 msgstr "Descripción Corta"
@@ -1355,9 +1339,9 @@ msgid "Short Name"
 msgstr "Nombre corto"
 
 #. module: website_seo_settings
-#: code:addons/website_seo_settings/models/product.py:22
-#: model:ir.model.fields,help:website_seo_settings.field_product_product__description_short
-#: model:ir.model.fields,help:website_seo_settings.field_product_template__description_short
+#: code:addons/website_seo_settings/models/product.py:32
+#: model:ir.model.fields,help:website_seo_settings.field_product_product__website_description_short
+#: model:ir.model.fields,help:website_seo_settings.field_product_template__website_description_short
 #, python-format
 msgid "Short description in plain text"
 msgstr "Descripción corta en texto plano"
@@ -1419,18 +1403,6 @@ msgstr "Páginas estaticas"
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
 msgid "Theme Color"
 msgstr "Color Tema"
-
-#. module: website_seo_settings
-#: code:addons/website_seo_settings/models/product.py:46
-#, python-format
-msgid "There are an another object with the same Friendly URL. This is not possible. Use another one.\n"
-"Name: %s\n"
-"Friendly URL: %s\n"
-"NOTE: If you left the Friendly URL blank, then one was automatic generated by name but already exist. Write one."
-msgstr "Existe otro objeto con la misma URL Amigable. No es posible. Use otra.\n"
-"Nombre: %s\n"
-"URL Amigable: %s\n"
-"NOTA: Si dejó en blanco la URL Amigable, entonces se generó una automáticamente en base al nombre pero ya existe. Escriba una."
 
 #. module: website_seo_settings
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form

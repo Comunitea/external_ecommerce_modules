@@ -14,8 +14,9 @@
             <!-- Products descriptions for product details -->
             <xpath expr="//group[@name='shop']" position="after">
                 <group string="Descriptions">
-                    <field name="description_short"/>
-                    <field name="description_full"/>
+                    <field name="website_description_short"/>
+                    <field name="website_description"/>
+                    <field name="website_specifications"/>
                 </group>
             </xpath>
             <!-- SEO Metadata -->
@@ -41,6 +42,10 @@
         <field name="model">product.template.tag</field>
         <field name="inherit_id" ref="product_template_tags.product_template_tag_form_view"/>
         <field name="arch" type="xml">
+            <!-- Color -->
+            <field name="name" position="after">
+                <field name="color" placeholder="1 - orange, 2 - red, 3 - yellow, 4 - blue, 5 - purple, 6 - pink, 7 - green, ..."/>
+            </field>
             <!-- SEO Metadata -->
             <xpath expr="//sheet//group[last()]" position="after">
                 <group string="Website">

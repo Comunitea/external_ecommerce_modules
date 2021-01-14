@@ -103,12 +103,26 @@ Let you enable set your slug field length between 20 and 99 characters.
 
 ECommerce Public Categories and Products
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 #. Product and ECommerce public category redirecting from custom Odoo URL to new friendly URL by SLUG field.
 #. This part works with shop access rules prevent redirection by user
-
     * For products: **from** *EXAMPLE.COM/shop/product/sku-product-name-id* **to** *EXAMPLE.COM/product/product-name*
     * For public categories: **from** *EXAMPLE.COM/shop/category/category-name-id* **to** *EXAMPLE.COM/category/category-name*
+#. Products Tags
+    * Add product template tags over categories on left side bar
+    * Include metadata and slug fields with redirection
+    * Works with website sale search
+    * You can use this colors as well
+        * 1: #F06050,
+        * 2: #F4A460,
+        * 3: #F7CD1F,
+        * 4: #6CC1ED,
+        * 5: #814968,
+        * 6: #EB7E7F,
+        * 7: #2C8397,
+        * 8: #475577,
+        * 9: #D6145F,
+        * 10: #30C381,
+        * 11: #9365B8,
 
 Guarantee
 ---------
