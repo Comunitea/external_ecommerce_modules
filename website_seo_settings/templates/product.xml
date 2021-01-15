@@ -6,7 +6,7 @@
 
         <!-- Product descriptions -->
         <xpath expr="//div[@id='product_details']//div[hasclass('o_not_editable')]" position="after">
-            <div class="o_not_editable">
+            <div id="website_description_short" t-if="product.website_description_short">
                 <hr t-if="product.website_description_short" />
                 <p t-field="product.website_description_short"/>
             </div>
@@ -62,7 +62,7 @@
 
         <!-- Hide guarantee -->
         <xpath expr="//div[@id='product_details']/p[last()]" position="attributes">
-            <attribute name="t-if">True == False</attribute>
+            <attribute name="class" add="d-none" separator=" "/>
         </xpath>
     </template>
 
