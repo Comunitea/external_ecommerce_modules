@@ -17,6 +17,9 @@ header:not(.o_header_affix) {
         margin-bottom: var(--bar-mb, 1rem);
     }
 }
+#wrapwrap .o_header_affix {
+    background: var(--color-bg, #fff) !important;
+}
 header.o_header_affix {
     margin-bottom: 0;
 }
