@@ -309,7 +309,7 @@ msgstr "<span>Abrir sitemap.xml</span>"
 #. module: website_seo_settings
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.website_sale_products_tags
 msgid "<span>Tags</span>"
-msgstr ""
+msgstr "<span>Etiquetas</span>"
 
 #. module: website_seo_settings
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
@@ -566,11 +566,6 @@ msgstr "Define el sitio donde se inicia la app.\n"
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
 msgid "Defines the default theme color for the application. Use hexadecimal format."
 msgstr "Establece el color a usar para toda la aplicación. Usar formato hexadecimal."
-
-#. module: website_seo_settings
-#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
-msgid "Description"
-msgstr "Descripción"
 
 #. module: website_seo_settings
 #: model_terms:ir.ui.view,arch_db:website_seo_settings.product_template_form_view
@@ -1633,3 +1628,18 @@ msgid "{\n"
 "        \"short_name\": \""
 msgstr "{\n"
 "        \"nombre_corto\": \""
+
+#. module: website_seo_settings
+#: code:addons/website_seo_settings/models/product.py:40
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_product__website_specifications
+#: model:ir.model.fields,field_description:website_seo_settings.field_product_template__website_specifications
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.website_sale_product
+#, python-format
+msgid "Specifications"
+msgstr "Especificaciones"
+
+#. module: website_seo_settings
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:website_seo_settings.website_sale_product
+msgid "Description"
+msgstr "Descripción"

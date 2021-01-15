@@ -25,7 +25,7 @@
                                        data-toggle="pill" role="tab" aria-controls="description" aria-selected="true"><h2>Description</h2></a>
                                 </li>
                                 <li class="nav-item" t-if="product.website_specifications and len(product.website_specifications) > 15">
-                                    <a class="nav-link" id="ingredients-tab" href="#specifications-content"
+                                    <a class="nav-link" id="specifications-tab" href="#specifications-content"
                                        data-toggle="pill" role="tab" aria-controls="specifications" aria-selected="false"><h2>Specifications</h2></a>
                                 </li>
                             </ul>
