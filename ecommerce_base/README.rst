@@ -2,25 +2,26 @@
 Ecommerce Basic Modules
 =======================
 
-.. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
+.. |badge1| image:: https://img.shields.io/badge/odoo-v12.0-a3478a
+    :target: https://github.com/odoo/odoo/tree/12.0
+    :alt: Odoo v12.0
+.. |badge2| image:: https://img.shields.io/badge/maturity-Production-green.png
     :target: https://odoo-community.org/page/development-status
     :alt: Production
-.. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
+.. |badge3| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
     :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-Comunitea-gray.png?logo=github
+.. |badge4| image:: https://img.shields.io/badge/github-Comunitea-lightgray.png?logo=github
     :target: https://github.com/Comunitea/
     :alt: Comunitea
-.. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FeCommerce-lightgray.png?logo=github
+.. |badge5| image:: https://img.shields.io/badge/github-Comunitea%2FeCommerce-lightgray.png?logo=github
     :target: https://github.com/Comunitea/external_ecommerce_modules/tree/12.0/ecommerce_base
     :alt: Comunitea / eCommerce
-.. |badge5| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
+.. |badge6| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
     :target: https://github.com/Comunitea/external_ecommerce_modules/tree/12.0/ecommerce_base/i18n/es.po
     :alt: Spanish Translated
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
-
-This module contains some custom features for a basic installation of an e-commerce website.
+|badge1| |badge2| |badge3| |badge4| |badge5| |badge6|
 
 **Table of contents**
 
@@ -29,7 +30,7 @@ This module contains some custom features for a basic installation of an e-comme
 
 Content
 -------
-Some custom features for a basic installation of an e-commerce website.
+Customization for an e-commerce website.
 
 Features
 --------
@@ -90,13 +91,7 @@ Javascript
 
 Author
 ------
-.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
-   :alt: Comunitea
-   :target: https://comunitea.com
-
 Comunitea Servicios Tecnológicos S.L.
-
-For support and more information, please visit `<https://comunitea.com>`_.
 
 Contributors
 ~~~~~~~~~~~~
@@ -114,6 +109,10 @@ Comunitea Servicios Tecnológicos S.L.
 
 For support and more information, please visit `<https://comunitea.com>`_.
 
+Known issues
+------------
+You are welcome to report them. Just use the bug tracker instructions.
+
 Bug Tracker
 -----------
 Bugs are tracked on `Comunitea Issues <https://github.com/Comunitea/external_ecommerce_modules/issues>`_.
@@ -126,7 +125,7 @@ Please, do not contact contributors directly about support or help with technica
 Disclaimer of Warranties
 ------------------------
 
-    **Attention!**
+    **Warning!**
 
     We provide this module as is, and we make no promises or guarantees about this correct working.
 

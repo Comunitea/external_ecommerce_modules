@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Ecommerce Basic Modules',
-    'version': '12.0.1.1.0',
-    'summary': 'Some custom features for a basic installation of an e-commerce website.',
+    'version': '12.0.1.1.1',
+    'summary': 'Customization for an e-commerce website',
     'description': '',
     'category': 'eCommerce',
     'author': 'Comunitea',
