@@ -13,6 +13,7 @@
         'Rubén Seijas <ruben@comunitea.com>',
     ],
     'depends': [
+        'portal',
         'website',
         'website_sale',
         'website_canonical_url',

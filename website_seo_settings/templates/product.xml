@@ -66,19 +66,42 @@
         </xpath>
     </template>
 
+    <!-- Change Product description Sale for customers -->
+    <template id="website_sale_products_description" inherit_id="website_sale.products_description" name="Product Description Seo">
+        <xpath expr="//div[hasclass('oe_subdescription')]" position="replace">
+            <div class="text-info oe_subdescription" contenteditable="false">
+                <h6 itemprop="description" t-field="product.description_sale"/>
+            </div>
+        </xpath>
+    </template>
+
     <!-- Product item used by /shop and /shop/cart -->
     <template id="website_sale_products_item" name="Product Item Seo" inherit_id="website_sale.products_item">
-        <!-- Image URL and attributes -->
+        <!-- Set Friendly URL -->
+        <xpath expr="//t[@t-set='product_href']" position="attributes">
+            <attribute name="t-value">'/product/{}'.format(product.slug) if product.slug else keep('/shop/product/%s' % slug(product))</attribute>
+        </xpath>
+        <!-- Set product name -->
+        <xpath expr="//section/h6" position="replace">
+            <div class="text-info oe_product_name" contenteditable="false">
+                <h6>
+                    <a itemprop="name" t-att-href="product_href" t-att-content="product.name"><span t-esc="product.name.lower().capitalize()"/></a>
+                    <a role="button" t-if="not show_publish and not product.website_published" t-att-href="product_href" class="btn btn-secondary btn-sm btn-danger" title="This product is unpublished.">Unpublished</a>
+                </h6>
+            </div>
+        </xpath>
+        <!-- Set product image -->
         <xpath expr="//div[hasclass('oe_product_image')]/a/span" position="replace">
-            <span><img t-att-alt="product.name" t-att-title="product.name" t-attf-src="/web/image/product.template/{{product.id}}/image_medium"/></span>
+            <span t-field="product.image" t-options="{'widget': 'image'}"/>
         </xpath>
-        <!-- Friendly URL for product (from image) -->
-        <xpath expr="//div[hasclass('oe_product_image')]/a" position="attributes">
-            <attribute name="t-att-href">'/product/{}'.format(product.slug) if product.slug else keep('/shop/product/%s' % slug(product))</attribute>
-        </xpath>
-        <!-- Friendly URL for product (from name) -->
-        <xpath expr="//a[@itemprop='name']" position="attributes">
-            <attribute name="t-att-href">'/product/{}'.format(product.slug) if product.slug else keep('/shop/product/%s' % slug(product))</attribute>
+    </template>
+
+    <!-- Include default code inside product item -->
+    <template id="products_default_code" inherit_id="website_sale.products_item" active="False" customize_show="True" name="Product SKU">
+        <xpath expr="//div[hasclass('oe_product_name')]" position="before">
+            <div class="text-info oe_sku text-truncate" contenteditable="false">
+                <h6 itemprop="sku" t-field="product.default_code"/>
+            </div>
         </xpath>
     </template>
 
@@ -157,44 +180,6 @@
                     <hr/>
                 </div>
             </t>
-        </xpath>
-    </template>
-
-    <template id="website_sale_products" inherit_id="website_sale.products" name="Products Tags" active="True" customize_show="True">
-        <!-- Add Product Tags side menu -->
-        <xpath expr="//div[@id='products_grid_before']" position="inside">
-            <t t-set="tags" t-value="request.env['product.template.tag'].search([('website_published', '=', True), ('website_id', '=', request.website.id)], limit=50)"/>
-            <t t-if="tags">
-                <h5 class="text-uppercase grid-before-tag"><strong>Product Tags</strong></h5>
-                <div class="nav nav-pills flex-column menu-category pt16 pb16">
-                    <div class="oe_structure">
-                        <t t-foreach="tags" t-as="tag">
-                            <t t-call="website_seo_settings.website_tag_template">
-                                <t t-set="tag" t-value="tag"/>
-                            </t>
-                        </t>
-                    </div>
-                </div>
-            </t>
-        </xpath>
-        <!-- Default search -->
-        <xpath expr="//t[@t-call='website_sale.search']" position="attributes">
-            <attribute name="t-if">not list_type</attribute>
-        </xpath>
-        <!-- Search products into tags context -->
-        <xpath expr="//t[@t-call='website_sale.search']" position="after">
-            <t t-if="list_type and list_type == 'tags'">
-                <t t-call="website_seo_settings.website_sale_search_for_tags">
-                    <t t-set="_classes">o_website_sale_search</t>
-                </t>
-            </t>
-        </xpath>
-    </template>
-
-    <template id="website_sale_products_categories" inherit_id="website_sale.products_categories" name="eCommerce Categories Seo">
-        <!-- Add Categories Title -->
-        <xpath expr="//div[@id='products_grid_before']//ul" position="before">
-            <h5 class="text-uppercase grid-before-categ"><strong>Categories</strong></h5>
         </xpath>
     </template>
 

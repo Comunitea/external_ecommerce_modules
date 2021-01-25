@@ -1,3 +1,10 @@
+`12.0.2.0.0`
+------------
+- **[UDP]** Styles to SASS
+- **[ADD]** Shop Responsive view
+- **[ADD]** Shop Responsive view full
+- **[FIX]** Product Tags
+
 `12.0.1.0.1`
 ------------
 - **[FIX]**

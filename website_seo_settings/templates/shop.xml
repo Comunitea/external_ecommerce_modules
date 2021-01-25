@@ -1,10 +1,67 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
+    <!-- Avoid margin on small devices -->
+    <template id="website_sale_search" inherit_id="website_sale.search" name="Search Box Seo">
+        <xpath expr="//form" position="attributes">
+            <attribute name="t-att-class" add="'mt-2'" separator=" and "/>
+        </xpath>
+    </template>
+
+    <!-- Avoid margin on small devices -->
+    <template id="website_sale_sort" inherit_id="website_sale.sort" name="Show Sort by Seo">
+        <xpath expr="//div[hasclass('dropdown_sorty_by')]" position="attributes">
+            <attribute name="class" add="mt-2" separator=" "/>
+        </xpath>
+    </template>
+
+    <!-- Avoid margin on small devices -->
+    <template id="website_sale_pager" inherit_id="portal.pager" name="Pager Seo">
+        <xpath expr="//ul" position="attributes">
+            <attribute name="t-attf-class" add="mt-2" separator=" "/>
+        </xpath>
+    </template>
+
+    <!-- Avoid margin on small devices -->
+    <template id="website_sale_pricelist_list" inherit_id="website_sale.pricelist_list" name="Pricelists Dropdown Seo">
+        <xpath expr="//a[@role='button']" position="attributes">
+            <attribute name="class" add="mt-2" separator=" "/>
+        </xpath>
+    </template>
+
     <!-- Changes of eCommerce category URL in the left shop sidebar -->
-    <template id="website_sale_categories_recursive" name="Category list Seo" inherit_id="website_sale.categories_recursive">
+    <template id="website_sale_categories_recursive" inherit_id="website_sale.categories_recursive" name="Category list Seo">
         <xpath expr="//li/a" position="attributes">
             <attribute name="t-att-href">'/category/%s' % c.slug if c.slug else '/shop/category/%s' % slug(c)</attribute>
+        </xpath>
+    </template>
+
+    <template id="website_sale_products_categories" inherit_id="website_sale.products_categories" name="eCommerce Categories Seo">
+        <!-- Change Categories to collapsible navbar with title -->
+        <xpath expr="//div[@id='products_grid_before']" position="replace">
+            <div id="products_grid_before" class="col-lg-3 col-md-4 col-12 mt16">
+                <!-- Product Categories -->
+                <h5 class="text-uppercase d-none d-md-block"><strong>Categories</strong></h5>
+                <nav class="navbar navbar-expand-md navbar-light bg-light p-0 mb-3">
+                    <h5 class="text-uppercase d-block d-md-none"><strong>Categories</strong></h5>
+                    <button type="button" class="navbar-toggler btn btn-secondary" data-toggle="collapse" data-target="#categories_menu_collapse">
+                        <i class="fa fa-bars" style="line-height: 1.45em;"/>
+                    </button>
+                    <div class="collapse navbar-collapse mb16" id="categories_menu_collapse" aria-expanded="false">
+                        <ul class="nav nav-pills flex-column" id="o_shop_no_collapse_category">
+                            <li class="nav-item">
+                                <a t-att-href="keep('/shop',category=0)" t-attf-class="nav-link#{'' if category else ' active'} o_not_editable">All Products</a>
+                            </li>
+                            <t t-foreach="categories" t-as="c">
+                                <t t-call="website_seo_settings.website_sale_categories_recursive" />
+                            </t>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </xpath>
+        <xpath expr="//div[@id='products_grid']" position="attributes">
+            <attribute name="class">col-lg-9 col-md-8 mt16</attribute>
         </xpath>
     </template>
 
@@ -12,6 +69,109 @@
     <template id="website_sale_option_collapse_categories_recursive" name="Collapse Category Recursive Seo" inherit_id="website_sale.option_collapse_categories_recursive">
         <xpath expr="//a" position="attributes">
             <attribute name="t-att-href">'/category/%s' % categ.slug if categ.slug else keep('/shop/category/' + slug(categ), category=0)</attribute>
+        </xpath>
+    </template>
+
+    <!-- Make work to collapsible navbar with title -->
+    <delete id="website_sale.option_collapse_products_categories" model="ir.ui.view"/>
+    <template id="website_sale_option_collapse_products_categories" name="Collapsible Category List" inherit_id="website_seo_settings.website_sale_products_categories" active="False" customize_show="True">
+        <xpath expr="//ul[@id='o_shop_no_collapse_category']" position="replace">
+            <ul class="nav nav-pills flex-column" id="o_shop_collapse_category">
+                <li class="nav-item">
+                    <a t-att-href="keep('/shop',category=0)" t-attf-class="nav-link#{'' if category else ' active'} o_not_editable">All Products</a>
+                </li>
+                <t t-foreach="categories" t-as="categ">
+                    <t t-call="website_sale.option_collapse_categories_recursive" />
+                </t>
+            </ul>
+        </xpath>
+    </template>
+
+    <template id="website_sale_products_tags_categories" inherit_id="website_seo_settings.website_sale_products_categories" name="Products Tags" active="True" customize_show="True">
+        <!-- Add Product Tags side menu -->
+        <xpath expr="//div[@id='products_grid_before']/h5" position="before">
+            <t t-set="tags" t-value="request.env['product.template.tag'].search([('website_published', '=', True), ('website_id', '=', request.website.id)], limit=50)"/>
+            <h5 class="text-uppercase d-none d-md-block"><strong>Product Tags</strong></h5>
+            <t t-if="tags">
+                <nav class="navbar navbar-expand-md navbar-light bg-light p-0 mb-2 mt-2">
+                    <h5 class="text-uppercase d-block d-md-none"><strong>Product Tags</strong></h5>
+                    <button type="button" class="navbar-toggler btn btn-secondary" data-toggle="collapse" data-target="#tags_menu_collapse">
+                        <i class="fa fa-bars" style="line-height: 1.45em;"/>
+                    </button>
+                    <div class="collapse navbar-collapse" id="tags_menu_collapse" aria-expanded="false">
+                        <div class="nav nav-pills flex-column pt16 pb16">
+                            <div class="oe_structure">
+                                <t t-foreach="tags" t-as="tag">
+                                    <t t-call="website_seo_settings.website_tag_template">
+                                        <t t-set="tag" t-value="tag"/>
+                                    </t>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </t>
+            <t t-else="">
+                <p class="d-none d-md-block">No tags defined yet</p>
+            </t>
+        </xpath>
+        <!-- Default search -->
+        <xpath expr="//t[@t-call='website_sale.search']" position="attributes">
+            <attribute name="t-if">not list_type</attribute>
+        </xpath>
+        <!-- Search products into tags context -->
+        <xpath expr="//t[@t-call='website_sale.search']" position="after">
+            <t t-if="list_type and list_type == 'tags'">
+                <t t-call="website_seo_settings.website_sale_search_for_tags">
+                    <t t-set="_classes">o_website_sale_search</t>
+                </t>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="website_sale_products_responsive" inherit_id="website_sale.products" name="Responsive View" active="True" customize_show="True">
+        <xpath expr="//div[@id='products_grid']" position="replace">
+            <t t-set="has_description_sale" t-value="request.website.viewref('website_sale.products_description').active"/>
+            <t t-set="has_default_code" t-value="request.website.viewref('website_seo_settings.products_default_code').active"/>
+            <t t-set="height" t-value="'' if not has_description_sale and not has_default_code else height"/>
+            <t t-set="height" t-value="'-description' if has_description_sale else height"/>
+            <t t-set="height" t-value="'-sku' if has_default_code else height"/>
+            <t t-set="height" t-value="(has_description_sale and has_default_code and '-description-sku') or height"/>
+            <t t-set="has_categories_menu" t-value="request.website.viewref('website_sale.products_categories').active"/>
+            <t t-set="col_lg_num" t-value="'9' if has_categories_menu else '12'"/>
+            <t t-set="col_md_num" t-value="'8' if has_categories_menu else '12'"/>
+            <div t-attf-class="col-lg-#{col_lg_num} col-md-#{col_lg_num} products_grid_responsive" id="products_grid">
+                <div class="row">
+                    <t t-set="col_lg_num" t-value="'4' if has_categories_menu or has_tags_menu else '3'"/>
+                    <t t-set="col_md_num" t-value="'6' if has_categories_menu or has_tags_menu else '4'"/>
+                    <t t-foreach="products" t-as="product">
+                        <t t-if="product">
+                            <div t-attf-class="col-lg-#{col_lg_num} col-md-#{col_md_num} col-sm-6 oe_product oe_grid oe-height#{height} #{ product.website_style_ids.filtered(lambda x: x.html_class == 'oe_ribbon_promo').html_class}">
+                                <div class="oe_product_cart" id="product_item" t-att-data-publish="product.website_published and 'on' or 'off'">
+                                    <t t-call="website_seo_settings.website_sale_products_item" />
+                                </div>
+                            </div>
+                        </t>
+                    </t>
+                </div>
+                <t t-if="not products">
+                    <div class="text-center text-muted oe_product mt48">
+                        <h3 class="css_editable_display mt32">No product defined.</h3>
+                        <t t-if="search">
+                            <p>
+                                No results found for "<strong t-esc='search'/>".
+                            </p>
+                        </t>
+                        <p groups="sales_team.group_sale_manager">Click <i>'New'</i> in the top-right corner to create your first product.</p>
+                    </div>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="website_sale_products_responsive_full" inherit_id="website_sale.products" name="Responsive View Full" active="False" customize_show="True">
+        <xpath expr="//div[hasclass('oe_website_sale')]" position="attributes">
+            <attribute name="class">py-2 oe_website_sale products_grid_responsive_full</attribute>
         </xpath>
     </template>
 

@@ -2,24 +2,27 @@
 Website Settings SEO
 ====================
 
-.. |badge1| image:: https://img.shields.io/badge/maturity-Production-green.png
+.. |badge1| image:: https://img.shields.io/badge/odoo-v12.0-a3478a
+    :target: https://github.com/odoo/odoo/tree/12.0
+    :alt: Odoo v12.0
+.. |badge2| image:: https://img.shields.io/badge/maturity-Production-green.png
     :target: https://odoo-community.org/page/development-status
     :alt: Production
-.. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
+.. |badge3| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
     :target: https://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-Comunitea-gray.png?logo=github
+.. |badge4| image:: https://img.shields.io/badge/github-Comunitea-lightgray.png?logo=github
     :target: https://github.com/Comunitea/
     :alt: Comunitea
-.. |badge4| image:: https://img.shields.io/badge/github-Comunitea%2FSEO-lightgray.png?logo=github
+.. |badge5| image:: https://img.shields.io/badge/github-Comunitea%2FSEO-lightgray.png?logo=github
     :target: https://github.com/Comunitea/external_ecommerce_modules/tree/12.0/website_seo_settings
     :alt: Comunitea / SEO
-.. |badge5| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
+.. |badge6| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
     :target: https://github.com/Comunitea/external_ecommerce_modules/blob/12.0/website_seo_settings/i18n/es.po
     :alt: Spanish Translated
 
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3| |badge4| |badge5| |badge6|
 
 This app contains several improvements for SEO optimizations on the website settings.
 
@@ -46,14 +49,20 @@ Including modules dependence to put all SEO settings in the same place.
 
 Shop
 ~~~~
-Access rules:
+#. Access rules:
+    * You can manage your shop access.
+    * Shop open for public users by default. Otherwise, the access rules must be established.
+        #. Only B2B users
+        #. Only B2C users
 
-* You can manage your shop access.
-* Shop open for public users by default. Otherwise, the access rules must be established.
-    #. Only B2B users
-    #. Only B2C users
+    * Set this in Website > Configuration > SEO > General > Public Shop
 
-Set this in Website > Configuration > SEO > General > Public Shop
+#. Shop product list
+    * Add new customize views:
+        * Responsive View
+            * Change table view with responsible divs
+        * Responsive View full
+            * Extend responsive view to expand container width
 
 Sitemap.xml
 ~~~~~~~~~~~
@@ -124,6 +133,15 @@ ECommerce Public Categories and Products
         * 10: #30C381,
         * 11: #9365B8,
 
+::
+
+    Warning!
+
+    Product Tags are placed inside product_grid_before so Categories customize view have to enabled.
+
+
+#. Include default code inside product item but truncate text for height style
+
 Guarantee
 ---------
 Hide default guarantee text in product template.
@@ -175,17 +193,10 @@ Set this in Website > Configuration > SEO > Web Progressive App
 
 Author
 ------
-.. image:: https://comunitea.com/wp-content/uploads/2016/01/logocomunitea3.png
-   :alt: Comunitea
-   :target: https://comunitea.com
-
 Comunitea Servicios Tecnológicos S.L.
-
-For support and more information, please visit `<https://comunitea.com>`_.
 
 Contributors
 ------------
-
 * Rubén Seijas, ruben@comunitea.com
 
 Maintainer
@@ -197,6 +208,10 @@ Maintainer
 Comunitea Servicios Tecnológicos S.L.
 
 For support and more information, please visit `<https://comunitea.com>`_.
+
+Known issues
+------------
+You are welcome to report them. Just use the bug tracker instructions.
 
 Bug Tracker
 -----------

@@ -36,7 +36,29 @@
         </field>
     </record>
 
-    <!-- Product Template Form -->
+    <!-- Product Template Tree -->
+    <record id="product_template_seo_tree_view" model="ir.ui.view">
+        <field name="name">product.template.seo.tree</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="sequence" position="replace">
+                <field name="website_sequence" widget="handle"/>
+            </field>
+        </field>
+    </record>
+    <record id="product_template_website_tree_view" model="ir.ui.view">
+        <field name="name">product.template.website.seo.tree</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="website_sale.product_template_website_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="website_id" position="after">
+                <field name="public_categ_ids" widget="many2many_tags" groups="website.group_website_publisher"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Product Template Tag Form -->
     <record id="product_template_tag_form_view" model="ir.ui.view">
         <field name="name">product.template.tag.form</field>
         <field name="model">product.template.tag</field>
@@ -65,7 +87,7 @@
         </field>
     </record>
 
-    <!-- Product Template Tree -->
+    <!-- Product Template Tag Tree -->
     <record id="product_template_tag_tree_view" model="ir.ui.view">
         <field name="name">product.template.tag.tree</field>
         <field name="model">product.template.tag</field>
