@@ -1,3 +1,11 @@
+`12.0.3.0.0`
+------------
+- **[UDP]** Product Tags on product detail
+- **[ADD]** Product Tags customize view list type on product detail
+- **[ADD]** Categories customize view list type on product detail
+- **[ADD]** Categories customize view tag type on product detail
+- **[ADD]** Categories and Product Tags customize view tag type on product detail
+
 `12.0.2.0.0`
 ------------
 - **[UDP]** Styles to SASS
@@ -8,10 +16,6 @@
 - **[FIX]** website_sale scss files
 - **[ADD]** customize view for Categories color on product detail
 - **[ADD]** customize view for Categories List and Tag customize views on product detail
-
-`12.0.1.0.1`
-------------
-- **[FIX]**
 
 `12.0.1.0.0`
 ------------

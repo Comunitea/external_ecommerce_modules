@@ -1,3 +1,8 @@
+// ----------------------------------------------------------------------
+// Product Tags and Category Tags
+// ----------------------------------------------------------------------
+
+// Tag color Map
 $colors: map-merge(
     (
         1: #F06050,
@@ -44,5 +49,18 @@ a.btn.btn-primary.mb8 {
             color: $primary;
             background-color: $body-bg;
             box-shadow: 0px 0px 0.4rem 0.05rem $primary;
+    }
+}
+
+/* Product Categories and Tags Collapsible */
+#product_details {
+    & .card {
+        display: block; // flex;
+        flex-direction: unset; // column;
+        border: unset; // $card-border-width solid $card-border-color;
+    }
+    & .card-body {
+      flex: unset; // 1 1 auto;
+      padding: 0; // $card-spacer-x;
     }
 }

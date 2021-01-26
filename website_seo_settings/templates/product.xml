@@ -8,7 +8,7 @@
         <xpath expr="//div[@id='product_details']//div[hasclass('o_not_editable')]" position="after">
             <div id="website_description_short" t-if="product.website_description_short">
                 <hr t-if="product.website_description_short" />
-                <p t-field="product.website_description_short"/>
+                <p itemprop="slogan" t-field="product.website_description_short"/>
             </div>
         </xpath>
         <xpath expr="//div[@id='product_details']/hr[last()]" position="attributes">
@@ -158,7 +158,7 @@
 
      <template id="website_tag_template" name="Website tag template">
          <t t-set="is_current" t-value="'current' if current_tag == tag else ''"/>
-         <a rel="noindex,nofollow" t-att-href="'/tag/%s' % tag.slug"  t-att-class="'btn btn-primary mb8 tag-%s %s' % (tag.color, is_current)">
+         <a itemprop="additionalProperty" rel="noindex,nofollow" t-att-href="'/tag/%s' % tag.slug"  t-att-class="'btn btn-primary mb8 tag-%s %s' % (tag.color, is_current)">
              <span t-field="tag.name"/>
          </a>
     </template>
@@ -175,7 +175,7 @@
     </template>
 
     <!-- Include Product Tags inside product detail -->
-     <template id="product_tags" inherit_id="website_sale.product" name="Product Tags" active="True" customize_show="True">
+     <template id="product_tags" inherit_id="website_sale.product" name="Product Tags" active="False" customize_show="True">
         <xpath expr="//div[@id='product_details']" position="inside">
             <t t-set="product_tags" t-value="product.tag_ids.filtered(lambda x: x.website_published == True and x.website_id == request.website)"/>
             <t t-if="product_tags">
@@ -192,9 +192,28 @@
     </template>
 
     <!-- Include default code (SKU) inside product detail. Before categories -->
-    <template id="product_default_code" inherit_id="website_sale.product" active="True" customize_show="True" name="Product SKU" priority="102">
+    <template id="product_default_code" inherit_id="website_sale.product" active="True" customize_show="True" name="Product SKU" priority="103">
         <xpath expr="//div[@id='product_details']//t[@t-call='website_sale.product_price']" position="after">
             <h4 itemprop="sku" class="oe_price_h4 mt-3"><span><strong contenteditable="false">Sku: </strong></span><span t-field="product.default_code"/></h4>
+        </xpath>
+    </template>
+
+    <!-- Include Product Tags inside product detail as List. After SKU -->
+    <template id="product_tags_list" inherit_id="website_sale.product" name="Product Tags List" active="True" customize_show="True" priority="102">
+        <xpath expr="//div[@id='product_details']//t[@t-call='website_sale.product_price']" position="after">
+            <t t-set="product_tags" t-value="product.tag_ids.filtered(lambda x: x.website_published == True and x.website_id == request.website)"/>
+            <t t-if="product_tags">
+                <h4 class="oe_price_h4 mt-3">
+                    <strong>Tags: </strong>
+                    <t t-foreach="product_tags" t-as="tag">
+                        <a itemprop="additionalProperty" rel="noindex,nofollow" t-att-href="'/tag/%s' % tag.slug"
+                           t-att-class="'tag-%s %s' % (tag.color, is_current)" style="font-size: 0.875rem;">
+                            <span t-field="tag.name"/><span t-if="tag_index + 1 &lt; len(product_tags)">, </span>
+                        </a>
+                    </t>
+                    <span>.</span>
+                </h4>
+            </t>
         </xpath>
     </template>
 
@@ -218,12 +237,11 @@
     </template>
 
     <!-- Include eCommerce categories inside product detail as Tags -->
-    <template id="product_categories_tags" inherit_id="website_sale.product" name="Product Categories Tags" active="True" customize_show="True">
+    <template id="product_categories_tags" inherit_id="website_sale.product" name="Product Categories Tags" active="False" customize_show="True">
         <xpath expr="//div[@id='product_details']" position="inside">
             <t t-set="product_categories" t-value="product.public_categ_ids.filtered(lambda x: x.website_published == True and x.website_id == request.website)"/>
             <t t-if="product_categories">
                 <div class="oe_structure">
-                <h6 class="text-center text-muted pb-3">~ Categories ~</h6>
                     <t t-foreach="product_categories" t-as="categ">
                         <a itemprop="category" rel="noindex,nofollow" t-att-class="'btn btn-primary mb8 categ-%s' % categ.color"
                            t-att-href="'/category/%s' % categ.slug if categ.slug else keep('/shop/category/' + slug(categ), category=0)">
@@ -233,6 +251,45 @@
                     <hr/>
                 </div>
             </t>
+        </xpath>
+    </template>
+
+    <template id="product_categories_tags_collapsible" inherit_id="website_sale.product" name="Product Categories and Tags Collapsible" active="True" customize_show="True">
+        <xpath expr="//div[@id='product_details']" position="inside">
+            <t t-set="product_tags" t-value="product.tag_ids.filtered(lambda x: x.website_published == True and x.website_id == request.website)"/>
+            <t t-set="product_categories" t-value="product.public_categ_ids.filtered(lambda x: x.website_published == True and x.website_id == request.website)"/>
+            <h4 class="text-center" t-if="product_tags or product_categories">
+                <a class="btn btn-link" style="font-size: 1.3rem;" role="button" data-toggle="collapse" href="#multiCollapseTags" data-target="#multiCollapseTags" aria-expanded="false"
+                    aria-controls="multiCollapseTags" t-if="product_tags">Tags</a>
+                <a class="btn btn-link" style="font-size: 1.3rem;" role="button" data-toggle="collapse" href="#multiCollapseCategories" data-target="#multiCollapseCategories" aria-expanded="false"
+                    aria-controls="multiCollapseCategories" t-if="product_categories">Categories</a>
+                <a class="btn btn-link" style="font-size: 1.3rem;" role="button" data-toggle="collapse" href=".multi-collapse" data-target=".multi-collapse" aria-expanded="false"
+                    aria-controls="multiCollapseTags multiCollapseCategories" t-if="product_tags and product_categories">All</a>
+            </h4>
+            <div class="row text-center " t-if="product_tags or product_categories">
+                <div class="col mt-2">
+                    <div class="collapse multi-collapse" id="multiCollapseTags" t-if="product_tags">
+                        <div class="card card-body">
+                            <t t-foreach="product_tags" t-as="tag">
+                                <t t-call="website_seo_settings.website_tag_template">
+                                    <t t-set="tag" t-value="tag"/>
+                                </t>
+                            </t>
+                        </div>
+                    </div>
+                    <div class="collapse multi-collapse" id="multiCollapseCategories" t-if="product_categories">
+                        <div class="card card-body">
+                            <t t-foreach="product_categories" t-as="categ">
+                                <a itemprop="category" rel="noindex,nofollow" t-att-class="'btn btn-primary mb8 categ-%s' % categ.color"
+                                   t-att-href="'/category/%s' % categ.slug if categ.slug else keep('/shop/category/' + slug(categ), category=0)">
+                                    <span t-field="categ.name"/>
+                                </a>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr t-if="product_tags or product_categories"/>
         </xpath>
     </template>
 
