@@ -1,13 +1,11 @@
-`12.0.2.0.1`
-------------
-- **[UDP]** shop_product_carousel view
-
 `12.0.2.0.0`
 ------------
 - **[UDP]** Styles to SASS
 - **[ADD]** Shop Responsive view
 - **[ADD]** Shop Responsive view full
 - **[FIX]** Product Tags
+- **[UDP]** shop_product_carousel view
+- **[FIX]** website_sale scss files
 
 `12.0.1.0.1`
 ------------

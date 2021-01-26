@@ -1,9 +1,15 @@
+// ----------------------------------------------------------------------
+// Shop product list
+// ----------------------------------------------------------------------
+
 .products_grid_responsive_full {
     margin: auto 3rem;
     @extend #products_grid.products_grid_responsive;
 }
 
-/* ---- Product Size Medias ---- */
+// ----------------------------------------------------------------------
+// Shop product list Medias
+// ----------------------------------------------------------------------
 
 @include media-breakpoint-up(md) {
     & .products_grid_responsive_full {
