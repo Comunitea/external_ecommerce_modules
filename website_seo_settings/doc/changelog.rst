@@ -1,3 +1,7 @@
+`12.0.2.0.1`
+------------
+- **[UDP]** shop_product_carousel view
+
 `12.0.2.0.0`
 ------------
 - **[UDP]** Styles to SASS
