@@ -8,6 +8,9 @@
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
             <!-- Product Template Tags -->
+            <xpath expr="//group[@name='shop']//field[@name='public_categ_ids']" position="replace">
+                <field name="public_categ_ids" string="Categories" widget="many2many_tags" options="{'color_field': 'color'}" groups="website.group_website_publisher"/>
+            </xpath>
             <xpath expr="//group[@name='shop']//field[@name='public_categ_ids']" position="after">
                     <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
             </xpath>
@@ -54,6 +57,7 @@
         <field name="arch" type="xml">
             <field name="website_id" position="after">
                 <field name="public_categ_ids" widget="many2many_tags" groups="website.group_website_publisher"/>
+                <field name="public_categ_ids" string="Categories" widget="many2many_tags" options="{'color_field': 'color'}" groups="website.group_website_publisher"/>
             </field>
         </field>
     </record>

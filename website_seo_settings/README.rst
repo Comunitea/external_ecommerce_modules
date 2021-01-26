@@ -33,7 +33,6 @@ This app contains several improvements for SEO optimizations on the website sett
 
 Analytics
 ~~~~~~~~~
-
 Add integration with analytical system:
 
 * Facebook Pixel
@@ -64,9 +63,15 @@ Shop
         * Responsive View full
             * Extend responsive view to expand container width
 
+Product Detail
+~~~~~~~~~~~~~~
+#. Add customize view for category list
+#. Add customize view for category tag list
+    * Include field color like as products tags
+#. Add customize view for default code
+
 Sitemap.xml
 ~~~~~~~~~~~
-
 * Improve and update the sitemap.xml file in the root path of the website.
 * You can configure what is included/excluded and also view your sitemap in website settings.
     #. Favicon

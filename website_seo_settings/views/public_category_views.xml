@@ -10,6 +10,7 @@
                 <attribute name="class" add="ml16" separator=" "/>
             </xpath>
             <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="color" placeholder="1 - orange, 2 - red, 3 - yellow, 4 - blue, 5 - purple, 6 - pink, 7 - green, ..."/>
                 <field name="website_published"/>
             </xpath>
             <xpath expr="//field[@name='sequence']" position="after">

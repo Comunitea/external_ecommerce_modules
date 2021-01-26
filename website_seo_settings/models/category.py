@@ -15,6 +15,7 @@ class ProductPublicCategory(models.Model):
     website_published = fields.Boolean(string=_('Website Published'), default=True,
                                        help=_("Only published categories are visible on the website"))
     category_redirect = fields.Many2one('product.public.category', string="Redirect to another public category")
+    color = fields.Integer(string="Color Index")
 
     @api.multi
     def write(self, values):

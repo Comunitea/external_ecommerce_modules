@@ -6,6 +6,8 @@
 - **[FIX]** Product Tags
 - **[UDP]** shop_product_carousel view
 - **[FIX]** website_sale scss files
+- **[ADD]** customize view for Categories color on product detail
+- **[ADD]** customize view for Categories List and Tag customize views on product detail
 
 `12.0.1.0.1`
 ------------

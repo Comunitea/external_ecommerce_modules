@@ -191,4 +191,49 @@
         </xpath>
     </template>
 
+    <!-- Include default code (SKU) inside product detail. Before categories -->
+    <template id="product_default_code" inherit_id="website_sale.product" active="True" customize_show="True" name="Product SKU" priority="102">
+        <xpath expr="//div[@id='product_details']//t[@t-call='website_sale.product_price']" position="after">
+            <h4 itemprop="sku" class="oe_price_h4 mt-3"><span><strong contenteditable="false">Sku: </strong></span><span t-field="product.default_code"/></h4>
+        </xpath>
+    </template>
+
+    <!-- Include eCommerce categories inside product detail as List. After SKU -->
+    <template id="product_categories_list" inherit_id="website_sale.product" name="Product Categories List" active="True" customize_show="True" priority="101">
+        <xpath expr="//div[@id='product_details']//t[@t-call='website_sale.product_price']" position="after">
+            <t t-set="product_categories" t-value="product.public_categ_ids.filtered(lambda x: x.website_published == True and x.website_id == request.website)"/>
+            <t t-if="product_categories">
+                <h4 class="oe_price_h4 mt-3">
+                    <strong>Categories: </strong>
+                    <t t-foreach="product_categories" t-as="categ">
+                        <a itemprop="category" rel="noindex,nofollow" t-att-class="'categ-%s' % categ.color" style="font-size: 0.875rem;"
+                           t-att-href="'/category/%s' % categ.slug if categ.slug else keep('/shop/category/' + slug(categ), category=0)">
+                            <span t-field="categ.name"/><span t-if="categ_index + 1 &lt; len(product_categories)">, </span>
+                        </a>
+                    </t>
+                    <span>.</span>
+                </h4>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Include eCommerce categories inside product detail as Tags -->
+    <template id="product_categories_tags" inherit_id="website_sale.product" name="Product Categories Tags" active="True" customize_show="True">
+        <xpath expr="//div[@id='product_details']" position="inside">
+            <t t-set="product_categories" t-value="product.public_categ_ids.filtered(lambda x: x.website_published == True and x.website_id == request.website)"/>
+            <t t-if="product_categories">
+                <div class="oe_structure">
+                <h6 class="text-center text-muted pb-3">~ Categories ~</h6>
+                    <t t-foreach="product_categories" t-as="categ">
+                        <a itemprop="category" rel="noindex,nofollow" t-att-class="'btn btn-primary mb8 categ-%s' % categ.color"
+                           t-att-href="'/category/%s' % categ.slug if categ.slug else keep('/shop/category/' + slug(categ), category=0)">
+                            <span t-field="categ.name"/>
+                        </a>
+                    </t>
+                    <hr/>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
 </odoo>

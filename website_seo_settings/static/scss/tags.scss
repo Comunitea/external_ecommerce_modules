@@ -22,7 +22,7 @@ $no-color-shadow: if($body-bg == $primary, darken($body-bg, 5%), $body-bg);
 a.btn.btn-primary.mb8 {
     // Tags with colors
     @each $color, $value in $colors {
-        &.tag-#{$color} {
+        &.tag-#{$color}, &.categ-#{$color} {
             color: if($body-bg == $value, #fff, $body-bg);
             background-color: $value;
             border-color: $value;
