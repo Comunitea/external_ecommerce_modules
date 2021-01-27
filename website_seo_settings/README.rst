@@ -64,7 +64,7 @@ Shop
             * Extend responsive view to expand container width
             * **Warning!** Needs 'Responsive View' active to work properly
 
-    * Border for product container in responsive views via bootstrap_overriden file
+    * Border for product container in responsive views via bootstrap_overriden file:
         * $oe_product_border and/or $oe_product_detail_border
 
 
@@ -74,6 +74,13 @@ Product Detail
 #. Add customize view for category tag list
     * Include field color like as products tags
 #. Add customize view for default code
+#. Add customize view to put name for price
+#. Add customize view for promotions ribbons
+
+For links on these views you can let use tag color or define yours via bootstrap_overriden file:
+    * $oe_product_tag_link_color
+    * $oe_product_tag_link_decoration
+    * $link-hover-color
 
 Sitemap.xml
 ~~~~~~~~~~~
@@ -90,7 +97,6 @@ Set this in Website > Configuration > SEO > Sitemap.xml
 
 Robots.txt
 ~~~~~~~~~~
-
 * Create a Robots.txt file in the root path of the website.
 * You can configure what is included and view your sitemap.
 
@@ -101,7 +107,6 @@ Set this in Website > Configuration > SEO > Robots.txt
 
 Friendly URL's
 ~~~~~~~~~~~~~~
-
 Let you enable set your slug field length between 20 and 99 characters.
 
     In Website Builder, eCommerce, Blog, etc. Odoo add parameters in URLs, like category,
@@ -131,8 +136,8 @@ ECommerce Public Categories and Products
     * Include metadata and slug fields with redirection
     * Works with website sale search
     * You can use this colors as well
-        * 1: #F06050,
-        * 2: #F4A460,
+        * 1: #dc3545,
+        * 2: #fd7e14,
         * 3: #F7CD1F,
         * 4: #6CC1ED,
         * 5: #814968,
@@ -158,7 +163,6 @@ Hide default guarantee text in product template.
 
 META fields
 -----------
-
 Add SEO meta fields that work with main_object and his metadata workflow in website layout
 
 #. Title
@@ -170,20 +174,17 @@ Add SEO meta fields that work with main_object and his metadata workflow in webs
 
 Image meta-data
 ~~~~~~~~~~~~~~~
-
 #. Adds meta-attribute **title** to the product images in product detail carousel.
 #. Also, change the URL structure and remove the *'unique'* part of the image URL.
 
 Favicon
 ~~~~~~~
-
 * Show the favicon in the route *EXAMPLE.COM/favicon.ico* in case of *EXAMPLE.COM/web/image/website/WEBSITE_ID/favicon/*
 
 Set current favicon link to the head.
 
 Web Progressive App (WPA)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-
 #. Add a manifest.json at the project root
 #. Add a **Service Worker** to the Web Progressive App.
 #. You can set your app design (Name, description, logo, color, ...)

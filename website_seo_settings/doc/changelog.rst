@@ -1,3 +1,10 @@
+`12.0.3.2.0`
+------------
+- **[ADD]** Ribbon promotions customize view list type on product detail
+- **[FIX]** Tags colors
+- **[FIX]** Categories colors
+- **[ADD]** Ribbon promotions colors
+
 `12.0.3.1.0`
 ------------
 - **[ADD]** Sale Ribbon on product detail

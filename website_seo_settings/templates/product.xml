@@ -217,15 +217,25 @@
         </xpath>
     </template>
 
+    <!-- Add Price Name before price qty -->
+    <template id="website_sale_product_price" inherit_id="website_sale.product_price" active="True" customize_show="True" name="Price Name">
+        <xpath expr="//h4[hasclass('oe_price_h4')]/span" position="before">
+            <span><strong contenteditable="false">Price: </strong></span>
+        </xpath>
+        <xpath expr="//h4[hasclass('decimal_precision')]/span" position="before">
+            <span><strong contenteditable="false">Price: </strong></span>
+        </xpath>
+    </template>
+
     <!-- Include default code (SKU) inside product detail. Before categories -->
-    <template id="product_default_code" inherit_id="website_sale.product" active="True" customize_show="True" name="Product SKU" priority="103">
+    <template id="product_default_code" inherit_id="website_sale.product" active="True" customize_show="True" name="Product SKU" priority="105">
         <xpath expr="//div[@id='product_details']//t[@t-call='website_sale.product_price']" position="after">
             <h4 itemprop="sku" class="oe_price_h4 mt-3"><span><strong contenteditable="false">Sku: </strong></span><span t-field="product.default_code"/></h4>
         </xpath>
     </template>
 
     <!-- Include Product Tags inside product detail as List. After SKU -->
-    <template id="product_tags_list" inherit_id="website_sale.product" name="Product Tags List" active="True" customize_show="True" priority="102">
+    <template id="product_tags_list" inherit_id="website_sale.product" name="Product Tags List" active="True" customize_show="True" priority="104">
         <xpath expr="//div[@id='product_details']//t[@t-call='website_sale.product_price']" position="after">
             <t t-set="product_tags" t-value="product.tag_ids.filtered(lambda x: x.website_published == True and x.website_id == request.website)"/>
             <t t-if="product_tags">
@@ -244,7 +254,7 @@
     </template>
 
     <!-- Include eCommerce categories inside product detail as List. After SKU -->
-    <template id="product_categories_list" inherit_id="website_sale.product" name="Product Categories List" active="True" customize_show="True" priority="101">
+    <template id="product_categories_list" inherit_id="website_sale.product" name="Product Categories List" active="True" customize_show="True" priority="103">
         <xpath expr="//div[@id='product_details']//t[@t-call='website_sale.product_price']" position="after">
             <t t-set="product_categories" t-value="product.public_categ_ids.filtered(lambda x: x.website_published == True and x.website_id == request.website)"/>
             <t t-if="product_categories">
@@ -255,6 +265,22 @@
                            t-att-href="'/category/%s' % categ.slug if categ.slug else keep('/shop/category/' + slug(categ), category=0)">
                             <span t-field="categ.name"/><span t-if="categ_index + 1 &lt; len(product_categories)">, </span>
                         </a>
+                    </t>
+                    <span>.</span>
+                </h4>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Include eCommerce categories inside product detail as List. After SKU -->
+    <template id="product_ribbon_promotions_list" inherit_id="website_sale.product" name="Product Promotions List" active="True" customize_show="True" priority="102">
+        <xpath expr="//div[@id='product_details']//t[@t-call='website_sale.product_price']" position="after">
+            <t t-set="product_ribbon_promotions" t-value="product.website_style_ids"/>
+            <t t-if="product_ribbon_promotions">
+                <h4 class="oe_price_h4 mt-3">
+                    <strong>Promotions: </strong>
+                    <t t-foreach="product_ribbon_promotions" t-as="promo">
+                        <span itemprop="additionalProperty" t-att-class="'promo-%s' % promo.color" style="font-size: 0.875rem;" t-field="promo.name"/><span t-if="promo_index + 1 &lt; len(product_ribbon_promotions)">, </span>
                     </t>
                     <span>.</span>
                 </h4>

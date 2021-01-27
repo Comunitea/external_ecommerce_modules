@@ -66,7 +66,7 @@
         <field name="arch" type="xml">
             <!-- Color -->
             <field name="name" position="after">
-                <field name="color" placeholder="1 - orange, 2 - red, 3 - yellow, 4 - blue, 5 - purple, 6 - pink, 7 - green, ..."/>
+                <field name="color" placeholder="1 - red, 2 - orange, 3 - yellow, 4 - blue light, 5 - purple, 6 - pink, 7 - blue, ..."/>
             </field>
             <!-- SEO Metadata -->
             <xpath expr="//sheet//group[last()]" position="after">

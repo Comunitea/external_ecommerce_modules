@@ -1,12 +1,12 @@
 // ----------------------------------------------------------------------
-// Product Tags and Category Tags
+// Product Tags, Category Tags, Ribbon Promo Tags
 // ----------------------------------------------------------------------
 
 // Tag color Map
 $colors: map-merge(
     (
-        1: #F06050,
-        2: #F4A460,
+        1: #dc3545,
+        2: #fd7e14,
         3: #F7CD1F,
         4: #6CC1ED,
         5: #814968,
@@ -23,12 +23,7 @@ $colors: map-merge(
 $color-shadow: if($body-bg == #fff, $body-bg, #000);
 $no-color-shadow: if($body-bg == $primary, darken($body-bg, 5%), $body-bg);
 
-// $oe_product_border: 1px solid rgba(100, 100, 100, 0.2);
-// $oe_product_detail_border: 1px solid rgba(100, 100, 100, 0.2);
-
-/* tag colors */
-a.btn.btn-primary.mb8 {
-    // Tags with colors
+@mixin tag-variant() {
     @each $color, $value in $colors {
         &.tag-#{$color}, &.categ-#{$color} {
             color: if($body-bg == $value, #fff, $body-bg);
@@ -49,32 +44,13 @@ a.btn.btn-primary.mb8 {
     }
     // Current tag without colors
     &.tag-0.current, &:focus {
-            color: $primary;
-            background-color: $body-bg;
-            box-shadow: 0px 0px 0.4rem 0.05rem $primary;
+        color: $primary;
+        background-color: $body-bg;
+        box-shadow: 0px 0px 0.4rem 0.05rem $primary;
     }
 }
 
-/* Product Categories and Tags Collapsible */
-#product_details {
-    & .card {
-        display: block; // flex;
-        flex-direction: unset; // column;
-        border: unset; // $card-border-width solid $card-border-color;
-    }
-    & .card-body {
-      flex: unset; // 1 1 auto;
-      padding: 0; // $card-spacer-x;
-    }
-}
-
-/* Ribbons Styles */
-#product_detail {
-    & .oe_product {
-        border: $oe_product_detail_border;
-    }
-}
-
+// Product Container
 .oe_product {
     border: $oe_product_border;
     &.oe_ribbon_promo, &.oe_ribbon_novel {
@@ -105,6 +81,50 @@ a.btn.btn-primary.mb8 {
                 color: $primary;
                 background-color: $body-bg;
             }
+        }
+    }
+}
+
+// Product Grid Before
+#tags_menu_collapse {
+    & a.btn.btn-primary {
+        // Tags with colors
+        @include tag-variant()
+    }
+}
+
+// Product Detail
+#product_detail {
+    // Product container
+    & .oe_product {
+        border: $oe_product_detail_border;
+    }
+    // Tag lists
+    & h4 {
+        & a, & span {
+            @each $color, $value in $colors {
+                &.tag-#{$color}, &.categ-#{$color}, &.promo-#{$color} {
+                    color: if($oe_product_tag_link_color != unset, $oe_product_tag_link_color, $value);
+                    &:not(.promo-#{$color}):hover {
+                        color: $link-hover-color;
+                        text-decoration: if($oe_product_tag_link_decoration != unset, $oe_product_tag_link_decoration, unset);
+                    }
+                }
+            }
+        }
+    }
+    // Product Categories and Tags Collapsible
+    & .card {
+        display: block; // flex;
+        flex-direction: unset; // column;
+        border: unset; // $card-border-width solid $card-border-color;
+    }
+    & .card-body {
+      flex: unset; // 1 1 auto;
+      padding: 0; // $card-spacer-x;
+      & a.btn.btn-primary {
+        // Tags with colors
+            @include tag-variant()
         }
     }
 }
