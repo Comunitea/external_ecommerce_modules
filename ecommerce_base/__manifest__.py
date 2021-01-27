@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Ecommerce Basic Modules',
-    'version': '12.0.1.1.1',
+    'version': '12.0.1.1.2',
     'summary': 'Customization for an e-commerce website',
     'description': '',
     'category': 'eCommerce',
@@ -37,6 +37,7 @@
         'website',
         'website_crm',
         'website_crm_privacy_policy',
+        'website_sale_wishlist',
     ],
     'data': [
         'templates/assets.xml',

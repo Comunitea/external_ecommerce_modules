@@ -40,6 +40,10 @@ Website Logo
 ~~~~~~~~~~~~
 Change website logo for an image responsive without tittle and include alt tag.
 
+My Cart and Wishlist Headers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Delete link texts
+
 Logo Styles
 ___________
 No logo styles are included but you can use this css example in your theme:

@@ -1,3 +1,8 @@
+`12.0.1.1.2`
+------------
+- **[DEL]** Header Shop My Cart Link text
+- **[DEL]** Header Shop Wishlist Link text
+
 `12.0.1.1.1`
 ------------
 - **[UDP]** Styles to SASS
