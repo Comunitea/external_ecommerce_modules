@@ -9,3 +9,8 @@ $oe_product_detail_border: 1px solid rgba(100, 100, 100, 0.2);
 // Color tags in product detail
 $oe_product_tag_link_color: unset;
 $oe_product_tag_link_decoration: unset;
+
+// Product image on product details
+$carousel-control-color: $headings-color; //$white !default;
+$carousel-control-color-hover: darken($headings-color, 25%); //custom
+$carousel-control-width: 10%; // 15% !default;

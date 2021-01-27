@@ -66,6 +66,36 @@
         </xpath>
     </template>
 
+    <!-- The product template changes -->
+    <template id="website_sale_product_responsive" inherit_id="website_seo_settings.website_sale_product" name="Responsive View" active="True" customize_show="True">
+        <!-- Add exclusive class for responsive -->
+        <xpath expr="//section[@id='product_detail']" position="attributes">
+            <attribute name="t-attf-class" add="product_detail_responsive" separator=" "/>
+        </xpath>
+        <!-- Add product name as title -->
+        <xpath expr="//section[@id='product_detail']//div[hasclass('col-md-6')]/parent::div" position="before">
+            <div class="row">
+                <div class="col-12 text-center mb-3">
+                    <h1 itemprop="name" t-field="product.name" class="d-none d-lg-block">Product Name</h1>
+                    <h2 itemprop="name" t-field="product.name" class="d-none d-md-block d-lg-none">Product Name</h2>
+                    <h3 itemprop="name" t-field="product.name" class="d-block d-md-none">Product Name</h3>
+                </div>
+            </div>
+        </xpath>
+        <!-- Change image cols for responsive -->
+        <xpath expr="//section//div[hasclass('col-md-6')]" position="attributes">
+            <attribute name="class">col-xl-8 col-lg-7 col-md-7 col-sm-7 mt-3</attribute>
+        </xpath>
+        <!-- Hide default product name -->
+        <xpath expr="//div[@id='product_details']/h1" position="attributes">
+            <attribute name="class" add="d-none" separator=" "/>
+        </xpath>
+        <!-- Change detail cols for responsive -->
+        <xpath expr="//div[@id='product_details']" position="attributes">
+            <attribute name="class">col-xl-4 col-lg-5 col-md-5 col-sm-5</attribute>
+        </xpath>
+    </template>
+
     <!-- Change Product description Sale for customers -->
     <template id="website_sale_products_description" inherit_id="website_sale.products_description" name="Product Description Seo">
         <xpath expr="//div[hasclass('oe_subdescription')]" position="replace">

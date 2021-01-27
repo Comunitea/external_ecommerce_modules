@@ -82,6 +82,11 @@ For links on these views you can let use tag color or define yours via bootstrap
     * $oe_product_tag_link_decoration
     * $link-hover-color
 
+For carousel image control you can define yours via bootstrap_overriden file:
+    * $carousel-control-color
+    * $carousel-control-color-hover
+    * $carousel-control-width
+
 Sitemap.xml
 ~~~~~~~~~~~
 * Improve and update the sitemap.xml file in the root path of the website.

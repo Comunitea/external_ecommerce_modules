@@ -1,3 +1,7 @@
+`12.0.4.0.0`
+------------
+- **[ADD]** Product Detail Responsive view
+
 `12.0.3.2.0`
 ------------
 - **[ADD]** Ribbon promotions customize view list type on product detail

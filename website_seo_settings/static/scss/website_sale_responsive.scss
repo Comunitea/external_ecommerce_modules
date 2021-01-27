@@ -221,4 +221,26 @@
 // Product Detail Page
 // ----------------------------------------------------------------------
 
-
+#product_detail.product_detail_responsive {
+    & img.product_detail_img {
+        max-height: auto;
+    }
+    & #o-carousel-product {
+        & .carousel-inner {
+            width: 80%;
+            margin-left: 10%;
+        }
+        & .carousel-item.active {
+            min-height: auto !important;
+        }
+        & .carousel-control-prev, & .carousel-control-next {
+            color: $carousel-control-color; //$white !default;
+            height: 80%;
+            width: $carousel-control-width; // 15% !default;
+            opacity: $carousel-control-opacity; //.5 !default;
+            &:hover {
+                color: $carousel-control-color-hover; // custom
+            }
+        }
+    }
+}
