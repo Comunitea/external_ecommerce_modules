@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<data>
-
     <record id="product_template_tag_rule_public" model="ir.model.access">
         <field name="name">Published tags Public</field>
         <field name="model_id" ref="model_product_template_tag"/>
@@ -22,6 +20,5 @@
         <field name="perm_write" eval="0"/>
         <field name="perm_unlink" eval="0"/>
     </record>
-    
-</data>
+
 </odoo>

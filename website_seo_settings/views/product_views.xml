@@ -9,10 +9,14 @@
         <field name="arch" type="xml">
             <!-- Product Template Tags -->
             <xpath expr="//group[@name='shop']//field[@name='public_categ_ids']" position="replace">
-                <field name="public_categ_ids" string="Categories" widget="many2many_tags" options="{'color_field': 'color'}" groups="website.group_website_publisher"/>
+                <field name="public_categ_ids" widget="many2many_tags" options="{'color_field': 'color'}" groups="website.group_website_publisher"/>
+            </xpath>
+            <!-- Ribbons Styles -->
+            <xpath expr="//group[@name='shop']//field[@name='website_style_ids']" position="replace">
+                <field name="website_style_ids" widget="many2many_tags" options="{'color_field': 'color'}" groups="website.group_website_publisher"/>
             </xpath>
             <xpath expr="//group[@name='shop']//field[@name='public_categ_ids']" position="after">
-                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
             </xpath>
             <!-- Products descriptions for product details -->
             <xpath expr="//group[@name='shop']" position="after">
@@ -48,16 +52,8 @@
             <field name="sequence" position="replace">
                 <field name="website_sequence" widget="handle"/>
             </field>
-        </field>
-    </record>
-    <record id="product_template_website_tree_view" model="ir.ui.view">
-        <field name="name">product.template.website.seo.tree</field>
-        <field name="model">product.template</field>
-        <field name="inherit_id" ref="website_sale.product_template_website_tree_view"/>
-        <field name="arch" type="xml">
             <field name="website_id" position="after">
-                <field name="public_categ_ids" widget="many2many_tags" groups="website.group_website_publisher"/>
-                <field name="public_categ_ids" string="Categories" widget="many2many_tags" options="{'color_field': 'color'}" groups="website.group_website_publisher"/>
+                <field name="public_categ_ids" widget="many2many_tags" options="{'color_field': 'color'}" groups="website.group_website_publisher"/>
             </field>
         </field>
     </record>
@@ -115,6 +111,18 @@
         <field name="arch" type="xml">
             <xpath expr="//page[@name='general_information']//field[@name='tag_ids']" position="attributes">
                 <attribute name="attrs">{'invisible': True}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add Ribbon Styles on product Kanban -->
+    <record id="product_template_kanban_view" model="ir.ui.view">
+        <field name="name">product.template.kanban (Add Website Ribbon Styles)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_kanban_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//t[@t-name='kanban-box']//div[hasclass('o_kanban_image')]" position="before">
+                <field name="website_style_ids" widget="many2many_tags" options="{'color_field': 'color'}" groups="website.group_website_publisher"/>
             </xpath>
         </field>
     </record>

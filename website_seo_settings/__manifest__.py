@@ -2,7 +2,7 @@
 
 {
     'name': 'Website SEO Settings',
-    'version': '12.0.3.0.0',
+    'version': '12.0.3.1.0',
     'summary': 'Website settings improvements for SEO optimization',
     'description': '',
     'category': 'Website',
@@ -21,6 +21,7 @@
         'product_template_tags'
     ],
     'data': [
+        'data/product_style.xml',
         'templates/access.xml',
         'templates/assets.xml',
         'templates/product.xml',
@@ -31,7 +32,8 @@
         'views/product_views.xml',
         'views/public_category_views.xml',
         'views/settings_views.xml',
-        'security/tag_security.xml'
+        'security/product_template_tag_security.xml',
+        'security/product_style_security.xml',
     ],
     'images': [
         '/static/description/icon.png',

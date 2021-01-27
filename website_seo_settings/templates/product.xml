@@ -77,6 +77,19 @@
 
     <!-- Product item used by /shop and /shop/cart -->
     <template id="website_sale_products_item" name="Product Item Seo" inherit_id="website_sale.products_item">
+        <!-- Set Ribbons -->
+        <xpath expr="//div[hasclass('ribbon-wrapper')]/a" position="replace">
+            <t t-set="has_responsive_view" t-value="request.website.viewref('website_seo_settings.website_sale_products_responsive').active"/>
+            <t t-set="has_responsive_full_view" t-value="request.website.viewref('website_seo_settings.website_sale_products_responsive_full').active"/>
+            <t t-if="has_responsive_view or has_responsive_full_view">
+                <a href="#" role="button" t-attf-class="ribbon btn ribbon-color-#{product.website_style_ids and product.website_style_ids[0].color}"
+                   t-field="product.website_style_ids and product.website_style_ids[0].name"/>
+            </t>
+            <t t-else="">
+                <a href="#" role="button" t-attf-class="ribbon btn ribbon-color-#{td_product['product'].website_style_ids and td_product['product'].website_style_ids[0].color}"
+                   t-field="td_product['product'].website_style_ids and td_product['product'].website_style_ids[0].name"/>
+            </t>
+        </xpath>
         <!-- Set Friendly URL -->
         <xpath expr="//t[@t-set='product_href']" position="attributes">
             <attribute name="t-value">'/product/{}'.format(product.slug) if product.slug else keep('/shop/product/%s' % slug(product))</attribute>
@@ -113,23 +126,36 @@
     </template>
 
      <template id="website_sale_shop_product_carousel" name="Shop Product Carousel Seo" inherit_id="website_sale.shop_product_carousel">
-         <!-- Image URL and attributes -->
+         <!-- Image URL, attributes and ribbons -->
          <xpath expr="//div[hasclass('carousel-inner')]" position="replace">
              <div class="carousel-inner">
-                 <div t-if="variant_img" class="carousel-item active">
+                 <t t-set="ribbon_class" t-value="product.website_style_ids and product.website_style_ids[0].filtered(lambda x: 'oe_ribbon' in x.html_class).html_class or ''"/>
+                 <div t-if="variant_img" class="carousel-item active oe_product #{ ribbon_class }">
+                     <div t-attf-class="ribbon-wrapper">
+                         <a href="#" role="button" t-attf-class="ribbon btn ribbon-color-#{product.website_style_ids and product.website_style_ids[0].color}"
+                            t-field="product.website_style_ids and product.website_style_ids[0].name"/>
+                     </div>
                      <img t-att-alt="product_variant.name" t-att-title="product.name" class="img img-fluid product_detail_img js_variant_img"
                           t-attf-src="/website/image/product.template/{{product.id}}/image"
                           data-zoom="1" t-attf-data-zoom-image="/website/image/product.template/{{product.id}}/image"
                           itemprop="image"/>
                  </div>
-                 <div t-attf-class="carousel-item#{'' if variant_img else ' active'}">
+                 <div t-attf-class="carousel-item#{'' if variant_img else ' active'} oe_product #{ ribbon_class }">
+                     <div t-attf-class="ribbon-wrapper">
+                         <a href="#" role="button" t-attf-class="ribbon btn ribbon-color-#{product.website_style_ids and product.website_style_ids[0].color}"
+                            t-field="product.website_style_ids and product.website_style_ids[0].name"/>
+                     </div>
                      <img t-att-alt="product.name" t-att-title="product.name" class="img img-fluid product_detail_img"
                           t-attf-src="/website/image/product.template/{{product.id}}/image"
                           data-zoom="1" t-attf-data-zoom-image="/website/image/product.template/{{product.id}}/image/"
                           itemprop="image"/>
                  </div>
                  <t t-if="len(image_ids)" t-foreach="image_ids" t-as="pimg">
-                     <div class="carousel-item">
+                     <div t-attf-class="carousel-item oe_product #{ ribbon_class }">
+                         <div t-attf-class="ribbon-wrapper">
+                             <a href="#" role="button" t-attf-class="ribbon btn ribbon-color-#{product.website_style_ids and product.website_style_ids[0].color}"
+                                t-field="product.website_style_ids and product.website_style_ids[0].name"/>
+                         </div>
                          <img t-att-alt="pimg.name" t-att-title="pimg.name" class="img img-fluid product_detail_img"
                               t-attf-src="/web/image/product.image/{{pimg.id}}/image/"
                               data-zoom="1" t-attf-data-zoom-image="/website/image/product.template/{{product.id}}/image/"

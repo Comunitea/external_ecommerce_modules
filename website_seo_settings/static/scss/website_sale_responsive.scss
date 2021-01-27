@@ -2,6 +2,11 @@
 // Shop product list
 // ----------------------------------------------------------------------
 
+// Collapse category
+#o_shop_collapse_category, #o_shop_no_collapse_category {
+    width: 100%;
+}
+
 // Responsive product grid
 #products_grid.products_grid_responsive {
     // Product container

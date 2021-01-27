@@ -62,6 +62,11 @@ Shop
             * Change table view with responsible divs
         * Responsive View full
             * Extend responsive view to expand container width
+            * **Warning!** Needs 'Responsive View' active to work properly
+
+    * Border for product container in responsive views via bootstrap_overriden file
+        * $oe_product_border and/or $oe_product_detail_border
+
 
 Product Detail
 ~~~~~~~~~~~~~~
@@ -140,7 +145,7 @@ ECommerce Public Categories and Products
 
 ::
 
-    Warning!
+    **Warning!**
 
     Product Tags are placed inside product_grid_before so Categories customize view have to enabled.
 
@@ -218,6 +223,8 @@ Known issues
 ------------
 You are welcome to report them. Just use the bug tracker instructions.
 
+#. Responsive View full needs 'Responsive View' active to work properly.
+
 Bug Tracker
 -----------
 Bugs are tracked on `Comunitea Issues <https://github.com/Comunitea/external_ecommerce_modules/issues>`_.
@@ -230,7 +237,7 @@ Please, do not contact contributors directly about support or help with technica
 Disclaimer of Warranties
 ------------------------
 
-    **Attention!**
+    **Warning!**
 
     We provide this module as is, and we make no promises or guarantees about this correct working.
 

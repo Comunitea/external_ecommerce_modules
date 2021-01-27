@@ -1,3 +1,12 @@
+`12.0.3.1.0`
+------------
+- **[ADD]** Sale Ribbon on product detail
+- **[ADD]** Novelty Ribbon on product styles
+- **[ADD]** Ribbon styles color
+- **[ADD]** Ribbon styles by color styles
+- **[ADD]** Ribbon styles on product kanban
+- **[ADD]** Full width for Categories grid
+
 `12.0.3.0.0`
 ------------
 - **[UDP]** Product Tags on product detail
