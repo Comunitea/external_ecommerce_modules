@@ -1,3 +1,9 @@
+`12.0.4.1.0`
+------------
+- **[ADD]** Product Suggested customize view in Product Detail like as Alternate Products
+- **[FIX]** Alternate Products view
+- **[ADD]** Product img shadow via bootstrap_overriden file
+
 `12.0.4.0.0`
 ------------
 - **[ADD]** Product Detail Responsive view

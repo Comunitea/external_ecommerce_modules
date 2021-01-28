@@ -336,6 +336,7 @@
         </xpath>
     </template>
 
+    <!-- Include eCommerce categories and Product Tags inside product detail in same collapsible block -->
     <template id="product_categories_tags_collapsible" inherit_id="website_sale.product" name="Product Categories and Tags Collapsible" active="True" customize_show="True">
         <xpath expr="//div[@id='product_details']" position="inside">
             <t t-set="product_tags" t-value="product.tag_ids.filtered(lambda x: x.website_published == True and x.website_id == request.website)"/>
@@ -372,6 +373,74 @@
                 </div>
             </div>
             <hr t-if="product_tags or product_categories"/>
+        </xpath>
+    </template>
+
+    <!-- Improve alternate products -->
+    <template id="website_sale_recommended_products" inherit_id="website_sale.recommended_products" name="Alternative Products Seo">
+        <xpath expr="//div[@t-if='product.alternative_product_ids']" position="replace">
+            <div class="container mt32" t-if="product.alternative_product_ids" id="alternative_products">
+                <div class="row">
+                    <div class="col-12 ml16">
+                        <h3>Alternative Products:</h3>
+                    </div>
+                </div>
+                <div class="row mt16">
+                    <div class="col-12 ml4">
+                        <t t-foreach="product.alternative_product_ids" t-as="alt_product">
+                            <div class="col-2" style="float:left; display:inline; overflow:hidden;">
+                                <div class="mt16 text-center">
+                                    <t t-set="combination_info" t-value="alt_product._get_combination_info()"/>
+                                    <t t-set="product_variant" t-value="alt_product.env['product.product'].browse(combination_info['product_id'])"/>
+                                    <img t-if="product_variant" t-att-alt="product_variant.name" t-att-title="product_variant.name" class="img img-fluid rounded o_alternative_product"
+                                         t-attf-src="/website/image/product.product/{{product_variant.id}}/image_medium" itemprop="image"/>
+                                    <img t-else="" t-att-alt="alt_product.name" t-att-title="alt_product.name" class="img img-fluid rounded o_alternative_product"
+                                         t-attf-src="/website/image/product.template/{{alt_product.id}}/image_medium" itemprop="image"/>
+                                    <h6 class="mt16">
+                                        <a t-attf-href="/shop/product/#{ slug(alt_product) }" style="display: block">
+                                            <span t-att-title="alt_product.name" t-esc="alt_product.name.lower().capitalize()" class="" style="display: block;" />
+                                        </a>
+                                    </h6>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Add suggested products -->
+    <template id="suggested_products" inherit_id="website_sale.product" name="Suggested Products" active="True" customize_show="True">
+        <xpath expr="//div[@id='product_full_description']" position="after">
+            <div class="container mt32" t-if="product.accessory_product_ids" id="accessory_products">
+                <div class="row">
+                    <div class="col-12 ml16">
+                        <h3>Suggested Products:</h3>
+                    </div>
+                </div>
+                <div class="row mt16">
+                    <div class="col-12 ml4">
+                        <t t-foreach="product.accessory_product_ids" t-as="acc_product">
+                            <div class="col-2" style="float:left; display:inline; overflow:hidden;">
+                                <div class="mt16 text-center">
+                                    <t t-set="combination_info" t-value="acc_product._get_combination_info_variant()"/>
+                                    <t t-set="product_variant" t-value="acc_product.env['product.product'].browse(combination_info['product_id'])"/>
+                                    <img t-if="product_variant" t-att-alt="product_variant.name" t-att-title="product_variant.name" class="img img-fluid rounded o_alternative_product"
+                                         t-attf-src="/website/image/product.product/{{product_variant.id}}/image_medium" itemprop="image"/>
+                                    <img t-else="" t-att-alt="acc_product.name" t-att-title="acc_product.name" class="img img-fluid rounded o_alternative_product"
+                                         t-attf-src="/website/image/product.template/{{acc_product.id}}/image_medium" itemprop="image"/>
+                                    <h6 class="mt16">
+                                        <a t-attf-href="/shop/product/#{ slug(acc_product) }" style="display: block">
+                                            <span t-att-title="acc_product.name" t-esc="acc_product.name.lower().capitalize()" class="" style="display: block;" />
+                                        </a>
+                                    </h6>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
         </xpath>
     </template>
 

@@ -67,6 +67,10 @@ Shop
     * Border for product container in responsive views via bootstrap_overriden file:
         * $oe_product_border and/or $oe_product_detail_border
 
+Cart
+~~~~
+#. Refactor Product Suggested view under cart buttons to separate from cart lines
+#. Add Alternate Products view under cart buttons to separate from cart lines
 
 Product Detail
 ~~~~~~~~~~~~~~
@@ -76,16 +80,28 @@ Product Detail
 #. Add customize view for default code
 #. Add customize view to put name for price
 #. Add customize view for promotions ribbons
+#. Refactor view for Alternate Products
+#. Add customize view for Product Suggested
 
 For links on these views you can let use tag color or define yours via bootstrap_overriden file:
     * $oe_product_tag_link_color
     * $oe_product_tag_link_decoration
     * $link-hover-color
 
-For carousel image control you can define yours via bootstrap_overriden file:
+For carousel image controls you can define yours via bootstrap_overriden file:
     * $carousel-control-color
     * $carousel-control-color-hover
     * $carousel-control-width
+    * $carousel-indicator-box-shadow
+    * $carousel-indicator-margin
+    * $carousel-indicator-max-width
+
+Add shadow for product images in shop, product detail, alternate and suggested products but you can define yours via bootstrap_overriden file
+    * $box-shadow-product (This change all with same shadow)
+    * $box-shadow-product-list
+    * $box-shadow-product-detail
+    * $box-shadow-product-alternate
+    * $box-shadow-product-suggested
 
 Sitemap.xml
 ~~~~~~~~~~~
