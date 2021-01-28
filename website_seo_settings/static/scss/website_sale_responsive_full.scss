@@ -12,7 +12,7 @@
 // ----------------------------------------------------------------------
 
 @include media-breakpoint-up(md) {
-    & .products_grid_responsive_full {
+    .products_grid_responsive_full {
         & #products_grid.products_grid_responsive {
             & .oe_product {
                 & .oe_product_cart {
