@@ -387,18 +387,22 @@
                 </div>
                 <div class="row mt16">
                     <div class="col-12 ml4">
-                        <t t-foreach="product.alternative_product_ids" t-as="alt_product">
+                        <t t-foreach="product.alternative_product_ids" t-as="alt_product" itemscope="itemscope" itemtype="http://schema.org/Product">
                             <div class="col-2" style="float:left; display:inline; overflow:hidden;">
                                 <div class="mt16 text-center">
                                     <t t-set="combination_info" t-value="alt_product._get_combination_info()"/>
                                     <t t-set="product_variant" t-value="alt_product.env['product.product'].browse(combination_info['product_id'])"/>
-                                    <img t-if="product_variant" t-att-alt="product_variant.name" t-att-title="product_variant.name" class="img img-fluid rounded o_alternative_product"
-                                         t-attf-src="/website/image/product.product/{{product_variant.id}}/image_medium" itemprop="image"/>
-                                    <img t-else="" t-att-alt="alt_product.name" t-att-title="alt_product.name" class="img img-fluid rounded o_alternative_product"
-                                         t-attf-src="/website/image/product.template/{{alt_product.id}}/image_medium" itemprop="image"/>
+                                    <a itemprop="url" t-attf-href="/shop/product/#{ slug(alt_product) }" t-if="product_variant">
+                                        <img t-att-alt="product_variant.name" t-att-title="product_variant.name" class="img img-fluid rounded o_alternative_product"
+                                             t-attf-src="/website/image/product.product/{{product_variant.id}}/image_medium" itemprop="image"/>
+                                    </a>
+                                    <a itemprop="url" t-attf-href="/shop/product/#{ slug(alt_product) }" t-else="">
+                                        <img t-att-alt="alt_product.name" t-att-title="alt_product.name" class="img img-fluid rounded o_alternative_product"
+                                             t-attf-src="/website/image/product.template/{{alt_product.id}}/image_medium" itemprop="image"/>
+                                    </a>
                                     <h6 class="mt16">
                                         <a t-attf-href="/shop/product/#{ slug(alt_product) }" style="display: block">
-                                            <span t-att-title="alt_product.name" t-esc="alt_product.name.lower().capitalize()" class="" style="display: block;" />
+                                            <span itemprop="name" t-att-title="alt_product.name" t-esc="alt_product.name.lower().capitalize()" class="" style="display: block;" />
                                         </a>
                                     </h6>
                                 </div>
@@ -422,17 +426,16 @@
                 <div class="row mt16">
                     <div class="col-12 ml4">
                         <t t-foreach="product.accessory_product_ids" t-as="acc_product">
-                            <div class="col-2" style="float:left; display:inline; overflow:hidden;">
+                            <div class="col-2" style="float:left; display:inline; overflow:hidden;" itemscope="itemscope" itemtype="http://schema.org/Product">
                                 <div class="mt16 text-center">
                                     <t t-set="combination_info" t-value="acc_product._get_combination_info_variant()"/>
-                                    <t t-set="product_variant" t-value="acc_product.env['product.product'].browse(combination_info['product_id'])"/>
-                                    <img t-if="product_variant" t-att-alt="product_variant.name" t-att-title="product_variant.name" class="img img-fluid rounded o_alternative_product"
-                                         t-attf-src="/website/image/product.product/{{product_variant.id}}/image_medium" itemprop="image"/>
-                                    <img t-else="" t-att-alt="acc_product.name" t-att-title="acc_product.name" class="img img-fluid rounded o_alternative_product"
-                                         t-attf-src="/website/image/product.template/{{acc_product.id}}/image_medium" itemprop="image"/>
+                                    <a itemprop="url" t-attf-href="/shop/product/#{ slug(acc_product) }">
+                                        <img t-att-alt="acc_product.name" t-att-title="acc_product.name" class="img img-fluid rounded o_alternative_product"
+                                             t-attf-src="/website/image/product.product/{{acc_product.id}}/image_medium" itemprop="image"/>
+                                    </a>
                                     <h6 class="mt16">
                                         <a t-attf-href="/shop/product/#{ slug(acc_product) }" style="display: block">
-                                            <span t-att-title="acc_product.name" t-esc="acc_product.name.lower().capitalize()" class="" style="display: block;" />
+                                            <span itemprop="name" t-att-title="acc_product.name" t-esc="acc_product.name.lower().capitalize()" class="" style="display: block;" />
                                         </a>
                                     </h6>
                                 </div>
