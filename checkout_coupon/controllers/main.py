@@ -91,7 +91,7 @@ class CheckoutCoupon(http.Controller):
             _logger.info("Prepared Order Line for Coupon Discount %s", line)
 
             if coupon.coupon_type == 'sale_order':
-                msg += _(' and was applied for order:  %s' % order.name)
+                msg += _(' and was applied for order: %s' % order.name)
                 if coupon.discount_type == 'percentage':
                     discount_apply_sum += order.amount_untaxed * (coupon.value / 100)
                 else:
@@ -156,10 +156,10 @@ class CheckoutCoupon(http.Controller):
                         'type': 'service',
                         'taxes_id': [(4, coupon._default_tax_id().id, False)],
                         'supplier_taxes_id': '',
-                        'list_price': discount_apply_sum,
+                        'list_price': -discount_apply_sum if coupon.discount_type == 'percentage' else discount_apply_sum,
                     })
                     msg += _(' and coupon product (%s) was created' % coupon_as_product.name)
-                    msg += _(' and applied with discount (%s)' % -discount_apply_sum)
+                    msg += _(' and applied with discount (%s)' % discount_apply_sum)
 
                 coupon_history = request.env['checkout_coupon.history'].sudo().search(
                     [('order', '=', order.id)],
