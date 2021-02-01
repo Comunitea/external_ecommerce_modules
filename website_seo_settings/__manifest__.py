@@ -2,7 +2,7 @@
 
 {
     'name': 'Website SEO Settings',
-    'version': '12.0.4.0.0',
+    'version': '12.0.4.1.1',
     'summary': 'Website settings improvements for SEO optimization',
     'description': '',
     'category': 'Website',

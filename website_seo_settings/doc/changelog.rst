@@ -1,3 +1,7 @@
+`12.0.4.1.1`
+------------
+- **[FIX]** bootstrap_overriden variables
+
 `12.0.4.1.0`
 ------------
 - **[ADD]** Product Suggested customize view in Product Detail like as Alternate Products

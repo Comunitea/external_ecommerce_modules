@@ -1,0 +1,32 @@
+// ------------------------------------------------------------------------
+// Variables to access via bootstrap_overriden file
+// ------------------------------------------------------------------------
+
+// Border for product container in responsive views
+$oe_product_border: 1px solid rgba(100, 100, 100, 0.2) !default;
+$oe_product_detail_border: 1px solid rgba(100, 100, 100, 0.2) !default;
+
+// Color tags in product detail
+$oe_product_tag_link_color: unset !default;
+$oe_product_tag_link_decoration: unset !default;
+
+// Product image on product details
+$carousel-control-color: $headings-color !default; //$white !default;
+$carousel-control-color-hover: darken($headings-color, 25%) !default; //custom
+$carousel-control-width: 10% !default; // 15% !default;
+$carousel-indicator-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.35) !default;
+$carousel-indicator-margin: 0 0.4rem !important !default;
+$carousel-indicator-max-width: 110% !default;
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+$box-shadow-product: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.35) !default; //0 .5rem 1rem rgba($black, .15) !default;
+
+$box-shadow-product-list: $box-shadow-product !default;
+$box-shadow-product-detail: $box-shadow-product !default;
+$box-shadow-product-alternate: $box-shadow-product !default;
+$box-shadow-product-suggested: $box-shadow-product !default;
+
+
+
