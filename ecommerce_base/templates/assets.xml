@@ -12,7 +12,7 @@
     <!-- Variables to access via bootstrap_overriden file -->
     <template id="_assets_frontend_helpers" inherit_id="web._assets_frontend_helpers">
         <xpath expr="//link[last()]" position="after">
-            <link rel="stylesheet" type="text/scss" href="/ecommerce_base/static/scss/bootstrap_overriden.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/ecommerce_base/static/scss/bootstrap_overridden.scss"/>
         </xpath>
     </template>
 

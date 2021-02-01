@@ -6,14 +6,14 @@ header:not(.o_header_affix) {
     & .navbar-brand {
         &.logo {
             & img.oe_navbar_brand_logo {
-                min-height: $-header-logo-min-height;
-                margin: $-header-logo-margin;
+                min-height: $header-logo-min-height;
+                margin: $header-logo-margin;
             }
         }
     }
     & .nav-link, .dropdown-item {
-        text-transform: $-header-nav-link-text-transform;
-        font-size: $-header-nav-link-font-size;
+        text-transform: $header-nav-link-text-transform;
+        font-size: $header-nav-link-font-size;
     }
 }
 
@@ -21,13 +21,13 @@ header.affixed {
     & .navbar-brand {
         &.logo {
             & img.oe_navbar_brand_logo {
-                min-height: $-header-logo-affixed-min-height;
-                margin: $-header-logo-affixed-margin;
+                min-height: $header-logo-affixed-min-height;
+                margin: $header-logo-affixed-margin;
             }
         }
     }
     & .nav-link, .dropdown-item {
-        text-transform: $-header-nav-link-affixed-text-transform;
-        font-size: $-header-nav-link-affixed-font-size;
+        text-transform: $header-nav-link-affixed-text-transform;
+        font-size: $header-nav-link-affixed-font-size;
     }
 }

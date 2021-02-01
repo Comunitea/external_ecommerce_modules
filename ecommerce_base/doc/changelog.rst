@@ -1,3 +1,7 @@
+`12.0.1.2.1`
+------------
+- **[FIX]** bootstrap_overriden variables
+
 `12.0.1.2.0`
 ------------
 - **[ADD]** Header Top menu styles via bootstrap_overriden file
