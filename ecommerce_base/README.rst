@@ -40,22 +40,23 @@ Website Logo
 ~~~~~~~~~~~~
 Change website logo for an image responsive without tittle and include alt tag.
 
+Top Menu
+~~~~~~~~
+Add Header Top menu styles via bootstrap_overriden file. Take care about Affix Top Menu customize view.
+
+You can define yours with:
+    * $-header-logo-min-height: 6rem;
+    * $-header-logo-affixed-min-height: 6rem;
+    * $-header-logo-margin: 1rem 1rem 1rem 1rem;
+    * $-header-logo-affixed-margin: 1rem 1rem 1rem 1rem;
+    * $-header-nav-link-text-transform: uppercase;
+    * $-header-nav-link-affixed-text-transform: uppercase;
+    * $-header-nav-link-font-size: $font-size-base;
+    * $-header-nav-link-affixed-font-size: $font-size-base;
+
 My Cart and Wishlist Headers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Delete link texts
-
-Logo Styles
-___________
-No logo styles are included but you can use this css example in your theme:
-
-::
-
-    header {
-        & .navbar-brand.logo img {
-            height: 5.5rem;
-        }
-    }
-
 
 Website Menus
 ~~~~~~~~~~~~~

@@ -1,3 +1,7 @@
+`12.0.1.2.0`
+------------
+- **[ADD]** Header Top menu styles via bootstrap_overriden file
+
 `12.0.1.1.2`
 ------------
 - **[DEL]** Header Shop My Cart Link text
