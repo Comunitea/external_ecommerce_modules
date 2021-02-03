@@ -1,3 +1,7 @@
+`12.0.4.1.2`
+------------
+- **[FIX]** Carousel control styles
+
 `12.0.4.1.1`
 ------------
 - **[FIX]** bootstrap_overriden variables

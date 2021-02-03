@@ -92,6 +92,7 @@ For carousel image controls you can define yours via bootstrap_overriden file:
     * $carousel-control-color
     * $carousel-control-color-hover
     * $carousel-control-width
+    * $carousel-control-opacity
     * $carousel-indicator-box-shadow
     * $carousel-indicator-margin
     * $carousel-indicator-max-width
@@ -243,7 +244,7 @@ For support and more information, please visit `<https://comunitea.com>`_.
 
 Known issues
 ------------
-You are welcome to report them. Just use the bug tracker instructions.
+You are welcome to report them. Just follow the bug tracker instructions.
 
 #. Responsive View full needs 'Responsive View' active to work properly.
 

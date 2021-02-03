@@ -11,8 +11,9 @@ $oe_product_tag_link_color: unset !default;
 $oe_product_tag_link_decoration: unset !default;
 
 // Product image on product details
-$carousel-control-color: $headings-color !default; //$white !default;
-$carousel-control-color-hover: darken($headings-color, 25%) !default; //custom
+$carousel-control-color: #868e96 !default; // $gray-600 // $white !default;
+$carousel-control-color-hover: #212529 !default; // $gray-900 // custom
+$carousel-control-opacity: 1 !default; // .5 !default;
 $carousel-control-width: 10% !default; // 15% !default;
 $carousel-indicator-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.35) !default;
 $carousel-indicator-margin: 0 0.4rem !important !default;
