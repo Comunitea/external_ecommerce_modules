@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Custom assets -->
+    <template id="website_assets_frontend" name="Website Assets Breadcrumbs Extend" inherit_id="website.assets_frontend">
+        <!-- Styles -->
+        <xpath expr="link[last()]" position="after">
+            <link href="/website_breadcrumb_extend/static/scss/breadcrumbs.scss" rel="stylesheet" type="text/scss"/>
+        </xpath>
+        <!-- Scripts -->
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/website_breadcrumb_extend/static/js/scroll.js"/>
+        </xpath>
+    </template>
+
+    <!-- Variables to access via bootstrap_overriden file -->
+    <template id="_assets_frontend_helpers" inherit_id="web._assets_frontend_helpers">
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/website_breadcrumb_extend/static/scss/bootstrap_overridden.scss"/>
+        </xpath>
+    </template>
+
+</odoo>

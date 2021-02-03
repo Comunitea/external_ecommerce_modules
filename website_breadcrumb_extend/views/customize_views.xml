@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Add No Portal Breadcrumbs -->
+    <template id="layout_website" name="No Portal Breadcrumbs" inherit_id="website.layout" active="True" customize_show="True">
+        <xpath expr="//div[@id='wrapwrap']//nav[hasclass('navbar')]" position="after">
+            <t t-call="website_breadcrumb_extend.breadcrumbs_bar" t-if="'home' not in xmlid and not is_portal"/>
+        </xpath>
+    </template>
+
+    <!-- Add Custom Portal Breadcrumbs -->
+    <template id="portal_frontend_layout" name="Portal Breadcrumbs" inherit_id="portal.frontend_layout" active="True" customize_show="True">
+        <xpath expr="//div[@id='wrapwrap']//nav[hasclass('navbar')]" position="after">
+            <t t-call="website_breadcrumb_extend.breadcrumbs_bar" t-if="is_portal"/>
+        </xpath>
+    </template>
+
+    <!-- Hide Default Portal Breadcrumbs -->
+    <template id="portal_portal_layout" inherit_id="portal.portal_layout" name="Portal Breadcrumbs (Hide Default)">
+        <xpath expr="//t[@t-set='is_portal']" position="after">
+            <t t-set="hide_default_breadcrumbs" t-value="request.website.viewref('website_breadcrumb_extend.portal_frontend_layout').active"/>
+            <t t-set="no_breadcrumbs" t-value="True if hide_default_breadcrumbs else False"/>
+        </xpath>
+    </template>
+
+    <!-- Hide Default Portal Breadcrumbs on tables -->
+    <template id="portal_portal_searchbar" inherit_id="portal.portal_searchbar" name="Portal Search Bar (Hide Default)">
+        <xpath expr="//nav/t[@t-if='breadcrumbs_searchbar']" position="before">
+            <t t-set="hide_default_breadcrumbs" t-value="request.website.viewref('website_breadcrumb_extend.portal_frontend_layout').active"/>
+            <t t-set="breadcrumbs_searchbar" t-value="False if hide_default_breadcrumbs else True"/>
+        </xpath>
+    </template>
+
+    <!-- Disable Product Breadcrumbs -->
+    <template id="website_sale_product" inherit_id="website_sale.product" name="Disable Default Breadcrumbs" active="True" customize_show="True">
+        <!-- Replace breadcrumbs, search, pricelist and pager -->
+        <xpath expr="//div[hasclass('row')]" position="replace"/>
+        <!-- Add search, pricelist and pager without breadcrumbs -->
+        <xpath expr="//div[@id='wrap']//section" position="before">
+            <div class="products_pager form-inline justify-content-center mb32">
+                <t t-call="website_sale.search">
+                    <t t-set="_classes">o_website_sale_search</t>
+                </t>
+                <t t-call="website_sale.pricelist_list">
+                    <t t-set="_classes">ml-2</t>
+                </t>
+                <t t-call="website.pager" t-if="'website_sale.product' not in xmlid">
+                    <t t-set="_classes">ml-2</t>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

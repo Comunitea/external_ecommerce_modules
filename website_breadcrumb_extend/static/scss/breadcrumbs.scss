@@ -1,0 +1,50 @@
+// ------------------------------------------------------------------------
+// Variables for breadcrumb bar
+// ------------------------------------------------------------------------
+
+header {
+    & .wp_breadcrumbs {
+        background-color: $breadcrumbs-wrap-color-bg;
+        margin-bottom: $breadcrumbs-wrap-margin-bottom;
+        border-top: $breadcrumbs-wrap-border-bottom;
+        border-bottom: $breadcrumbs-wrap-border-top;
+        & ol.breadcrumb {
+            background-color: $breadcrumb-bg-color;
+            padding: $breadcrumb-padding;
+            margin-bottom: 0;
+            & a {
+                color: $breadcrumb-color-href;
+                &:hover {
+                    text-decoration: $breadcrumb-link-decoration;
+                }
+            }
+            & span.breadcrumb-home-separator {
+                color: $breadcrumb-color-href;
+            }
+            // Fix default padding for same space between crumbs
+            & span.breadcrumb-separator {
+                color: $breadcrumb-active-color;
+                padding: 0px 0px 0px 2px;
+            }
+        }
+    }
+}
+
+// Add a shadow when scrolling to differentiate the body content of the breadcrumbs bar
+// 'Affix top menu' customize view must be active
+header.affixed {
+    .wp_breadcrumbs {
+        box-shadow: $breadcrumbs-wrap-affixed-box-shadow;
+        border-bottom: $breadcrumbs-wrap-affixed-border-bottom;
+        transition: $breadcrumbs-wrap-affixed-transition;
+        margin-bottom: 0 !important;
+    }
+}
+
+// Documents table list
+.o_portal_wrap {
+    // Doc Title
+    & .o_portal_navbar {
+        border: $breadcrumb-portal-navbar-border;
+    }
+}

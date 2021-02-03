@@ -1,0 +1,27 @@
+// ------------------------------------------------------------------------
+// Variables to access via bootstrap_overriden file
+// ------------------------------------------------------------------------
+
+// Breadcrumb wrap container
+$breadcrumbs-wrap-color-bg: if(color("menu"), color("menu"), $body-bg) !default;
+$breadcrumbs-wrap-margin-bottom: 2rem !default;
+$breadcrumbs-wrap-border-top: unset;
+$breadcrumbs-wrap-border-bottom: unset;
+
+// Breadcrumb wrap container shadow animation on affixed header
+$breadcrumbs-wrap-affixed-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+$breadcrumbs-wrap-affixed-border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+$breadcrumbs-wrap-affixed-transition: box-shadow 2s ease-in-out;
+
+// Breadcrumbs
+$breadcrumb-bg-color: unset !important !default;
+$breadcrumb-padding: 0.75rem 1rem !important !default;
+$breadcrumb-color-href: $o-enterprise-primary-color !default;
+$breadcrumb-link-decoration: underline !default;
+$breadcrumb-active-color: $gray-600 !default;
+
+// Documents table list
+$breadcrumb-portal-navbar-border: unset !important !default;
+
+
+

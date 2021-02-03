@@ -1,0 +1,353 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* website_breadcrumb_extend
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-03 16:19+0000\n"
+"PO-Revision-Date: 2021-02-03 16:19+0000\n"
+"Last-Translator: Rubén Seijas <ruben@comunitea.com>\n"
+"Language-Team: ES_es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_breadcrumb_extend
+#: code:addons/website_breadcrumb_extend/models/breadcrumbs.py:181
+#, python-format
+msgid "%s / %s"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "&amp;nbsp;/&amp;nbsp;"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "/&amp;nbsp;"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "<i class=\"fa fa-home\" alt=\"Home\"/>"
+msgstr "<i class=\"fa fa-home\" alt=\"Inicio\"/"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "<i class=\"fa fa-home\" alt=\"My Account\"/>"
+msgstr "<i class=\"fa fa-home\" alt=\"Mi Cuenta\"/>"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "<span class=\"breadcrumb-home-separator\">/&amp;nbsp;</span>"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "<span>/&amp;nbsp;</span>"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "<span>My Account</span>"
+msgstr "<span>Mi Cuenta</span>"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "<span>My Opportunities</span>"
+msgstr "<span>Mis Oportunidades</span>"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "<span>Projects</span>"
+msgstr "<span>Proyectos</span>"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "<span>Purchase Orders</span>"
+msgstr "<span>Pedidos de Compra</span>"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "<span>Quotations</span>"
+msgstr "<span>Presupuestos</span>"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "<span>Rmas</span>"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "<span>Tasks</span>"
+msgstr "<span>Tareas</span>"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "<span>Your Details</span>"
+msgstr "<span>Sus detalles</span>"
+
+#. module: website_breadcrumb_extend
+#: model:ir.model.fields,field_description:website_breadcrumb_extend.field_breadcrumbs_crumb__active
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.website_breadcrumbs_search_view
+msgid "Active"
+msgstr "Activo"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.website_breadcrumbs_search_view
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "Blog"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model:ir.actions.act_window,name:website_breadcrumb_extend.website_breadcrumbs_action
+#: model:ir.ui.menu,name:website_breadcrumb_extend.menu_website_global_configuration_crumb
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.website_breadcrumbs_form
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.website_breadcrumbs_search_view
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.website_breadcrumbs_tree
+msgid "Breadcrumbs"
+msgstr "Migas de Pan"
+
+#. module: website_breadcrumb_extend
+#: model:ir.ui.view,name:website_breadcrumb_extend.breadcrumbs_bar
+msgid "Breadcrumbs Bar"
+msgstr "Migas de Pan"
+
+#. module: website_breadcrumb_extend
+#: model:ir.model.fields,field_description:website_breadcrumb_extend.field_breadcrumbs_crumb__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: website_breadcrumb_extend
+#: model:ir.model.fields,field_description:website_breadcrumb_extend.field_breadcrumbs_crumb__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: website_breadcrumb_extend
+#: model:ir.ui.view,name:website_breadcrumb_extend.website_sale_product
+msgid "Disable Default Breadcrumbs"
+msgstr "Desactivar Migas por defecto"
+
+#. module: website_breadcrumb_extend
+#: model:ir.model.fields,field_description:website_breadcrumb_extend.field_breadcrumbs_crumb__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "Home"
+msgstr "Inicio"
+
+#. module: website_breadcrumb_extend
+#: model:ir.model.fields,field_description:website_breadcrumb_extend.field_breadcrumbs_crumb__id
+msgid "ID"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: website_breadcrumb_extend
+#: model:ir.model.fields,field_description:website_breadcrumb_extend.field_breadcrumbs_crumb____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: website_breadcrumb_extend
+#: model:ir.model.fields,field_description:website_breadcrumb_extend.field_breadcrumbs_crumb__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: website_breadcrumb_extend
+#: model:ir.model.fields,field_description:website_breadcrumb_extend.field_breadcrumbs_crumb__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "My Account"
+msgstr "Mi cuenta"
+
+#. module: website_breadcrumb_extend
+#: model:ir.model.fields,field_description:website_breadcrumb_extend.field_breadcrumbs_crumb__name
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.website_breadcrumbs_search_view
+msgid "Name"
+msgstr "Nombre"
+
+#. module: website_breadcrumb_extend
+#: model:ir.ui.view,name:website_breadcrumb_extend.layout_website
+msgid "No Portal Breadcrumbs"
+msgstr "Migas de Pan (No Mi Cuenta)"
+
+#. module: website_breadcrumb_extend
+#: code:addons/website_breadcrumb_extend/models/breadcrumbs.py:20
+#: model:ir.model.fields,help:website_breadcrumb_extend.field_breadcrumbs_crumb__website_published
+#, python-format
+msgid "Only published crumbs are visible in the website"
+msgstr "Solo las migas de pan publicadas son visibles en el Sitio Web"
+
+#. module: website_breadcrumb_extend
+#: model:ir.model,name:website_breadcrumb_extend.model_website_page
+msgid "Page"
+msgstr "Página"
+
+#. module: website_breadcrumb_extend
+#: code:addons/website_breadcrumb_extend/models/page.py:9
+#: model:ir.model.fields,field_description:website_breadcrumb_extend.field_website_page__name
+#, python-format
+msgid "Page name"
+msgstr "Nombre Página"
+
+#. module: website_breadcrumb_extend
+#: code:addons/website_breadcrumb_extend/models/page.py:10
+#: model:ir.model.fields,field_description:website_breadcrumb_extend.field_website_page__parent_id
+#, python-format
+msgid "Parent page"
+msgstr "Página Padre"
+
+#. module: website_breadcrumb_extend
+#: model:ir.ui.view,name:website_breadcrumb_extend.portal_frontend_layout
+msgid "Portal Breadcrumbs"
+msgstr "Migas de Pan (Mi Cuenta)"
+
+#. module: website_breadcrumb_extend
+#: model:ir.ui.view,name:website_breadcrumb_extend.portal_portal_layout
+msgid "Portal Breadcrumbs (Hide Default)"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model:ir.ui.view,name:website_breadcrumb_extend.portal_portal_searchbar
+msgid "Portal Search Bar (Hide Default)"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: code:addons/website_breadcrumb_extend/models/breadcrumbs.py:71
+#: code:addons/website_breadcrumb_extend/models/breadcrumbs.py:95
+#, python-format
+msgid "Products"
+msgstr "Productos"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "Projects"
+msgstr "Proyectos"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "Purchase Orders"
+msgstr "Pedidos de Compra"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "Quotations"
+msgstr "Presupuestos"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "Rmas"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "Sales Orders"
+msgstr "Pedidos de Venta"
+
+#. module: website_breadcrumb_extend
+#: code:addons/website_breadcrumb_extend/models/breadcrumbs.py:91
+#, python-format
+msgid "Tag / "
+msgstr "Etiqueta / "
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
+msgid "Tasks"
+msgstr "Tareas"
+
+#. module: website_breadcrumb_extend
+#: model:ir.model.fields,field_description:website_breadcrumb_extend.field_breadcrumbs_crumb__url
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.website_breadcrumbs_search_view
+msgid "Url"
+msgstr "URL"
+
+#. module: website_breadcrumb_extend
+#: model:ir.model,name:website_breadcrumb_extend.model_ir_ui_view
+msgid "View"
+msgstr "Ver"
+
+#. module: website_breadcrumb_extend
+#: code:addons/website_breadcrumb_extend/models/ir_ui_view.py:9
+#: model:ir.model.fields,field_description:website_breadcrumb_extend.field_ir_ui_view__name
+#, python-format
+msgid "View Name"
+msgstr "Nombre de la vista"
+
+#. module: website_breadcrumb_extend
+#: model:ir.model,name:website_breadcrumb_extend.model_website
+msgid "Website"
+msgstr "Sitio web"
+
+#. module: website_breadcrumb_extend
+#: model:ir.ui.view,name:website_breadcrumb_extend.website_assets_frontend
+msgid "Website Assets Breadcrumbs Extend"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: code:addons/website_breadcrumb_extend/models/breadcrumbs.py:18
+#: model:ir.model.fields,field_description:website_breadcrumb_extend.field_breadcrumbs_crumb__website_published
+#, python-format
+msgid "Website Published"
+msgstr "Publicado en Sitio Web"
+
+#. module: website_breadcrumb_extend
+#: model:ir.ui.view,name:website_breadcrumb_extend._assets_frontend_helpers
+msgid "_assets_frontend_helpers"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model:ir.model,name:website_breadcrumb_extend.model_breadcrumbs_crumb
+msgid "breadcrumbs.crumb"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model:ir.model,name:website_breadcrumb_extend.model_breadcrumbs_crumb
+msgid "Website Breadcrumb"
+msgstr "Migas de Pan para Sitio Web"
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.website_sale_product
+msgid "ml-2"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.website_sale_product
+msgid "o_website_sale_search"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model:ir.ui.view,name:website_breadcrumb_extend.website_breadcrumbs_form
+msgid "website.breadcrumbs.form"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model:ir.ui.view,name:website_breadcrumb_extend.website_breadcrumbs_search_view
+msgid "website.breadcrumbs.search"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model:ir.ui.view,name:website_breadcrumb_extend.website_breadcrumbs_tree
+msgid "website.breadcrumbs.tree"
+msgstr ""
+
+#. module: website_breadcrumb_extend
+#: model:ir.ui.view,name:website_breadcrumb_extend.website_pages_form_view
+msgid "website.page.form"
+msgstr ""
+

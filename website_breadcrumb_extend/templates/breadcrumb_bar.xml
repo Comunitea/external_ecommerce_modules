@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Breadcrumbs main wrap container -->
+    <template id="breadcrumbs_bar" name="Breadcrumbs Bar">
+        <div class="wp_breadcrumbs">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <t t-set="breadcrumbs" t-value="website.generate_breadcrumbs(main_object, website)"/>
+                    <ol class="breadcrumb" t-if="breadcrumbs">
+                        <li>
+                            <t t-set="has_blog" t-value="request.env['ir.module.module'].search([('name', '=', 'website_blog'), ('state', '=', 'installed')])"/>
+                            <a href="/" t-if="not is_portal" rel="noindex,nofollow" alt="Home" title="Home"><i class="fa fa-home" alt="Home" /></a>
+                            <a href="/my/home" t-else="" rel="noindex,nofollow" alt="My Account" title="My Account"><i class="fa fa-home" alt="My Account"/></a>
+                            <span class="breadcrumb-home-separator">/&amp;nbsp;</span>
+                            <a href="/blog" t-if="has_blog and 'website_blog' in xmlid" rel="noindex,nofollow" alt="Blog" title="Blog">Blog</a>
+                            <span class="breadcrumb-separator" t-if="has_blog and 'website_blog' in xmlid">/&amp;nbsp;</span>
+                        </li>
+                        <li t-if="is_portal and 'portal_my_home' in xmlid">
+                            <span>My Account</span>
+                        </li>
+                        <li t-if="is_portal and 'portal_my_details' in xmlid">
+                            <span>Your Details</span>
+                        </li>
+                        <li t-if="is_portal and 'portal_my_projects' in xmlid">
+                            <span>Projects</span>
+                        </li>
+                        <li t-if="is_portal and 'portal_my_tasks' in xmlid">
+                            <span>Tasks</span>
+                        </li>
+                        <li t-if="is_portal and 'portal_my_rmas' in xmlid">
+                            <span>Rmas</span>
+                        </li>
+                        <li t-if="is_portal and 'portal_my_opportunities' in xmlid">
+                            <span>My Opportunities</span>
+                        </li>
+                        <li t-if="is_portal and xmlid == 'purchase.portal_my_purchase_orders'">
+                            <span>Purchase Orders</span>
+                        </li>
+                        <li t-if="is_portal and 'portal_my_quotations' in xmlid">
+                            <span>Quotations</span>
+                        </li>
+                        <li t-if="is_portal and 'portal_my_orders' in xmlid">
+                            <t>Sales Orders</t>
+                        </li>
+                        <li t-if="is_portal and 'portal_my_invoices' in xmlid">
+                            <t>Invoices</t>
+                        </li>
+                        <t t-foreach="breadcrumbs" t-as="crumb">
+                            <li t-att-class="'active' if crumb.active else None">
+                                <div t-if="not is_portal">
+                                    <span t-if="crumb.active" t-esc="crumb.name and crumb.name.capitalize() or 'Unnamed Page'"/>
+                                    <a t-else="" t-att-href="crumb.url" t-esc="crumb.name and crumb.name.capitalize() or 'Unnamed Page'"
+                                       t-att-alt="crumb.name and crumb.name.capitalize() or 'Unnamed Page'" rel="noindex,nofollow"/>
+                                </div>
+                                <div t-elif="is_portal and project">
+                                    <a href="/my/projects">Projects</a>
+                                    <span class="breadcrumb-home-separator">/&amp;nbsp;</span>
+                                    <span t-esc="'Projects' + ' ' + project.name"/>
+                                </div>
+                                <div t-elif="is_portal and task">
+                                    <a href="/my/tasks">Tasks</a>
+                                    <span class="breadcrumb-home-separator">/&amp;nbsp;</span>
+                                    <span t-esc="'Tasks' + ' ' + task.name"/>
+                                </div>
+                                <div t-elif="is_portal and rma">
+                                    <a href="/my/rmas">Rmas</a>
+                                    <span class="breadcrumb-home-separator">/&amp;nbsp;</span>
+                                    <span t-esc="'Rmas' + ' ' + rma.name"/>
+                                </div>
+                                <div t-elif="is_portal and purchase_order">
+                                    <a href="/my/purchase">Purchase Orders</a>
+                                    <span class="breadcrumb-home-separator">/&amp;nbsp;</span>
+                                    <span t-esc="'Purchase Order' + ' ' + purchase_order.name"/>
+                                </div>
+                                <div t-elif="is_portal and sale_order">
+                                    <t t-set="is_quote"  t-value="'sale_order_portal_template' in xmlid and sale_order.state in ('draft', 'sent', 'cancel')"/>
+                                    <t t-set="is_order" t-value="'sale_order_portal_template' in xmlid and sale_order.state not in ('draft', 'sent', 'cancel')"/>
+                                    <a href="/my/quotes" t-if="is_quote">Quotations</a>
+                                    <a href="/my/orders" t-if="is_order">Sales Orders</a>
+                                    <span class="breadcrumb-home-separator" t-if="is_quote or is_order">/</span>
+                                    <span t-esc="sale_order.type_name + ' ' + sale_order.name"/>
+                                </div>
+                                <div t-elif="is_portal and invoice">
+                                    <a href="/my/invoices">Invoices</a>
+                                    <span>/&amp;nbsp;</span>
+                                    <span t-esc="'Invoices' + ' ' + Invoice.name"/>
+                                </div>
+                            </li>
+                            <span class="breadcrumb-separator" t-if="not crumb.active">&amp;nbsp;/&amp;nbsp;</span>
+                        </t>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</odoo>
