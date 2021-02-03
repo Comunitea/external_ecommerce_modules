@@ -9,7 +9,7 @@
                     <t t-set="breadcrumbs" t-value="website.generate_breadcrumbs(main_object, website)"/>
                     <ol class="breadcrumb" t-if="breadcrumbs">
                         <li>
-                            <t t-set="has_blog" t-value="request.env['ir.module.module'].search([('name', '=', 'website_blog'), ('state', '=', 'installed')])"/>
+                            <t t-set="has_blog" t-value="request.env['ir.module.module'].sudo().search([('name', '=', 'website_blog'), ('state', '=', 'installed')])"/>
                             <a href="/" t-if="not is_portal" rel="noindex,nofollow" alt="Home" title="Home"><i class="fa fa-home" alt="Home" /></a>
                             <a href="/my/home" t-else="" rel="noindex,nofollow" alt="My Account" title="My Account"><i class="fa fa-home" alt="My Account"/></a>
                             <span class="breadcrumb-home-separator">/&amp;nbsp;</span>
