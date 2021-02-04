@@ -1,4 +1,4 @@
-odoo.define('ecommerce_base.contact_form', function (require) {
+odoo.define('website_ecommerce_extend.contact_form', function (require) {
     "use strict";
 
     var core = require('web.core');

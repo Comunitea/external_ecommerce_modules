@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Ecommerce Basic Modules',
-    'version': '12.0.1.2.1',
-    'summary': 'Customization for an e-commerce website',
-    'description': '',
+    'name': 'Website eCommerce Extend',
+    'version': '12.0.0.0.0',
+    'summary': 'Extend Website for eCommerce customization',
     'category': 'eCommerce',
     'author': 'Comunitea',
     'contributors': [

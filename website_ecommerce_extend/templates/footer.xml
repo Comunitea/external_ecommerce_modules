@@ -5,8 +5,8 @@
     <template id="website_layout" name="Main layout Ecommerce Base" inherit_id="website.layout">
          <!-- Add to bottom of page -->
         <xpath expr="//div[@id='wrapwrap']" position="after">
-            <script src="/ecommerce_base/static/js/jquery.validate.min.js" type="text/javascript"/>
-            <script src="/ecommerce_base/static/js/main.js" type="text/javascript"/>
+            <script src="/website_ecommerce_extend/static/js/jquery.validate.min.js" type="text/javascript"/>
+            <script src="/website_ecommerce_extend/static/js/main.js" type="text/javascript"/>
         </xpath>
     </template>
 

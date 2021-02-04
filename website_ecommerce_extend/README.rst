@@ -1,6 +1,6 @@
-=======================
-Ecommerce Basic Modules
-=======================
+========================
+Website eCommerce Extend
+========================
 
 .. |badge1| image:: https://img.shields.io/badge/odoo-v12.0-a3478a
     :target: https://github.com/odoo/odoo/tree/12.0
@@ -15,13 +15,15 @@ Ecommerce Basic Modules
     :target: https://github.com/Comunitea/
     :alt: Comunitea
 .. |badge5| image:: https://img.shields.io/badge/github-Comunitea%2FeCommerce-lightgray.png?logo=github
-    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/12.0/ecommerce_base
+    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/12.0/website_ecommerce_extend
     :alt: Comunitea / eCommerce
 .. |badge6| image:: https://img.shields.io/badge/Spanish-Translated-F47D42.png
-    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/12.0/ecommerce_base/i18n/es.po
+    :target: https://github.com/Comunitea/external_ecommerce_modules/tree/12.0/website_ecommerce_extend/i18n/es.po
     :alt: Spanish Translated
 
 |badge1| |badge2| |badge3| |badge4| |badge5| |badge6|
+
+Extend Website for eCommerce customization
 
 **Table of contents**
 
@@ -30,7 +32,7 @@ Ecommerce Basic Modules
 
 Content
 -------
-Customization for an e-commerce website.
+Extend Website for eCommerce customization.
 
 Features
 --------
@@ -100,9 +102,8 @@ Comunitea Servicios Tecnológicos S.L.
 
 Contributors
 ~~~~~~~~~~~~
-Pavel Smirnov, pavel@comunitea.com
-
-Rubén Seijas, ruben@comunitea.com
+* Pavel Smirnov, pavel@comunitea.com
+* Rubén Seijas, ruben@comunitea.com
 
 Maintainer
 ~~~~~~~~~~

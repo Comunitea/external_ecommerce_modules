@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* ecommerce_base
+#	* website_ecommerce_extend
 #
 msgid ""
 msgstr ""
@@ -15,59 +15,59 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: ecommerce_base
-#: model:ir.ui.view,name:ecommerce_base.website_crm_privacy_policy_contactus_form
+#. module: website_ecommerce_extend
+#: model:ir.ui.view,name:website_ecommerce_extend.website_crm_privacy_policy_contactus_form
 msgid "Add privacy policy checkbox Ecommerce Base"
 msgstr "Add privacy policy checkbox Ecommerce Base"
 
-#. module: ecommerce_base
-#: model:ir.ui.view,name:ecommerce_base.website_crm_contactus_form
+#. module: website_ecommerce_extend
+#: model:ir.ui.view,name:website_ecommerce_extend.website_crm_contactus_form
 msgid "Contact Form Ecommerce Base"
 msgstr "Contact Form Ecommerce Base"
 
-#. module: ecommerce_base
-#: model:ir.ui.view,name:ecommerce_base.website_layout
+#. module: website_ecommerce_extend
+#: model:ir.ui.view,name:website_ecommerce_extend.website_layout
 msgid "Main layout Ecommerce Base"
 msgstr "Main layout Ecommerce Base"
 
-#. module: ecommerce_base
-#: model:ir.ui.menu,name:ecommerce_base.menus_list
+#. module: website_ecommerce_extend
+#: model:ir.ui.menu,name:website_ecommerce_extend.menus_list
 msgid "Menus"
 msgstr "Menus"
 
-#. module: ecommerce_base
-#: model:ir.ui.view,name:ecommerce_base.website_crm_contactus_form_phone_required
+#. module: website_ecommerce_extend
+#: model:ir.ui.view,name:website_ecommerce_extend.website_crm_contactus_form_phone_required
 msgid "Phone Required"
 msgstr "Requerir Teléfono"
 
-#. module: ecommerce_base
-#: model:ir.ui.menu,name:ecommerce_base.default_website_list
+#. module: website_ecommerce_extend
+#: model:ir.ui.menu,name:website_ecommerce_extend.default_website_list
 msgid "Website"
 msgstr "Sitio web"
 
-#. module: ecommerce_base
-#: model:ir.ui.view,name:ecommerce_base.website_assets_frontend
+#. module: website_ecommerce_extend
+#: model:ir.ui.view,name:website_ecommerce_extend.website_assets_frontend
 msgid "Website Assets Ecommerce Base"
 msgstr "Website Assets Ecommerce Base"
 
-#. module: ecommerce_base
-#: model:ir.actions.act_window,name:ecommerce_base.action_website_list
+#. module: website_ecommerce_extend
+#: model:ir.actions.act_window,name:website_ecommerce_extend.action_website_list
 msgid "Websites"
 msgstr "Sitios Web"
 
-#. module: ecommerce_base
-#: model:ir.ui.view,arch_db:ecommerce_base.website_crm_contactus_form
+#. module: website_ecommerce_extend
+#: model:ir.ui.view,arch_db:website_ecommerce_extend.website_crm_contactus_form
 msgid "your_name@provider.domain"
 msgstr "nombre@proveedor.dominio"
 
-#. module: ecommerce_base
-#: code:addons/ecommerce_base/static/js/main.js:8
+#. module: website_ecommerce_extend
+#: code:addons/website_ecommerce_extend/static/js/main.js:8
 #, python-format
 msgid "Please, write your email with a right format such: your_name@provider.domain"
 msgstr "Por favor, introduce una dirección de correo electrónico con el formato correcto: nombre@proveedor.dominio"
 
-#. module: ecommerce_base
-#: code:addons/ecommerce_base/static/js/jquery.validate.min.js:4
+#. module: website_ecommerce_extend
+#: code:addons/website_ecommerce_extend/static/js/jquery.validate.min.js:4
 #, python-format
 msgid "Please, write your email with a right format such: your_name@provider.domain"
 msgstr "Por favor, introduce una dirección de correo electrónico con el formato correcto: nombre@proveedor.dominio"
