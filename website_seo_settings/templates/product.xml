@@ -2,7 +2,7 @@
 <odoo>
 
     <!-- The product template changes -->
-    <template id="website_sale_product" name="Product Seo" inherit_id="website_sale.product">
+    <template id="website_sale_product" inherit_id="website_sale.product" name="Product">
 
         <!-- Product descriptions -->
         <xpath expr="//div[@id='product_details']//div[hasclass('o_not_editable')]" position="after">
