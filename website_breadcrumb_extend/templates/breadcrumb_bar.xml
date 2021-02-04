@@ -10,8 +10,8 @@
                     <ol class="breadcrumb" t-if="breadcrumbs">
                         <li>
                             <t t-set="has_blog" t-value="request.env['ir.module.module'].sudo().search([('name', '=', 'website_blog'), ('state', '=', 'installed')])"/>
-                            <a href="/" t-if="not is_portal" rel="noindex,nofollow" alt="Home" title="Home"><i class="fa fa-home" alt="Home" /></a>
-                            <a href="/my/home" t-else="" rel="noindex,nofollow" alt="My Account" title="My Account"><i class="fa fa-home" alt="My Account"/></a>
+                            <a href="/" t-if="not is_portal" alt="Home" title="Home"><i class="fa fa-home" alt="Home" rel="noindex,nofollow"/></a>
+                            <a href="/my/home" t-else="" alt="My Account" title="My Account"><i class="fa fa-home" alt="My Account" rel="noindex,nofollow"/></a>
                             <span class="breadcrumb-home-separator">/&amp;nbsp;</span>
                             <a href="/blog" t-if="has_blog and 'website_blog' in xmlid" rel="noindex,nofollow" alt="Blog" title="Blog">Blog</a>
                             <span class="breadcrumb-separator" t-if="has_blog and 'website_blog' in xmlid">/&amp;nbsp;</span>
@@ -51,7 +51,8 @@
                                 <div t-if="not is_portal">
                                     <span t-if="crumb.active" t-esc="crumb.name and crumb.name.capitalize() or 'Unnamed Page'"/>
                                     <a t-else="" t-att-href="crumb.url" t-esc="crumb.name and crumb.name.capitalize() or 'Unnamed Page'"
-                                       t-att-alt="crumb.name and crumb.name.capitalize() or 'Unnamed Page'" rel="noindex,nofollow"/>
+                                       t-att-alt="crumb.name and crumb.name.capitalize() or 'Unnamed'"
+                                       rel="noindex,nofollow"/>
                                 </div>
                                 <div t-elif="is_portal and project">
                                     <a href="/my/projects">Projects</a>
