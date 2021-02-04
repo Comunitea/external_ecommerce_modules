@@ -41,6 +41,7 @@
                 & .oe_product_name, .oe_subdescription {
                     max-height: 35px;
                     min-height: 35px;
+                    overflow: hidden;
                 }
                 & .product_price, .oe_sku {
                     min-height: 20px;
