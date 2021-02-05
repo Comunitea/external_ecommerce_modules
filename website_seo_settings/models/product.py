@@ -42,6 +42,18 @@ class ProductTemplate(models.Model):
         translate=html_translate
     )
 
+    # Old descriptions. DO NOT USE
+    description_full = fields.Html(
+        string=_("Full Description"),
+        help=_("Full product description in HTML format"),
+        strip_style=True, translate=True
+    )
+    description_short = fields.Text(
+        string=_("Short Description"),
+        help=_("Short description in plain text"),
+        strip_style=True, translate=True
+    )
+
     def _slug_validation(self, value, count=0):
         # Set current website
         domain = []
