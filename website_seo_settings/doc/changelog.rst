@@ -1,3 +1,7 @@
+`12.0.4.2.0`
+------------
+- **[UDP]** improve for inheritance on shop.xml
+
 `12.0.4.1.2`
 ------------
 - **[FIX]** Carousel control styles
