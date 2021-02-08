@@ -87,7 +87,7 @@
 
     <!-- Make work to collapsible navbar with title -->
     <template id="website_sale_option_collapse_products_categories" inherit_id="website_sale.option_collapse_products_categories" name="Collapsible Category List Seo">
-        <xpath expr="//div[@id='products_grid_before']/ul[@id='o_shop_collapse_category']" position="attributes">
+        <xpath expr="//ul" position="attributes">
             <attribute name="class" add="d-none" separator=" "/>
             <attribute name="id">o_shop_collapse_category_hidden</attribute>
         </xpath>
