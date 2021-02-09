@@ -17,34 +17,34 @@
                             <span class="breadcrumb-separator" t-if="has_blog and 'website_blog' in xmlid">/&amp;nbsp;</span>
                         </li>
                         <li t-if="is_portal and 'portal_my_home' in xmlid">
-                            <span>My Account</span>
+                            <span class="breadcrumb-separator">My Account</span>
                         </li>
                         <li t-if="is_portal and 'portal_my_details' in xmlid">
-                            <span>Your Details</span>
+                            <span class="breadcrumb-separator">Your Details</span>
                         </li>
                         <li t-if="is_portal and 'portal_my_projects' in xmlid">
-                            <span>Projects</span>
+                            <span class="breadcrumb-separator">Projects</span>
                         </li>
                         <li t-if="is_portal and 'portal_my_tasks' in xmlid">
-                            <span>Tasks</span>
+                            <span class="breadcrumb-separator">Tasks</span>
                         </li>
                         <li t-if="is_portal and 'portal_my_rmas' in xmlid">
-                            <span>Rmas</span>
+                            <span class="breadcrumb-separator">Rmas</span>
                         </li>
                         <li t-if="is_portal and 'portal_my_opportunities' in xmlid">
-                            <span>My Opportunities</span>
+                            <span class="breadcrumb-separator">My Opportunities</span>
                         </li>
                         <li t-if="is_portal and xmlid == 'purchase.portal_my_purchase_orders'">
-                            <span>Purchase Orders</span>
+                            <span class="breadcrumb-separator">Purchase Orders</span>
                         </li>
                         <li t-if="is_portal and 'portal_my_quotations' in xmlid">
-                            <span>Quotations</span>
+                            <span class="breadcrumb-separator">Quotations</span>
                         </li>
                         <li t-if="is_portal and 'portal_my_orders' in xmlid">
-                            <t>Sales Orders</t>
+                            <span class="breadcrumb-separator">Sales Orders</span>
                         </li>
                         <li t-if="is_portal and 'portal_my_invoices' in xmlid">
-                            <t>Invoices</t>
+                            <span class="breadcrumb-separator">Invoices</span>
                         </li>
                         <t t-foreach="breadcrumbs" t-as="crumb">
                             <li t-att-class="'active' if crumb.active else None">
@@ -57,22 +57,22 @@
                                 <div t-elif="is_portal and project">
                                     <a href="/my/projects">Projects</a>
                                     <span class="breadcrumb-home-separator">/&amp;nbsp;</span>
-                                    <span t-esc="'Projects' + ' ' + project.name"/>
+                                    <span class="breadcrumb-separator" t-esc="'Projects' + ' ' + project.name"/>
                                 </div>
                                 <div t-elif="is_portal and task">
                                     <a href="/my/tasks">Tasks</a>
                                     <span class="breadcrumb-home-separator">/&amp;nbsp;</span>
-                                    <span t-esc="'Tasks' + ' ' + task.name"/>
+                                    <span class="breadcrumb-separator" t-esc="'Tasks' + ' ' + task.name"/>
                                 </div>
                                 <div t-elif="is_portal and rma">
                                     <a href="/my/rmas">Rmas</a>
                                     <span class="breadcrumb-home-separator">/&amp;nbsp;</span>
-                                    <span t-esc="'Rmas' + ' ' + rma.name"/>
+                                    <span class="breadcrumb-separator" t-esc="'Rmas' + ' ' + rma.name"/>
                                 </div>
                                 <div t-elif="is_portal and purchase_order">
                                     <a href="/my/purchase">Purchase Orders</a>
                                     <span class="breadcrumb-home-separator">/&amp;nbsp;</span>
-                                    <span t-esc="'Purchase Order' + ' ' + purchase_order.name"/>
+                                    <span class="breadcrumb-separator" t-esc="'Purchase Order' + ' ' + purchase_order.name"/>
                                 </div>
                                 <div t-elif="is_portal and sale_order">
                                     <t t-set="is_quote"  t-value="'sale_order_portal_template' in xmlid and sale_order.state in ('draft', 'sent', 'cancel')"/>
@@ -80,12 +80,12 @@
                                     <a href="/my/quotes" t-if="is_quote">Quotations</a>
                                     <a href="/my/orders" t-if="is_order">Sales Orders</a>
                                     <span class="breadcrumb-home-separator" t-if="is_quote or is_order">/</span>
-                                    <span t-esc="sale_order.type_name + ' ' + sale_order.name"/>
+                                    <span class="breadcrumb-separator" t-esc="sale_order.type_name + ' ' + sale_order.name"/>
                                 </div>
                                 <div t-elif="is_portal and invoice">
                                     <a href="/my/invoices">Invoices</a>
                                     <span>/&amp;nbsp;</span>
-                                    <span t-esc="'Invoices' + ' ' + invoice.name"/>
+                                    <span class="breadcrumb-separator" t-esc="'Invoices' + ' ' + invoice.name"/>
                                 </div>
                             </li>
                             <span class="breadcrumb-separator" t-if="not crumb.active">&amp;nbsp;/&amp;nbsp;</span>
