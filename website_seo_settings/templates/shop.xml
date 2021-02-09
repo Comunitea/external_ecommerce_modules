@@ -24,8 +24,8 @@
 
     <!-- Avoid margin on small devices -->
     <template id="website_sale_pricelist_list" inherit_id="website_sale.pricelist_list" name="Pricelists Dropdown Seo">
-        <xpath expr="//a[@role='button']" position="attributes">
-            <attribute name="class" add="mt-2" separator=" "/>
+        <xpath expr="//t/div" position="attributes">
+            <attribute name="t-attf-class" add="mt-2" separator=" "/>
         </xpath>
     </template>
 
