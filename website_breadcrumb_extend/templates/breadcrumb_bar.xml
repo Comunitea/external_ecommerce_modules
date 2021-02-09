@@ -85,7 +85,7 @@
                                 <div t-elif="is_portal and invoice">
                                     <a href="/my/invoices">Invoices</a>
                                     <span>/&amp;nbsp;</span>
-                                    <span t-esc="'Invoices' + ' ' + Invoice.name"/>
+                                    <span t-esc="'Invoices' + ' ' + invoice.name"/>
                                 </div>
                             </li>
                             <span class="breadcrumb-separator" t-if="not crumb.active">&amp;nbsp;/&amp;nbsp;</span>
