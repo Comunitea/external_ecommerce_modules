@@ -265,6 +265,11 @@ class WebsiteSaleTags(WebsiteSale):
             tag = request.env['product.template.tag'].search(
                 [('slug', '=', path)], limit=1
             )
+
+        # Prevent search box inside tags
+        if search and tag:
+            return request.redirect("/shop?search=%s" % search)
+
         if tag:
             redirect = self._check_tag_redirect(tag)
             if redirect:
@@ -273,8 +278,10 @@ class WebsiteSaleTags(WebsiteSale):
             request.env.context = ctx
         else:
             raise NotFound()
-        res = super(WebsiteSaleTags, self).shop(page=page, category=category,
-                                                search=search, ppg=ppg, **post)
+
+        res = super(WebsiteSaleTags, self).shop(
+            page=page, category=category, search=search, ppg=ppg, **post
+        )
         res.qcontext.update({
             'list_type': 'tags',
             'current_tag': tag,
@@ -284,24 +291,11 @@ class WebsiteSaleTags(WebsiteSale):
 
     def _get_search_domain(self, search, category, attrib_values):
         domain = super(WebsiteSaleTags, self)._get_search_domain(
-            search=search, category=category, attrib_values=attrib_values)
-        domain += [('website_published', '=', True)]
-        website_id = request.env["website"].get_current_website()
-        tag_id = request.env.context.get('tag_id', False)
-
-        # Get just products with tag_id if not search inside tags
-        if tag_id:
-            domain += [('tag_ids', 'in', (tag_id))]
-        # Include products with tag name like search
-        elif not tag_id and not category and not search:
-            tag_ids = request.env['product.template.tag'].search([
-                ('website_id', '=', website_id.id),
-                ('website_published', '=', True),
-                ('name', 'ilike', search)
-            ]).mapped('id')
-            if tag_ids:
-                domain_tag = [('tag_ids', 'in', tag_ids)]
-                domain = expression.OR([domain, domain_tag])
+            search, category, attrib_values
+        )
+        if 'tag_id' in request.env.context:
+            domain.append(
+                ('tag_ids', 'in', request.env.context['tag_id']))
         return domain
 
     def _check_tag_redirect(self, tag):
