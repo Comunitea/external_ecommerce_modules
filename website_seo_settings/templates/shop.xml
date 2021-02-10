@@ -157,7 +157,7 @@
                     <t t-foreach="products" t-as="product">
                         <t t-if="product">
                             <div t-attf-class="col-lg-#{col_lg_num} col-md-#{col_md_num} col-sm-6 oe_product oe_grid oe-height#{height} #{ product.website_style_ids and product.website_style_ids[0].html_class}">
-                                <div class="oe_product_cart" id="product_item" t-att-data-publish="product.website_published and 'on' or 'off'">
+                                <div class="oe_product_cart" t-att-data-publish="product.website_published and 'on' or 'off'">
                                     <t t-call="website_seo_settings.website_sale_products_item" />
                                 </div>
                             </div>
