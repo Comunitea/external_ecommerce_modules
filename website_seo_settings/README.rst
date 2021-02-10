@@ -97,10 +97,17 @@ For carousel image controls you can define yours via bootstrap_overriden file:
     * $carousel-indicator-margin
     * $carousel-indicator-max-width
 
-Add shadow for product images in shop, product detail, alternate and suggested products but you can define yours via bootstrap_overriden file
+Add shadow and border for product images in shop, product detail, alternate and suggested products but you can define yours via bootstrap_overriden file
+    * $oe-product-border
+    * $oe-product-border-hover
+    * $oe-product-border-detail
+    * $oe-product-border-detail-hover
     * $box-shadow-product (This change all with same shadow)
+    * $box-shadow-product-hover (This change all with same shadow)
     * $box-shadow-product-list
+    * $box-shadow-product-list-hover
     * $box-shadow-product-detail
+    * $box-shadow-product-detail-hover
     * $box-shadow-product-alternate
     * $box-shadow-product-suggested
 

@@ -3,8 +3,11 @@
 // ------------------------------------------------------------------------
 
 // Border for product container in responsive views
-$oe_product_border: 1px solid rgba(100, 100, 100, 0.2) !default;
-$oe_product_detail_border: 1px solid rgba(100, 100, 100, 0.2) !default;
+$oe-product-border: 1px solid rgba(100, 100, 100, 0.2) !default;
+$oe-product-border-hover: 1px solid rgba(100, 100, 100, 0.2) !default;
+
+$oe-product-border-detail: unset !default;
+$oe-product-border-detail-hover: 1px solid rgba(100, 100, 100, 0.2) !default;
 
 // Color tags in product detail
 $oe_product_tag_link_color: unset !default;
@@ -23,9 +26,12 @@ $carousel-indicator-max-width: 110% !default;
 //
 // Define common padding and border radius sizes and more.
 $box-shadow-product: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.35) !default; //0 .5rem 1rem rgba($black, .15) !default;
+$box-shadow-product-hover: unset !default;
 
 $box-shadow-product-list: $box-shadow-product !default;
+$box-shadow-product-list-hover: $box-shadow-product-hover !default;
 $box-shadow-product-detail: $box-shadow-product !default;
+$box-shadow-product-detail-hover: $box-shadow-product-hover !default;
 $box-shadow-product-alternate: $box-shadow-product !default;
 $box-shadow-product-suggested: $box-shadow-product !default;
 

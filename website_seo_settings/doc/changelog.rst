@@ -1,3 +1,8 @@
+`12.0.4.3.0`
+------------
+- **[UDP]** Product border Styles
+- **[FIX]** Zoom Product Detail image
+
 `12.0.4.2.0`
 ------------
 - **[UDP]** improve for inheritance on shop.xml

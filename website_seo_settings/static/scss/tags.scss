@@ -95,10 +95,6 @@ $no-color-shadow: if($body-bg == $primary, darken($body-bg, 5%), $body-bg);
 
 // Product Detail
 #product_detail {
-    // Product container
-    & .oe_product {
-        border: $oe_product_detail_border;
-    }
     // Tag lists
     & h4 {
         & a, & span {
