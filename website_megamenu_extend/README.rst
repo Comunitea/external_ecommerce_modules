@@ -82,6 +82,15 @@ When you use your custom domain probably you want hierarchy to **False** too (By
 
 In your custom domain you have to indicate how you want normalize with default domain with ('|') or ('&amp;'). It will be replace before normalize.
 
+Snippet Template
+----------------
+Control over len of categories to keep template structure.
+
+    * Max two rows
+    * Max four columns per row
+    * Min and Max three subcategories per category in hierarchy cases
+    * Max sixteen subcategories per category in NOT hierarchy cases
+
 Credits
 -------
 

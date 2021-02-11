@@ -7,7 +7,8 @@ from odoo.osv import expression
 class Website(models.Model):
     _inherit = "website"
 
-    def _get_product_public_categories(self, website=None, category_domain=None,
+    def _get_product_public_categories(self, website=None,
+                                       category_domain=None,
                                        category_domain_only_child=False,
                                        parent_hierarchy=True,
                                        product_hierarchy=False):
@@ -33,12 +34,18 @@ class Website(models.Model):
             category_domain = eval(category_domain)
             if '|' in category_domain[0]:
                 category_domain.remove("|")
-                category_search = expression.OR([category_search, category_domain])
+                category_search = expression.OR(
+                    [category_search, category_domain]
+                )
             elif '&' in category_domain[0]:
                 category_domain.remove("&")
-                category_search = expression.AND([category_search, category_domain])
+                category_search = expression.AND(
+                    [category_search, category_domain]
+                )
             else:
-                category_search = expression.AND([category_search, category_domain])
+                category_search = expression.AND(
+                    [category_search, category_domain]
+                )
 
         # Categories to show
         categories = self.env['product.public.category'].search(category_search)
@@ -75,4 +82,7 @@ class Website(models.Model):
                 categories = categories.filtered(
                     lambda x: x.id not in category_ids)
             products = self.env['product.template'].browse(product_ids)
+        # In hierarchy cases just get categories at least with 3 child
+        if parent_hierarchy and not category_domain_only_child:
+            categories = categories.filtered(lambda x: len(x.child_id) > 2)
         return (categories, products)

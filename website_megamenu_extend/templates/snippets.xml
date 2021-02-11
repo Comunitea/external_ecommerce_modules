@@ -24,7 +24,7 @@
                     </t>
                     <div t-attf-class="col-lg-{{col_classes}}" t-if="len(parent_categories) &lt;= 2"/>
                     <t t-foreach="parent_categories" t-as="menu_title">
-                        <div t-attf-class="col-lg-{{col_classes}} py-2 text-center text-truncate">
+                        <div t-attf-class="col-lg-{{col_classes}} py-2 text-center text-truncate" t-if="(hierarchy and menu_title_index &lt; 7) or (not hierarchy and menu_title_index &lt; 17)">
                             <h4>
                                 <strong>
                                     <a class="nav-link" t-att-data-name="menu_title.name" t-esc="menu_title.name"
@@ -33,14 +33,16 @@
                             </h4>
                             <nav class="nav flex-column" t-if="hierarchy and menu_title.child_id">
                                 <t t-foreach="menu_title.child_id" t-as="menu_child">
-                                    <a class="nav-link" t-att-data-name="menu_child.name" t-esc="menu_child.name"
+                                    <a class="nav-link" t-att-data-name="menu_child.name" t-esc="menu_child.name" t-if="menu_child_index &lt; 4"
                                        t-att-href="'/category/%s' % menu_child.slug if menu_child.slug else '/shop/category/%s' % slug(menu_child)" />
                                 </t>
                             </nav>
-                            <nav class="nav flex-column" t-if="products">
+                            <t t-set="menu_child_len" t-value="len(menu_title.child_id) if hierarchy and menu_title.child_id else '0'"/>
+                            <nav class="nav flex-column" t-if="(products and not hierarchy) or (products and hierarchy and menu_child_len &lt; 3)">
                                 <t t-foreach="products.filtered(lambda x: menu_title in x.public_categ_ids)" t-as="menus_child">
                                     <t t-foreach="menus_child" t-as="menu_child">
                                         <a class="nav-link" t-att-data-name="menu_child.name" t-esc="menu_child.name"
+                                           t-if="(not menu_child and menu_child_index &lt; 4) or (hierarchy and menu_title.child_id and menu_child_len + menu_child_index &lt; 4)"
                                            t-att-href="'/product/%s' % menu_child.slug if menu_child.slug else '/shop/product/%s' % slug(menu_child)" />
                                     </t>
                                 </t>
