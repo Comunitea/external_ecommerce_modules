@@ -63,6 +63,10 @@
                 </div>
             </div>
         </xpath>
+        <!-- Set brands cols -->
+        <xpath expr="//section//div[hasclass('col')]/t" position="replace">
+            <h6 t-esc="o.name" />
+        </xpath>
     </template>
 
     <template id="website_sale_product_brand_product_brands_responsive_full"
