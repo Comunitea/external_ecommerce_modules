@@ -48,3 +48,8 @@ header.affixed {
         border: $breadcrumb-portal-navbar-border;
     }
 }
+
+// Hide Blog post breadcrumb
+#wrap.js_blog.website_blog > .container > .row {
+    display: none;
+}
