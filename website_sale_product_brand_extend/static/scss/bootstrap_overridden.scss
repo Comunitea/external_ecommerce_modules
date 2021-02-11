@@ -1,0 +1,21 @@
+// ------------------------------------------------------------------------
+// Variables to access via bootstrap_overriden file
+// ------------------------------------------------------------------------
+
+$oe-brand-border-width: 1px !default;
+$oe-brand-border-color: rgba(100, 100, 100, 0.2) !default;
+$oe-brand-border: $oe-brand-border-width solid $oe-brand-border-color !default;
+
+$oe-brand-border-width-hover: 1px !default;
+$oe-brand-border-color-hover: rgba(100, 100, 100, 1) !default;
+$oe-brand-border-hover: $oe-brand-border-width-hover solid $oe-brand-border-color-hover !default;
+
+$oe-brand-mb: 30px !default;
+
+$oe-brand-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.35) !default;
+$oe-brand-box-shadow-hover: unset !default;
+
+$oe-brand-heading-mb: 1rem !default;
+
+$oe-brand-img-padding: 0 !default;
+

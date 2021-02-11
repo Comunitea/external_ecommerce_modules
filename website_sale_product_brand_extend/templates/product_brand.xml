@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Page template for displaying Brands -->
+    <template id="website_sale_product_brand_product_brands" inherit_id="website_sale_product_brand.product_brands" name="Brands" priority="105">
+        <!-- Add specific brand wrap id -->
+        <xpath expr="//div[@id='wrap']" position="attributes">
+            <attribute name="id">wrap_brands</attribute>
+        </xpath>
+        <!-- Add specific brand class -->
+        <xpath expr="//section//div[hasclass('col-lg-3', 'd-lg-inline-block')]" position="attributes">
+            <attribute name="class" add="oe_brand_container" separator=" "/>
+        </xpath>
+        <!-- Add specific brand class -->
+        <xpath expr="//section//div[hasclass('col-lg-3', 'd-lg-inline-block')]" position="replace">
+            <div class="col-lg-3 d-lg-inline-block oe_brand_container">
+                <div class="oe_brand">
+                    <a t-att-href="keep('/shop/brands',brand = o.id)" t-att-alt="o.name" t-att-title="o.name" rel="nofollow,noindex">
+                        <div class="row text-center">
+                            <div class="col">
+                                <img itemprop="image" class="img img-fluid" t-att-alt="o.name"
+                                     t-attf-src="/website/image/product.brand/#{o.id}/logo#{'?max_width=300&amp;max_height=300'}"/>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col">
+                                <t t-esc="o.name" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </xpath>
+        <!-- Set brands cols -->
+        <xpath expr="//section//div[hasclass('col')]/t" position="replace">
+            <h6 t-esc="o.name" />
+        </xpath>
+    </template>
+
+    <template id="website_sale_product_brand_product_brands_responsive"
+              inherit_id="website_sale_product_brand_extend.website_sale_product_brand_product_brands" name="Responsive View" active="False" customize_show="True" priority="104">
+        <!-- Add specific brand responsive wrap id -->
+        <xpath expr="//div[@id='wrap_brands']" position="attributes">
+            <attribute name="t-attf-class">wrap_brands_responsive</attribute>
+        </xpath>
+        <!-- Set brands cols -->
+        <xpath expr="//section//div[hasclass('col-lg-3', 'd-lg-inline-block')]" position="replace">
+            <div class="col-lg-4 col-md-6 mw-100 oe_brand_container">
+                <div class="oe_brand">
+                    <a t-att-href="keep('/shop/brands',brand = o.id)" t-att-alt="o.name" t-att-title="o.name" rel="nofollow,noindex">
+                        <div class="row text-center">
+                            <div class="col">
+                                <img itemprop="image" class="img img-fluid" t-att-alt="o.name"
+                                     t-attf-src="/website/image/product.brand/#{o.id}/logo#{'?max_width=300&amp;max_height=300'}"/>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col">
+                                <t t-esc="o.name" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="website_sale_product_brand_product_brands_responsive_full"
+              inherit_id="website_sale_product_brand_extend.website_sale_product_brand_product_brands" name="Responsive Full View" active="False" customize_show="True" priority="103">
+        <!-- Add specific brand responsive wrap id -->
+        <xpath expr="//div[@id='wrap_brands']" position="attributes">
+            <attribute name="t-attf-class">wrap_brands_responsive_full</attribute>
+        </xpath>
+        <!-- Delete container width -->
+        <xpath expr="//div[@id='wrap_brands']//div[hasclass('container')]" position="attributes">
+            <attribute name="class">container_responsive_full ml32 mr32</attribute>
+        </xpath>
+        <!-- Set brands cols -->
+        <xpath expr="//div[hasclass('oe_brand_container')]" position="attributes">
+            <attribute name="class">col-xl-3 col-lg-4 col-md-6 col-sm-6 mw-100 oe_brand_container</attribute>
+        </xpath>
+    </template>
+
+</odoo>
