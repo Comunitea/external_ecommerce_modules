@@ -104,8 +104,8 @@ msgstr "Archivado"
 
 #. module: website_breadcrumb_extend
 #: model_terms:ir.ui.view,arch_db:website_breadcrumb_extend.breadcrumbs_bar
-msgid "Blog"
-msgstr ""
+msgid "Latest Posts"
+msgstr "Últimas Publicaciones"
 
 #. module: website_breadcrumb_extend
 #: model:ir.actions.act_window,name:website_breadcrumb_extend.website_breadcrumbs_action
