@@ -13,7 +13,7 @@
                             <a href="/" t-if="not is_portal" alt="Home" title="Home"><i class="fa fa-home" alt="Home" rel="noindex,nofollow"/></a>
                             <a href="/my/home" t-else="" alt="My Account" title="My Account"><i class="fa fa-home" alt="My Account" rel="noindex,nofollow"/></a>
                             <span class="breadcrumb-home-separator">/&amp;nbsp;</span>
-                            <t t-set="has_blogs" t-value="request.env['blog.blog'].sudo().search([('active', '=', True)])"/>
+                            <t t-set="has_blogs" t-value="request.env['blog.blog'].sudo().search([('active', '=', True)]) &gt; 1"/>
                             <a href="/blog" rel="noindex,nofollow" alt="Latest Posts" title="Latest Posts"
                                t-if="has_blogs and 'website_blog' in xmlid and 'latest_blogs' not in xmlid">Latest Posts</a>
                             <span class="breadcrumb-separator" t-if="has_blogs and 'website_blog' in xmlid and 'latest_blogs' not in xmlid">/&amp;nbsp;</span>
