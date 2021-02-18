@@ -285,8 +285,21 @@
 // Product Detail - Alternate Products and Product Suggested
 // ----------------------------------------------------------------------
 
-#alternative_products, #accessory_products {
+#alternative_products, #accessory_products, #suggested_products, #cart_products {
     & img {
-        box-shadow: $box-shadow-product-alternate;
+        cursor: pointer;
+        border: $oe-product-border-detail;
+        box-shadow: $box-shadow-product-detail;
+        &:hover {
+            border: $oe-product-border-detail-hover;
+            box-shadow: $box-shadow-product-detail-hover;
+        }
+    }
+}
+
+// Same as cart_products
+#suggested_products {
+    & td:first-child {
+        padding-left: 15px;
     }
 }
