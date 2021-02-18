@@ -1,3 +1,7 @@
+`12.0.4.3.1`
+------------
+- **[ADD]** Website Sale - Hide Empty Categories
+
 `12.0.4.3.0`
 ------------
 - **[UDP]** Product border Styles

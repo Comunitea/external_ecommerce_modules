@@ -2,7 +2,7 @@
 
 {
     'name': 'Website SEO Settings',
-    'version': '12.0.4.3.0',
+    'version': '12.0.4.3.1',
     'summary': 'Website settings improvements for SEO optimization',
     'description': '',
     'category': 'Website',
@@ -19,6 +19,7 @@
         'website_canonical_url',
         'website_google_tag_manager',
         'website_sale',
+        'website_sale_hide_empty_category',
     ],
     'data': [
         'data/product_style.xml',

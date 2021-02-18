@@ -57,7 +57,7 @@
                                 <a t-att-href="keep('/shop',category=0)" t-attf-class="nav-link#{'' if category else ' active'} o_not_editable">All Products</a>
                             </li>
                             <t t-foreach="categories" t-as="categ">
-                                <t t-call="website_sale.option_collapse_categories_recursive" />
+                                <t t-call="website_sale.option_collapse_categories_recursive" t-if="categ.product_ids"/>
                             </t>
                         </ul>
                         <ul class="nav nav-pills flex-column" id="o_shop_no_collapse_category" t-else="">
