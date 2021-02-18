@@ -2,19 +2,19 @@
 <odoo>
 
     <!-- Change logo for an image responsive without tittle and include alt tag -->
-    <template id="website_logo_add_logo_to_website" inherit_id="website_logo.add_logo_to_website" name="Show website Logo Ecommerce Base">
+    <template id="website_logo_add_logo_to_website" inherit_id="website_logo.add_logo_to_website" name="Show website Logo eCommerce Extend">
         <xpath expr="//header//a[hasclass('navbar-brand', 'logo')][2]" position="after">
             <a href="/" class="navbar-brand logo">
-                <img class="img img-fluid oe_navbar_brand_logo" t-attf-src="/web/image/website/{{website.id}}/logo" alt="website.name"/>
+                <img class="img img-fluid oe_navbar_brand_logo" t-attf-src="/web/image/website/{{website.id}}/logo" t-att-alt="website.name"/>
             </a>
-        </xpath>$-navbar-height
+        </xpath>
         <xpath expr="//header//a[hasclass('navbar-brand', 'logo')][2]" position="attributes">
             <attribute name="class" add="d-none" separator=" "/>
         </xpath>
     </template>
 
     <!-- Replace My Cart Header text. Just icon -->
-    <template id="website_sale_header" inherit_id="website_sale.header" name="Header Shop My Cart Link Seo">
+    <template id="website_sale_header" inherit_id="website_sale.header" name="Header Shop My Cart Link eCommerce Extend">
         <xpath expr="//li[@id='my_cart']/a" position="replace">
             <a href="/shop/cart" class="nav-link">
                 <i class="fa fa-shopping-cart"/>
@@ -24,7 +24,7 @@
     </template>
 
     <!-- Replace Wishlist Header text. Just icon -->
-    <template id="website_sale_wishlist_header" inherit_id="website_sale_wishlist.header" name="Header Shop Wishlist Link Seo">
+    <template id="website_sale_wishlist_header" inherit_id="website_sale_wishlist.header" name="Header Shop Wishlist Link eCommerce Extend">
         <xpath expr="//li[@id='my_wish']/a" position="replace">
             <a href="/shop/wishlist" class="nav-link">
                 <i class="fa fa-heart"/>

@@ -1,3 +1,8 @@
+`12.0.1.2.2`
+------------
+- **[FIX]** Add logo template errors
+- **[UDP]** Template names
+
 `12.0.1.2.1`
 ------------
 - **[FIX]** bootstrap_overriden variables

@@ -9,7 +9,7 @@
         </xpath>
     </template>
 
-    <template id="website_crm_contactus_form" name="Contact Form Ecommerce Base" inherit_id="website_crm.contactus_form">
+    <template id="website_crm_contactus_form" name="Contact Form eCommerce Extend" inherit_id="website_crm.contactus_form">
         <!-- Add email placeholder with right instructions to fill it -->
         <xpath expr="//input[@name='email_from']" position="attributes">
             <attribute name="placeholder">your_name@provider.domain</attribute>

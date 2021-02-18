@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Website eCommerce Extend',
-    'version': '12.0.0.0.0',
+    'version': '12.0.1.2.2',
     'summary': 'Extend Website for eCommerce customization',
     'category': 'eCommerce',
     'author': 'Comunitea',

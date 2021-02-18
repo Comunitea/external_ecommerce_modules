@@ -2,7 +2,7 @@
 <odoo>
 
     <!-- Delayed charge of own js at the end of pages -->
-    <template id="website_layout" name="Main layout Ecommerce Base" inherit_id="website.layout">
+    <template id="website_layout" name="Main layout eCommerce Extend" inherit_id="website.layout">
          <!-- Add to bottom of page -->
         <xpath expr="//div[@id='wrapwrap']" position="after">
             <script src="/website_ecommerce_extend/static/js/jquery.validate.min.js" type="text/javascript"/>
