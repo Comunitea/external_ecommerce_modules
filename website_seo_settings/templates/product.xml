@@ -99,7 +99,7 @@
     <!-- Change Product description Sale for customers -->
     <template id="website_sale_products_description" inherit_id="website_sale.products_description" name="Product Description Seo">
         <xpath expr="//div[hasclass('oe_subdescription')]" position="replace">
-            <div class="text-info oe_subdescription" contenteditable="false">
+            <div class="text-info oe_subdescription mt8" contenteditable="false">
                 <h6 itemprop="description" t-field="product.description_sale"/>
             </div>
         </xpath>
@@ -126,7 +126,7 @@
         </xpath>
         <!-- Set product name -->
         <xpath expr="//section/h6" position="replace">
-            <div class="text-info oe_product_name" contenteditable="false">
+            <div class="text-info oe_product_name mb8" contenteditable="false">
                 <h6>
                     <a itemprop="name" t-att-href="product_href" t-att-content="product.name"><span t-esc="product.name.lower().capitalize()"/></a>
                     <a role="button" t-if="not show_publish and not product.website_published" t-att-href="product_href" class="btn btn-secondary btn-sm btn-danger" title="This product is unpublished.">Unpublished</a>
@@ -135,7 +135,8 @@
         </xpath>
         <!-- Set product image -->
         <xpath expr="//div[hasclass('oe_product_image')]/a/span" position="replace">
-            <span t-field="product.image" t-options="{'widget': 'image'}"/>
+            <img itemprop="image" class="img img-fluid" t-att-alt="product.name"
+                 t-attf-src="/website/image/product.template/#{product.id}/image#{'?max_width=500&amp;max_height=500'}"/>
         </xpath>
     </template>
 
@@ -157,59 +158,69 @@
 
      <template id="website_sale_shop_product_carousel" name="Shop Product Carousel Seo" inherit_id="website_sale.shop_product_carousel">
          <!-- Image URL, attributes and ribbons -->
-         <xpath expr="//div[hasclass('carousel-inner')]" position="replace">
-             <div class="carousel-inner">
+         <xpath expr="//div[hasclass('carousel-outer')]" position="replace">
+             <div class="carousel-outer">
                  <t t-set="ribbon_class" t-value="product.website_style_ids and product.website_style_ids[0].filtered(lambda x: 'oe_ribbon' in x.html_class).html_class or ''"/>
-                 <div t-if="variant_img" class="carousel-item active oe_product #{ ribbon_class }">
-                     <div t-attf-class="ribbon-wrapper">
-                         <a href="#" role="button" t-attf-class="ribbon btn ribbon-color-#{product.website_style_ids and product.website_style_ids[0].color}"
-                            t-field="product.website_style_ids and product.website_style_ids[0].name"/>
-                     </div>
-                     <img t-att-alt="product_variant.name" t-att-title="product.name" class="img img-fluid product_detail_img js_variant_img"
-                          t-attf-src="/website/image/product.template/{{product.id}}/image"
-                          data-zoom="1" t-attf-data-zoom-image="/website/image/product.template/{{product.id}}/image"
-                          itemprop="image"/>
-                 </div>
-                 <div t-attf-class="carousel-item#{'' if variant_img else ' active'} oe_product #{ ribbon_class }">
-                     <div t-attf-class="ribbon-wrapper">
-                         <a href="#" role="button" t-attf-class="ribbon btn ribbon-color-#{product.website_style_ids and product.website_style_ids[0].color}"
-                            t-field="product.website_style_ids and product.website_style_ids[0].name"/>
-                     </div>
-                     <img t-att-alt="product.name" t-att-title="product.name" class="img img-fluid product_detail_img"
-                          t-attf-src="/website/image/product.template/{{product.id}}/image"
-                          data-zoom="1" t-attf-data-zoom-image="/website/image/product.template/{{product.id}}/image/"
-                          itemprop="image"/>
-                 </div>
-                 <t t-if="len(image_ids)" t-foreach="image_ids" t-as="pimg">
-                     <div t-attf-class="carousel-item oe_product #{ ribbon_class }">
+                 <div t-attf-class="carousel-inner oe_product #{ ribbon_class }">
+                     <div t-if="variant_img" t-attf-class="carousel-item active ">
                          <div t-attf-class="ribbon-wrapper">
                              <a href="#" role="button" t-attf-class="ribbon btn ribbon-color-#{product.website_style_ids and product.website_style_ids[0].color}"
                                 t-field="product.website_style_ids and product.website_style_ids[0].name"/>
                          </div>
-                         <img t-att-alt="pimg.name" t-att-title="pimg.name" class="img img-fluid product_detail_img"
-                              t-attf-src="/web/image/product.image/{{pimg.id}}/image/"
+                         <img t-att-alt="product_variant.name" t-att-title="product.name" class="img img-fluid product_detail_img js_variant_img"
+                              t-attf-src="/website/image/product.template/{{product.id}}/image"
+                              data-zoom="1" t-attf-data-zoom-image="/website/image/product.template/{{product.id}}/image"
+                              itemprop="image"/>
+                     </div>
+                     <div t-attf-class="carousel-item#{'' if variant_img else ' active'} ">
+                         <div t-attf-class="ribbon-wrapper">
+                             <a href="#" role="button" t-attf-class="ribbon btn ribbon-color-#{product.website_style_ids and product.website_style_ids[0].color}"
+                                t-field="product.website_style_ids and product.website_style_ids[0].name"/>
+                         </div>
+                         <img t-att-alt="product.name" t-att-title="product.name" class="img img-fluid product_detail_img"
+                              t-attf-src="/website/image/product.template/{{product.id}}/image"
                               data-zoom="1" t-attf-data-zoom-image="/website/image/product.template/{{product.id}}/image/"
                               itemprop="image"/>
                      </div>
+                     <t t-if="len(image_ids)" t-foreach="image_ids" t-as="pimg">
+                         <div t-attf-class="carousel-item ">
+                             <div t-attf-class="ribbon-wrapper">
+                                 <a href="#" role="button" t-attf-class="ribbon btn ribbon-color-#{product.website_style_ids and product.website_style_ids[0].color}"
+                                    t-field="product.website_style_ids and product.website_style_ids[0].name"/>
+                             </div>
+                             <img t-att-alt="pimg.name" t-att-title="pimg.name" class="img img-fluid product_detail_img"
+                                  t-attf-src="/web/image/product.image/{{pimg.id}}/image/"
+                                  data-zoom="1" t-attf-data-zoom-image="/website/image/product.template/{{product.id}}/image/"
+                                  itemprop="image"/>
+                         </div>
+                     </t>
+                 </div>
+                 <t t-if="len(image_ids) or variant_img">
+                     <a class="carousel-control-prev" href="#o-carousel-product" role="button" data-slide="prev" >
+                         <span class="fa fa-chevron-left" role="img" aria-label="Previous" title="Previous"/>
+                     </a>
+                     <a class="carousel-control-next" href="#o-carousel-product" role="button" data-slide="next">
+                         <span class="fa fa-chevron-right" role="img" aria-label="Next" title="Next"/>
+                     </a>
                  </t>
              </div>
          </xpath>
-        <xpath expr="//ol[hasclass('carousel-indicators')]" position="replace">
-            <ol t-if="len(image_ids) or variant_img" class="carousel-indicators">
-                <li t-if="variant_img" data-target="#o-carousel-product" data-slide-to="0" class="active">
-                    <img class="img img-fluid js_variant_img_small" t-attf-src="/website/image/product.product/{{product_variant.id}}/image/90x90"
-                         t-att-alt="product.name" t-att-title="product.name"/>
-                </li>
-                <li data-target="#o-carousel-product" t-att-data-slide-to="1 if variant_img else '0'" t-att-class="'' if variant_img else 'active'">
-                    <img class="img img-fluid" t-attf-src="/website/image/product.template/{{product.id}}/image/90x90" t-att-alt="product.name" t-att-title="product.name"/>
-                </li>
-                <t t-if="len(image_ids)" t-foreach="image_ids" t-as="pimg">
-                    <li data-target="#o-carousel-product" t-att-data-slide-to="pimg_index + (variant_img and 2 or 1)">
-                        <img class="img img-fluid" t-attf-src="/website/image/product.image/{{pimg.id}}/image/90x90" t-att-alt="pimg.name" t-att-title="pimg.name"/>
-                    </li>
-                </t>
-            </ol>
-        </xpath>
+         <xpath expr="//ol[hasclass('carousel-indicators')]" position="replace">
+             <ol t-if="len(image_ids) or variant_img" class="carousel-indicators">
+                 <li t-if="variant_img" data-target="#o-carousel-product" data-slide-to="0" class="active">
+                     <img class="img img-fluid js_variant_img_small" t-attf-src="/website/image/product.product/{{product_variant.id}}/image/90x90"
+                          t-att-alt="product.name" t-att-title="product.name"/>
+                 </li>
+                 <li data-target="#o-carousel-product" t-att-data-slide-to="1 if variant_img else '0'" t-att-class="'' if variant_img else 'active'">
+                     <img class="img img-fluid" t-attf-src="/website/image/product.template/{{product.id}}/image/90x90" t-att-alt="product.name" t-att-title="product.name"/>
+                 </li>
+                 <t t-if="len(image_ids)" t-foreach="image_ids" t-as="pimg">
+                     <li data-target="#o-carousel-product" t-att-data-slide-to="pimg_index + (variant_img and 2 or 1)">
+                         <img class="img img-fluid" t-attf-src="/website/image/product.image/{{pimg.id}}/image/90x90" t-att-alt="pimg.name" t-att-title="pimg.name"/>
+                     </li>
+                 </t>
+             </ol>
+         </xpath>
      </template>
 
      <template id="website_tag_template" name="Website tag template">

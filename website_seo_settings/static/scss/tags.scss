@@ -58,6 +58,9 @@ $no-color-shadow: if($body-bg == $primary, darken($body-bg, 5%), $body-bg);
             display: block;
         }
     }
+    & .ribbon-wrapper {
+        width: 83px;
+    }
     & .ribbon {
         top: 14px;
         @each $color, $value in $colors {

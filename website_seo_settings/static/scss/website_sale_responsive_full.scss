@@ -3,30 +3,32 @@
 // ----------------------------------------------------------------------
 
 .products_grid_responsive_full {
-    margin: auto 3rem;
-    @extend #products_grid.products_grid_responsive;
+//     margin: auto 3rem;
+//     @extend #products_grid.products_grid_responsive;
+    padding-right: 4rem;
+    padding-left: 4rem;
 }
 
 // ----------------------------------------------------------------------
 // Shop product list Medias
 // ----------------------------------------------------------------------
 
-@include media-breakpoint-up(md) {
-    .products_grid_responsive_full {
-        & #products_grid.products_grid_responsive {
-            & .oe_product {
-                & .oe_product_cart {
-                    & .oe_product_image {
-                        & img {
-                            margin: auto;
-                            max-height: 100%;
-                        }
-                    }
-                    & section {
-                        padding: 0.45rem 1rem;
-                    }
-                }
-            }
-        }
-    }
-}
+// @include media-breakpoint-up(md) {
+//     .products_grid_responsive_full {
+//         & #products_grid.products_grid_responsive {
+//             & .oe_product {
+//                 & .oe_product_cart {
+//                     & .oe_product_image {
+//                         & img {
+//                             margin: auto;
+//                             max-height: 100%;
+//                         }
+//                     }
+//                     & section {
+//                         padding: 0.45rem 1rem;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }

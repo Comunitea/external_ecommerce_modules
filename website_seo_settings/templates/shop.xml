@@ -156,7 +156,7 @@
                     <t t-set="col_md_num" t-value="'6' if has_categories_menu or has_tags_menu else '4'"/>
                     <t t-foreach="products" t-as="product">
                         <t t-if="product">
-                            <div t-attf-class="col-lg-#{col_lg_num} col-md-#{col_md_num} col-sm-6 oe_product oe_grid oe-height#{height} #{ product.website_style_ids and product.website_style_ids[0].html_class}">
+                            <div t-attf-class="col-lg-#{col_lg_num} col-md-#{col_md_num} col-sm-6 oe_product oe_grid oe-height#{height} #{ product.website_style_ids and product.website_style_ids[0].html_class or ''}">
                                 <div class="oe_product_cart" t-att-data-publish="product.website_published and 'on' or 'off'">
                                     <t t-call="website_seo_settings.website_sale_products_item" />
                                 </div>
@@ -181,7 +181,7 @@
 
     <template id="website_sale_products_responsive_full" inherit_id="website_sale.products" name="Responsive View Full" active="False" customize_show="True">
         <xpath expr="//div[hasclass('oe_website_sale')]" position="attributes">
-            <attribute name="class">py-2 oe_website_sale products_grid_responsive_full</attribute>
+            <attribute name="class">container-fluid oe_website_sale products_grid_responsive_full</attribute>
         </xpath>
     </template>
 
