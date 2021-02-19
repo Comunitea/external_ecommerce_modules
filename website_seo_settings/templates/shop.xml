@@ -51,7 +51,7 @@
                         <i class="fa fa-bars" style="line-height: 1.45em;"/>
                     </button>
                     <div class="collapse navbar-collapse mb16" id="categories_menu_collapse" aria-expanded="false">
-                        <t t-set="has_collapse_categories" t-value="request.website.viewref('website_sale.option_collapse_categories_recursive').active"/>
+                        <t t-set="has_collapse_categories" t-value="request.website.viewref('website_sale.option_collapse_products_categories').active"/>
                         <ul class="nav nav-pills flex-column" id="o_shop_collapse_category" t-if="has_collapse_categories">
                             <li class="nav-item">
                                 <a t-att-href="keep('/shop',category=0)" t-attf-class="nav-link#{'' if category else ' active'} o_not_editable">All Products</a>
