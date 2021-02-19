@@ -85,4 +85,11 @@
         </xpath>
     </template>
 
+    <template id="website_sale_product_brand_categories_recursive" inherit_id="website_sale_product_brand.categories_recursive" name="Category list Product Brand Extend">
+        <!-- Make work list Product with correct SEO -->
+        <xpath expr="//span[@t-field='c.name']/.." position="attributes">
+            <attribute name="t-att-href">'/category/%s' % c.slug if c.slug else '/shop/category/%s' % slug(c)</attribute>
+        </xpath>
+    </template>
+
 </odoo>

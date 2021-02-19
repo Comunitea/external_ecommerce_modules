@@ -34,6 +34,8 @@
         'product_brand',
         'website_sale_product_brand',
         "website_menu_by_user_status",
+        # Comunitea
+        "website_seo_settings",
     ],
     'data': [
         'data/website_menu.xml',
