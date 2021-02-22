@@ -35,5 +35,18 @@ $box-shadow-product-detail-hover: $box-shadow-product-hover !default;
 $box-shadow-product-alternate: $box-shadow-product !default;
 $box-shadow-product-suggested: $box-shadow-product !default;
 
+// Product website description and eCommerce Categories List
+$nav-pills-link-active-color: $secondary; // $component-active-color !default;
+$nav-pills-link-active-bg: $body-bg; // $component-active-bg !default;
+
+// Products Grid Before
+$oe-grid-before-border: $oe-product-border;
+$oe-grid-before-border-hover: $oe-product-border-hover;
+$oe-grid-before-padding: if($oe-grid-before-border == $oe-product-border, 1rem 0.2rem 0.5rem 1rem, unset);
+$oe-grid-before-box-shadow: if($oe-grid-before-border == $oe-product-border, $box-shadow-product, unset);
+$oe-grid-before-box-shadow-hover: if($oe-grid-before-box-shadow == $box-shadow-product, $box-shadow-product-hover, unset);
+$oe-grid-before-title-border-bottom: 1px solid rgba(100, 100, 100, 1);
+$oe-grid-before-categ-margin-top: if($oe-grid-before-border == $oe-product-border, 1rem, inherit);
+
 
 

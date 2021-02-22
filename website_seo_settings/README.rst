@@ -72,8 +72,8 @@ Cart
 #. Refactor Product Suggested view under cart buttons to separate from cart lines
 #. Add Alternate Products view under cart buttons to separate from cart lines
 
-Product Detail
-~~~~~~~~~~~~~~
+Products
+~~~~~~~~
 #. Add customize view for category list
 #. Add customize view for category tag list
     * Include field color like as products tags
@@ -176,6 +176,18 @@ ECommerce Public Categories and Products
         * 9: #D6145F,
         * 10: #30C381,
         * 11: #9365B8,
+#. Grid Style
+    * Provide via bootstrap_overriden file some variables to apply same style that on products.
+        * $oe-grid-before-border: $oe-product-border;
+        * $oe-grid-before-border-hover: $oe-product-border-hover;
+        * $oe-grid-before-padding: 1rem 0.2rem 0.5rem 1rem;
+        * $oe-grid-before-box-shadow: $box-shadow-product;
+        * $oe-grid-before-box-shadow-hover: $box-shadow-product-hover;
+        * $oe-grid-before-title-border-bottom: 1px solid rgba(100, 100, 100, 1);
+        * $oe-grid-before-categ-margin-top: if($oe-grid-before-border == $oe-product-border, 1rem, inherit);
+    * Just override and set to unset these variables if you do not want them:
+        * $oe-grid-before-border: unset;
+        * $oe-grid-before-border-hover: unset;
 
 ::
 

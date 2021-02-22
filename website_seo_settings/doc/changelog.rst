@@ -1,3 +1,7 @@
+`12.0.4.4.0`
+------------
+- **[ADD]** Product Grid Before Styles as same as products
+
 `12.0.4.3.1`
 ------------
 - **[ADD]** Website Sale - Hide Empty Categories

@@ -34,6 +34,9 @@
         <xpath expr="//li/a" position="attributes">
             <attribute name="t-att-href">'/category/%s' % c.slug if c.slug else '/shop/category/%s' % slug(c)</attribute>
         </xpath>
+        <xpath expr="//li/a/span" position="replace">
+            <h6><span t-field="c.name"/></h6>
+        </xpath>
     </template>
 
     <template id="website_sale_products_categories" inherit_id="website_sale.products_categories" name="eCommerce Categories Seo">
@@ -43,33 +46,34 @@
                 <!-- Avoid breaking other inheritances -->
                 <ul class="d-none"/>
                 <!-- Product Categories -->
-                <div id="products_grid_before_responsive_content">
-                <h5 class="text-uppercase d-none d-md-block"><strong>Categories</strong></h5>
-                <nav class="navbar navbar-expand-md navbar-light bg-light p-0 mb-3">
-                    <h5 class="text-uppercase d-block d-md-none"><strong>Categories</strong></h5>
-                    <button type="button" class="navbar-toggler btn btn-secondary" data-toggle="collapse" data-target="#categories_menu_collapse">
-                        <i class="fa fa-bars" style="line-height: 1.45em;"/>
-                    </button>
-                    <div class="collapse navbar-collapse mb16" id="categories_menu_collapse" aria-expanded="false">
-                        <t t-set="has_collapse_categories" t-value="request.website.viewref('website_sale.option_collapse_products_categories').active"/>
-                        <ul class="nav nav-pills flex-column" id="o_shop_collapse_category" t-if="has_collapse_categories">
-                            <li class="nav-item">
-                                <a t-att-href="keep('/shop',category=0)" t-attf-class="nav-link#{'' if category else ' active'} o_not_editable">All Products</a>
-                            </li>
-                            <t t-foreach="categories" t-as="categ">
-                                <t t-call="website_sale.option_collapse_categories_recursive" t-if="categ.product_ids"/>
-                            </t>
-                        </ul>
-                        <ul class="nav nav-pills flex-column" id="o_shop_no_collapse_category" t-else="">
-                            <li class="nav-item">
-                                <a t-att-href="keep('/shop',category=0)" t-attf-class="nav-link#{'' if category else ' active'} o_not_editable">All Products</a>
-                            </li>
-                            <t t-foreach="categories" t-as="c">
-                                <t t-call="website_seo_settings.website_sale_categories_recursive" />
-                            </t>
-                        </ul>
-                    </div>
-                </nav>
+                <t t-set="has_tags_view" t-value="request.website.viewref('website_seo_settings.website_sale_products_tags_categories').active"/>
+                <div id="products_grid_before_categ_responsive_content" t-att-class="'has_tags' if has_tags_view else 'no_tags'">
+                    <h5 class="text-uppercase d-none d-md-block"><strong>Categories</strong></h5>
+                    <nav class="navbar navbar-expand-md navbar-light bg-light p-0 mb-2 mt-2">
+                        <h5 class="text-uppercase d-block d-md-none"><strong>Categories</strong></h5>
+                        <button type="button" class="navbar-toggler btn btn-secondary" data-toggle="collapse" data-target="#categories_menu_collapse">
+                            <i class="fa fa-bars" style="line-height: 1.45em;"/>
+                        </button>
+                        <div class="collapse navbar-collapse mb16" id="categories_menu_collapse" aria-expanded="false">
+                            <t t-set="has_collapse_categories" t-value="request.website.viewref('website_sale.option_collapse_products_categories').active"/>
+                            <ul class="nav nav-pills flex-column pt8 pb16" id="o_shop_collapse_category" t-if="has_collapse_categories">
+                                <li class="nav-item">
+                                    <h6><a t-att-href="keep('/shop',category=0)" t-attf-class="nav-link#{'' if category else ' active'} o_not_editable">All Products</a></h6>
+                                </li>
+                                <t t-foreach="categories" t-as="categ">
+                                    <t t-call="website_sale.option_collapse_categories_recursive" t-if="categ.product_ids"/>
+                                </t>
+                            </ul>
+                            <ul class="nav nav-pills flex-column pt8 pb16" id="o_shop_no_collapse_category" t-else="">
+                                <li class="nav-item">
+                                    <h6><a t-att-href="keep('/shop',category=0)" t-attf-class="nav-link#{'' if category else ' active'} o_not_editable">All Products</a></h6>
+                                </li>
+                                <t t-foreach="categories" t-as="c">
+                                    <t t-call="website_seo_settings.website_sale_categories_recursive" />
+                                </t>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
             </div>
         </xpath>
@@ -80,8 +84,8 @@
 
     <!-- Changes of eCommerce category URL in the left shop sidebar when collapse category is active -->
     <template id="website_sale_option_collapse_categories_recursive" name="Collapse Category Recursive Seo" inherit_id="website_sale.option_collapse_categories_recursive">
-        <xpath expr="//a" position="attributes">
-            <attribute name="t-att-href">'/category/%s' % categ.slug if categ.slug else keep('/shop/category/' + slug(categ), category=0)</attribute>
+        <xpath expr="//a" position="replace">
+            <h6><a t-att-href="'/category/%s' % categ.slug if categ.slug else keep('/shop/category/' + slug(categ), category=0)" t-attf-class="nav-link#{' active' if categ.id == int(category or 0) else ''}" t-field="categ.name"/></h6>
         </xpath>
     </template>
 
@@ -97,29 +101,31 @@
         <!-- Add Product Tags side menu -->
         <xpath expr="//div[@id='products_grid_before']//ul[hasclass('d-none')]" position="after">
             <t t-set="tags" t-value="request.env['product.template.tag'].search([('website_published', '=', True)] + request.website.website_domain(), limit=50)"/>
-            <h5 class="text-uppercase d-none d-md-block"><strong>Product Tags</strong></h5>
-            <t t-if="tags">
-                <nav class="navbar navbar-expand-md navbar-light bg-light p-0 mb-2 mt-2">
-                    <h5 class="text-uppercase d-block d-md-none"><strong>Product Tags</strong></h5>
-                    <button type="button" class="navbar-toggler btn btn-secondary" data-toggle="collapse" data-target="#tags_menu_collapse">
-                        <i class="fa fa-bars" style="line-height: 1.45em;"/>
-                    </button>
-                    <div class="collapse navbar-collapse" id="tags_menu_collapse" aria-expanded="false">
-                        <div class="nav nav-pills flex-column pt16 pb16">
-                            <div class="oe_structure">
-                                <t t-foreach="tags" t-as="tag">
-                                    <t t-call="website_seo_settings.website_tag_template">
-                                        <t t-set="tag" t-value="tag"/>
+             <div id="products_grid_before_tags_responsive_content">
+                <h5 class="text-uppercase d-none d-md-block"><strong>Product Tags</strong></h5>
+                <t t-if="tags">
+                    <nav class="navbar navbar-expand-md navbar-light bg-light p-0 mb-2 mt-2">
+                        <h5 class="text-uppercase d-block d-md-none"><strong>Product Tags</strong></h5>
+                        <button type="button" class="navbar-toggler btn btn-secondary" data-toggle="collapse" data-target="#tags_menu_collapse">
+                            <i class="fa fa-bars" style="line-height: 1.45em;"/>
+                        </button>
+                        <div class="collapse navbar-collapse" id="tags_menu_collapse" aria-expanded="false">
+                            <div class="nav nav-pills flex-column pt16 pb16">
+                                <div class="oe_structure">
+                                    <t t-foreach="tags" t-as="tag">
+                                        <t t-call="website_seo_settings.website_tag_template">
+                                            <t t-set="tag" t-value="tag"/>
+                                        </t>
                                     </t>
-                                </t>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </nav>
-            </t>
-            <t t-else="">
-                <p class="d-none d-md-block">No tags defined yet</p>
-            </t>
+                    </nav>
+                </t>
+                <t t-else="">
+                    <p class="d-none d-md-block">No tags defined yet</p>
+                </t>
+             </div>
         </xpath>
         <!-- Default search -->
         <xpath expr="//t[@t-call='website_sale.search']" position="attributes">

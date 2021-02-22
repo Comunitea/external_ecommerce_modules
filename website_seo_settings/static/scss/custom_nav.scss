@@ -1,0 +1,55 @@
+// Base class
+//
+// Kickstart any navigation component with a set of style resets. Works with
+// `<nav>`s or `<ul>`s.
+
+// Custom for website product description on product details and categories grid list
+.nav-pills {
+    & .nav-link {
+        & h1, h2, h3, h4, h5, h6 {
+            @include hover-focus {
+                color: $nav-pills-link-active-color;
+            }
+        }
+    }
+    & .nav-link.active {
+        & h1, h2, h3, h4, h5, h6 {
+            color: $nav-pills-link-active-color;
+        }
+    }
+}
+
+// Custom for website categories grid list
+#categories_menu_collapse {
+    & .nav-pills {
+        & .nav-item {
+            & h1, h2, h3, h4, h5, h6 {
+                display: inline-block;
+                width: 90%;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+#products_grid_before_categ_responsive_content, #products_grid_before_tags_responsive_content {
+    border: $oe-grid-before-border;
+    padding: $oe-grid-before-padding;
+    box-shadow: $oe-grid-before-box-shadow;
+    & h1, h2, h3, h4, h5, h6 {
+        & strong {
+            border-bottom: $oe-grid-before-title-border-bottom;
+        }
+    }
+    &:hover {
+        border: $oe-grid-before-border-hover;
+        box-shadow: $oe-grid-before-box-shadow-hover;
+    }
+}
+$has_tags: false;
+html[id='products_grid_before_tags_responsive_content'] {
+    $has_tags: true;
+}
+#products_grid_before_categ_responsive_content.has_tags {
+    margin-top: $oe-grid-before-categ-margin-top;
+}
