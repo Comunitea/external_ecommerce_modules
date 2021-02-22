@@ -1,3 +1,7 @@
+`12.0.4.4.1`
+------------
+- **[ADD]** Checkout Cart Products Table Styles
+
 `12.0.4.4.0`
 ------------
 - **[ADD]** Product Grid Before Styles as same as products

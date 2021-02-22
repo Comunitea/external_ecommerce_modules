@@ -307,3 +307,13 @@
         padding-left: 15px;
     }
 }
+
+// Checkout Cart Products Table
+#cart_products:not(.js_cart_lines) {
+    text-align: center;
+    & td.td-product_name {
+        display: inline-block;
+        max-height: 70px;
+        overflow: hidden;
+    }
+}
