@@ -63,6 +63,8 @@ Shop
         * Responsive View full
             * Extend responsive view to expand container width
             * **Warning!** Needs 'Responsive View' active to work properly
+        * Category Images
+            * With or without collapse options
 
     * Border for product container in responsive views via bootstrap_overriden file:
         * $oe_product_border and/or $oe_product_detail_border
@@ -74,9 +76,6 @@ Cart
 
 Products
 ~~~~~~~~
-#. Add customize view for category list
-#. Add customize view for category tag list
-    * Include field color like as products tags
 #. Add customize view for default code
 #. Add customize view to put name for price
 #. Add customize view for promotions ribbons
@@ -84,9 +83,10 @@ Products
 #. Add customize view for Product Suggested
 
 For links on these views you can let use tag color or define yours via bootstrap_overriden file:
-    * $oe_product_tag_link_color
-    * $oe_product_tag_link_decoration
-    * $link-hover-color
+    * $oe-product-tag-link-color
+    * $oe-product-tag-link-decoration
+    * $oe-product-tag-link-padding: 0.375rem 0.75rem !default; // Ex for sm: 0.0625rem 0.3125rem
+    * $oe-product-tag-link-font-size: 0.875rem !default; // Ex for sm: 0.75rem
 
 For carousel image controls you can define yours via bootstrap_overriden file:
     * $carousel-control-color
@@ -176,6 +176,12 @@ ECommerce Public Categories and Products
         * 9: #D6145F,
         * 10: #30C381,
         * 11: #9365B8,
+#. Category Customize views
+    * Add customize view for category list
+    * Add customize view for category tag list
+    * Include field color like as products tags
+    * Category Images
+        * With or without collapse options
 #. Grid Style
     * Provide via bootstrap_overriden file some variables to apply same style that on products.
         * $oe-grid-before-border: $oe-product-border;
@@ -185,9 +191,20 @@ ECommerce Public Categories and Products
         * $oe-grid-before-box-shadow-hover: $box-shadow-product-hover;
         * $oe-grid-before-title-border-bottom: 1px solid rgba(100, 100, 100, 1);
         * $oe-grid-before-categ-margin-top: if($oe-grid-before-border == $oe-product-border, 1rem, inherit);
+    * Nav Items
+        * $oe-grid-before-nav-item-link-padding: 0.6rem 0.2rem !default;
+        * $oe-grid-before-nav-item-img-margin: 0.5rem 0.5rem 0.5rem 0.2rem !default;
+        * $oe-grid-before-nav-item-img-border: $oe-product-border !default;
+        * $oe-grid-before-nav-item-img-border-hover: $oe-product-border-hover !default;
+        * $oe-grid-before-nav-item-img-box-shadow: if($oe-grid-before-nav-item-img-border == $oe-product-border, $box-shadow-product, unset) !default;
+        * $oe-grid-before-nav-item-img-box-shadow-hover: if($oe-grid-before-nav-item-img-box-shadow == $box-shadow-product, $box-shadow-product-hover, unset) !default;
+        * $oe-grid-before-nav-item-border-bottom: unset !default; // 1px solid rgba(100, 100, 100, 0.2);
+        * $oe-grid-before-nav-item-border-bottom-hover: unset !default; // 1px solid $secondary;
+        * $oe-grid-before-nav-item-border-top: unset !default; // 1px solid rgba(100, 100, 100, 0.2);
     * Just override and set to unset these variables if you do not want them:
         * $oe-grid-before-border: unset;
         * $oe-grid-before-border-hover: unset;
+    *
 
 ::
 

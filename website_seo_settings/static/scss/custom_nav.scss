@@ -22,16 +22,61 @@
 // Custom for website categories grid list
 #categories_menu_collapse {
     & .nav-pills {
+        // Category container
         & .nav-item {
+            display: -webkit-box;
+            flex-direction: column;
+            // All links
+            & .nav-link {
+                padding: $oe-grid-before-nav-item-link-padding;
+            }
+            // Category name
             & h1, h2, h3, h4, h5, h6 {
                 display: inline-block;
-                width: 90%;
+                vertical-align: middle;
                 margin-bottom: 0;
+            }
+            // Category img
+            & img {
+                margin: $oe-grid-before-nav-item-img-margin;
+                border: $oe-grid-before-nav-item-img-border;
+                box-shadow: $oe-grid-before-nav-item-img-box-shadow;
+                &:hover {
+                    border: $oe-grid-before-nav-item-img-border-hover;
+                    box-shadow: $oe-grid-before-nav-item-img-box-shadow-hover;
+                }
+            }
+            // All links
+            & a {
+                width: auto;
+                display: inline-block;
+            }
+            // Category Child with img
+            & a.has_img {
+                max-width: 10vw;
+            }
+            // Img link
+            & > a {
+                padding: 0;
+            }
+        }
+        // Category Child container
+        & .nav-item:not(:last-child) {
+            border-bottom: $oe-grid-before-nav-item-border-bottom;
+            &:hover {
+                border-bottom: $oe-grid-before-nav-item-border-bottom-hover;
+            }
+        }
+        // Category Child with Parent container
+        & ul.nav-hierarchy {
+            & .nav-item:first-child {
+                border-top: $oe-grid-before-nav-item-border-top;
             }
         }
     }
 }
 
+// Category and Tag containers
 #products_grid_before_categ_responsive_content, #products_grid_before_tags_responsive_content {
     border: $oe-grid-before-border;
     padding: $oe-grid-before-padding;
@@ -46,10 +91,8 @@
         box-shadow: $oe-grid-before-box-shadow-hover;
     }
 }
-$has_tags: false;
-html[id='products_grid_before_tags_responsive_content'] {
-    $has_tags: true;
-}
+
+// Between Category and Tag containers
 #products_grid_before_categ_responsive_content.has_tags {
     margin-top: $oe-grid-before-categ-margin-top;
 }

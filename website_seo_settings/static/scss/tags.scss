@@ -93,6 +93,9 @@ $no-color-shadow: if($body-bg == $primary, darken($body-bg, 5%), $body-bg);
     & a.btn.btn-primary {
         // Tags with colors
         @include tag-variant()
+        padding: $oe-product-tag-link-padding;
+        font-size: $oe-product-tag-link-font-size;
+
     }
 }
 
@@ -103,10 +106,10 @@ $no-color-shadow: if($body-bg == $primary, darken($body-bg, 5%), $body-bg);
         & a, & span {
             @each $color, $value in $colors {
                 &.tag-#{$color}, &.categ-#{$color}, &.promo-#{$color} {
-                    color: if($oe_product_tag_link_color != unset, $oe_product_tag_link_color, $value);
+                    color: if($oe-product-tag-link-color != unset, $oe-product-tag-link-color, $value);
                     &:not(.promo-#{$color}):hover {
                         color: $link-hover-color;
-                        text-decoration: if($oe_product_tag_link_decoration != unset, $oe_product_tag_link_decoration, unset);
+                        text-decoration: if($oe-product-tag-link-decoration != unset, $oe-product-tag-link-decoration, unset);
                     }
                 }
             }

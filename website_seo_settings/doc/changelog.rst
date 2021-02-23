@@ -1,3 +1,7 @@
+`12.0.4.5.0`
+------------
+- **[UDP]** Product Grid Before Styles for tags and category img
+
 `12.0.4.4.1`
 ------------
 - **[ADD]** Checkout Cart Products Table Styles
