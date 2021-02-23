@@ -100,6 +100,10 @@
         <xpath expr="//a" position="replace">
             <h6><a t-att-href="'/category/%s' % categ.slug if categ.slug else keep('/shop/category/' + slug(categ), category=0)" t-attf-class="nav-link#{' active' if categ.id == int(category or 0) else ''}" t-field="categ.name"/></h6>
         </xpath>
+        <!-- Hide Empty Categories make work in Collapse categories -->
+        <xpath expr="//t[@t-name='website_sale.option_collapse_categories_recursive']" position="attributes">
+            <attribute name="t-if">categ.product_ids</attribute>
+        </xpath>
     </template>
 
     <!-- Add eCommerce Category Images -->

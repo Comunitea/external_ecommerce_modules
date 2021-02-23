@@ -1,3 +1,7 @@
+`12.0.4.5.1`
+------------
+- **[ADD]** Website Sale - Hide Empty Categories make work in Collapse categories
+
 `12.0.4.5.0`
 ------------
 - **[UDP]** Product Grid Before Styles for tags and category img
