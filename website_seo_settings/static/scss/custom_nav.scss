@@ -19,7 +19,7 @@
     }
 }
 
-// Custom for website categories grid list
+// Custom for website category grid list
 #categories_menu_collapse {
     & .nav-pills {
         // Category container
@@ -52,9 +52,9 @@
                 display: inline-block;
             }
             // Category Child with img
-            & a.has_img {
-                max-width: 10vw;
-            }
+//             & a.has_img {
+//                 max-width: 8vw;
+//             }
             // Img link
             & > a {
                 padding: 0;
@@ -95,4 +95,34 @@
 // Between Category and Tag containers
 #products_grid_before_categ_responsive_content.has_tags {
     margin-top: $oe-grid-before-categ-margin-top;
+}
+
+// ----------------------------------------------------------------------
+// Category grid list Medias
+// ----------------------------------------------------------------------
+
+@include media-breakpoint-up(md) {
+    #categories_menu_collapse {
+        & .nav-pills {
+            & .nav-item {
+                // Category Child with img
+                & a.has_img {
+                    max-width: 10vw;
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    #categories_menu_collapse {
+        & .nav-pills {
+            & .nav-item {
+                // Category Child with img
+                & a.has_img {
+                    max-width: 8vw;
+                }
+            }
+        }
+    }
 }
