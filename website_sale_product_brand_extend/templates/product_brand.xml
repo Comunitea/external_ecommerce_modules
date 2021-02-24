@@ -14,17 +14,17 @@
         <!-- Add specific brand class -->
         <xpath expr="//section//div[hasclass('col-lg-3', 'd-lg-inline-block')]" position="replace">
             <div class="col-lg-3 d-lg-inline-block oe_brand_container">
-                <div class="oe_brand">
+                <div class="oe_brand" itemscope="itemscope" itemtype="http://schema.org/Brand">
                     <a t-att-href="keep('/shop/brands',brand = o.id)" t-att-alt="o.name" t-att-title="o.name" rel="nofollow,noindex">
                         <div class="row text-center">
                             <div class="col">
-                                <img itemprop="image" class="img img-fluid" t-att-alt="o.name"
+                                <img itemprop="logo" class="img img-fluid" t-att-alt="o.name"
                                      t-attf-src="/website/image/product.brand/#{o.id}/logo#{'?max_width=300&amp;max_height=300'}"/>
                             </div>
                         </div>
                         <div class="row text-center">
                             <div class="col">
-                                <t t-esc="o.name" />
+                                <t itemprop="name" t-esc="o.name" />
                             </div>
                         </div>
                     </a>
@@ -34,6 +34,33 @@
         <!-- Set brands cols -->
         <xpath expr="//section//div[hasclass('col')]/t" position="replace">
             <h6 t-esc="o.name" />
+        </xpath>
+    </template>
+
+    <!-- Include Brand inside product item -->
+    <template id="products_item_brand" inherit_id="website_sale.products_item" active="True" customize_show="True" name="Product Brand">
+        <xpath expr="//div[hasclass('oe_product_name')]" position="before">
+            <div class="text-info oe_brand text-truncate" contenteditable="false">
+                <h6>
+                    <a itemprop="brand" rel="noindex,nofollow" style="font-size: 0.875rem;" t-att-href="keep('/shop/brands',brand = product.product_brand_id.id)"
+                       t-att-title="product.product_brand_id.name">
+                        <span t-esc="product.product_brand_id.name.capitalize()"/>
+                    </a>
+                </h6>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Include Brand inside product detail -->
+    <template id="product_detail_brand" inherit_id="website_sale.product" active="True" customize_show="True" name="Product Brand" priority="106">
+        <xpath expr="//div[@id='product_details']//t[@t-call='website_sale.product_price']" position="after">
+            <h4 itemprop="brand" class="oe_price_h4 mt-3"><span><strong contenteditable="false">Brand: </strong></span>
+                <a itemprop="brand" rel="noindex,nofollow" style="font-size: 0.875rem;" t-att-href="keep('/shop/brands',brand = product.product_brand_id.id)"
+                   t-att-title="product.product_brand_id.name">
+                    <span t-esc="product.product_brand_id.name.capitalize()" style="font-size: 0.875rem;"/>
+                </a>
+            </h4>
+
         </xpath>
     </template>
 

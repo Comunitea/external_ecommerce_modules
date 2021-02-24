@@ -27,6 +27,8 @@ msgstr "Marcas"
 
 #. module: website_sale_product_brand_extend
 #: model:ir.model,name:website_sale_product_brand_extend.model_product_brand
+#: model:ir.ui.view,name:website_sale_product_brand_extend.product_detail_brand
+#: model:ir.ui.view,name:website_sale_product_brand_extend.products_item_brand
 msgid "Product Brand"
 msgstr "Marca de Producto"
 
