@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record model="ir.actions.act_window" id="export_feed_action">
+        <field name="name">Export feed</field>
+        <field name="res_model">google_merchant_export.feed</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.view" id="export_feed_tree">
+        <field name="name">Export feed tree</field>
+        <field name="model">google_merchant_export.feed</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="link"/>
+                <field name="total"/>
+                <field name="author"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="export_feed_form">
+        <field name="name">Export feed form</field>
+        <field name="model">google_merchant_export.feed</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="total" invisible="1"/>
+                    <div class="row mb16">
+                        <div class="col-md-10 col-sm-12 oe_title">
+                            <h2><field name="name" required="1"/></h2>
+                            <div attrs="{'invisible': [('total', '=', 0)]}">
+                                XML file: <field name="link" class="oe_link"/>
+                                <button name="open_feed" string="Open XML" type="object" class="btn btn-sm ml16 btn-default"/>
+                                <button name="download_feed" string="Download" type="object" class="btn btn-sm ml16 btn-info"/>
+                            </div>
+                            <h4>Total: <span class="text-danger"><field name="total" readonly="1"/></span> products</h4>
+                        </div>
+                    </div>
+                    <div class="row mb16">
+                        <div class="col-md-10 col-sm-12">
+                            <field name="export_all"/><label for="export_all"/>
+                            <p class="text-muted ml4">Export all products published on the web that have the required fields covered.</p>
+                        </div>
+                    </div>
+                     <div class="row mb16" attrs="{'invisible': [('export_all', '=', True)]}">
+                        <div class="col-md-10 col-sm-12">
+                            <label for="category_ids" class="mb8"/>
+                            <field name="category_ids" widget="many2many_tags" options="{'no_open': True, 'create': false, 'create_edit': false}"/>
+                        </div>
+                    </div>
+                    <div class="row mb16" attrs="{'invisible': [('export_all', '=', True)]}">
+                        <div class="col-md-10 col-sm-12">
+                            <label for="product_ids" class="mb8"/>
+                            <field name="product_ids" widget="many2many_tags" options="{'no_open': True, 'create': false, 'create_edit': false}"/>
+                        </div>
+                    </div>
+                    <div class="row mb16">
+                        <div class="col-md-10 col-sm-12">
+                            <label for="author"/>
+                            <field name="author" required="1"/>
+                        </div>
+                    </div>
+                    <div class="row mb16">
+                        <div class="col-md-10 col-sm-12">
+                            <label for="note" class="mb8"/>
+                            <field name="note"/>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

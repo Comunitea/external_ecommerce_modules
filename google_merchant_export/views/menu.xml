@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem name="Google merchant" id="google_merchant_parent" parent="website.menu_website_configuration"
+              sequence="90"/>
+        <menuitem name="Export feeds" id="google_merchant_feed" parent="google_merchant_parent"
+                  sequence="10" action="export_feed_action"/>
+
+</odoo>

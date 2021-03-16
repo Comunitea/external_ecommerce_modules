@@ -70,9 +70,6 @@
             </xpath>
 
             <!--Payment Method Info. Two options: With or Without payment_acquirer_by_amount module installed-->
-            <xpath expr="//div[@id='payment_method']" position="attributes">
-                <attribute name="class">js_payment mb8 row</attribute>
-            </xpath>
             <xpath expr="//div[@id='payment_method']" position="after">
                 <t t-set="pmt" t-value="request.env['payment.acquirer'].sudo().search([('website_published', '=', True), ('company_id', '=', order.company_id.id), ('provider', '=', 'pmt')])"/>
                 <div class="row mb64" t-if="pmt">

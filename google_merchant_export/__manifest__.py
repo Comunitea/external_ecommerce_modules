@@ -1,7 +1,7 @@
 {
-    'name': 'Revi Reviews',
+    'name': 'Google Merchant Export',
     'version': '12.0.1.0.0',
-    'summary': 'Integration with Revi Reviews Service',
+    'summary': 'Product exportation for google merchant service',
     'description': '',
     'category': 'Website',
     'author': 'Comunitea',
@@ -12,20 +12,18 @@
         'Rubén Seijas <ruben@comunitea.com>',
     ],
     'depends': [
-        'website_sale'
+        'website_sale',
+        'website_seo_settings',
     ],
     'data': [
-        'views/revi_settings.xml',
-        #'views/revi_menu.xml',
-        'views/account_invoice.xml',
-        # 'views/sale_order.xml',
-        'views/res_partner.xml'
+        'security/ir.model.access.csv',
+        'views/feed.xml',
+        'views/menu.xml',
+        'templates/export.xml'
     ],
     'images': [
         '/static/description/icon.png',
     ],
-    'qweb': [
-    ],
     'installable': True,
-    'application': True,
+    'application': False,
 }
