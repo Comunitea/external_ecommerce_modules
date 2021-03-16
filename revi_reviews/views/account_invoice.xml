@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record model="ir.ui.view" id="revi_reviews_sale_order_form_view">
+        <field name="name">Account invoice form view (Revi reviews part)</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='team_id']/../.." position="inside">
+                <group string="Revi reviews">
+                    <field name="revi_use" attrs="{'readonly': [('revi_state', '=', 'sent')]}"/>
+                    <field name="revi_state" readonly="1" attrs="{'invisible': [('revi_use', '!=', True)]}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="revi_reviews_settings_form" model="ir.ui.view">
+        <field name="name">Revi API settings</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="website.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='google_analytics_setting']" position="after">
+                <div class="col-12 col-lg-offset-6 col-lg-6 o_setting_box" id="revi_api_setting">
+                    <div class="o_setting_right_pane">
+                        <span class="fa fa-lg fa-globe" title="Values set here are website-specific." groups="website.group_multi_website"/>
+                        <div class="text-muted">
+                            Revi API settings
+                        </div>
+                        <div class="content-group">
+                            <div class="row mb16">
+                                <label class="col-md-4" for="revi_api_key"/>
+                                <div class="col-md-7">
+                                    <field name="revi_api_key" required="True"/>
+                                </div>
+                            </div>
+                            <div class="row mb8">
+                                <label class="col-md-4" for="revi_def_state"/>
+                                <div class="col-md-7">
+                                    <field name="revi_def_state" widget="radio"/>
+                                </div>
+                            </div>
+                            <div class="row mb8">
+                                <label class="col-md-4" for="revi_url"/>
+                                <div class="col-md-7">
+                                    <field name="revi_url" widget="radio"/>
+                                </div>
+                            </div>
+                            <div class="row mb16">
+                                <div class="col-md-12">
+                                    <field name="revi_auto_send"/>
+                                    <label for="revi_auto_send"/>
+                                </div>
+                                <div class="col-md-12 text-muted ml4">
+                                    The data is always sent to the Revi panel automatically.<br/>
+                                    You can also send the opinion mails automatically. <br/>
+                                    If this option is inactive, the client mails will have to be send manually from the Revi Panel.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record model="ir.ui.view" id="revi_reviews_res_partner_form_view" >
+        <field name="name">Res partner form view (Revi reviews part)</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='sale']" position="inside">
+                <field name="revi_use"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
