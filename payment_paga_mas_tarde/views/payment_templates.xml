@@ -71,17 +71,18 @@
 
             <!--Payment Method Info. Two options: With or Without payment_acquirer_by_amount module installed-->
             <xpath expr="//div[@id='payment_method']" position="after">
-                <t t-set="pmt" t-value="request.env['payment.acquirer'].sudo().search([('website_published', '=', True), ('company_id', '=', order.company_id.id), ('provider', '=', 'pmt')])"/>
+                <t t-set="pmt_obj" t-value="request.env['payment.acquirer'].sudo().search([('website_published', '=', True), ('company_id', '=', order.company_id.id), ('provider', '=', 'pmt')])"/>
+                <t t-set="pmt" t-value="any(x.provider == 'pmt' for x in acquirers)"/>
                 <div class="row mb64" t-if="pmt">
                     <!-- Without payment_acquirer_by_amount module installed -->
                     <t t-if="all('min_amount_required' not in x and 'max_amount_required' not in x for x in acquirers or list())">
-                        <div class="col-lg-5 col-sm-6">
+                        <div class="col-6 card">
                             <h4>Payment Method Info:</h4>
                             <p>
                                 <!-- Retrive Javascript SDK from CDN -->
                                 <script type="text/javascript" src="https://cdn.pagamastarde.com/pmt-js-client-sdk/3/js/client-sdk.min.js"/>
                                 <!-- Create simulator container -->
-                                <div class="PmtSimulator"
+                                <div class="PmtSimulator mr8 ml8"
                                      data-pmt-style="Blue"
                                      data-pmt-type="6"
                                      data-pmt-num-quota="12"
@@ -90,7 +91,7 @@
                                 </div>
                                 <!-- Set Public Key and reload simulator -->
                                 <script>
-                                    pmtClient.simulator.setPublicKey('<t t-esc="pmt.pmt_public_key"/>');
+                                    pmtClient.simulator.setPublicKey('<t t-esc="pmt_obj.pmt_public_key"/>');
                                     pmtClient.simulator.init();
                                     pmtClient.simulator.reload();
                                 </script>
@@ -102,18 +103,11 @@
                     </t>
                     <t t-else="">
                         <!-- With payment_acquirer_by_amount module installed -->
-                        <div class="col-lg-5 col-sm-6" id="payment_method_info" t-if="(acquirers and len(acquirers) == 1 and any(((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
-                                                    or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
-                                                ) for x in acquirers or list()))
-                                                or (acquirers and len(acquirers) &gt; 1 and any(((x.min_amount_required !=0 and x.min_amount_required &gt; website_sale_order.amount_total)
-                                                    or (x.max_amount_required !=0 and x.max_amount_required &lt; website_sale_order.amount_total)
-                                                ) for x in acquirers or list()))">
+                        <div class="col-6" id="payment_method_info" t-if="pmt">
                             <h4 class="mt8">Payment Method Info:</h4>
-                            <div class="panel panel-default">
+                            <div class="panel panel-default card">
                                 <div class="panel-body" id="payment_body_info">
-                                    <p t-if="not website_sale_order.payment_acquirer_id">You must select a payment method to continue process checkout</p>
-                                    <!-- Show info just for acquirer which amounts are established-->
-                                    <t t-foreach="acquirers or list()" t-as="acquirer" t-if="acquirers and len(acquirers) == 1 or website_sale_order.payment_acquirer_id.id or website_sale_order.payment_acquirer_id.id != acquirer.id">
+                                    <t t-foreach="acquirers or list()" t-as="acquirer" t-if="acquirers and len(acquirers) == 1">
                                         <p t-if="(acquirer.min_amount_required !=0 and acquirer.min_amount_required &gt; website_sale_order.amount_total)
                                         or (acquirer.max_amount_required !=0 and acquirer.max_amount_required &lt; website_sale_order.amount_total)">
                                             For select a <strong>"<u><span t-esc="acquirer.name"/></u>"</strong> payment method, the total amount must be
@@ -131,7 +125,7 @@
                                             <!-- Retrive Javascript SDK from CDN -->
                                             <script type="text/javascript" src="https://cdn.pagamastarde.com/pmt-js-client-sdk/3/js/client-sdk.min.js"/>
                                             <!-- Create simulator container -->
-                                            <div class="PmtSimulator"
+                                            <div class="PmtSimulator ml8 mr8"
                                                  data-pmt-style="Blue"
                                                  data-pmt-type="6"
                                                  data-pmt-num-quota="12"
@@ -140,7 +134,7 @@
                                             </div>
                                             <!-- Set Public Key and reload simulator -->
                                             <script>
-                                                pmtClient.simulator.setPublicKey('<t t-esc="pmt.pmt_public_key"/>');
+                                                pmtClient.simulator.setPublicKey('<t t-esc="pmt_obj.pmt_public_key"/>');
                                                 pmtClient.simulator.init();
                                                 pmtClient.simulator.reload();
                                             </script>

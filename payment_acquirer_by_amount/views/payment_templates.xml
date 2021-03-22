@@ -14,4 +14,15 @@
         </xpath>
     </template>
 
+    <template id="custom_payment" inherit_id="website_sale.payment">
+        <xpath expr="//div[@id='payment_method']" position="before">
+            <t t-set="acquirers" t-value="[acquirer for acquirer in acquirers if (not acquirer.min_amount_required and not acquirer.max_amount_required)
+                         or (
+                            (acquirer.min_amount_required !=0 and acquirer.min_amount_required &lt; website_sale_order.amount_total and acquirer.max_amount_required &gt; website_sale_order.amount_total)
+                            or (not acquirer.max_amount_required and acquirer.min_amount_required !=0 and acquirer.min_amount_required &lt; website_sale_order.amount_total)
+                            or (not acquirer.min_amount_required and acquirer.max_amount_required !=0 and acquirer.max_amount_required &gt; website_sale_order.amount_total)
+                            )]"/>
+        </xpath>
+    </template>
+
 </odoo>
