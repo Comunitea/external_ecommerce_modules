@@ -1,14 +1,14 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* revi_reviews
+#       * revi_reviews
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-20 09:54+0000\n"
-"PO-Revision-Date: 2020-03-02 09:54+0000\n"
-"Last-Translator: Rubén Seijas <ruben@comunitea.com>\n"
+"POT-Creation-Date: 2021-03-24 12:12+0000\n"
+"PO-Revision-Date: 2021-03-24 12:12+0000\n"
+"Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,103 +16,49 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: revi_reviews
-#: model:ir.model.fields,help:revi_reviews.field_revi_reviews_settings_revi_def_state
-#: model:ir.model.fields,help:revi_reviews.field_website_revi_def_state
-msgid "Establish when send data to Revi or no send data at all"
-msgstr "Establece cuando se envían los datos a Revi o si no se envían"
-
-#. module: revi_reviews
-#: code:addons/revi_reviews/models/website.py:12
-#: model:ir.model.fields,field_description:revi_reviews.field_revi_reviews_settings_revi_def_state
-#: model:ir.model.fields,field_description:revi_reviews.field_website_revi_def_state
-#, python-format
-msgid "When send data"
-msgstr "Cuando enviar datos"
-
-#. module: revi_reviews
-#: code:addons/revi_reviews/models/website.py:17
-#: selection:website,revi_url:0
-#, python-format
-msgid "Test"
-msgstr "Test"
-
-#. module: revi_reviews
-#: model:ir.model.fields,help:revi_reviews.field_revi_reviews_settings_revi_url
-#: model:ir.model.fields,help:revi_reviews.field_website_revi_url
-msgid "Establish the url for send data to Revi. Just use TEST for testing because this send data only to Revi Panel Test: https://test.revi.io"
-msgstr "Establece la URL para enviar los datos a Revi. Solo use TEST para testear ya que esto envía los datos solo al Panel de Test de Revi: https://test.revi.io"
-
-#. module: revi_reviews
-#: code:addons/revi_reviews/models/website.py:18
-#: selection:website,revi_url:0
-#, python-format
-msgid "Production"
-msgstr "Producción"
-
-#. module: revi_reviews
-#: code:addons/revi_reviews/models/website.py:18
-#, python-format
-msgid "Environment"
-msgstr "Entorno"
-
-#. module: revi_reviews
-#: model:ir.ui.menu,name:revi_reviews.revi_reviews_settings
-msgid "API Settings"
-msgstr "Ajustes de API"
+#: model_terms:ir.ui.view,arch_db:revi_reviews.revi_reviews_settings_form
+msgid "<span class=\"fa fa-lg fa-globe\" title=\"Values set here are website-specific.\" groups=\"website.group_multi_website\"/>"
+msgstr "<span class=\"fa fa-lg fa-globe\" title=\"Los valores establecidos aquí son específicos del sitio web.\" groups=\"website.group_multi_website\"/>"
 
 #. module: revi_reviews
 #: selection:account.invoice,revi_state:0
-#: code:addons/revi_reviews/models/account_invoice.py:20
-#: code:addons/revi_reviews/models/sale_order.py:21
-#, python-format
 msgid "Already sent"
 msgstr "Ya fue enviado"
 
 #. module: revi_reviews
-#: model:ir.ui.view,arch_db:revi_reviews.revi_reviews_settings_form
-msgid "Apply"
-msgstr "Aplicar"
-
-#. module: revi_reviews
-#: code:addons/revi_reviews/models/website.py:16
-#: model:ir.model.fields,field_description:revi_reviews.field_revi_reviews_settings_revi_auto_send
-#: model:ir.model.fields,field_description:revi_reviews.field_website_revi_auto_send
-#, python-format
+#: model:ir.model.fields,field_description:revi_reviews.field_res_config_settings__revi_auto_send
+#: model:ir.model.fields,field_description:revi_reviews.field_website__revi_auto_send
 msgid "Automatic sending of invitation emails"
 msgstr "Envío automatico de correos con invitación"
 
 #. module: revi_reviews
-#: model:ir.ui.view,arch_db:revi_reviews.revi_reviews_settings_form
-msgid "Cancel"
-msgstr "Cancelar"
-
-#. module: revi_reviews
-#: model:ir.ui.view,arch_db:revi_reviews.revi_reviews_settings_form
-msgid "Current website"
-msgstr "Sitio web"
-
-#. module: revi_reviews
-#: model:ir.model.fields,field_description:revi_reviews.field_revi_reviews_settings_display_name
-msgid "Display Name"
-msgstr "Nombre mostrado"
-
-#. module: revi_reviews
 #: selection:account.invoice,revi_state:0
-#: code:addons/revi_reviews/models/account_invoice.py:17
-#: code:addons/revi_reviews/models/sale_order.py:18
-#: code:addons/revi_reviews/models/website.py:13
 #: selection:website,revi_def_state:0
-#, python-format
 msgid "Don't send"
-msgstr "No enviar"
+msgstr "No enviado"
+
+#. module: revi_reviews
+#: model:ir.model.fields,field_description:revi_reviews.field_res_config_settings__revi_url
+#: model:ir.model.fields,field_description:revi_reviews.field_website__revi_url
+msgid "Environment"
+msgstr "Entorno"
 
 #. module: revi_reviews
 #: selection:account.invoice,revi_state:0
-#: code:addons/revi_reviews/models/account_invoice.py:19
-#: code:addons/revi_reviews/models/sale_order.py:20
-#, python-format
 msgid "Error of send"
-msgstr "Error de enviar"
+msgstr "Error de envío"
+
+#. module: revi_reviews
+#: model:ir.model.fields,help:revi_reviews.field_res_config_settings__revi_url
+#: model:ir.model.fields,help:revi_reviews.field_website__revi_url
+msgid "Establish the environment url for send data to Revi. Just use TEST for testing because this send data only to Revi Panel Test: https://test.revi.io"
+msgstr "Establece el entorno de trabajo con Revi. Utilice el entorno de Pruebas para es objetivo y se enviarán los datos a: https://test.revi.io"
+
+#. module: revi_reviews
+#: model:ir.model.fields,help:revi_reviews.field_res_config_settings__revi_def_state
+#: model:ir.model.fields,help:revi_reviews.field_website__revi_def_state
+msgid "Establish when send data to Revi or no send data at all"
+msgstr "Establece cuando se envían los datos a Revi o si no se envían"
 
 #. module: revi_reviews
 #: model:ir.model,name:revi_reviews.model_account_invoice
@@ -120,113 +66,79 @@ msgid "Invoice"
 msgstr "Factura"
 
 #. module: revi_reviews
-#: code:addons/revi_reviews/models/website.py:14
 #: selection:website,revi_def_state:0
-#, python-format
 msgid "Open invoice"
 msgstr "Facturas Abiertas"
 
 #. module: revi_reviews
-#: code:addons/revi_reviews/models/account_invoice.py:21
-#: code:addons/revi_reviews/models/sale_order.py:22
-#: model:ir.model.fields,field_description:revi_reviews.field_account_invoice_revi_state
-#, python-format
+#: model:ir.model.fields,field_description:revi_reviews.field_account_invoice__revi_state
 msgid "Opinion state"
 msgstr "Estado de opinión"
 
 #. module: revi_reviews
-#: model:ir.model,name:revi_reviews.model_res_partner
-msgid "Partner"
-msgstr "Cliente"
-
-#. module: revi_reviews
 #: model:ir.model,name:revi_reviews.model_product_template
 msgid "Product Template"
-msgstr "Plantilla del producto"
+msgstr "Plantilla de producto"
 
 #. module: revi_reviews
-#: code:addons/revi_reviews/models/website.py:11
-#: model:ir.model.fields,field_description:revi_reviews.field_revi_reviews_settings_revi_api_key
-#: model:ir.model.fields,field_description:revi_reviews.field_website_revi_api_key
-#, python-format
+#: selection:website,revi_url:0
+msgid "Production"
+msgstr "Producción"
+
+#. module: revi_reviews
+#: model:ir.model.fields,field_description:revi_reviews.field_res_config_settings__revi_api_key
+#: model:ir.model.fields,field_description:revi_reviews.field_website__revi_api_key
 msgid "Revi API key"
 msgstr "Clave Revi API"
 
 #. module: revi_reviews
-#: model:ir.actions.act_window,name:revi_reviews.revi_reviews_settings_action
-#: model:ir.ui.view,arch_db:revi_reviews.revi_reviews_settings_form
+#: model_terms:ir.ui.view,arch_db:revi_reviews.revi_reviews_settings_form
 msgid "Revi API settings"
-msgstr "Ajustes Revi API"
+msgstr "Ajustes API Revi"
 
 #. module: revi_reviews
-#: code:addons/revi_reviews/models/account_invoice.py:21
-#: model:ir.model.fields,help:revi_reviews.field_account_invoice_revi_state
-#, python-format
+#: model:ir.model.fields,help:revi_reviews.field_account_invoice__revi_state
 msgid "Revi data state for this order"
 msgstr "Estado de datos de Revi"
 
 #. module: revi_reviews
-#: code:addons/revi_reviews/models/sale_order.py:22
-#, python-format
-msgid "Revi mail state for this order"
-msgstr "Estado de datos de Revi"
-
-#. module: revi_reviews
-#: model:ir.ui.menu,name:revi_reviews.revi_reviews_parent
-#: model:ir.ui.view,arch_db:revi_reviews.revi_reviews_sale_order_form_view
+#: model_terms:ir.ui.view,arch_db:revi_reviews.revi_reviews_sale_order_form_view
 msgid "Revi reviews"
 msgstr "Opiniones Revi"
 
 #. module: revi_reviews
-#: model:ir.model,name:revi_reviews.model_sale_order
-msgid "Sales Order"
-msgstr "Pedido"
-
-#. module: revi_reviews
-#: code:addons/revi_reviews/models/res_partner.py:12
-#: model:ir.model.fields,help:revi_reviews.field_res_partner_revi_use
-#: model:ir.model.fields,help:revi_reviews.field_res_users_revi_use
-#, python-format
+#: model:ir.model.fields,help:revi_reviews.field_res_partner__revi_use
+#: model:ir.model.fields,help:revi_reviews.field_res_users__revi_use
 msgid "Send a Revi opinion mail to the current user when he making a purchase"
 msgstr "Enviar correos de Revi para este cliente cuando le crean una factura"
 
 #. module: revi_reviews
-#: code:addons/revi_reviews/models/res_partner.py:11
-#: model:ir.model.fields,field_description:revi_reviews.field_res_partner_revi_use
-#: model:ir.model.fields,field_description:revi_reviews.field_res_users_revi_use
-#, python-format
+#: model:ir.model.fields,field_description:revi_reviews.field_res_partner__revi_use
+#: model:ir.model.fields,field_description:revi_reviews.field_res_users__revi_use
 msgid "Sent Revi mails"
 msgstr "Enviar correos de Revi"
 
 #. module: revi_reviews
-#: code:addons/revi_reviews/models/website.py:14
-#: model:ir.model.fields,field_description:revi_reviews.field_revi_reviews_settings_revi_def_state
-#: model:ir.model.fields,field_description:revi_reviews.field_website_revi_def_state
-#, python-format
-msgid "State for send data to Revi"
-msgstr "Estado para enviar correos de opinión"
+#: selection:website,revi_url:0
+msgid "Test"
+msgstr "Pruebas"
 
 #. module: revi_reviews
-#: model:ir.ui.view,arch_db:revi_reviews.revi_reviews_settings_form
+#: model_terms:ir.ui.view,arch_db:revi_reviews.revi_reviews_settings_form
 msgid "The data is always sent to the Revi panel automatically.<br/>\n"
-"                                        You can also send the opinion mails automatically. <br/>\n"
-"                                        If this option is inactive, the client mails will have to be send manually from the Revi Panel."
-msgstr "Los datos siempre se envían al panel de Revi automáticamente.<br/>\n"
-"                                        Pero, si esta opción no está activa, deberá enviar los correos a los clientes manualmente desde el panel de Revi."
+"                                    You can also send the opinion mails automatically. <br/>\n"
+"                                    If this option is inactive, the client mails will have to be send manually from the Revi Panel."
+msgstr "Los datos siempre se envían a Revi automáticamente.<br/>\n"
+"También puede enviar los emails de opinión automaticamente. <br/>\n"
+"Si esta opción no está activa, los emails a cliente tiene que ser enviados manualmente desde el panel de Revi"
 
 #. module: revi_reviews
-#: code:addons/revi_reviews/models/account_invoice.py:15
-#: code:addons/revi_reviews/models/sale_order.py:16
-#: model:ir.model.fields,field_description:revi_reviews.field_account_invoice_revi_use
-#, python-format
+#: model:ir.model.fields,field_description:revi_reviews.field_account_invoice__revi_use
 msgid "Use Revi service"
 msgstr "Usar servicio Revi"
 
 #. module: revi_reviews
 #: selection:account.invoice,revi_state:0
-#: code:addons/revi_reviews/models/account_invoice.py:18
-#: code:addons/revi_reviews/models/sale_order.py:19
-#, python-format
 msgid "Waiting for send"
 msgstr "Esperando para enviar"
 
@@ -234,3 +146,9 @@ msgstr "Esperando para enviar"
 #: model:ir.model,name:revi_reviews.model_website
 msgid "Website"
 msgstr "Sitio web"
+
+#. module: revi_reviews
+#: model:ir.model.fields,field_description:revi_reviews.field_res_config_settings__revi_def_state
+#: model:ir.model.fields,field_description:revi_reviews.field_website__revi_def_state
+msgid "When send data"
+msgstr "Cuando enviar datos"

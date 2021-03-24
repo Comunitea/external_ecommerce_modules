@@ -11,9 +11,6 @@
                 <p itemprop="slogan" t-field="product.website_description_short"/>
             </div>
         </xpath>
-        <xpath expr="//div[@id='product_details']/hr[last()]" position="attributes">
-            <attribute name="t-if">product.website_description_short or product.description_sale or product.tag_ids</attribute>
-        </xpath>
         <xpath expr="//div[@id='product_full_description']" position="replace">
             <div class="oe_structure mt32 mb32" id="product_full_description" t-if="product.website_description and len(product.website_description) > 15">
                 <div class="container" itemprop="description">
@@ -62,6 +59,9 @@
 
         <!-- Hide guarantee -->
         <xpath expr="//div[@id='product_details']/p[last()]" position="attributes">
+            <attribute name="class" add="d-none" separator=" "/>
+        </xpath>
+        <xpath expr="//div[@id='product_details']/hr[last()]" position="attributes">
             <attribute name="class" add="d-none" separator=" "/>
         </xpath>
     </template>

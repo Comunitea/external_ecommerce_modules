@@ -7,5 +7,6 @@ from odoo import api, fields, models, _
 class Partner(models.Model):
     _inherit = "res.partner"
 
-    revi_use = fields.Boolean(string=_("Sent Revi mails"), default=True,
-                              help=_("Send a Revi opinion mail to the current user when he making a purchase"))
+    revi_use = fields.Boolean(string="Sent Revi mails", default=True,
+                              help="Send a Revi opinion mail to the current "
+                              "user when he making a purchase")

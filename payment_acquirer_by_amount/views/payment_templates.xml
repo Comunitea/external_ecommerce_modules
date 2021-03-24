@@ -5,7 +5,7 @@
     <template id="custom_checkout" inherit_id="payment.payment_tokens_list">
         <!-- Show acquirers by their amounts conditions -->
         <xpath expr="//form" position="before">
-            <t t-set="acquirers" t-value="[acquirer for acquirer in acquirers if (not acquirer.min_amount_required and not acquirer.max_amount_required)
+            <t t-set="acquirers" t-if="website_sale_order" t-value="[acquirer for acquirer in acquirers if (not acquirer.min_amount_required and not acquirer.max_amount_required)
                          or (
                             (acquirer.min_amount_required !=0 and acquirer.min_amount_required &lt; website_sale_order.amount_total and acquirer.max_amount_required &gt; website_sale_order.amount_total)
                             or (not acquirer.max_amount_required and acquirer.min_amount_required !=0 and acquirer.min_amount_required &lt; website_sale_order.amount_total)

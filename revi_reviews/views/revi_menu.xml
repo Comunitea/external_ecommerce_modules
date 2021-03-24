@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<odoo>
-
-    <menuitem name="Revi reviews" id="revi_reviews_parent" parent="website.menu_website_configuration"
-              sequence="100"/>
-        <menuitem name="API Settings" id="revi_reviews_settings" parent="revi_reviews_parent"
-                  sequence="10" action="revi_reviews_settings_action"/>
-
-</odoo>

@@ -1,8 +1,8 @@
 import datetime
 import unicodedata
+import base64
 
-from odoo import api, fields, http, models, _
-
+from odoo import http
 from odoo.http import request
 
 from odoo.addons.http_routing.models.ir_http import slug
@@ -13,14 +13,15 @@ class ExportFeeds(http.Controller):
     def create_file(self, url, content, mimetype):
         attachment = request.env['ir.attachment']
         return attachment.sudo().create({
-            'datas': content.encode('base64'),
+            'datas': base64.encodestring(content),
             'mimetype': mimetype,
             'type': 'binary',
             'name': url,
             'url': url,
         })
 
-    @http.route('/google-merchant/<path:mode>/feed-<int:feed_id>.xml', type='http', auth='public', website=True)
+    @http.route('/google-merchant/<path:mode>/feed-<int:feed_id>.xml',
+                type='http', auth='public', website=True)
     def export_feeds(self, mode, feed_id):
         attachment = request.env['ir.attachment']
         view = request.env['ir.ui.view']
@@ -31,7 +32,8 @@ class ExportFeeds(http.Controller):
         domain = ['&', ('url', '=', path), ('type', '=', 'binary')]
 
         # Search export model
-        feed = request.env['google_merchant_export.feed'].search([('id', '=', feed_id)])
+        feed = request.env['google_merchant_export.feed'].\
+            search([('id', '=', feed_id)])
         if not feed:
             return request.render('website.404')
 
@@ -43,12 +45,13 @@ class ExportFeeds(http.Controller):
         # Set export file data
         now = datetime.datetime.now()
         head = {
-            'title': unicodedata.normalize('NFKD', feed.name).encode('ascii', 'ignore').decode('ascii'),
+            'title': unicodedata.normalize('NFKD', feed.name).
+            encode('ascii', 'ignore').decode('ascii'),
             'link': root,
             'author': feed.author,
             'updated': now.strftime("%Y-%m-%dT%H:%M:%SZ")
         }
-        values = ''
+        values = ""
 
         # Search categories parents
         def get_parent(object, result):
@@ -70,19 +73,28 @@ class ExportFeeds(http.Controller):
         def new_feed(product):
             return view.render_template('google_merchant_export.feed_wrap', {
                 'id': product.id,
-                'title': unicodedata.normalize('NFKD', product.name).encode('ascii', 'ignore').decode('ascii'),
-                'description': unicodedata.normalize('NFKD', product.description_short
-                                                     or product.product_meta_description
-                                                     or product.description_sale or product.name),
-                'link': '%sproduct/%s' % (root, product.slug) if product.slug else '%sshop/product/%s' % (
-                    root, slug(product)),
-                'image_link': '%sweb/image/product.template/%s/image/' % (root, product.id),
+                'title': unicodedata.
+                normalize('NFKD', product.name).encode('ascii', 'ignore').
+                decode('ascii'),
+                'description': unicodedata.
+                normalize('NFKD', product.website_description_short
+                          or product.website_meta_description
+                          or product.description_sale or product.name),
+                'link': '%sproduct/%s' % (root, product.slug)
+                if product.slug else '%sshop/product/%s' % (root,
+                                                            slug(product)),
+                'image_link': '%sweb/image/product.template/%s/image/' %
+                (root, product.id),
                 'condition': 'new',
-                'availability': 'preorder' if product.sudo().qty_available == 0 else 'in stock',
-                'price': '%s EUR' % product.list_price if not product.hide_website_price else 'N/D',
-                # TODO: Auto calculate of shipping price for current product for Spain, Baleares and Canarias
+                'availability': 'preorder' if product.sudo().
+                qty_available <= 0 else 'in stock',
+                'price': '%s EUR' % product.list_price,
+                # TODO: Auto calculate of shipping price for current product
+                # for Spain, Baleares and Canarias
                 # 'shipping': '',
-                'product_type': get_categories(product.public_categ_ids[0], '') if product.public_categ_ids else '',
+                'product_type': get_categories(product.public_categ_ids[0],
+                                               '') if product.public_categ_ids
+                else '',
                 'barcode': product.barcode,
             })
 
@@ -97,10 +109,11 @@ class ExportFeeds(http.Controller):
             products = feed.product_ids
 
         for res in products:
-            values += new_feed(res)
+            values += new_feed(res).decode("utf-8")
 
         # Create export file
-        content = view.render_template('google_merchant_export.xml_wrap', {'head': head, 'values': values})
+        content = view.render_template('google_merchant_export.xml_wrap',
+                                       {'head': head, 'values': values})
         self.create_file(path, content, mimetype)
 
         # Set headers

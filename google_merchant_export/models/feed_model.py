@@ -5,7 +5,7 @@ from odoo import api, fields, models, _
 
 PROD_DOMAIN = [('website_published', '=', True),
                ('list_price', '>', '0'),
-               ('description_short', '!=', ''),
+               ('website_description_short', '!=', ''),
                ('sale_ok', '=', True),
                ('image', '!=', '')]
 

@@ -3,39 +3,30 @@
     <data>
 
         <template id="pmt_acquirer_button">
-            <form t-if="acquirer" t-att-action="tx_url" method="post" target="_self" type='application/json'>
+            <input type="hidden" name="data_set" t-att-data-action-url="tx_url" data-remove-me=""/>
+            <!--Configuration-->
+            <input type="hidden" name="pmt_public_key" t-att-value="acquirer.pmt_public_key"/>
+            <input type="hidden" name="pmt_private_key" t-att-value="acquirer.pmt_private_key"/>
 
-                <!--Configuration-->
-                <input type="hidden" name="pmt_public_key" t-att-value="acquirer.pmt_public_key"/>
-                <input type="hidden" name="pmt_private_key" t-att-value="acquirer.pmt_private_key"/>
+            <!--Order-->
+            <input type="hidden" name="reference" t-att-value="reference"/>
+            <input type="hidden" name="amount" t-att-value="int(float(amount) * 100)"/>
 
-                <!--Order-->
-                <input type="hidden" name="reference" t-att-value="reference"/>
-                <input type="hidden" name="amount" t-att-value="int(float(amount) * 100)"/>
+            <!--Parthner-->
+            <input type="hidden" name="partner_id" t-att-value="partner_id"/>
+            <input type="hidden" name="partner_name" t-att-value="partner_name"/>
+            <input type="hidden" name="partner_email" t-att-value="partner_email or billing_partner_email or 'partner_email@provider.domain'"/>
+            <input type="hidden" name="partner_phone" t-att-value="partner_phone"/>
+            <input type="hidden" name="partner_lang" t-att-value="partner_lang"/>
+            <input type="hidden" name="partner_address" t-att-value="partner_address"/>
 
-                <!--Parthner-->
-                <input type="hidden" name="partner_id" t-att-value="partner_id"/>
-                <input type="hidden" name="partner_name" t-att-value="partner_name"/>
-                <input type="hidden" name="partner_email" t-att-value="partner_email or billing_partner_email or 'partner_email@provider.domain'"/>
-                <input type="hidden" name="partner_phone" t-att-value="partner_phone"/>
-                <input type="hidden" name="partner_lang" t-att-value="partner_lang"/>
-                <input type="hidden" name="partner_address" t-att-value="partner_address"/>
-
-                <!--Billing-->
-                <input type="hidden" name="billing_partner_name" t-att-value="billing_partner_name"/>
-                <input type="hidden" name="billing_partner_address" t-att-value="billing_partner_address"/>
-                <input type="hidden" name="billing_partner_city" t-att-value="billing_partner_city"/>
-                <input type="hidden" name="billing_partner_zip" t-att-value="billing_partner_zip"/>
-                <input type="hidden" name="billing_partner_country_id" t-att-value="billing_partner_country_id"/>
-                <input type="hidden" name="billing_partner_phone" t-att-value="billing_partner_phone"/>
-                <input type="hidden" name="billing_partner_address" t-att-value="billing_partner_address"/>
-
-                <!-- submit -->
-                <button type="submit" width="100px" t-att-class="submit_class">
-                    <img t-if="not submit_txt" src="/payment_paga_mas_tarde/static/img/logo.png"/>
-                    <span t-if="submit_txt"><t t-esc="submit_txt"/> <span class="fa fa-long-arrow-right"/></span>
-                </button>
-            </form>
+            <!--Billing-->
+            <input type="hidden" name="billing_partner_name" t-att-value="billing_partner_name"/>
+            <input type="hidden" name="billing_partner_address" t-att-value="billing_partner_address"/>
+            <input type="hidden" name="billing_partner_city" t-att-value="billing_partner_city"/>
+            <input type="hidden" name="billing_partner_zip" t-att-value="billing_partner_zip"/>
+            <input type="hidden" name="billing_partner_country_id" t-att-value="billing_partner_country_id"/>
+            <input type="hidden" name="billing_partner_phone" t-att-value="billing_partner_phone"/>
         </template>
 
         <record id="transaction_form_pmt" model="ir.ui.view">
@@ -70,10 +61,10 @@
             </xpath>
 
             <!--Payment Method Info. Two options: With or Without payment_acquirer_by_amount module installed-->
-            <xpath expr="//div[@id='payment_method']" position="after">
+            <xpath expr="//div[hasclass('order-xl-1')]" position="inside">
                 <t t-set="pmt_obj" t-value="request.env['payment.acquirer'].sudo().search([('website_published', '=', True), ('company_id', '=', order.company_id.id), ('provider', '=', 'pmt')])"/>
                 <t t-set="pmt" t-value="any(x.provider == 'pmt' for x in acquirers)"/>
-                <div class="row mb64" t-if="pmt">
+                <div class="mt32" t-if="pmt">
                     <!-- Without payment_acquirer_by_amount module installed -->
                     <t t-if="all('min_amount_required' not in x and 'max_amount_required' not in x for x in acquirers or list())">
                         <div class="col-6 card">

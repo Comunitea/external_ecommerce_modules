@@ -16,15 +16,11 @@
     ],
     'data': [
         'views/revi_settings.xml',
-        #'views/revi_menu.xml',
         'views/account_invoice.xml',
-        # 'views/sale_order.xml',
         'views/res_partner.xml'
     ],
     'images': [
         '/static/description/icon.png',
-    ],
-    'qweb': [
     ],
     'installable': True,
     'application': True,

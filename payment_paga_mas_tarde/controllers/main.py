@@ -31,17 +31,16 @@ class PmtController(http.Controller):
 
         data = request.env.ref('payment_paga_mas_tarde.payment_acquirer_pmt').pmt_form_generate_values(post)
         pmt_private_key = data.get('pmt_private_key')
-        pmt_public_key = data.get('pmt_public_key')
         request.session['pmt_tx_error'] = ''
 
         headers = {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + pmt_private_key,
+            'Content-Type': 'application/json'
         }
 
         #  Creamos la orden
         create_order = requests.post('https://api.pagamastarde.com/v2/orders', data=json.dumps(data),
-                                     headers=headers, auth=HTTPBasicAuth(pmt_public_key, pmt_private_key))
+                                     headers=headers)
 
         # Enviamos al usuario al formulario de pagantis y asociamos su order a sale_order
         if create_order.status_code == 201 and create_order.json().get('status', 'REJECTED') == 'CREATED':

@@ -131,7 +131,6 @@ class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
     # General Settings
-    website_id = fields.Many2one('website', string="website", default=_default_website)
     slug_length = fields.Integer(related='website_id.slug_length', default=40, readonly=False)
     cache_mode = fields.Selection(related='website_id.cache_mode', readonly=False,
                                   selection=[(_("1second"), _("Developer mode")), (_("12hours"), _("Normal mode"))],

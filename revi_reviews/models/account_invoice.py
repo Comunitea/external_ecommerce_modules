@@ -13,19 +13,21 @@ _logger = logging.getLogger(__name__)
 class AccountInvoice(models.Model):
     _inherit = "account.invoice"
 
-    revi_use = fields.Boolean(string=_("Use Revi service"), default=False)
+    revi_use = fields.Boolean(string="Use Revi service", default=False)
     revi_state = fields.Selection([
-        ('skip', _("Don't send")),
-        ('waiting', _("Waiting for send")),
-        ('error', _("Error of send")),
-        ('sent', _("Already sent"))
-    ], string=_("Opinion state"), default='waiting', help=_("Revi data state for this order"))
+        ('skip', "Don't send"),
+        ('waiting', "Waiting for send"),
+        ('error', "Error of send"),
+        ('sent', "Already sent")
+    ], string="Opinion state", default='waiting',
+                                  help="Revi data state for this order")
 
     @api.model
     def create(self, vals):
         website = request.env['website'].get_current_website()
         partner_id = vals.get('partner_id', False)
-        partner = request.env['res.partner'].sudo().search([('id', '=', partner_id)], limit=1)
+        partner = request.env['res.partner'].sudo().\
+            search([('id', '=', partner_id)], limit=1)
 
         def set_revi_state(use, state):
             return vals.update({
@@ -75,8 +77,10 @@ class AccountInvoice(models.Model):
                                 lambda x: x.product_id.type == 'product' or x.product_id.type == 'service')),
                             'total_paid': '%s' % res.amount_total,
                             'status': 'ready' if website.revi_auto_send else 'pending',
-                            'order_date': res.create_date,
-                            'date_status_upd': res.write_date
+                            'order_date': res.create_date.
+                            strftime('%Y-%m-%d %H:%M:%S'),
+                            'date_status_upd': res.write_date.
+                            strftime('%Y-%m-%d %H:%M:%S')
                         }]
                     }
 
@@ -84,7 +88,7 @@ class AccountInvoice(models.Model):
                         return {
                             'id_product': product.id,
                             'ean': product.barcode or '',
-                            'price': product.lst_price if not product.hide_website_price else 'N/D',
+                            'price': product.lst_price or 'N/D',
                             'sku': product.default_code or '',
                             'locale': [{
                                 'lang': language,
@@ -92,8 +96,8 @@ class AccountInvoice(models.Model):
                                     'ascii', 'ignore').decode('ascii'),
                                 'url': '%sshop/product/%d' % (root, product.id),
                                 'photo_url': '%swebsite/image/product.template/%d/image/' % (root, product.id),
-                                'description': unicodedata.normalize('NFKD', product.description_short
-                                                                     or product.product_meta_description
+                                'description': unicodedata.normalize('NFKD', product.website_description_short
+                                                                     or product.website_meta_description
                                                                      or product.description_sale or product.name)
                                 .encode('ascii', 'ignore').decode('ascii'),
                             }]

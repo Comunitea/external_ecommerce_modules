@@ -1,42 +1,110 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* payment_paga_mas_tarde
+#       * payment_paga_mas_tarde
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-12 15:28+0000\n"
-"PO-Revision-Date: 2018-12-12 15:28+0000\n"
-"Last-Translator: Comunitea <ruben@comunitea.com>\n"
-"Language-Team: es_ES\n"
+"POT-Creation-Date: 2021-03-24 11:57+0000\n"
+"PO-Revision-Date: 2021-03-24 11:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
 #. module: payment_paga_mas_tarde
-#: model:ir.ui.view,arch_db:payment_paga_mas_tarde.acquirer_form_pmt
+#: model_terms:payment.acquirer,cancel_msg:payment_paga_mas_tarde.payment_acquirer_pmt
+msgid "<span><i>Cancel,</i> Your payment has been cancelled.</span>"
+msgstr "<span><i>Cancelado,</i> Su pago ha sido cancelado.</span>"
+
+#. module: payment_paga_mas_tarde
+#: model_terms:payment.acquirer,done_msg:payment_paga_mas_tarde.payment_acquirer_pmt
+msgid "<span><i>Done,</i> Your online payment has been successfully processed. Thank you for your order.</span>"
+msgstr "<span><i>Aprobado,</i> su pago en línea ha sido porcesado satisfactoriamente. Gracias por su orden.</span>"
+
+#. module: payment_paga_mas_tarde
+#: model_terms:payment.acquirer,error_msg:payment_paga_mas_tarde.payment_acquirer_pmt
+msgid "<span><i>Error,</i> Please be aware that an error occurred during the transaction. The order has been confirmed but will not be paid. Do not hesitate to contact us if you have any questions on the status of your order.</span>"
+msgstr "<span><i>Error,</i> Tenga en cuenta que se produjo un error durante la transacción. El pedido ha sido confirmado pero no ha sido pagado. No dude en contactarnos si tiene alguna pregunta sobre el estado de su pedido.</span>"
+
+#. module: payment_paga_mas_tarde
+#: model_terms:payment.acquirer,pending_msg:payment_paga_mas_tarde.payment_acquirer_pmt
+msgid "<span><i>Pending,</i> Your online payment has been successfully processed. But your order is not validated yet.</span>"
+msgstr "<span><i>Pendiente,</i> Su pago en línea ha sido procesado con éxito. Pero tu pedido aún no está validado.</span>"
+
+#. module: payment_paga_mas_tarde
+#: model_terms:ir.ui.view,arch_db:payment_paga_mas_tarde.pmt_tx_ko
+msgid "<span>Please, contact us if you wish more info about payment conditions</span>"
+msgstr "<span>Por favor, contáctenos si necesita más información sobre las condiciones de pago</span>"
+
+#. module: payment_paga_mas_tarde
+#: model_terms:ir.ui.view,arch_db:payment_paga_mas_tarde.pmt_tx_ko
+msgid "<strong>PAGANTIS: </strong>"
+msgstr ""
+
+#. module: payment_paga_mas_tarde
+#: model_terms:ir.ui.view,arch_db:payment_paga_mas_tarde.acquirer_form_pmt
 msgid "Accede a tu cuenta de Pagantis desde aquí"
 msgstr ""
 
 #. module: payment_paga_mas_tarde
-#: model:ir.model.fields,field_description:payment_paga_mas_tarde.field_payment_acquirer_pmt_private_key
+#: model:ir.model.fields,field_description:payment_paga_mas_tarde.field_payment_acquirer__pmt_private_key
 msgid "Access Private Token"
 msgstr "Clave de Acceso Privada"
 
 #. module: payment_paga_mas_tarde
-#: model:ir.model.fields,field_description:payment_paga_mas_tarde.field_payment_acquirer_pmt_public_key
+#: model:ir.model.fields,field_description:payment_paga_mas_tarde.field_payment_acquirer__pmt_public_key
 msgid "Access Public Token"
 msgstr "Clave de Acceso Pública"
 
 #. module: payment_paga_mas_tarde
-#: model:ir.model.fields,field_description:payment_paga_mas_tarde.field_sale_order_pmt_order_id
+#: model_terms:payment.acquirer,pre_msg:payment_paga_mas_tarde.payment_acquirer_pmt
+msgid "Al hacer click en el botón de pago será redireccionado a la página web de Pagantis.\n"
+"                El cargo de gastos adicionales debe consultarse en las condiciones de Pagantis."
+msgstr "Al hacer click en el botón de pago será redireccionado a la página web de Pagantis.\n"
+"El cargo de gastos adicionales debe consultarse en las condiciones de Pagantis."
+
+#. module: payment_paga_mas_tarde
+#: model_terms:ir.ui.view,arch_db:payment_paga_mas_tarde.pmt_tx_ko
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: payment_paga_mas_tarde
+#: model_terms:ir.ui.view,arch_db:payment_paga_mas_tarde.pmt_tx_ko
+msgid "For select a"
+msgstr "Para seleccionar un"
+
+#. module: payment_paga_mas_tarde
+#: model:ir.model.fields,help:payment_paga_mas_tarde.field_payment_transaction__pmt_tx_id
+msgid "ID operacion que permite identificar el pago en la cuenta                             de Pagantis"
+msgstr "ID operacion que permite identificar el pago en la cuenta de Pagantis"
+
+#. module: payment_paga_mas_tarde
+#: selection:payment.acquirer,provider:0
+msgid "Manual Configuration"
+msgstr "Configuración manual"
+
+#. module: payment_paga_mas_tarde
+#: model_terms:ir.ui.view,arch_db:payment_paga_mas_tarde.pmt_tx_ko
+msgid "Open Payment conditions into a new tab"
+msgstr "Abre las condiciones de pago en una nueva pestaña"
+
+#. module: payment_paga_mas_tarde
+#: model:payment.acquirer,name:payment_paga_mas_tarde.payment_acquirer_pmt
+#: selection:payment.acquirer,provider:0
+msgid "Pagantis"
+msgstr ""
+
+#. module: payment_paga_mas_tarde
+#: model:ir.model.fields,field_description:payment_paga_mas_tarde.field_sale_order__pmt_order_id
 msgid "Pagantis Order Id to confirm payment"
 msgstr "Id del pedido de Pagantis  para confirmar el pedido"
 
 #. module: payment_paga_mas_tarde
-#: model:ir.ui.view,arch_db:payment_paga_mas_tarde.transaction_form_pmt
+#: model_terms:ir.ui.view,arch_db:payment_paga_mas_tarde.transaction_form_pmt
 msgid "Pagantis TX Details"
 msgstr "Detalles de Transmisión Pagantis"
 
@@ -46,13 +114,71 @@ msgid "Payment Acquirer"
 msgstr "Método de pago"
 
 #. module: payment_paga_mas_tarde
+#: model_terms:ir.ui.view,arch_db:payment_paga_mas_tarde.pmt_tx_ko
+msgid "Payment Method Info:"
+msgstr "Info. método de pago"
+
+#. module: payment_paga_mas_tarde
 #: model:ir.model,name:payment_paga_mas_tarde.model_payment_transaction
 msgid "Payment Transaction"
 msgstr "Transacción de pago"
 
 #. module: payment_paga_mas_tarde
-#: model:ir.model.fields,field_description:payment_paga_mas_tarde.field_payment_transaction_pmt_tx_id
+#: model:ir.model.fields,field_description:payment_paga_mas_tarde.field_payment_acquirer__provider
+msgid "Provider"
+msgstr "Proveedor"
+
+#. module: payment_paga_mas_tarde
+#: model:ir.model.fields,help:payment_paga_mas_tarde.field_payment_acquirer__pmt_private_key
+msgid "Se encuentra en los datos de la tienda de su cuenta                                   de Pagantis. Es imprescindible para autenticarse"
+msgstr "Se encuentra en los datos de la tienda de su cuenta de Pagantis. Es imprescindible para autenticarse"
+
+#. module: payment_paga_mas_tarde
+#: model:ir.model.fields,help:payment_paga_mas_tarde.field_payment_acquirer__pmt_public_key
+msgid "Se encuentra en los datos de la tienda de su cuenta                                  de Pagantis. Es imprescindible para autenticarse"
+msgstr "Se encuentra en los datos de la tienda de su cuenta de Pagantis. Es imprescindible para autenticarse"
+
+#. module: payment_paga_mas_tarde
+#: model:ir.model.fields,field_description:payment_paga_mas_tarde.field_payment_transaction__pmt_tx_id
 msgid "Transaction ID"
-msgstr "Id de la Transacción"
+msgstr "ID de la transacción"
 
+#. module: payment_paga_mas_tarde
+#: model_terms:ir.ui.view,arch_db:payment_paga_mas_tarde.pmt_tx_ko
+msgid "Ver Instrucciones Pagantis"
+msgstr ""
 
+#. module: payment_paga_mas_tarde
+#: selection:payment.acquirer,provider:0
+msgid "Wire Transfer"
+msgstr "Transferencia bancaria"
+
+#. module: payment_paga_mas_tarde
+#: model_terms:ir.ui.view,arch_db:payment_paga_mas_tarde.pmt_tx_ko
+msgid "You can see all payment conditions clicking"
+msgstr "Puede ver todas las condiciones de pago pulsando"
+
+#. module: payment_paga_mas_tarde
+#: model_terms:ir.ui.view,arch_db:payment_paga_mas_tarde.pmt_tx_ko
+msgid "and"
+msgstr "y"
+
+#. module: payment_paga_mas_tarde
+#: model_terms:ir.ui.view,arch_db:payment_paga_mas_tarde.pmt_tx_ko
+msgid "between"
+msgstr "entre"
+
+#. module: payment_paga_mas_tarde
+#: model_terms:ir.ui.view,arch_db:payment_paga_mas_tarde.pmt_tx_ko
+msgid "here"
+msgstr "aquí"
+
+#. module: payment_paga_mas_tarde
+#: model_terms:ir.ui.view,arch_db:payment_paga_mas_tarde.pmt_tx_ko
+msgid "over"
+msgstr "sobre"
+
+#. module: payment_paga_mas_tarde
+#: model_terms:ir.ui.view,arch_db:payment_paga_mas_tarde.pmt_tx_ko
+msgid "payment method, the total amount must be"
+msgstr "método de pago, el importe total debe de ser"
