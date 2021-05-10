@@ -108,8 +108,7 @@ class ProgressiveWebApp(Website):
     @http.route('/manifest.json', type='http', auth="none", website=True)
     def manifest_redirect(self):
         current_website = request.website.sudo()
-        return self._auto_create('/manifest-%d.json' % current_website.id,
-                                 'manifest', 'application/json;charset=utf-8')
+        return self._auto_create('/manifest-%d.json' % current_website.id, 'manifest', 'application/json;charset=utf-8')
 
     @http.route('/sw.js', type='http', auth="none", website=True)
     def sw_redirect(self):
