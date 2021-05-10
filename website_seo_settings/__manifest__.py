@@ -20,6 +20,7 @@
         'website_google_tag_manager',
         'website_sale',
         'website_sale_hide_empty_category',
+        'website_js_below_the_fold_payment',
     ],
     'data': [
         'data/product_style.xml',

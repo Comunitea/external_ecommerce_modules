@@ -2,14 +2,6 @@
 <odoo>
 
     <template id="portal_frontend_layout" inherit_id="portal.frontend_layout" name="Main Frontend Layout Seo">
-        <!-- Set javascript source after the footer -->
-        <xpath expr="//div[@id='wrapwrap']/footer" position="inside">
-            <t t-call-assets="web.assets_common" t-css="false"/>
-            <t t-call-assets="web.assets_frontend" t-css="false"/>
-            <t t-call-assets="web_editor.summernote" t-css="false" groups="website.group_website_publisher"/>
-            <t t-call-assets="web_editor.assets_editor" t-css="false" groups="website.group_website_publisher"/>
-            <t t-call-assets="website.assets_editor" t-css="false" groups="website.group_website_publisher"/>
-        </xpath>
         <!-- PWA Add to Home Screen -->
         <xpath expr="//a[@id='o_logout']" position="before">
             <a href="#" role="menuitem" class="dropdown-item" id="add-home-button" rel="noindex, nofollow"
@@ -18,13 +10,6 @@
     </template>
 
     <template id="website_layout" inherit_id="website.layout" name="Main Layout Seo">
-        <!-- Replace javascript source in the head -->
-        <xpath expr="//t[@t-call-assets='web.assets_common'][@t-css='false']" position="replace"/>
-        <xpath expr="//t[@t-call-assets='web.assets_frontend'][@t-css='false']" position="replace"/>
-        <xpath expr="//t[@t-call-assets='web_editor.summernote'][@t-css='false']" position="replace"/>
-        <xpath expr="//t[@t-call-assets='web_editor.assets_editor'][@t-css='false']" position="replace"/>
-        <xpath expr="//t[@t-call-assets='website.assets_editor'][@t-css='false']" position="replace"/>
-
          <!-- Add service worker javascript -->
         <xpath expr="//script[@id='tracking_code']" position="before">
             <script type="text/javascript">
