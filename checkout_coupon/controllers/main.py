@@ -111,7 +111,7 @@ class CheckoutCoupon(http.Controller):
             elif coupon.coupon_type == 'category':
                 msg += _(' and was applied for category %s with products: ' % coupon.discount_category_id.name)
                 for res in product_ids:
-                    if res.product_id.public_categ_ids.id == coupon.discount_category_id.id and res.product_id.type == 'product':
+                    if coupon.discount_category_id.id in res.product_id.public_categ_ids.ids and res.product_id.type == 'product':
                         if coupon.discount_type == 'percentage':
                             discount_apply_sum += (res.product_id.list_price * res.product_uom_qty) * (coupon.value / 100)
                         else:
