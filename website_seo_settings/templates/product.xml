@@ -116,7 +116,7 @@
                    t-field="product.website_style_ids and product.website_style_ids[0].name"/>
             </t>
             <t t-else="">
-                <a href="#" role="button" t-attf-class="ribbon btn ribbon-color-#{td_product['product'].website_style_ids and td_product['product'].website_style_ids[0].color}"
+                <a t-if="td_product and td_product['product'] and td_product['product'].website_style_ids" href="#" role="button" t-attf-class="ribbon btn ribbon-color-#{td_product['product'].website_style_ids and td_product['product'].website_style_ids[0].color}"
                    t-field="td_product['product'].website_style_ids and td_product['product'].website_style_ids[0].name"/>
             </t>
         </xpath>
