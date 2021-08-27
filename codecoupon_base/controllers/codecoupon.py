@@ -145,7 +145,7 @@ class CouponControl(http.Controller):
             list = ''
             if len(to_apply_list) > 0:
                 for res in product_ids:
-                    if res.product_id.public_categ_ids.id in to_apply_list and res.product_id.sale_ok:
+                    if any(item in res.product_id.public_categ_ids.ids for item in to_apply_list) and res.product_id.sale_ok:
                         have_one = True
                         discount_apply_sum += res.price_subtotal
                         list += " [%s]," % res.product_id.name
