@@ -121,6 +121,14 @@
                     s.parentNode.insertBefore(t,s)}(window,document,'script',
                     'https://connect.facebook.net/en_US/fbevents.js');
                     fbq('init', '<t t-esc="website.facebook_pixel_key"/>');
+                </script>
+                <script t-if="'/shop/cart' in request.httprequest.full_path">
+                    fbq('track', 'AddToCart');
+                </script>
+                <script t-if="'/shop/confirmation' in request.httprequest.full_path">
+                    fbq('track', 'Purchase');
+                </script>
+                <script t-if="'/shop/cart' not in request.httprequest.full_path and '/shop/confirmation' not in request.httprequest.full_path">
                     fbq('track', 'PageView');
                 </script>
                 <!-- End Facebook Pixel Code -->
