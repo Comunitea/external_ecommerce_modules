@@ -40,7 +40,7 @@
     <!-- Include Brand inside product item -->
     <template id="products_item_brand" inherit_id="website_sale.products_item" active="True" customize_show="True" name="Product Brand">
         <xpath expr="//div[hasclass('oe_product_name')]" position="before">
-            <div class="text-info oe_brand text-truncate" contenteditable="false">
+            <div t-if="product.product_brand_id" class="text-info oe_brand text-truncate" contenteditable="false">
                 <h6>
                     <a itemprop="brand" rel="noindex,nofollow" style="font-size: 0.875rem;" t-att-href="keep('/shop/brands',brand = product.product_brand_id.id)"
                        t-att-title="product.product_brand_id.name">
@@ -54,7 +54,7 @@
     <!-- Include Brand inside product detail -->
     <template id="product_detail_brand" inherit_id="website_sale.product" active="True" customize_show="True" name="Product Brand" priority="106">
         <xpath expr="//div[@id='product_details']//t[@t-call='website_sale.product_price']" position="after">
-            <h4 itemprop="brand" class="oe_price_h4 mt-3"><span><strong contenteditable="false">Brand: </strong></span>
+            <h4 t-if="product.product_brand_id" itemprop="brand" class="oe_price_h4 mt-3"><span><strong contenteditable="false">Brand: </strong></span>
                 <a itemprop="brand" rel="noindex,nofollow" style="font-size: 0.875rem;" t-att-href="keep('/shop/brands',brand = product.product_brand_id.id)"
                    t-att-title="product.product_brand_id.name">
                     <span t-esc="product.product_brand_id.name.capitalize()" style="font-size: 0.875rem;"/>
