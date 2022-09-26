@@ -19,6 +19,7 @@
         'website_sale_wishlist',
     ],
     'data': [
+        'data/ir_config_parameter_data.xml',
         'templates/layout.xml',
         'templates/product.xml',
         'templates/shop.xml',

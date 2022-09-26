@@ -39,6 +39,9 @@ class ProductCustom(models.Model):
     @api.multi
     def write(self, values):
         base_url = self.env['ir.config_parameter'].get_param('web.base.url')
+        alternative_ecommerce_url = self.env['ir.config_parameter'].get_param('seo_base.alternative_ecommerce_url')
+        if alternative_ecommerce_url and alternative_ecommerce_url != "alternative_url":
+            base_url = alternative_ecommerce_url
         for product in self:
             has_slug = values.get('slug', False)
             if not has_slug or has_slug == '':
@@ -64,6 +67,9 @@ class ProductCustom(models.Model):
     @api.model
     def create(self, values):
         base_url = self.env['ir.config_parameter'].get_param('web.base.url')
+        alternative_ecommerce_url = self.env['ir.config_parameter'].get_param('seo_base.alternative_ecommerce_url')
+        if alternative_ecommerce_url and alternative_ecommerce_url != "alternative_url":
+            base_url = alternative_ecommerce_url
         has_slug = values.get('slug', False)
         if not has_slug or has_slug == '':
             # If slug isn't established -> create from product name

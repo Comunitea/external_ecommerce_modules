@@ -1,0 +1,6 @@
+<odoo noupdate="1">
+    <record id="alternative_ecommerce_url" model="ir.config_parameter">
+        <field name="key">seo_base.alternative_ecommerce_url</field>
+        <field name="value">alternative_url</field>
+    </record>
+</odoo>
