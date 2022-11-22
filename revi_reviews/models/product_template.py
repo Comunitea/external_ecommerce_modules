@@ -1,9 +1,12 @@
 # © 2019 Comunitea - Pavel Smirnov <pavel@comunitea.com> & Ruben Seijas <ruben@comunitea.com>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
+import logging
 import requests
 from odoo import api, fields, models
 from odoo.http import request
+
+_logger = logging.getLogger(__name__)
 
 
 class ProductTemplate(models.Model):
@@ -28,7 +31,11 @@ class ProductTemplate(models.Model):
 
             rating = {}
             if hello_call.status_code and hello_call.status_code in [200, 201]:
-                response = hello_call.json().get('data')
+                try:
+                    response = hello_call.json().get('data')
+                except Exception as e:
+                    _logger.error('Unable to decode json data: {}'.format(hello_call.content))
+                    response = False
                 if response:
                     avg_rating = response['product']['avg_rating'][:3]
                     num_ratings = int(response['product']['num_ratings'])
